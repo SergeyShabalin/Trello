@@ -1,0 +1,7 @@
+.list-wrapper {
+    margin: 1%;
+    padding: 5px;
+    width: 272px;
+    min-height: 80vh;
+    background-color: var(--list-wrapper);
+}
