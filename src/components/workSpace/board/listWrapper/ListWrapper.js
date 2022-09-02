@@ -2,11 +2,11 @@ import React from 'react';
 import ListHeader from "./listHeader/ListHeader";
 import ListCard from "./listCard/ListCard";
 import CardCreator from "./cardCreator/CardCreator";
-import './styles/ListWrapper.css'
+import classes from './styles/ListWrapper.module.css'
 
 export default function ListWrapper() {
     return (
-        <div className='list-wrapper'>
+        <div className={classes.list_wrapper}>
           ListWrapper
             <ListHeader/>
             <ListCard/>

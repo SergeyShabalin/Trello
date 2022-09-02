@@ -1,10 +1,10 @@
 import React from 'react';
 import ListWrapper from "./listWrapper/ListWrapper";
-import './styles/Board.css'
+import classes from './styles/Board.module.css'
 
 export default function Board(){
     return (
-        <div className='board'>
+        <div className={classes.board}>
            Board
             <ListWrapper/>
             <ListWrapper/>
