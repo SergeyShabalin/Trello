@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@500&family=Ubuntu:ital,wght@0,400;1,300;1,400&display=swap');
 
 :root{
+    --header-color: #d5caca;
     --prymary-font: "Ubuntu";
     --button-text-color: #696363;
     --button-hover: #f8dddd;

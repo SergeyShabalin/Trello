@@ -1,15 +1,13 @@
 .button{
     display: flex;
     align-items: center;
-
     padding: 5px;
-
 }
 
-.text{
+.complete{
     padding: 10px;
     display: flex;
-    justify-content: center;
+
     height: 100%;
     width: 100%;
     font-family: var(--prymary-font);
@@ -19,15 +17,21 @@
     border-radius: 5px;
     transition: all 0.2s ease;
     cursor: pointer;
+    border: none;
     background-color:var(--prymary-font) ;
 }
 
 .icon{
-    display: flex;
-    height: 100%;
+    margin-right: 10px;
+
 }
 
-.card_creator:hover {
+.text{
+
+
+}
+
+.complete:hover {
     background-color: var(--button-hover);
     transition: all 0.3s ease-in-out;
 }

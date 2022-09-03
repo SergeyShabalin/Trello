@@ -9,7 +9,7 @@ export default function Main(){
 
     return(
         <div >
-           <div className='header-main'>Главное меню
+           <div className='header-main'>
 
                 <Header/>
                 <WorkSpace/>
