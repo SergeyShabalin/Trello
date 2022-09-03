@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from "../../../../basic/button/Button";
-import {FiPlusCircle} from "react-icons/fi";
+import {AiOutlinePlus} from "react-icons/ai";
 import classes from './styles/CardCreator.module.css'
 
 
@@ -10,7 +10,8 @@ export default function CardCreator() {
 
             <Button
                 name={'Добавить карточку'}
-                icon={<FiPlusCircle/>}/>
+                icon={<AiOutlinePlus/>}
+                type={'complete_left'}/>
         </div>
     );
 };
