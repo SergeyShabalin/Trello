@@ -7,8 +7,10 @@ export default function ContentEdit() {
         <div>
             ContentEdit
             <Button
-                icon={<GrEdit/>}
-            type={'only_icon'}/>
+                variant={'text'}>
+                <GrEdit/>
+            </Button>
+
         </div>
     );
 };

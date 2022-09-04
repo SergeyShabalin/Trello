@@ -1,10 +1,10 @@
-.button{
+.button {
     display: flex;
     align-items: center;
     padding: 5px;
 }
 
-.complete{
+.text {
     padding: 10px;
     display: flex;
     height: 100%;
@@ -15,33 +15,78 @@
     color: var(--button-text-color);
     border-radius: 5px;
     transition: all 0.2s ease;
-
     border: none;
-    background-color:var(--prymary-font) ;
+    background-color: var(--prymary-font);
+}
+
+.text:hover {
+    background-color: var(--button-hover);
+    transition: all 0.3s ease-in-out;
+}
+
+.outlined {
+    padding: 10px;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    font-family: var(--prymary-font);
+    font-weight: 200;
+    font-size: 1rem;
+    border: 1px solid;
+    background-color: inherit;
+    color: var(--button-text-color);
+    border-radius: 5px;
+}
+
+.outlined:hover {
+    border-color: var(--outlined-button-hover);
+}
+
+.contained {
+    padding: 10px;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    font-family: var(--prymary-font);
+    font-weight: 200;
+    font-size: 1rem;
+    border: none;
+    background-color: var(--containet-button-background);
+    color: white;
+    border-radius: 5px;
+}
+
+.contained:hover{
+    background-color: var(--containet-button-hover);
+}
+
+.complete {
+
 }
 
 
-.icon{
+.endIcon {
     display: flex;
     height: 100%;
     margin-right: 10px;
     align-items: center;
-
-
 }
 
-.text{
-display: flex;
+.icon {
+    display: flex;
+    height: 100%;
+    margin-right: 10px;
+    align-items: center;
+}
+
+.label {
+    display: flex;
     height: 100%;
 
     align-items: center;
-width: 100%;
+    width: 100%;
 }
 
-.complete:hover {
-    background-color: var(--button-hover);
-    transition: all 0.3s ease-in-out;
-}
 
 .card_creator {
     color: var(--button-text-color);

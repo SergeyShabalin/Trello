@@ -3,7 +3,11 @@
 :root{
     --header-color: #d5caca;
     --prymary-font: "Ubuntu";
-    --button-text-color: #696363;
-    --button-hover: #f8dddd;
+    --button-text-color: #a19797;
+    --button-hover: #ffffff;
     --list-wrapper: #ead8d8;
+    --button-color: #b6b3b3;
+    --outlined-button-hover: #6c6767;
+    --containet-button-background: #7e7e7e;
+    --containet-button-hover: #605e5e;
 }

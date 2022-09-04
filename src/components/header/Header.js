@@ -9,29 +9,33 @@ export default function Header() {
     return (
         <div className={classes.header}>
            <CgMenuGridO className={classes.icon}/>
+
             <Button
-                name={'Рабочие пространства'}
-                icon={<MdKeyboardArrowDown/>}
-                type={'complete_right'}
-            />
+                variant={'text'}
+                label={'Рабочие пространства'}>
+                <MdKeyboardArrowDown/>
+            </Button>
+
+            <Button variant={'text'}
+                           label={'Недавние'}>
+                <RiArrowDownSLine/>
+            </Button>
+
             <Button
-                name={'Недавние'}
-                icon={<RiArrowDownSLine/>}
-                type={'complete_right'}
-            />
+                variant={'text'}
+                label={'В избранном'}>
+                <RiArrowDownSLine/>
+            </Button>
+
             <Button
-                name={'В избранном'}
-                icon={<RiArrowDownSLine/>}
-                type={'complete_right'}
-            />
+                variant={'contained'}
+                label={'Шаблоны'}>
+                <RiArrowDownSLine/>
+            </Button>
+
             <Button
-                name={'Шаблоны'}
-                icon={<RiArrowDownSLine/>}
-                type={'complete_right'}
-            />
-            <Button
-                name={'Создать'}
-                type={'only_text'}
+                variant={'outlined'}
+                label={'Создать'}
             />
         </div>
     )
