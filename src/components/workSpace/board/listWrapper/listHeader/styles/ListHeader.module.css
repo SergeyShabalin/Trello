@@ -1,0 +1,12 @@
+.header {
+    display: flex;
+    align-items: center;
+}
+
+.title {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin: 5px;
+    width: 80%;
+    color: var(--list-header-color)
+}
