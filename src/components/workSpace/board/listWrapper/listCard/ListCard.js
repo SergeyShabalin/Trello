@@ -3,6 +3,7 @@ import Checkout from "./checkout/Checkout";
 import ContentEdit from "./contentEdit/ContentEdit";
 
 import classes from './styles/ListCard.module.css'
+import DecisionDate from "./decisionDate/DecisionDate";
 
 export default function ListCard() {
     return (
@@ -13,8 +14,11 @@ export default function ListCard() {
                 </div>
                 <ContentEdit/>
             </div>
+            <div className={classes.footer}>
+                <DecisionDate/>
+                <Checkout/>
+            </div>
 
-            <Checkout/>
         </div>
     );
 };

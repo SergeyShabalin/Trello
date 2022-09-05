@@ -1,0 +1,17 @@
+.decision_date {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--decision-date-overdue);
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+}
+
+.icon {
+
+}
+
+.date {
+    font-size: 1rem;
+}

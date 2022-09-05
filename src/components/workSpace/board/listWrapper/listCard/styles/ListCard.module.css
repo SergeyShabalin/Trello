@@ -8,5 +8,15 @@
 .title {
     background-color: var(--card-detail-color);
     font-size: 1rem;
+    font-weight: 300;
     display: flex;
+
+}
+
+.content{
+
+}
+
+.footer{
+display: flex;
 }
