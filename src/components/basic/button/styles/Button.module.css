@@ -56,33 +56,21 @@
     border-radius: 5px;
 }
 
-.contained:hover{
+.contained:hover {
     background-color: var(--containet-button-hover);
 }
 
-.complete {
-
+.only_icon {
+    padding: 10px;
+    font-size: 1rem;
+    background-color: inherit;
+    border: none;
 }
 
-
-.endIcon {
-    display: flex;
-    height: 100%;
-    margin-right: 10px;
-    align-items: center;
-}
-
-.icon {
-    display: flex;
-    height: 100%;
-    margin-right: 10px;
-    align-items: center;
-}
 
 .label {
     display: flex;
     height: 100%;
-
     align-items: center;
     width: 100%;
 }

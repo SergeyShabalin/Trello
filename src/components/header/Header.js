@@ -8,7 +8,7 @@ import Button from "../basic/button/Button";
 export default function Header() {
     return (
         <div className={classes.header}>
-           <CgMenuGridO className={classes.icon}/>
+            <CgMenuGridO className={classes.icon}/>
 
             <Button
                 variant={'text'}
@@ -17,21 +17,24 @@ export default function Header() {
             </Button>
 
             <Button variant={'text'}
-                           label={'Недавние'}>
+                    label={'Недавние'}>
                 <RiArrowDownSLine/>
             </Button>
 
             <Button
                 variant={'text'}
-                label={'В избранном'}>
+                label={'В избранном'}
+            >
                 <RiArrowDownSLine/>
             </Button>
 
             <Button
                 variant={'contained'}
-                label={'Шаблоны'}>
+            >
+                <div>Шаблоны</div>
                 <RiArrowDownSLine/>
             </Button>
+
 
             <Button
                 variant={'outlined'}

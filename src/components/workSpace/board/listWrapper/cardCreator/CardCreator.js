@@ -8,11 +8,12 @@ export default function CardCreator() {
     return (
         <div className={classes.card_creator}>
 
-            <Button
-                variant={'text'}
-                label={'Добавить карточку'}
-                icon={<AiOutlinePlus/>}
-                 />
+            <Button variant={'text'}
+                    label={' Добавить карточку'}
+                    icon={<AiOutlinePlus/>}>
+            </Button>
+
+
         </div>
     );
 };

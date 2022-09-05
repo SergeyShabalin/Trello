@@ -4,13 +4,12 @@ import {GrEdit} from "react-icons/gr";
 
 export default function ContentEdit() {
     return (
-        <div>
+        <div >
             ContentEdit
             <Button
-                variant={'text'}>
+                variant={'only_icon'}>
                 <GrEdit/>
             </Button>
-
         </div>
     );
 };
