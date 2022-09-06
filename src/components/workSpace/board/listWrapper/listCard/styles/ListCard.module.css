@@ -13,6 +13,11 @@
     margin: 5px;
 }
 
+.text_area{
+    position: absolute;
+    resize: none;
+}
+
 .content {
 
 }

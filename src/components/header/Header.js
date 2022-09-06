@@ -12,6 +12,7 @@ export default function Header() {
 
             <Button
                 variant={'text'}
+                name={'work_area'}
                 label={'Рабочие пространства'}
                 endIcon={<MdKeyboardArrowDown/>}>
             </Button>
