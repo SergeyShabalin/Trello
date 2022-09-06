@@ -1,0 +1,9 @@
+.menu{
+    width: 15%;
+    background-color: var(--menu-color);
+    min-height: 94vh;
+}
+
+.menu_hide{
+    width: 0;
+}

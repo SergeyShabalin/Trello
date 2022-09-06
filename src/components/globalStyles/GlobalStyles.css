@@ -3,7 +3,7 @@
 :root{
     --header-color: #d5caca;
     --prymary-font: "Ubuntu";
-    --button-text-color: #a19797;
+    --button-text-color: #7e7878;
     --button-hover: #ffffff;
     --list-wrapper: #ead8d8;
     --button-color: #b6b3b3;
@@ -13,6 +13,8 @@
     --card-detail-color: white;
     --content_edit_opacity: 100%;
     --list-header-color: #020231;
+    --end-icon-color: #545459;
     --checkout-color: #40f164;
     --decision-date-overdue: #ea9595;
+    --menu-color: #b9b2b2;
 }

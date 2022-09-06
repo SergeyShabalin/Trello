@@ -1,5 +1,4 @@
 import React from 'react';
-import Icon from "./icon/Icon";
 import classes from './styles/Button.module.css'
 
 export default function Button({label, icon, startIcon, endIcon, variant, disabled, onClick}) {
@@ -7,7 +6,6 @@ export default function Button({label, icon, startIcon, endIcon, variant, disabl
     return (
 
         <div className={classes.button}>
-
             <button disabled={disabled}
                     onClick={onClick}
                     className={classes[variant]}
@@ -16,7 +14,6 @@ export default function Button({label, icon, startIcon, endIcon, variant, disabl
                 {icon ? <div className={classes.only_icon}>{icon}</div> : null}
                 {label ? <div className={classes.label}>{label}</div> : null}
                 {endIcon ? <div className={classes.endIcon}>{endIcon}</div> : null}
-
             </button>
         </div>
     );
