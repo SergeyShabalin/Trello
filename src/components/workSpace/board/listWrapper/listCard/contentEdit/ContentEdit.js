@@ -8,8 +8,9 @@ export default function ContentEdit() {
     return (
         <div className={classes.content_edit}>
             <Button
-                variant={'only_icon'}>
-                <GrEdit/>
+                variant={'only_icon'}
+                icon={<GrEdit/>}
+            >
             </Button>
         </div>
     );

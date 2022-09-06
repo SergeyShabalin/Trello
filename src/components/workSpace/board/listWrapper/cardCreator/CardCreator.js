@@ -10,7 +10,7 @@ export default function CardCreator() {
 
             <Button variant={'text'}
                     label={' Добавить карточку'}
-                    icon={<AiOutlinePlus/>}>
+                    startIcon={<AiOutlinePlus/>}>
             </Button>
 
 

@@ -10,13 +10,13 @@
     font-size: 1rem;
     font-weight: 300;
     display: flex;
+    margin: 5px;
+}
+
+.content {
 
 }
 
-.content{
-
-}
-
-.footer{
-display: flex;
+.footer {
+    display: flex;
 }

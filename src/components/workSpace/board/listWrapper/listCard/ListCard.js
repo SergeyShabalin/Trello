@@ -18,7 +18,7 @@ export default function ListCard() {
                 <DecisionDate/>
                 <Checkout/>
             </div>
-
+<hr/>
         </div>
     );
 };

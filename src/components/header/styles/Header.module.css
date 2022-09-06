@@ -4,7 +4,7 @@
     background-color: var(--header-color);
     width: 100vw;
     max-height: 40px;
-    padding: 6px 10px;
+    padding: 8px 10px;
 }
 .icon{
     transition: all 0.3s ease-in-out;

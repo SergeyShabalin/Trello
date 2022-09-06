@@ -10,7 +10,7 @@ export default function ListWrapper({header}) {
 
             <ListHeader header ={header}/>
             <ListCard/>
-
+            <ListCard/>
             <CardCreator/>
         </div>
     );

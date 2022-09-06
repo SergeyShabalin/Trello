@@ -12,27 +12,27 @@ export default function Header() {
 
             <Button
                 variant={'text'}
-                label={'Рабочие пространства'}>
-                <MdKeyboardArrowDown/>
+                label={'Рабочие пространства'}
+                endIcon={<MdKeyboardArrowDown/>}>
             </Button>
 
-            <Button variant={'text'}
-                    label={'Недавние'}>
-                <RiArrowDownSLine/>
+            <Button
+                disabled={true}
+                variant={'text'}
+                label={'Недавние'}
+                endIcon={<MdKeyboardArrowDown/>}>
             </Button>
 
             <Button
                 variant={'text'}
                 label={'В избранном'}
-            >
-                <RiArrowDownSLine/>
+                endIcon={<MdKeyboardArrowDown/>}>
             </Button>
 
             <Button
                 variant={'contained'}
-            >
-                <div>Шаблоны</div>
-                <RiArrowDownSLine/>
+                label={'Шаблоны'}
+                endIcon={<MdKeyboardArrowDown/>}>
             </Button>
 
 

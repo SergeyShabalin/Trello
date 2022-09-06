@@ -4,7 +4,7 @@
     justify-content: center;
     background-color: var(--decision-date-overdue);
     border-radius: 5px;
-    padding: 5px;
+    padding: 3px;
     margin: 5px;
 }
 
