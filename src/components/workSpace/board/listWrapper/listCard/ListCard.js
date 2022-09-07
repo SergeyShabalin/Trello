@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import Checkout from "./checkout/Checkout";
 import ContentEdit from "./contentEdit/ContentEdit";
 import DecisionDate from "./decisionDate/DecisionDate";
+import Input from "../../../../basic/input/Input";
 import classes from './styles/ListCard.module.css'
 
 
@@ -12,20 +13,20 @@ export default function ListCard() {
     return (
         <div className={classes.list_card}>
             <div className={classes.title}>
-                {isEdit ? <textarea
-                        rows="5" cols="30"
-                        className={classes.text_area}>
-                        Составление технической документации</textarea> :
-                <div>Составление технической документации </div>
-                }
+                {isEdit ?   <Input
+                       variant={'textarea'}
+                       rows={5} cols={30}
+                       value=' Составление технической документации'
+                /> :
+                <div>Составление технической документации</div>}
 
-                <ContentEdit setIsEdit = {setIsEdit}/>
+                <ContentEdit setIsEdit={setIsEdit}/>
             </div>
             <div className={classes.footer}>
                 <DecisionDate/>
                 <Checkout/>
             </div>
-<hr/>
+            <hr/>
         </div>
     );
 };
