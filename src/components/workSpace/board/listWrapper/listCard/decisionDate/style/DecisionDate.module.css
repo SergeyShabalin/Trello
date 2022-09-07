@@ -4,12 +4,17 @@
     justify-content: center;
     background-color: var(--decision-date-overdue);
     border-radius: 5px;
-    padding: 3px;
+    padding: 1px;
     margin: 5px;
 }
 
-.icon {
+.decision_date:hover{
+    background-color: var(--decision-date-hover);
+}
 
+.icon {
+    display: flex;
+    align-items: center;
 }
 
 .date {

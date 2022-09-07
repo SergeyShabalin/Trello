@@ -1,5 +1,5 @@
 .menu{
-    width: 15%;
+    min-width: 15vw;
     background-color: var(--menu-color);
     min-height: 94vh;
 }

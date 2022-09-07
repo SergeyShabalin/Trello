@@ -6,6 +6,7 @@ import classes from './styles/Header.module.css'
 import Button from "../basic/button/Button";
 
 export default function Header() {
+
     return (
         <div className={classes.header}>
             <CgMenuGridO className={classes.icon}/>
@@ -18,7 +19,6 @@ export default function Header() {
             </Button>
 
             <Button
-                disabled={true}
                 variant={'text'}
                 label={'Недавние'}
                 endIcon={<MdKeyboardArrowDown/>}>
@@ -27,20 +27,39 @@ export default function Header() {
             <Button
                 variant={'text'}
                 label={'В избранном'}
-                endIcon={<MdKeyboardArrowDown/>}>
+                endIcon={<MdKeyboardArrowDown/>}
+            >
             </Button>
 
             <Button
-                variant={'contained'}
+                variant={'text'}
                 label={'Шаблоны'}
                 endIcon={<MdKeyboardArrowDown/>}>
             </Button>
 
 
             <Button
-                variant={'outlined'}
+                variant={'text'}
                 label={'Создать'}
             />
+
+            <Button
+                variant={'contained'}
+                label={'contained'}
+                endIcon={<MdKeyboardArrowDown/>}>
+            </Button>
+
+            <Button
+                variant={'outlined'}
+                label={'outlined'}
+                endIcon={<MdKeyboardArrowDown/>}>
+            </Button>
+            <Button
+                variant={'disabled'}
+                disabled={true}
+                label={'disabled'}
+                endIcon={<MdKeyboardArrowDown/>}>
+            </Button>
         </div>
     )
 }

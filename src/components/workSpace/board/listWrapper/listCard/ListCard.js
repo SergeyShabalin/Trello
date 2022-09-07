@@ -13,7 +13,7 @@ export default function ListCard() {
         <div className={classes.list_card}>
             <div className={classes.title}>
                 {isEdit ? <textarea
-                        rows="5" cols="35"
+                        rows="5" cols="30"
                         className={classes.text_area}>
                         Составление технической документации</textarea> :
                 <div>Составление технической документации </div>

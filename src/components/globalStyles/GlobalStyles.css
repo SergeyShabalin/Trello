@@ -9,12 +9,16 @@
     --button-color: #b6b3b3;
     --outlined-button-hover: #6c6767;
     --containet-button-background: #7e7e7e;
+    --contained-text-color: #efe4e4;
     --containet-button-hover: #605e5e;
+    --disabled-button-background: #e0c6c6;
+    --disabled-button-color: #d3b4b4;
     --card-detail-color: white;
     --content_edit_opacity: 100%;
     --list-header-color: #020231;
     --end-icon-color: #545459;
-    --checkout-color: #40f164;
-    --decision-date-overdue: #ea9595;
+    --checkout-color: #83f39a;
+    --decision-date-overdue: #ecafaf;
+    --decision-date-hover: #d39191;
     --menu-color: #b9b2b2;
 }
