@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from "../../../../../basic/button/Button";
+import Button from "../../../../../../components/basic/button/Button";
 import {GrEdit} from "react-icons/gr";
 
 import classes from './style/ContentEdit.module.css'
@@ -8,6 +8,7 @@ export default function ContentEdit({setIsEdit}) {
 
     function openCloseTextArea(){
         setIsEdit(true)
+
     }
 
     return (

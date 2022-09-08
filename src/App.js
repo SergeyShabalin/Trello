@@ -1,16 +1,17 @@
 import {Routes, Route} from 'react-router-dom'
-
-import Main from "./components/main/Main";
+import UiKit from "./components/basic/UiKit";
+import Main from "./app/main/Index";
 import './App.css';
 
 
-function App() {
-  return (
-      <Routes>
-          <Route path="/" element={<Main/>}/>
 
-      </Routes>
-  );
+function App() {
+    return (
+        <Routes>
+            <Route path="/" element={<Main/>}/>
+            <Route path="/ui" element={<UiKit/>}/>
+        </Routes>
+    );
 }
 
 export default App;

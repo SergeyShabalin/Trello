@@ -3,7 +3,7 @@ import {CgMenuGridO} from "react-icons/cg";
 import {MdKeyboardArrowDown} from "react-icons/md";
 import {RiArrowDownSLine} from "react-icons/ri";
 import classes from './styles/Header.module.css'
-import Button from "../basic/button/Button";
+import Button from "../../../components/basic/button/Button";
 
 export default function Header() {
 
@@ -25,21 +25,19 @@ export default function Header() {
             </Button>
 
             <Button
-                variant={'text'}
                 label={'В избранном'}
                 endIcon={<MdKeyboardArrowDown/>}
             >
             </Button>
 
             <Button
-                variant={'text'}
                 label={'Шаблоны'}
                 endIcon={<MdKeyboardArrowDown/>}>
             </Button>
 
 
             <Button
-                variant={'text'}
+                // variant={'text'}
                 label={'Создать'}
             />
 

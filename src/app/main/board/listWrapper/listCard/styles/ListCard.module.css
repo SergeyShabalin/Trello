@@ -13,7 +13,21 @@
     margin: 5px;
 }
 
+.quick_editor{
+    background: #0009;
+    bottom: 0;
+    color: #fff;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 10;
+}
 
+.quick_editor_input{
+    position: relative;
+    z-index: 10;
+}
 
 .content {
 

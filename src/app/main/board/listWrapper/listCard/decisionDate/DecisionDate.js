@@ -1,6 +1,6 @@
 import React from 'react';
 import {AiOutlineFieldTime} from "react-icons/ai";
-import classes from './style/DecisionDate.module.css'
+import classes from './styles/DecisionDate.module.css'
 
 export default function DecisionDate(){
     return (
