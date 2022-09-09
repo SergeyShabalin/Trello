@@ -9,7 +9,16 @@ export default function Header() {
 
     return (
         <div className={classes.header}>
-            <CgMenuGridO className={classes.icon}/>
+
+            <div className={classes.menu}>
+                <Button
+                    variant={'just_icon'}
+                    variety={'sized'}
+                    color={'changed'}
+                    icon={<CgMenuGridO/>}>
+                </Button>
+            </div>
+
 
             <Button
                 variant={'text'}

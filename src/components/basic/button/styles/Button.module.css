@@ -132,7 +132,6 @@
 .just_icon {
     padding: 5px;
     margin: 2px;
-
     font-size: 1rem;
     background-color: inherit;
     border: none;
@@ -154,6 +153,10 @@
 .just_icon.sized {
     background-color: initial;
     transition: var(--transition-icons);
+}
+
+.just_icon.changed {
+    color: var(--only-icon-changed-color);
 }
 
 .just_icon.sized:hover {

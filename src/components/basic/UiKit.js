@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Button from './button/Button'
-import {AiOutlinePlus} from "react-icons/ai";
+import {AiOutlinePlus, AiOutlineBgColors} from "react-icons/ai";
 import {HiOutlineSearch} from "react-icons/hi";
 import {CgMenuGridO} from "react-icons/cg";
 import {MdKeyboardArrowDown, MdOutlineModeEditOutline} from "react-icons/md";
@@ -189,32 +189,40 @@ export default function UiKit() {
 
                 <Button
                     variant={'just_icon'}
-                    color={'sized'}
+                    variety={'sized'}
                     icon={<MdOutlineModeEditOutline/>}>
                 </Button>
 
                 <Button
                     variant={'just_icon'}
-                    color={'sized'}
+                    variety={'sized'}
                     icon={<MdKeyboardArrowDown/>}>
                 </Button>
 
                 <Button
                     variant={'just_icon'}
-                    color={'sized'}
+                    variety={'sized'}
                     icon={<AiOutlinePlus/>}>
                 </Button>
 
                 <Button
                     variant={'just_icon'}
-                    color={'sized'}
+
+                    variety={'sized'}
                     icon={<GoKebabHorizontal/>}>
                 </Button>
 
                 <Button
                     variant={'just_icon'}
-                    color={'sized'}
+                    variety={'sized'}
                     icon={<CgMenuGridO/>}>
+                </Button>
+
+                <Button
+                    variant={'just_icon'}
+                    variety={'sized'}
+                    color={'changed'}
+                    icon={<AiOutlineBgColors/>}>
                 </Button>
             </div>
 
@@ -234,7 +242,7 @@ export default function UiKit() {
                     icon={
                         <Button
                             variant={'just_icon'}
-                            color={'sized'}
+                            variety={'sized'}
                             icon={<HiOutlineSearch/>}>
                         </Button>}
                     value='input'>

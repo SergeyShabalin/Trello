@@ -10,6 +10,7 @@ export default function Button({
                                    variant = "text",
                                    disabled,
                                    color,
+                                   variety,
                                    children,
                                    onClick,
                                    ...props
@@ -21,7 +22,7 @@ export default function Button({
             <button disabled={disabled}
                     onClick={onClick}
                     {...props}
-                    className={`${classes[variant]} ${classes[color]} ${classes.button}`}
+                    className={`${classes[variant]} ${classes[color]} ${classes[variety]} ${classes.button}`}
             >
                 {startIcon && <div className={classes.startIcon}>{startIcon}</div>}
                 {icon && <div className={classes.only_icon}>{icon}</div>}
