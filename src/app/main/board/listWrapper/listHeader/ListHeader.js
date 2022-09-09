@@ -8,7 +8,7 @@ export default function ListHeader({header}) {
         <div className={classes.header}>
             <div className={classes.title}>{header}</div>
             <Button
-                variant={'only_icon'}
+                variant={'just_icon'}
                 icon={<GoKebabHorizontal/>}>
 
             </Button>

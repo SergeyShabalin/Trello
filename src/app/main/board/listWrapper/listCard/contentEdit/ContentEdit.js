@@ -15,8 +15,7 @@ export default function ContentEdit({setIsEdit}) {
         <div className={classes.content_edit} >
             <Button
                 onClick={openCloseTextArea}
-                name={'content_edit'}
-                variant={'only_icon'}
+                variant={'just_icon'}
                 icon={<MdOutlineModeEditOutline/>}
             >
             </Button>

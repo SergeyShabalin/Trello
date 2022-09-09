@@ -2,12 +2,13 @@ import React from 'react';
 import classes from './styles/Input.module.css'
 
 
-export default function Input({value, rows, cols, onChange}) {
+export default function Input({value, rows = 1, cols, onChange, icon, children}) {
 
 
     return (
-        <div className={classes.input}>
+        <div>
             {rows > 1 ?
+                <div>
                 <textarea
                     className={classes.text_area}
                     rows={rows}
@@ -15,11 +16,17 @@ export default function Input({value, rows, cols, onChange}) {
                     defaultValue={value}
                     onChange={onChange}
                 />
+                </div>
                 :
-                <input type="text"
-                       value={value}
-                       onChange={onChange}
-                />
+                <div className={classes.text}>
+                    {icon && icon}
+                    <input type="text"
+                           className={classes.input}
+                           defaultValue={value}
+                    />
+                </div>
+
+
             }
         </div>
     );

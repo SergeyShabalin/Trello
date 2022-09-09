@@ -1,6 +1,6 @@
 .content_edit{
    opacity: 0;
-    width: 20%;
+    max-width: 20%;
     transition: all 0.2s ease;
 }
 .content_edit:hover{

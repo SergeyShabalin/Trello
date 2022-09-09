@@ -29,7 +29,7 @@ export default function ListCard() {
 
                      </div>
                     :
-                    <div>Составление технической документации</div>}
+                    <div className={classes.content}>Составление технической документации</div>}
 
                 <ContentEdit setIsEdit={setIsEdit}/>
             </div>

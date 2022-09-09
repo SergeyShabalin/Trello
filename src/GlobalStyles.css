@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@500&family=Ubuntu:ital,wght@0,400;1,300;1,400&display=swap');
 
 :root{
-    --header-color: #d5caca;
+    --header-color: #afa1a1;
     --prymary-font: "Ubuntu";
     --button-text-color: #7e7878;
     --button-hover: #ffffff;
@@ -34,4 +34,9 @@
     --error-button-label-color: #ff2828;
     --error-button-label-hover: red ;
     --only-icon-background-hover: rgba(201, 187, 187, 0.45);
+
+    --transition-icons:  all 0.5s ease-in-out;
+
+    --color-input-background: #9d9292;
+    --color-input-text: black;
 }

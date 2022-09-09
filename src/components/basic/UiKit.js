@@ -1,5 +1,8 @@
+import React from 'react'
+
 import Button from './button/Button'
 import {AiOutlinePlus} from "react-icons/ai";
+import {HiOutlineSearch} from "react-icons/hi";
 import {CgMenuGridO} from "react-icons/cg";
 import {MdKeyboardArrowDown, MdOutlineModeEditOutline} from "react-icons/md";
 import {GoKebabHorizontal} from "react-icons/go";
@@ -129,71 +132,114 @@ export default function UiKit() {
 
             <div className={classes.buttons_only_icon}>
                 <Button
-                    variant={'only_icon'}
+                    variant={'just_icon'}
                     icon={<MdOutlineModeEditOutline/>}>
                 </Button>
 
                 <Button
-                    variant={'only_icon'}
+                    variant={'just_icon'}
                     icon={<MdKeyboardArrowDown/>}>
                 </Button>
 
                 <Button
-                    variant={'only_icon'}
+                    variant={'just_icon'}
                     icon={<AiOutlinePlus/>}>
                 </Button>
 
                 <Button
-                    variant={'only_icon'}
+                    variant={'just_icon'}
                     icon={<GoKebabHorizontal/>}>
                 </Button>
 
                 <Button
-                    variant={'only_icon'}
+                    variant={'just_icon'}
                     icon={<CgMenuGridO/>}>
                 </Button>
 
                 <Button
-                    variant={'only_icon'}
+                    variant={'just_icon'}
                     disabled={true}
                     icon={<MdOutlineModeEditOutline/>}>
                 </Button>
 
                 <Button
-                    variant={'only_icon'}
+                    variant={'just_icon'}
                     disabled={true}
                     icon={<MdKeyboardArrowDown/>}>
                 </Button>
 
                 <Button
-                    variant={'only_icon'}
+                    variant={'just_icon'}
                     disabled={'true'}
                     icon={<AiOutlinePlus/>}>
                 </Button>
 
                 <Button
-                    variant={'only_icon'}
+                    variant={'just_icon'}
                     disabled={true}
                     icon={<GoKebabHorizontal/>}>
                 </Button>
 
                 <Button
-                    variant={'only_icon'}
+                    variant={'just_icon'}
                     disabled={true}
                     icon={<CgMenuGridO/>}>
                 </Button>
 
+
+                <Button
+                    variant={'just_icon'}
+                    color={'sized'}
+                    icon={<MdOutlineModeEditOutline/>}>
+                </Button>
+
+                <Button
+                    variant={'just_icon'}
+                    color={'sized'}
+                    icon={<MdKeyboardArrowDown/>}>
+                </Button>
+
+                <Button
+                    variant={'just_icon'}
+                    color={'sized'}
+                    icon={<AiOutlinePlus/>}>
+                </Button>
+
+                <Button
+                    variant={'just_icon'}
+                    color={'sized'}
+                    icon={<GoKebabHorizontal/>}>
+                </Button>
+
+                <Button
+                    variant={'just_icon'}
+                    color={'sized'}
+                    icon={<CgMenuGridO/>}>
+                </Button>
             </div>
 
             <hr/>
 
 
             <div className={classes.input_textarea}>
-                <Input
-                    cols={25}
-                    rows={3}
+                {/*<Input*/}
+                {/*    cols={5}*/}
+                {/*    rows={3}*/}
+                {/*    value='textarea'>*/}
+                {/*</Input>*/}
 
-                value='textarea'/>
+
+
+                <Input
+                    icon={
+                        <Button
+                            variant={'just_icon'}
+                            color={'sized'}
+                            icon={<HiOutlineSearch/>}>
+                        </Button>}
+                    value='input'>
+                </Input>
+
             </div>
 
 
