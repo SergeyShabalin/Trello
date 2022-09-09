@@ -21,11 +21,17 @@
     --decision-date-overdue: #ecafaf;
     --decision-date-hover: #d39191;
     --menu-color: #b9b2b2;
-    --button-color-submit: #269126;
+    --button-color-submit: #16c716;
+    --button-text-color-submit: #038303;
     --button-color-submit-hover: #276727;
+    --button-submit-background-color: #098109;
+    --button-background-submit-hover: #034203;
     --button-submit-label-color: #e7d8d8;
     --error-button-border-color: #ef0000;
-    --error-button-background-color: rgb(248, 5, 5);
-    --error-button-label-color: white ;
+    --error-button-text-color: #c20404;
+    --error-button-background-color: rgb(168, 4, 4);
+    --error-button-background-hover: #640303;
+    --error-button-label-color: #ff2828;
+    --error-button-label-hover: red ;
     --only-icon-background-hover: rgba(201, 187, 187, 0.45);
 }

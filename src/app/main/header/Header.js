@@ -35,29 +35,11 @@ export default function Header() {
                 endIcon={<MdKeyboardArrowDown/>}>
             </Button>
 
-
             <Button
-                // variant={'text'}
                 label={'Создать'}
             />
 
-            <Button
-                variant={'contained'}
-                label={'contained'}
-                endIcon={<MdKeyboardArrowDown/>}>
-            </Button>
 
-            <Button
-                variant={'outlined'}
-                label={'outlined'}
-                endIcon={<MdKeyboardArrowDown/>}>
-            </Button>
-            <Button
-                variant={'disabled'}
-                disabled={true}
-                label={'disabled'}
-                endIcon={<MdKeyboardArrowDown/>}>
-            </Button>
         </div>
     )
 }

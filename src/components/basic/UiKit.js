@@ -1,8 +1,7 @@
 import Button from './button/Button'
 import {AiOutlinePlus} from "react-icons/ai";
 import {CgMenuGridO} from "react-icons/cg";
-import {MdOutlineModeEditOutline} from "react-icons/md";
-import {MdKeyboardArrowDown} from "react-icons/md";
+import {MdKeyboardArrowDown, MdOutlineModeEditOutline} from "react-icons/md";
 import {GoKebabHorizontal} from "react-icons/go";
 import Input from "./input/Input";
 
@@ -168,7 +167,7 @@ export default function UiKit() {
 
                 <Button
                     variant={'only_icon'}
-                    disabled={true}
+                    disabled={'true'}
                     icon={<AiOutlinePlus/>}>
                 </Button>
 
@@ -183,25 +182,20 @@ export default function UiKit() {
                     disabled={true}
                     icon={<CgMenuGridO/>}>
                 </Button>
+
             </div>
 
+            <hr/>
 
-            <Button
-                color={'submit'}
-                label={'submit'}>
-            </Button>
 
-            <Button
+            <div className={classes.input_textarea}>
+                <Input
+                    cols={25}
+                    rows={3}
 
-                color={'error'}
-                label={'error'}>
-            </Button>
-            {/*<Button>error</Button>*/}
-            {/*<Button>primary</Button>*/}
-            {/*<Button>secondary</Button>*/}
-            {/*<Button disabled>disabled</Button>*/}
-            {/*<Button startIcon={<AiOutlinePlus size='22px'/>}>start icon</Button>*/}
-            {/*<Button endIcon={<AiOutlinePlus size='22px' />}>end icon</Button>*/}
+                value='textarea'/>
+            </div>
+
 
         </div>
 

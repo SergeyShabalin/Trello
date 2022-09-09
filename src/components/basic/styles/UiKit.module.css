@@ -1,6 +1,7 @@
 .buttons {
     background-color: #a9a7b2;
     padding: 20px;
+    min-height: 90vh;
 }
 
 .buttons_text{
@@ -16,5 +17,9 @@
 }
 
 .buttons_only_icon{
+    display: flex;
+}
+
+.input_textarea{
     display: flex;
 }

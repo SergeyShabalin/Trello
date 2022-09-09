@@ -34,14 +34,30 @@
     border-radius: 5px;
 }
 
+.text.submit{
+    all: initial;
+    padding: 10px 14px;
+    font-family: var(--prymary-font);
+    cursor: pointer;
+    font-size: 1rem;
+    color: var(--button-text-color-submit);
+}
+
+.text.submit:hover {
+    text-shadow:   1px 1px 2px var(--button-color-submit-hover);
+}
+
 .text.error{
-    color: var(--error-button-background-color);
+    all: initial;
+    padding: 10px 14px;
+    font-family: var(--prymary-font);
+    cursor: pointer;
+    font-size: 1rem;
+    color: var(--error-button-label-color);
  }
 
 .text.error:hover {
-
-    background-color: var(--error-button-background-color);
-    color: var(--error-button-label-color);
+  text-shadow:   1px 1px 2px var(--error-button-background-color);
 }
 
 .outlined {
@@ -64,8 +80,12 @@
     border-radius: 5px;
 }
 
+.outlined.submit {
+    color: var(--button-color-submit-hover);
+}
+
 .outlined.error{
-    color: var(--error-button-background-color);
+    color: var(--error-button-label-color);
 }
 
 
@@ -89,20 +109,24 @@
     border-radius: 5px;
 }
 
-.submit {
-    background-color: var(--button-color-submit);
-    color: var(--button-submit-label-color);
+
+.contained.submit{
+    background-color: var(--button-submit-background-color);
+    color: var(--button-color-submit);
 }
 
-.submit:hover {
-    background-color: var(--button-color-submit-hover);
+.contained.submit:hover {
+    background-color: var(--button-background-submit-hover);
 }
 
+.contained.error{
+    background-color: var(--error-button-background-color);
+    color: var(--error-button-label-color);
+}
 
-
-
-
-
+.contained.error:hover {
+    background-color:     var(--error-button-background-hover);
+}
 
 .only_icon {
     display: flex;
