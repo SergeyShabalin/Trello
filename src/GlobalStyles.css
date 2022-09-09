@@ -12,7 +12,7 @@
     --contained-text-color: #efe4e4;
     --containet-button-hover: #605e5e;
     --disabled-button-background: #e0c6c6;
-    --disabled-button-color: #d3b4b4;
+    --disabled-button-color: #8a8282;
     --card-detail-color: white;
     --content_edit_opacity: 100%;
     --list-header-color: #020231;
@@ -24,4 +24,8 @@
     --button-color-submit: #269126;
     --button-color-submit-hover: #276727;
     --button-submit-label-color: #e7d8d8;
+    --error-button-border-color: #ef0000;
+    --error-button-background-color: rgb(248, 5, 5);
+    --error-button-label-color: white ;
+    --only-icon-background-hover: rgba(201, 187, 187, 0.45);
 }

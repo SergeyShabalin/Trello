@@ -27,6 +27,23 @@
     transition: all 0.3s ease-in-out;
 }
 
+.text:disabled{
+    display: flex;
+    color: var(--disabled-button-color);
+    pointer-events: none;
+    border-radius: 5px;
+}
+
+.text.error{
+    color: var(--error-button-background-color);
+ }
+
+.text.error:hover {
+
+    background-color: var(--error-button-background-color);
+    color: var(--error-button-label-color);
+}
+
 .outlined {
     display: flex;
     font-family: var(--prymary-font);
@@ -40,6 +57,18 @@
     box-shadow: 1px 1px 10px 1px inset;
 }
 
+.outlined:disabled{
+   display: flex;
+    cursor: auto;
+    pointer-events: none;
+    border-radius: 5px;
+}
+
+.outlined.error{
+    color: var(--error-button-background-color);
+}
+
+
 .contained {
     display: flex;
     font-family: var(--prymary-font);
@@ -52,35 +81,56 @@
     background-color: var(--containet-button-hover);
 }
 
-.submit{
-background-color: var(--button-color-submit);
-    color: var(--button-submit-label-color);
-}
-
-.submit:hover{
-    background-color: var(--button-color-submit-hover);
-}
-
-.disabled {
+.contained:disabled{
     display: flex;
-    cursor: auto;
     background-color: var(--disabled-button-background);
     color: var(--disabled-button-color);
-    border: none;
+    pointer-events: none;
     border-radius: 5px;
 }
 
+.submit {
+    background-color: var(--button-color-submit);
+    color: var(--button-submit-label-color);
+}
+
+.submit:hover {
+    background-color: var(--button-color-submit-hover);
+}
+
+
+
+
+
+
+
 .only_icon {
-    padding: 3px;
+    display: flex;
+    padding: 2px;
+    margin: 5px;
+    align-items: center;
     font-size: 1rem;
     background-color: inherit;
     border: none;
     cursor: pointer;
 }
 
+.only_icon:disabled{
+    display: flex;
+    cursor: auto;
+    border: none;
+    border-radius: 5px;
+    pointer-events: none;
+}
+
+.only_icon:hover {
+    background-color: var(--only-icon-background-hover);
+}
 
 .label {
     display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .startIcon {

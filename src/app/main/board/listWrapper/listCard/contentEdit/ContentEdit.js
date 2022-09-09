@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from "../../../../../../components/basic/button/Button";
-import {GrEdit} from "react-icons/gr";
+import {MdOutlineModeEditOutline} from "react-icons/md";
 
 import classes from './style/ContentEdit.module.css'
 
@@ -17,7 +17,7 @@ export default function ContentEdit({setIsEdit}) {
                 onClick={openCloseTextArea}
                 name={'content_edit'}
                 variant={'only_icon'}
-                icon={<GrEdit/>}
+                icon={<MdOutlineModeEditOutline/>}
             >
             </Button>
         </div>

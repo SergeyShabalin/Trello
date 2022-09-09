@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './styles/Button.module.css'
 
-export default function Button({label, icon, startIcon, endIcon, variant= "text", disabled,color, children, onClick, ...props}) {
+export default function Button({label,icon, startIcon, error, endIcon, variant= "text", disabled,color, children, onClick, ...props}) {
 
     return (
 

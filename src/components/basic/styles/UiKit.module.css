@@ -1,5 +1,20 @@
 .buttons {
-    width: 10vw;
-    background-color: #ccabab;
+    background-color: #a9a7b2;
     padding: 20px;
+}
+
+.buttons_text{
+    display: flex;
+}
+
+.buttons_contained{
+    display: flex;
+}
+
+.buttons_outlined{
+    display: flex;
+}
+
+.buttons_only_icon{
+    display: flex;
 }
