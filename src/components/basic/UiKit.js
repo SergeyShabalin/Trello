@@ -22,6 +22,10 @@ import classes from './styles/UiKit.module.css'
 {/*5. Селект*/
 }
 export default function UiKit() {
+
+    function reee(){
+    console.log('sdfsf')
+}
     return (
         <div className={classes.buttons}>
             <div className={classes.buttons_text}>
@@ -229,23 +233,36 @@ export default function UiKit() {
             <hr/>
 
 
-            <div className={classes.input_textarea}>
-                {/*<Input*/}
-                {/*    cols={5}*/}
-                {/*    rows={3}*/}
-                {/*    value='textarea'>*/}
-                {/*</Input>*/}
-
+            <div className={classes.inputs}>
 
 
                 <Input
-                    icon={
+                    iconLeft={
                         <Button
                             variant={'just_icon'}
                             variety={'sized'}
                             icon={<HiOutlineSearch/>}>
-                        </Button>}
-                    value='input'>
+                        </Button>
+                }
+                    value='icon left'>
+                </Input>
+
+                <Input
+                    iconRight={
+                        <Button
+                            variant={'just_icon'}
+                            variety={'sized'}
+                            icon={<HiOutlineSearch/>}>
+                        </Button>
+                    }
+                   onChange={reee}
+                value={'icon right'}>
+                ></Input>
+
+                <Input
+                    cols={15}
+                    rows={3}
+                    value='textarea'>
                 </Input>
 
             </div>

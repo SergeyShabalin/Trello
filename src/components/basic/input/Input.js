@@ -2,7 +2,7 @@ import React from 'react';
 import classes from './styles/Input.module.css'
 
 
-export default function Input({value, rows = 1, cols, onChange, icon, children}) {
+export default function Input({value, rows = 1, cols, onChange, iconLeft, iconRight, children, ...props}) {
 
 
     return (
@@ -18,12 +18,14 @@ export default function Input({value, rows = 1, cols, onChange, icon, children})
                 />
                 </div>
                 :
-                <div className={classes.text}>
-                    {icon && icon}
+                <div className={classes.input_container}>
+                    {iconLeft && iconLeft}
                     <input type="text"
+                      onChange={onChange}
                            className={classes.input}
                            defaultValue={value}
                     />
+                    {iconRight && iconRight}
                 </div>
 
 

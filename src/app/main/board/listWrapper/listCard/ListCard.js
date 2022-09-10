@@ -9,16 +9,16 @@ import classes from './styles/ListCard.module.css'
 export default function ListCard() {
 
     const [isEdit, setIsEdit] = useState(false)
-    console.log(isEdit)
+
     function getNewValue({target}) {
-        console.log(target.value)
+
     }
 
     return (
         <div className={classes.list_card}>
             <div className={classes.title} onClick={() => setIsEdit(false)}>
                 {isEdit ?
-                    <div className={classes.quick_editor}>
+
                         <div className={classes.quick_editor_input}>
                             <Input
                                 rows={5} cols={30}
@@ -27,7 +27,7 @@ export default function ListCard() {
                             />
                          </div>
 
-                     </div>
+
                     :
                     <div className={classes.content}>Составление технической документации</div>}
 
