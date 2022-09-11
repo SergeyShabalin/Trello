@@ -1,11 +1,14 @@
 .input {
     border: none;
     outline: none;
+    font-weight: 600;
     font-family: var(--prymary-font);
     padding: 5px;
+    margin-left: 5px;
     border-radius: 5px;
     background-color: var(--color-input-background);
 }
+
 
 .input_container {
     background-color: var(--color-input-background);
@@ -15,13 +18,19 @@
 }
 
 .text_area {
-
-
     font-size: 1rem;
-    font-weight: 300;
+    font-weight: 500;
     padding: 5px;
+    margin: 5px;
+    border: none;
     border-radius: 5px;
-    /*border: none;*/
     font-family: var(--prymary-font);
     resize: none;
 }
+
+.label {
+    margin-left: 10px;
+    font-size: 1rem;
+}
+
+

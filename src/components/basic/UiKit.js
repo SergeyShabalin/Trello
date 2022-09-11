@@ -23,9 +23,7 @@ import classes from './styles/UiKit.module.css'
 }
 export default function UiKit() {
 
-    function reee(){
-    console.log('sdfsf')
-}
+
     return (
         <div className={classes.buttons}>
             <div className={classes.buttons_text}>
@@ -243,7 +241,7 @@ export default function UiKit() {
                             variety={'sized'}
                             icon={<HiOutlineSearch/>}>
                         </Button>
-                }
+                    }
                     value='icon left'>
                 </Input>
 
@@ -255,21 +253,37 @@ export default function UiKit() {
                             icon={<HiOutlineSearch/>}>
                         </Button>
                     }
-                   onChange={reee}
-                value={'icon right'}>
-                ></Input>
+                    value={'icon right'}>
+                    ></Input>
 
                 <Input
+                    placeholder={'placeholder'}></Input>
+
+                <Input
+                    label={'label'}></Input>
+
+                <Input
+                    disabled={true}
+                    value='disabled'></Input>
+
+
+                <Input
+                    label={'label textarea'}
+                    placeholder={'placeholder textarea'}
                     cols={15}
                     rows={3}
                     value='textarea'>
                 </Input>
 
+                <Input
+                    placeholder={'placeholder textarea'}
+                    cols={25}
+                    rows={3}>
+                </Input>
+
             </div>
 
-
         </div>
-
 
     )
 }

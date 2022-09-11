@@ -37,6 +37,8 @@
     --only-icon-changed-color: #3a199d;
     --transition-icons: all 0.3s ease-in-out;
 
-    --color-input-background: #9d9292;
+    --color-input-background: #ffffff;
     --color-input-text: black;
+    --background-input-disabled: #afa1a1;
+    --color-input-disabled: grey;
 }
