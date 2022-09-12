@@ -28,3 +28,11 @@
 .input_textarea{
     display: flex;
 }
+
+.modal{
+margin-left: 20px;
+}
+
+.other_content{
+    display: flex;
+}

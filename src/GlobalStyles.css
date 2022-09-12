@@ -41,4 +41,7 @@
     --color-input-text: black;
     --background-input-disabled: #afa1a1;
     --color-input-disabled: grey;
+
+    --modal-background-color: rgba(2, 2, 2, 0.37);
+    --modal-card-background-color: white;
 }

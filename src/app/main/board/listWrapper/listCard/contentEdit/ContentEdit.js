@@ -1,24 +1,27 @@
-import React from 'react';
+import React,{useState} from 'react';
 import Button from "../../../../../../components/basic/button/Button";
 import {MdOutlineModeEditOutline} from "react-icons/md";
 
 import classes from './style/ContentEdit.module.css'
+import Modal from "../../../../../../components/basic/modal/Modal";
 
-export default function ContentEdit({setIsEdit}) {
+export default function ContentEdit({children, open, onClose}) {
 
-    function openCloseTextArea(){
-        setIsEdit(true)
-
-    }
+    const [isEdit, setIsEdit]=useState(false)
 
     return (
         <div className={classes.content_edit} >
+
             <Button
-                onClick={openCloseTextArea}
+                onClick={()=>setIsEdit(true)}
                 variant={'just_icon'}
                 icon={<MdOutlineModeEditOutline/>}
             >
             </Button>
+            <Modal
+            open={isEdit}
+            onClose={() => setIsEdit(false)}><p>Окно быстрого редактирования</p>
+        </Modal>
         </div>
     );
 };

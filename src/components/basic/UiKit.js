@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 import Button from './button/Button'
 import {AiOutlinePlus, AiOutlineBgColors} from "react-icons/ai";
@@ -9,6 +9,7 @@ import {GoKebabHorizontal} from "react-icons/go";
 import Input from "./input/Input";
 
 import classes from './styles/UiKit.module.css'
+import Modal from "./modal/Modal";
 
 
 {/*1. кнопки*/
@@ -23,6 +24,7 @@ import classes from './styles/UiKit.module.css'
 }
 export default function UiKit() {
 
+    const [openModal, setOpenModal] = useState(false)
 
     return (
         <div className={classes.buttons}>
@@ -230,59 +232,62 @@ export default function UiKit() {
 
             <hr/>
 
+            <div className={classes.other_content}>
+                <div className={classes.inputs}>
+                    <Input
+                        iconLeft={
+                            <Button
+                                variant={'just_icon'}
+                                variety={'sized'}
+                                icon={<HiOutlineSearch/>}>
+                            </Button>
+                        }
+                        value='icon left'>
+                    </Input>
+                    <Input
+                        iconRight={
+                            <Button
+                                variant={'just_icon'}
+                                variety={'sized'}
+                                icon={<HiOutlineSearch/>}>
+                            </Button>
+                        }
+                        value={'icon right'}>
+                        >
+                    </Input>
+                    <Input
+                        placeholder={'placeholder'}></Input>
+                    <Input
+                        disabled={true}
+                        value='disabled'>
+                    </Input>
+                    <Input
+                        label={'label'}></Input>
+                    <Input
+                        label={'label textarea'}
+                        placeholder={'placeholder textarea'}
+                        cols={25}
+                        rows={3}
+                        value='textarea'>
+                    </Input>
+                    <Input
+                        placeholder={'placeholder textarea'}
+                        cols={25}
+                        rows={3}>
+                    </Input>
+                </div>
 
-            <div className={classes.inputs}>
-
-
-                <Input
-                    iconLeft={
-                        <Button
-                            variant={'just_icon'}
-                            variety={'sized'}
-                            icon={<HiOutlineSearch/>}>
-                        </Button>
-                    }
-                    value='icon left'>
-                </Input>
-
-                <Input
-                    iconRight={
-                        <Button
-                            variant={'just_icon'}
-                            variety={'sized'}
-                            icon={<HiOutlineSearch/>}>
-                        </Button>
-                    }
-                    value={'icon right'}>
-                    ></Input>
-
-                <Input
-                    placeholder={'placeholder'}></Input>
-
-                <Input
-                    label={'label'}></Input>
-
-                <Input
-                    disabled={true}
-                    value='disabled'></Input>
-
-
-                <Input
-                    label={'label textarea'}
-                    placeholder={'placeholder textarea'}
-                    cols={15}
-                    rows={3}
-                    value='textarea'>
-                </Input>
-
-                <Input
-                    placeholder={'placeholder textarea'}
-                    cols={25}
-                    rows={3}>
-                </Input>
+                <div className={classes.modal}>
+                    <Button
+                        variant={'contained'}
+                        onClick={() => setOpenModal(true)}>Модалка</Button>
+                    <Modal
+                        open={openModal}
+                        onClose={() => setOpenModal(false)}><p>Модальное окно</p>
+                    </Modal>
+                </div>
 
             </div>
-
         </div>
 
     )

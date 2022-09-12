@@ -1,0 +1,19 @@
+.modal_background{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-color:var(--modal-background-color);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal_card{
+    background: var(--modal-card-background-color);
+    padding: 10px;
+    border-radius: 10px;
+}
