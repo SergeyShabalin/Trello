@@ -1,9 +1,8 @@
 .checkbox_container {
-    background-color: var(--checkbox-container-background-color);
     padding: 5px;
     font-family: var(--prymary-font);
     font-size: 1rem;
-    font-weight: 600;
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,7 +16,32 @@
 }
 
 .checkbox_container:hover {
+
+}
+
+.checkbox_container.text {
+    background-color: initial;
+}
+
+.checkbox_container.text:hover {
+    text-shadow: 1px 1px 2px  var(--checkbox-color);
+}
+
+.checkbox_container.contained {
+    background-color: var(--checkbox-container-background-color);
+}
+
+.checkbox_container.contained:hover {
     background-color: var(--checkbox-container-background-color-hover);
+}
+
+.checkbox_container.outlined {
+    border: solid 1px;
+    color: var(--checkbox-outlined-color)
+}
+
+.checkbox_container.outlined:hover {
+    box-shadow: 1px 1px 10px 1px inset;
 }
 
 .label {
@@ -31,7 +55,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
 
 .checkbox {

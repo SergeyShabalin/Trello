@@ -48,7 +48,9 @@
 
     --checkbox-container-background-color: white;
     --checkbox-container-background-color-hover: #cbbaba;
-    --checkbox-color: green;
+    --checkbox-color: #282c28;
     --checkbox-border-radius: 5px;
     --color-checkbox-disabled: #989191;
+    --checkbox-outlined-color: #5e5858;
+    --checkbox-text-hover-color: blue;
 }

@@ -1,12 +1,12 @@
 import React from 'react';
 import classes from './styles/Checkbox.module.css'
 
-export default function Checkbox({label, variant, disabled, ...props}) {
+export default function Checkbox({label, variant ='text', disabled, ...props}) {
     return (
         <div>
             {label  ?
                 <div className={ disabled ? `${classes.disabled}  ${classes.checkbox_container}`
-                    : classes.checkbox_container }>
+                    : `${classes.checkbox_container} ${classes[variant]}` }>
                     <input
                        disabled={disabled}
                         type={"checkbox"}
