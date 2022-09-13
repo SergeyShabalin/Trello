@@ -10,6 +10,7 @@ import Input from "./input/Input";
 
 import classes from './styles/UiKit.module.css'
 import Modal from "./modal/Modal";
+import Checkbox from "./checkbox/Checkbox";
 
 
 {/*1. кнопки*/
@@ -25,6 +26,10 @@ import Modal from "./modal/Modal";
 export default function UiKit() {
 
     const [openModal, setOpenModal] = useState(false)
+
+    function gg({target}){
+        console.log(target.checked)
+    }
 
     return (
         <div className={classes.buttons}>
@@ -275,6 +280,7 @@ export default function UiKit() {
                         cols={25}
                         rows={3}>
                     </Input>
+
                 </div>
 
 
@@ -291,6 +297,17 @@ export default function UiKit() {
                     </Modal>
                 </div>
 
+
+                <div className={classes.checkbox}>
+                    <Checkbox/>
+                    <Checkbox
+                        label = 'checkbox with label'
+                    />
+                    <Checkbox
+                        label = 'disabled checkbox'
+                        disabled={true}
+                    />
+                </div>
 
             </div>
         </div>

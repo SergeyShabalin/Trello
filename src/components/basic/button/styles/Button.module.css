@@ -6,7 +6,7 @@
 .button {
     font-weight: 200;
     font-size: 1rem;
-    border-radius: 5px;
+    border-radius: var(--button-border-radius);
     font-family: var(--prymary-font);
     cursor: pointer;
     padding: 10px 14px;
@@ -31,7 +31,7 @@
     display: flex;
     color: var(--disabled-button-color);
     pointer-events: none;
-    border-radius: 5px;
+    border-radius: var(--button-border-radius);
 }
 
 .text.submit {
@@ -70,7 +70,7 @@
     display: flex;
     cursor: auto;
     pointer-events: none;
-    border-radius: 5px;
+    border-radius: var(--button-border-radius);
 }
 
 .outlined.submit {
@@ -99,7 +99,7 @@
     background-color: var(--disabled-button-background);
     color: var(--disabled-button-color);
     pointer-events: none;
-    border-radius: 5px;
+    border-radius: var(--button-border-radius);
 }
 
 
@@ -146,7 +146,7 @@
     display: flex;
     cursor: auto;
     border: none;
-    border-radius: 5px;
+    border-radius: var(--button-border-radius);
     pointer-events: none;
 }
 
@@ -187,7 +187,7 @@
 
 .card_creator {
     color: var(--button-text-color);
-    border-radius: 5px;
+    border-radius: var(--button-border-radius);
     transition: all 0.2s ease;
     cursor: pointer;
 }

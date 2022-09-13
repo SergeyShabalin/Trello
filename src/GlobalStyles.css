@@ -36,6 +36,7 @@
     --only-icon-background-hover: rgba(201, 187, 187, 0.45);
     --only-icon-changed-color: #3a199d;
     --transition-icons: all 0.3s ease-in-out;
+    --button-border-radius: 5px;
 
     --color-input-background: #ffffff;
     --color-input-text: black;
@@ -44,4 +45,10 @@
 
     --modal-background-color: rgba(2, 2, 2, 0.37);
     --modal-card-background-color: white;
+
+    --checkbox-container-background-color: white;
+    --checkbox-container-background-color-hover: #cbbaba;
+    --checkbox-color: green;
+    --checkbox-border-radius: 5px;
+    --color-checkbox-disabled: #989191;
 }
