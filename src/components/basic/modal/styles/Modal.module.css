@@ -12,7 +12,15 @@
     align-items: center;
 }
 
+.modal_wrapper{
+    display: flex;
+    justify-content: center;
+}
+
 .modal_card{
+    position: fixed;
+    z-index: 2;
+
     background: var(--modal-card-background-color);
     padding: 10px;
     border-radius: 10px;

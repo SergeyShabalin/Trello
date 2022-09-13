@@ -277,15 +277,20 @@ export default function UiKit() {
                     </Input>
                 </div>
 
+
                 <div className={classes.modal}>
                     <Button
                         variant={'contained'}
                         onClick={() => setOpenModal(true)}>Модалка</Button>
                     <Modal
                         open={openModal}
-                        onClose={() => setOpenModal(false)}><p>Модальное окно</p>
+                        onClose={() => setOpenModal(false)}>
+                        <div>
+                            <p>Модальное окно</p>
+                        </div>
                     </Modal>
                 </div>
+
 
             </div>
         </div>
