@@ -1,5 +1,5 @@
 .buttons {
-    background-color: #d3c6c6;
+    background-color: #d1dcdc;
     padding: 20px;
     min-height: 90vh;
 }
@@ -39,5 +39,9 @@ margin: 0 20px;
 }
 
 .checkbox{
+    margin: 0 20px;
+}
+
+.select{
 
 }

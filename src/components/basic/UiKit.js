@@ -11,6 +11,7 @@ import Input from "./input/Input";
 import classes from './styles/UiKit.module.css'
 import Modal from "./modal/Modal";
 import Checkbox from "./checkbox/Checkbox";
+import Select from "./select/Select";
 
 
 {/*1. кнопки*/
@@ -312,19 +313,25 @@ export default function UiKit() {
                         variant='outlined'
                     />
                     <Checkbox
-                        label = 'disabled checkbox'
+                        label = 'disabled text'
                         disabled={true}
                     />
                     <Checkbox
                         variant='contained'
-                        label = 'disabled checkbox'
+                        label = 'disabled contained'
                         disabled={true}
                     />
                     <Checkbox
                         variant='outlined'
-                        label = 'disabled checkbox'
+                        label = 'disabled outlined'
                         disabled={true}
                     />
+                </div>
+
+                <div className={classes.select}>
+                    <Select
+                    values={['item1', 'item2','item3']}
+                        />
                 </div>
 
             </div>

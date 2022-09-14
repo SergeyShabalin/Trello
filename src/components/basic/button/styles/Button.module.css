@@ -14,6 +14,7 @@
     white-space: nowrap;
 }
 
+
 .text {
     display: flex;
     color: var(--button-text-color);
@@ -79,6 +80,10 @@
 
 .outlined.error {
     color: var(--error-button-label-color);
+}
+
+.outlined.select{
+    margin: 0;
 }
 
 
