@@ -2,16 +2,17 @@
     padding: 5px;
     font-family: var(--prymary-font);
     font-size: 1rem;
-
     display: flex;
-    justify-content: center;
+
     align-items: center;
     border-radius: var(--checkbox-border-radius);
     margin: 5px;
 }
 
-.disabled {
-    pointer-events: none;
+.disabled{
+pointer-events: none;
+    padding: 5px;
+    margin: 5px;
     color: var(--color-checkbox-disabled)
 }
 
@@ -30,6 +31,7 @@
 .checkbox_container.contained {
     background-color: var(--checkbox-container-background-color);
 }
+
 
 .checkbox_container.contained:hover {
     background-color: var(--checkbox-container-background-color-hover);

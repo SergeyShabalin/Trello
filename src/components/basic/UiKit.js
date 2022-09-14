@@ -315,6 +315,16 @@ export default function UiKit() {
                         label = 'disabled checkbox'
                         disabled={true}
                     />
+                    <Checkbox
+                        variant='contained'
+                        label = 'disabled checkbox'
+                        disabled={true}
+                    />
+                    <Checkbox
+                        variant='outlined'
+                        label = 'disabled checkbox'
+                        disabled={true}
+                    />
                 </div>
 
             </div>

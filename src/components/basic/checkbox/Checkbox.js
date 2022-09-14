@@ -1,27 +1,19 @@
 import React from 'react';
 import classes from './styles/Checkbox.module.css'
 
-export default function Checkbox({label, variant ='text', disabled, ...props}) {
+export default function Checkbox({label, variant = 'text', disabled, ...props}) {
     return (
         <div>
-            {label  ?
-                <div className={ disabled ? `${classes.disabled}  ${classes.checkbox_container}`
-                    : `${classes.checkbox_container} ${classes[variant]}` }>
-                    <input
-                       disabled={disabled}
-                        type={"checkbox"}
-                        className={classes.checkbox_label}
-                        {...props}/>
-                    <div className={classes.label}>{label}</div>
-                </div>
-                :<div>
-                    <input
-                        type={"checkbox"}
-                        className={classes.checkbox}
-                        {...props}
-                    />
-                </div>
-            }
+
+            <div className={disabled ? `${classes.disabled}  ${classes.checkbox_container} ${classes[variant]}`
+                : `${classes.checkbox_container} ${classes[variant]}`}>
+                <input
+                    disabled={disabled}
+                    type={"checkbox"}
+                    className={classes.checkbox_label}
+                    {...props}/>
+                {label && <div className={classes.label}>{label}</div>}
+            </div>
         </div>
 
     );
