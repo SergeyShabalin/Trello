@@ -38,19 +38,50 @@
     --transition-icons: all 0.3s ease-in-out;
     --button-border-radius: 5px;
 
-    --color-input-background: #ffffff;
-    --color-input-text: black;
-    --background-input-disabled: #afa1a1;
-    --color-input-disabled: grey;
+    --input-container-margin: 5px 0;
+    --input-container-border-radius: 5px;
+    --input-container-background-color: #ffffff;
+    --input-font-weight: 600;
+    --input-padding: 5px;
+    --input-margin: 2px 10px;
+    --input-border-radius: 5px;
+    --input-background-color: #ffffff;
+    --input-label-font-size: 1rem;
+    --textarea-font-weight: 500;
+    --textarea-padding: 5px;
+    --textarea-margin: 5px 0;
+    --textarea-border-radius: 5px;
+
 
     --modal-background-color: rgba(2, 2, 2, 0.37);
     --modal-card-background-color: white;
+    --modal-background-padding: 10px;
+    --modal-background-border-radius: 10px;
 
+
+    --checkbox-container-padding: 5px;
+    --checkbox-container-margin: 5px;
+    --checkbox-container-font-size: 1rem;
     --checkbox-container-background-color: #e8ebf5;
     --checkbox-container-background-color-hover: #cbbaba;
-    --checkbox-color: #282c28;
+    --checkbox-container-text-hover: 1px 1px 2px #282c28;
+    --checkbox-container-outlined-border: solid 1px;
+    --checkbox-container-outlined-color: #5e5858;
+    --checkbox-container-outlined-hover-shadow:1px 1px 10px 1px inset;
+    --checkbox-label-padding: 2px 5px;
     --checkbox-border-radius: 5px;
-    --color-checkbox-disabled: #989191;
-    --checkbox-outlined-color: #5e5858;
+    --checkbox-disabled-color: #989191;
+    --checkbox-disabled-padding: 5px;
+    --checkbox-disabled-margin: 5px;
     --checkbox-text-hover-color: blue;
+
+    --select-box-shadow: 0 0 0 1px #7373d0;
+    --dropdown-border-radius: 5px;
+    --dropdown-list-border-radius: 6px;
+    --dropdown-list-box-shadow: 0 4px 8px rgba(162, 162, 168, 0.6);
+    --dropdown-list-item-padding: 10px 20px;
+    --dropdown-list-item-border: 1px solid rgba(162, 162, 168, 0.6);
+    --dropdown-list-item-margin: 0;
+    --dropdown-list-item-first-border-radius: 5px 5px 0 0 ;
+    --dropdown-list-item-last-border-radius: 0 0  5px 5px;
 }

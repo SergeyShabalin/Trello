@@ -329,9 +329,10 @@ export default function UiKit() {
                 </div>
 
                 <div className={classes.select}>
+
                     <Select
-                    values={['item1', 'item2','item3']}
-                        />
+                    values={['item value 1', 'item value 2','item value 3']}/>
+
                 </div>
 
             </div>

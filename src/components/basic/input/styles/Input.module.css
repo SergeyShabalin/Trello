@@ -1,36 +1,34 @@
 .input {
     border: none;
     outline: none;
-    font-weight: 600;
+    font-weight: var(--input-font-weight);
     font-family: var(--prymary-font);
-    padding: 5px;
-    margin-left: 5px;
-    border-radius: 5px;
-    background-color: var(--color-input-background);
+    padding: var(--input-padding);
+    margin: var(--input-margin);
+    border-radius: var(--input-border-radius);
+    background-color: var(--input-background-color);
 }
 
-
 .input_container {
-    background-color: var(--color-input-background);
+    background-color: var(--input-container-background-color);
     display: flex;
-    border-radius: 5px;
-    margin: 5px;
+    border-radius: var(--input-container-border-radius);
+    margin: var(--input-container-margin);
 }
 
 .text_area {
     font-size: 1rem;
-    font-weight: 500;
-    padding: 5px;
-    margin: 5px;
+    font-weight: var(--textarea-font-weight);
+    padding: var(--textarea-padding);
+    margin: var(--textarea-margin);
     border: none;
-    border-radius: 5px;
+    border-radius: var(--textarea-border-radius);
     font-family: var(--prymary-font);
     resize: none;
 }
 
 .label {
-    margin-left: 10px;
-    font-size: 1rem;
+    font-size: var(--input-label-font-size);
 }
 
 

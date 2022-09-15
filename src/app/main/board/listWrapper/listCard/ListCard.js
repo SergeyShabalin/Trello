@@ -4,6 +4,7 @@ import ContentEdit from "./contentEdit/ContentEdit";
 import DecisionDate from "./decisionDate/DecisionDate";
 import Input from "../../../../../components/basic/input/Input";
 import classes from './styles/ListCard.module.css'
+import Select from "../../../../../components/basic/select/Select";
 
 
 export default function ListCard() {
@@ -29,7 +30,8 @@ export default function ListCard() {
 
 
                     :
-                    <div className={classes.content}>Составление технической документации</div>}
+                    <div className={classes.content}>Составление технической документации</div>
+                }
 
                 <ContentEdit setIsEdit={setIsEdit}/>
             </div>
