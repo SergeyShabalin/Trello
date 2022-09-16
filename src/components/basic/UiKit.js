@@ -28,8 +28,8 @@ export default function UiKit() {
 
     const [openModal, setOpenModal] = useState(false)
 
-    function gg({target}){
-        console.log(target.checked)
+    function getSelectItem(selectValue){
+        console.log(selectValue)
     }
 
     return (
@@ -331,7 +331,8 @@ export default function UiKit() {
                 <div className={classes.select}>
 
                     <Select
-                    values={['item value 1', 'item value 2','item value 3']}/>
+                    values={['item value 1', 'item value 2','item value 3']}
+                    onChange={getSelectItem}/>
 
                 </div>
 

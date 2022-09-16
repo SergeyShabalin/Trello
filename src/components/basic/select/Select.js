@@ -3,7 +3,7 @@ import {MdKeyboardArrowDown} from "react-icons/md";
 import classes from './styles/Select.module.css'
 import Button from "../button/Button";
 
-export default function Select({children, values}) {
+export default function Select({ values, onChange}) {
 
     const [isView, setIsView] = useState(false)
     const [selectValue, setSelectValue] = useState('')
@@ -12,6 +12,7 @@ export default function Select({children, values}) {
     function changeListItem(item) {
         setIsView(false)
         setSelectValue(item)
+        onChange(item)
     }
 
     const items = values.map(item => (
