@@ -12,40 +12,40 @@ export default function Header() {
 
             <div className={classes.menu}>
                 <Button
-                    variant={'just_icon'}
-                    variety={'sized'}
-                    color={'changed'}
+                    variant='just_icon'
+                    variety='sized'
+                    color='changed'
                     icon={<CgMenuGridO/>}>
                 </Button>
             </div>
 
 
             <Button
-                variant={'text'}
-                name={'work_area'}
-                label={'Рабочие пространства'}
+                variant='text'
+                name='work_area'
+                label='Рабочие пространства'
                 endIcon={<MdKeyboardArrowDown/>}>
             </Button>
 
             <Button
-                variant={'text'}
-                label={'Недавние'}
+                variant='text'
+                label='Недавние'
                 endIcon={<MdKeyboardArrowDown/>}>
             </Button>
 
             <Button
-                label={'В избранном'}
+                label='В избранном'
                 endIcon={<MdKeyboardArrowDown/>}
             >
             </Button>
 
             <Button
-                label={'Шаблоны'}
+                label='Шаблоны'
                 endIcon={<MdKeyboardArrowDown/>}>
             </Button>
 
             <Button
-                label={'Создать'}
+                label='Создать'
             />
 
 

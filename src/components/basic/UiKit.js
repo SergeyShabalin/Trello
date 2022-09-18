@@ -28,8 +28,8 @@ export default function UiKit() {
 
     const [openModal, setOpenModal] = useState(false)
 
-    function getSelectItem(selectValue){
-        console.log(selectValue)
+    function getSelectItem() {
+        console.log('event')
     }
 
     return (
@@ -302,28 +302,28 @@ export default function UiKit() {
                 <div className={classes.checkbox}>
                     <Checkbox/>
                     <Checkbox
-                        label = 'checkbox with label'
+                        label='checkbox with label'
                     />
                     <Checkbox
-                        label = 'contained checkbox'
+                        label='contained checkbox'
                         variant='contained'
                     />
                     <Checkbox
-                        label = 'outlined checkbox'
+                        label='outlined checkbox'
                         variant='outlined'
                     />
                     <Checkbox
-                        label = 'disabled text'
+                        label='disabled text'
                         disabled={true}
                     />
                     <Checkbox
                         variant='contained'
-                        label = 'disabled contained'
+                        label='disabled contained'
                         disabled={true}
                     />
                     <Checkbox
                         variant='outlined'
-                        label = 'disabled outlined'
+                        label='disabled outlined'
                         disabled={true}
                     />
                 </div>
@@ -331,8 +331,22 @@ export default function UiKit() {
                 <div className={classes.select}>
 
                     <Select
-                    values={['item value 1', 'item value 2','item value 3']}
-                    onChange={getSelectItem}/>
+                        name='test select 1'
+                        defaultValue='test select 1'
+                        values={[{id: 1, value: 'item value 1'},
+                            {id: 2, value: 'item value 2'},
+                            {id: 3, value: 'item value 3'}]}
+                        onChange={getSelectItem}/>
+
+                    <Select
+                        name='test select 2'
+                        defaultValue='test select 2'
+                        values={[{id: 4, value: 'item value 4'},
+                            {id: 5, value: 'item value 5'},
+                            {id: 6, value: 'item value 6'}]}
+                        onChange={getSelectItem}/>
+
+                    <Select onChange={getSelectItem()}/>
 
                 </div>
 

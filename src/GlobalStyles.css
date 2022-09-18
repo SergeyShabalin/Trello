@@ -23,7 +23,7 @@
     --button-outlined-border: 2px solid;
     --button-outlined-color: #7e7878;
     --button-outlined-hover: #6c6767;
-    --button-outlined-hover-shadow: 1px 1px 10px 1px inset;
+    --button-outlined-hover-shadow: 1px 0px 5px 0px inset;
     --button-outlined-submit: green;
     --button-outlined-error-label-color: rgb(168, 4, 4);
 
@@ -78,7 +78,7 @@
     --checkbox-container-text-hover: 1px 1px 2px #282c28;
     --checkbox-container-outlined-border: solid 1px;
     --checkbox-container-outlined-color: #5e5858;
-    --checkbox-container-outlined-hover-shadow:1px 1px 10px 1px inset;
+    --checkbox-container-outlined-hover-shadow:1px 0 5px 0 inset;
     --checkbox-label-padding: 2px 5px;
     --checkbox-border-radius: 5px;
     --checkbox-disabled-color: #989191;
@@ -88,9 +88,11 @@
 
     --select-box-shadow: 0 0 0 1px #7373d0;
     --select-button-outlined-margin: 0;
+    --select-label-margin:0 5px;
     --dropdown-border-radius: 5px;
+    --dropdown-list-background: #ded4d4;
     --dropdown-list-border-radius: 6px;
-    --dropdown-list-box-shadow: 0 4px 8px rgba(162, 162, 168, 0.6);
+    --dropdown-list-box-shadow: 0 4px 8px rgb(162, 162, 168);
     --dropdown-list-item-padding: 10px 20px;
     --dropdown-list-item-border: 1px solid rgba(162, 162, 168, 0.6);
     --dropdown-list-item-margin: 0;

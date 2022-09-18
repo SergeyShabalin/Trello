@@ -6,7 +6,9 @@
     box-shadow: var(--select-box-shadow);
 }
 
-
+.label{
+    margin: var(--select-label-margin);
+}
 .select::-ms-expand {
     display: none;
 }
@@ -19,13 +21,13 @@
 .dropdown_list {
     position: absolute;
     z-index: 1;
-    top: 32px;
+    top: 28px;
     width: 100%;
     overflow: hidden;
     padding-left: 0;
     border-radius: var(--dropdown-border-radius);
     box-shadow: var(--dropdown-list-box-shadow);
-
+    background: var(--dropdown-list-background);
 }
 
 .dropdown_list_item {
