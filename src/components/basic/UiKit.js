@@ -29,7 +29,11 @@ export default function UiKit() {
     const [openModal, setOpenModal] = useState(false)
 
     function getSelectItem() {
-        console.log('event')
+        console.log('значение селекта изменилось')
+        const formData = {
+            surname: 'fdgdfgdf',
+            name: 'dfgfdgdf'
+        }
     }
 
     return (
@@ -346,7 +350,7 @@ export default function UiKit() {
                             {id: 6, value: 'item value 6'}]}
                         onChange={getSelectItem}/>
 
-                    <Select onChange={getSelectItem()}/>
+                    <Select onChange={getSelectItem}/>
 
                 </div>
 
