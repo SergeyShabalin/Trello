@@ -1,20 +1,22 @@
-import React, {useState, useRef} from 'react';
+import React, {useState, useRef, useEffect} from 'react';
 import {MdKeyboardArrowDown} from "react-icons/md";
 import classes from './styles/Select.module.css'
 import Button from "../button/Button";
 
 export default function Select({
                                    values = [],
-                                   defaultValue = 'test select',
-                                   name,
+                                   name = 'test select',
                                    onChange,
-                                   currentValue,
+                                   variant = 'contained'
                                }) {
 
     const [isView, setIsView] = useState(false)
-
-    const [selectId, setSelectId] = useState(1)
+    const [optionId, setOptionId] = useState(1)
     const inputEl = useRef(null)
+
+    useEffect(() => {
+        onChange(inputEl.current)
+    }, [optionId]);
 
     function viewDropdownList() {
         setIsView(!isView)
@@ -22,9 +24,7 @@ export default function Select({
 
     function getSelectItem(item) {
         setIsView(false)
-
-        setSelectId(item.id)
-        onChange(inputEl.current)
+        setOptionId(item.id)
     }
 
     const items = values.map(item => (
@@ -41,13 +41,13 @@ export default function Select({
         <div className={classes.select_group}>
             <div className={classes.dropdown}>
                 <Button
-                    variant='contained'
+                    variant={variant}
                     color='select'
                     endIcon={<MdKeyboardArrowDown/>}
                     onClick={viewDropdownList}
                 >
                     <div className={classes.label}>
-                        {name ? name : defaultValue}
+                        {name}
                     </div>
                 </Button>
 
@@ -57,7 +57,7 @@ export default function Select({
                     </ul>
                 }
             </div>
-            <input name={name} ref={inputEl} value={selectId} hidden />
+            <input name={name} ref={inputEl} value={optionId} hidden/>
         </div>
     );
 };

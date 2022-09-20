@@ -9,22 +9,22 @@ import Select from "./components/basic/select/Select";
 // 2. default values
 // 3. Proptypes
 
-
 function App() {
 
 const [form, setForm] = useState({name: ''})
-    const submit = (e) => {
+
+    function submit(e){
         e.preventDefault()
     }
 
     function onChange(e){
         if(e.target){
-            setForm( (pre) => ({
-                ...pre,[e.target.name]: e.target.value
+            setForm( (prev) => ({
+                ...prev,[e.target.name]: e.target.value
             }))}
 
-      else  setForm( (pre) => ({
-                ...pre,[e.name]: e.value
+      else  setForm( (prev) => ({
+                ...prev,[e.name]: e.value
             }))
     }
 
@@ -57,8 +57,6 @@ const [form, setForm] = useState({name: ''})
                         onChange={onChange}/>
 
                     <Select
-                        name='just test select '
-                        defaultValue='test select 2'
                         values={[{id: 7, value: 'itemvalue7'},
                             {id: 8, value: 'itemvalue8'},
                             {id: 9, value: 'itemvalue9'}]}

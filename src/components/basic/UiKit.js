@@ -336,6 +336,7 @@ export default function UiKit() {
 
                     <Select
                         name='test select 1'
+                        variant='outlined'
                         defaultValue='test select 1'
                         values={[{id: 1, value: 'item value 1'},
                             {id: 2, value: 'item value 2'},
