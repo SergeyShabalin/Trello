@@ -11,19 +11,21 @@ import Select from "./components/basic/select/Select";
 
 
 function App() {
+
 const [form, setForm] = useState({name: ''})
     const submit = (e) => {
         e.preventDefault()
-        console.log(e.target)
     }
-    const onChange = (e) => {
 
-        console.log(e.current)
-        setForm( (pre) => ({
-        ...pre,
-        // [e.target.name]: e.target.value так снизу работает с кастомным
-            [e.name]: e.value
-        }))
+    function onChange(e){
+        if(e.target){
+            setForm( (pre) => ({
+                ...pre,[e.target.name]: e.target.value
+            }))}
+
+      else  setForm( (pre) => ({
+                ...pre,[e.name]: e.value
+            }))
     }
 
     console.log(form)
@@ -52,6 +54,14 @@ const [form, setForm] = useState({name: ''})
                         values={[{id: 4, value: 'itemvalue4'},
                             {id: 5, value: 'itemvalue5'},
                             {id: 6, value: 'itemvalue6'}]}
+                        onChange={onChange}/>
+
+                    <Select
+                        name='just test select '
+                        defaultValue='test select 2'
+                        values={[{id: 7, value: 'itemvalue7'},
+                            {id: 8, value: 'itemvalue8'},
+                            {id: 9, value: 'itemvalue9'}]}
                         onChange={onChange}/>
 
                     <button type='submit'>submit</button>

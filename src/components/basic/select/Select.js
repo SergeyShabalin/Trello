@@ -9,11 +9,10 @@ export default function Select({
                                    name,
                                    onChange,
                                    currentValue,
-                                   ...props
                                }) {
 
     const [isView, setIsView] = useState(false)
-    const [selectName, setSelectName] = useState('last name')
+
     const [selectId, setSelectId] = useState(1)
     const inputEl = useRef(null)
 
@@ -21,12 +20,11 @@ export default function Select({
         setIsView(!isView)
     }
 
-    function getSelectItem(item){
+    function getSelectItem(item) {
         setIsView(false)
-        setSelectName(item.value)
-        setSelectId(item.id)
 
-       onChange(inputEl.current)
+        setSelectId(item.id)
+        onChange(inputEl.current)
     }
 
     const items = values.map(item => (
@@ -40,27 +38,27 @@ export default function Select({
     ))
 
     return (
-            <div className={classes.select_group}>
-                <div className={classes.dropdown}>
-                    <Button
-                        variant='contained'
-                        color='select'
-                        endIcon={<MdKeyboardArrowDown/>}
-                        onClick={viewDropdownList}
-                    >
-                        <div className={classes.label}>
-                            {selectName ? selectName : defaultValue}
-                        </div>
-                    </Button>
+        <div className={classes.select_group}>
+            <div className={classes.dropdown}>
+                <Button
+                    variant='contained'
+                    color='select'
+                    endIcon={<MdKeyboardArrowDown/>}
+                    onClick={viewDropdownList}
+                >
+                    <div className={classes.label}>
+                        {name ? name : defaultValue}
+                    </div>
+                </Button>
 
-                    {isView &&
-                        <ul className={classes.dropdown_list}>
-                            {items}
-                        </ul>
-                    }
-                </div>
-                <input name={selectName} ref={inputEl} value={selectId}  />
+                {isView &&
+                    <ul className={classes.dropdown_list}>
+                        {items}
+                    </ul>
+                }
             </div>
+            <input name={name} ref={inputEl} value={selectId} hidden />
+        </div>
     );
 };
 
