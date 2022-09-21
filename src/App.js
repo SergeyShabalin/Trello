@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import {Routes, Route} from 'react-router-dom'
 import UiKit from "./components/basic/UiKit";
 import Main from "./app/main/Index";
+import PropTypes from 'prop-types';
 import './App.css';
 import Select from "./components/basic/select/Select";
 
@@ -51,15 +52,18 @@ const [form, setForm] = useState({name: ''})
                     <Select
                         name='test select 2'
                         defaultValue='test select 2'
-                        values={[{id: 4, value: 'itemvalue4'},
-                            {id: 5, value: 'itemvalue5'},
-                            {id: 6, value: 'itemvalue6'}]}
+                        values={[{id: 4, value: 'item value 4'},
+                            {id: 5, value: 'item value 5'},
+                            {id: 6, value: 'item value 6'}]}
                         onChange={onChange}/>
 
                     <Select
-                        values={[{id: 7, value: 'itemvalue7'},
-                            {id: 8, value: 'itemvalue8'},
-                            {id: 9, value: 'itemvalue9'}]}
+                        variant='outlined'
+                        values={[
+                            {id: 7, value: 'item value 7'},
+                            {id: 8, value: 'item value 8'},
+                            {id: 9, value: 'item value 9'}
+                        ]}
                         onChange={onChange}/>
 
                     <button type='submit'>submit</button>

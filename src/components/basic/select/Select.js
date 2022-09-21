@@ -2,15 +2,16 @@ import React, {useState, useRef, useEffect} from 'react';
 import {MdKeyboardArrowDown} from "react-icons/md";
 import classes from './styles/Select.module.css'
 import Button from "../button/Button";
+import PropTypes from 'prop-types';
 
-export default function Select({
-                                   values = [],
+export default function Select({ values = [],
                                    name = 'test select',
                                    onChange,
                                    variant = 'contained'
                                }) {
 
     const [isView, setIsView] = useState(false)
+    const [selectValue, setSelectValue] = useState('')
     const [optionId, setOptionId] = useState(1)
     const inputEl = useRef(null)
 
@@ -25,6 +26,7 @@ export default function Select({
     function getSelectItem(item) {
         setIsView(false)
         setOptionId(item.id)
+        setSelectValue(item.value)
     }
 
     const items = values.map(item => (
@@ -47,7 +49,7 @@ export default function Select({
                     onClick={viewDropdownList}
                 >
                     <div className={classes.label}>
-                        {name}
+                        {selectValue ? selectValue :name}
                     </div>
                 </Button>
 
@@ -62,3 +64,7 @@ export default function Select({
     );
 };
 
+Select.propTypes = {
+    onChange: PropTypes.func,
+    variant: PropTypes.string
+}
