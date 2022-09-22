@@ -1,5 +1,6 @@
 import React, {useEffect, useMemo} from 'react'
 import {createPortal} from "react-dom";
+import PropTypes from 'prop-types';
 import classes from './styles/Modal.module.css'
 
 
@@ -16,7 +17,6 @@ export default function Modal({children, open, onClose}) {
                 modalRootElement.removeChild(element)
             }
         }})
-
 
     function closeModal(event){
         if(event.target == event.currentTarget){
@@ -36,3 +36,6 @@ export default function Modal({children, open, onClose}) {
     return null
 };
 
+Modal.propTypes ={
+    open: PropTypes.bool
+}

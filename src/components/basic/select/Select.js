@@ -1,8 +1,8 @@
 import React, {useState, useRef, useEffect} from 'react';
 import {MdKeyboardArrowDown} from "react-icons/md";
-import classes from './styles/Select.module.css'
 import Button from "../button/Button";
 import PropTypes from 'prop-types';
+import classes from './styles/Select.module.css'
 
 export default function Select({ values = [],
                                    name = 'test select',
@@ -59,12 +59,14 @@ export default function Select({ values = [],
                     </ul>
                 }
             </div>
-            <input name={name} ref={inputEl} value={optionId} hidden/>
+            <input name={name} ref={inputEl} value={optionId} onChange={onChange} hidden/>
         </div>
     );
 };
 
 Select.propTypes = {
+    name: PropTypes.string,
     onChange: PropTypes.func,
-    variant: PropTypes.string
+    variant: PropTypes.string,
+    values: PropTypes.array
 }

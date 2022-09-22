@@ -1,8 +1,17 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classes from './styles/Input.module.css'
 
 
-export default function Input({ value, rows = 1, cols, placeholder, onChange, label, disabled, iconLeft, iconRight}) {
+export default function Input({ value,
+                                  rows = 1,
+                                  cols,
+                                  placeholder,
+                                  onChange,
+                                  label,
+                                  disabled,
+                                  iconLeft,
+                                  iconRight}) {
 
     return (
         <div>
@@ -38,4 +47,17 @@ export default function Input({ value, rows = 1, cols, placeholder, onChange, la
         </div>
     );
 };
+
+Input.propTypes={
+    cols: PropTypes.number,
+    rows: PropTypes.number,
+    placeholder: PropTypes.string,
+    disabled: PropTypes.bool,
+    iconLeft: PropTypes.object,
+    iconRight: PropTypes.object,
+    label: PropTypes.string
+}
+
+
+
 

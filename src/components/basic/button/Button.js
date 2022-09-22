@@ -1,11 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classes from './styles/Button.module.css'
 
 export default function Button({
                                    label,
                                    icon,
                                    startIcon,
-                                   error,
                                    endIcon,
                                    variant = "text",
                                    disabled,
@@ -17,7 +17,6 @@ export default function Button({
                                }) {
 
     return (
-
         <div className={classes.button_container}>
             <button disabled={disabled}
                     onClick={onClick}
@@ -33,4 +32,16 @@ export default function Button({
         </div>
     );
 };
+
+Button.propTypes = {
+    label: PropTypes.string,
+    color: PropTypes.string,
+    disabled: PropTypes.bool,
+    variant: PropTypes.string,
+    icon: PropTypes.object,
+    startIcon: PropTypes.object,
+    endIcon: PropTypes.object,
+    variety: PropTypes.string,
+}
+
 

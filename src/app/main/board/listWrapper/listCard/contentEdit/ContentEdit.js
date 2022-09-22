@@ -1,9 +1,8 @@
 import React,{useState} from 'react';
 import Button from "../../../../../../components/basic/button/Button";
 import {MdOutlineModeEditOutline} from "react-icons/md";
-
-import classes from './style/ContentEdit.module.css'
 import Modal from "../../../../../../components/basic/modal/Modal";
+import classes from './style/ContentEdit.module.css'
 
 export default function ContentEdit({children, open, onClose}) {
 

@@ -27,215 +27,239 @@ import Select from "./select/Select";
 export default function UiKit() {
 
     const [openModal, setOpenModal] = useState(false)
+    const [form, setForm] = useState({name: ''})
 
+    const selectValue = [
+        {id: 1, value: 'item value 1'},
+        {id: 2, value: 'item value 2'},
+        {id: 3, value: 'item value 3'},
+        {id: 4, value: 'item value 4'},
+        {id: 5, value: 'item value 5'},
+        {id: 6, value: 'item value 6'}]
+
+    function submit(e){
+        e.preventDefault()
+    }
+
+    function onChange(e){
+        if(e.target){
+            setForm( (prev) => ({
+                ...prev,[e.target.name]: e.target.value
+            }))}
+
+        else  setForm( (prev) => ({
+            ...prev,[e.name]: e.value
+        }))
+    }
+
+    console.log(form)
     function getSelectItem() {
         console.log('значение селекта изменилось')
-        const formData = {
-            surname: 'fdgdfgdf',
-            name: 'dfgfdgdf'
-        }
+
     }
 
     return (
+        <form onSubmit={submit}>
+
+
         <div className={classes.buttons}>
             <div className={classes.buttons_text}>
                 <Button
-                    label={'text'}>
+                    label='text'>
                 </Button>
 
                 <Button
-                    label={'text start icon'}
+                    label='text start icon'
                     startIcon={<AiOutlinePlus/>}>
                 </Button>
 
                 <Button
-                    label={'text end icon'}
+                    label='text end icon'
                     endIcon={<MdKeyboardArrowDown/>}>
                 </Button>
 
                 <Button
-                    color={'submit'}
-                    label={'text submit'}>
+                    color='submit'
+                    label='text submit'>
                 </Button>
 
                 <Button
-                    color={'error'}
-                    label={'error'}>
+                    color='error'
+                    label='error'>
                 </Button>
 
                 <Button
                     disabled={true}
-                    label={'text disabled'}>
+                    label='text disabled'>
                 </Button>
             </div>
 
             <div className={classes.buttons_contained}>
                 <Button
-                    variant={'contained'}
-                    label={'contained'}>
+                    variant='contained'
+                    label='contained'>
                 </Button>
 
                 <Button
-                    variant={'contained'}
-                    label={'contained start icon'}
+                    variant='contained'
+                    label='contained start icon'
                     startIcon={<AiOutlinePlus/>}>
                 </Button>
 
                 <Button
-                    variant={'contained'}
-                    label={'contained end icon'}
+                    variant='contained'
+                    label='contained end icon'
                     endIcon={<MdKeyboardArrowDown/>}>
                 </Button>
 
                 <Button
-                    variant={'contained'}
-                    color={'submit'}
-                    label={'contained submit'}>
+                    variant='contained'
+                    color='submit'
+                    label='contained submit'>
                 </Button>
 
                 <Button
-                    variant={'contained'}
-                    color={'error'}
-                    label={'contained error'}>
+                    variant='contained'
+                    color='error'
+                    label='contained error'>
                 </Button>
 
                 <Button
-                    variant={'contained'}
+                    variant='contained'
                     disabled={true}
-                    label={'contained disabled'}>
+                    label='contained disabled'>
                 </Button>
             </div>
 
             <div className={classes.buttons_outlined}>
                 <Button
-                    variant={'outlined'}
-                    label={'outlined'}>
+                    variant='outlined'
+                    label='outlined'>
                 </Button>
 
                 <Button
-                    variant={'outlined'}
-                    label={'outlined start icon'}
+                    variant='outlined'
+                    label='outlined start icon'
                     startIcon={<AiOutlinePlus/>}>
                 </Button>
 
                 <Button
-                    variant={'outlined'}
-                    label={'outlined end icon'}
+                    variant='outlined'
+                    label='outlined end icon'
                     endIcon={<MdKeyboardArrowDown/>}>
                 </Button>
 
                 <Button
-                    variant={'outlined'}
-                    color={'submit'}
-                    label={'outlined submit'}>
+                    variant='outlined'
+                    color='submit'
+                    label='outlined submit'>
                 </Button>
 
                 <Button
-                    variant={'outlined'}
-                    color={'error'}
-                    label={'outlined error'}>
+                    variant='outlined'
+                    color='error'
+                    label='outlined error'>
                 </Button>
 
                 <Button
-                    variant={'outlined'}
+                    variant='outlined'
                     disabled={true}
-                    label={'outlined disabled'}>
+                    label='outlined disabled'>
                 </Button>
             </div>
 
 
             <div className={classes.buttons_only_icon}>
                 <Button
-                    variant={'just_icon'}
+                    variant='just_icon'
                     icon={<MdOutlineModeEditOutline/>}>
                 </Button>
 
                 <Button
-                    variant={'just_icon'}
+                    variant='just_icon'
                     icon={<MdKeyboardArrowDown/>}>
                 </Button>
 
                 <Button
-                    variant={'just_icon'}
+                    variant='just_icon'
                     icon={<AiOutlinePlus/>}>
                 </Button>
 
                 <Button
-                    variant={'just_icon'}
+                    variant='just_icon'
                     icon={<GoKebabHorizontal/>}>
                 </Button>
 
                 <Button
-                    variant={'just_icon'}
+                    variant='just_icon'
                     icon={<CgMenuGridO/>}>
                 </Button>
 
                 <Button
-                    variant={'just_icon'}
+                    variant='just_icon'
                     disabled={true}
                     icon={<MdOutlineModeEditOutline/>}>
                 </Button>
 
                 <Button
-                    variant={'just_icon'}
+                    variant='just_icon'
                     disabled={true}
                     icon={<MdKeyboardArrowDown/>}>
                 </Button>
 
                 <Button
-                    variant={'just_icon'}
-                    disabled={'true'}
+                    variant='just_icon'
+                    disabled={true}
                     icon={<AiOutlinePlus/>}>
                 </Button>
 
                 <Button
-                    variant={'just_icon'}
+                    variant='just_icon'
                     disabled={true}
                     icon={<GoKebabHorizontal/>}>
                 </Button>
 
                 <Button
-                    variant={'just_icon'}
+                    variant='just_icon'
                     disabled={true}
                     icon={<CgMenuGridO/>}>
                 </Button>
 
 
                 <Button
-                    variant={'just_icon'}
-                    variety={'sized'}
+                    variant='just_icon'
+                    variety='sized'
                     icon={<MdOutlineModeEditOutline/>}>
                 </Button>
 
                 <Button
-                    variant={'just_icon'}
-                    variety={'sized'}
+                    variant='just_icon'
+                    variety='sized'
                     icon={<MdKeyboardArrowDown/>}>
                 </Button>
 
                 <Button
-                    variant={'just_icon'}
-                    variety={'sized'}
+                    variant='just_icon'
+                    variety='sized'
                     icon={<AiOutlinePlus/>}>
                 </Button>
 
                 <Button
-                    variant={'just_icon'}
-
-                    variety={'sized'}
+                    variant='just_icon'
+                    variety='sized'
                     icon={<GoKebabHorizontal/>}>
                 </Button>
 
                 <Button
-                    variant={'just_icon'}
-                    variety={'sized'}
+                    variant='just_icon'
+                    variety='sized'
                     icon={<CgMenuGridO/>}>
                 </Button>
 
                 <Button
-                    variant={'just_icon'}
-                    variety={'sized'}
-                    color={'changed'}
+                    variant='just_icon'
+                    variety='sized'
+                    color='changed'
                     icon={<AiOutlineBgColors/>}>
                 </Button>
             </div>
@@ -247,8 +271,8 @@ export default function UiKit() {
                     <Input
                         iconLeft={
                             <Button
-                                variant={'just_icon'}
-                                variety={'sized'}
+                                variant='just_icon'
+                                variety='sized'
                                 icon={<HiOutlineSearch/>}>
                             </Button>
                         }
@@ -257,31 +281,31 @@ export default function UiKit() {
                     <Input
                         iconRight={
                             <Button
-                                variant={'just_icon'}
-                                variety={'sized'}
+                                variant='just_icon'
+                                variety='sized'
                                 icon={<HiOutlineSearch/>}>
                             </Button>
                         }
-                        value={'icon right'}>
+                        value='icon right'>
                         >
                     </Input>
                     <Input
-                        placeholder={'placeholder'}></Input>
+                        placeholder='placeholder'></Input>
                     <Input
                         disabled={true}
                         value='disabled'>
                     </Input>
                     <Input
-                        label={'label'}></Input>
+                        label='label'></Input>
                     <Input
-                        label={'label textarea'}
-                        placeholder={'placeholder textarea'}
+                        label='label textarea'
+                        placeholder='placeholder textarea'
                         cols={25}
                         rows={3}
                         value='textarea'>
                     </Input>
                     <Input
-                        placeholder={'placeholder textarea'}
+                        placeholder='placeholder textarea'
                         cols={25}
                         rows={3}>
                     </Input>
@@ -291,7 +315,7 @@ export default function UiKit() {
 
                 <div className={classes.modal}>
                     <Button
-                        variant={'contained'}
+                        variant='contained'
                         onClick={() => setOpenModal(true)}>Модалка</Button>
                     <Modal
                         open={openModal}
@@ -335,28 +359,20 @@ export default function UiKit() {
                 <div className={classes.select}>
 
                     <Select
-                        name='test select 1'
                         variant='outlined'
-                        defaultValue='test select 1'
-                        values={[{id: 1, value: 'item value 1'},
-                            {id: 2, value: 'item value 2'},
-                            {id: 3, value: 'item value 3'}]}
-                        onChange={getSelectItem}/>
+                        values={[selectValue[0],selectValue[1], selectValue[2]]}
+                        onChange={onChange}/>
 
                     <Select
-                        name='test select 2'
-                        defaultValue='test select 2'
-                        values={[{id: 4, value: 'item value 4'},
-                            {id: 5, value: 'item value 5'},
-                            {id: 6, value: 'item value 6'}]}
-                        onChange={getSelectItem}/>
-
-                    <Select onChange={getSelectItem}/>
+                            name='test select 2'
+                            defaultValue='test select 2'
+                            values={[selectValue[3],selectValue[4], selectValue[5]]}
+                            onChange={onChange}/>
 
                 </div>
 
             </div>
         </div>
-
+        </form>
     )
 }
