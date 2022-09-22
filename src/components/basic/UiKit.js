@@ -1,29 +1,16 @@
 import React, {useState} from 'react'
-
-import Button from './button/Button'
 import {AiOutlinePlus, AiOutlineBgColors} from "react-icons/ai";
 import {HiOutlineSearch} from "react-icons/hi";
 import {CgMenuGridO} from "react-icons/cg";
 import {MdKeyboardArrowDown, MdOutlineModeEditOutline} from "react-icons/md";
 import {GoKebabHorizontal} from "react-icons/go";
+import Button from './button/Button'
 import Input from "./input/Input";
-
-import classes from './styles/UiKit.module.css'
 import Modal from "./modal/Modal";
 import Checkbox from "./checkbox/Checkbox";
 import Select from "./select/Select";
+import classes from './styles/UiKit.module.css'
 
-
-{/*1. кнопки*/
-}
-{/*2. Поле ввода*/
-}
-{/*3. Модалка*/
-}
-{/*4. Чекбокс*/
-}
-{/*5. Селект*/
-}
 export default function UiKit() {
 
     const [openModal, setOpenModal] = useState(false)
@@ -35,7 +22,8 @@ export default function UiKit() {
         {id: 3, value: 'item value 3'},
         {id: 4, value: 'item value 4'},
         {id: 5, value: 'item value 5'},
-        {id: 6, value: 'item value 6'}]
+        {id: 6, value: 'item value 6'}
+    ]
 
     function submit(e){
         e.preventDefault()
@@ -53,14 +41,9 @@ export default function UiKit() {
     }
 
     console.log(form)
-    function getSelectItem() {
-        console.log('значение селекта изменилось')
-
-    }
 
     return (
         <form onSubmit={submit}>
-
 
         <div className={classes.buttons}>
             <div className={classes.buttons_text}>

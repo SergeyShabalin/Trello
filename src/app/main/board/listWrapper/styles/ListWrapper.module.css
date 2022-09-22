@@ -4,4 +4,5 @@
     width: 300px;
     max-height: 80vh;
     background-color: var(--list-wrapper);
+    border-radius: 5px;
 }

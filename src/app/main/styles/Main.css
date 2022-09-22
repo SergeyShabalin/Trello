@@ -1,6 +1,7 @@
 .main{
     overflow-x: hidden;
     overflow-y: hidden;
+    background-color: #eae6e6;
 }
 .header-main{
     font-family: var(--prymary-font);
