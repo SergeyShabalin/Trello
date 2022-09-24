@@ -4,10 +4,11 @@
 
     --header-color: rgba(0, 0, 0, 0.24);
     --prymary-font: "Ubuntu";
+    --main-background-color: #e6ecec;
 
     --button-font-weight: 200;
     --button-font-size: 0.8rem;
-    --button-padding: 8px 14px;
+    --button-padding: 8px 10px;
     --button-margin: 1px;
     --button-label-margin: 0 5px;
     --button-background-hover: #ffffff;
