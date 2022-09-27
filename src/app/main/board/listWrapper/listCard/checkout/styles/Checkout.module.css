@@ -5,7 +5,7 @@
     display: flex;
     border-radius: 5px;
     border: none;
-     padding: 2px;
+    padding: 2px;
     margin: 5px;
 }
 
@@ -20,5 +20,5 @@
 
 .tasks {
     font-weight: 400;
-    font-size: 1rem;
+    font-size: var(--checkout-font-size)
 }

@@ -4,7 +4,13 @@
 
     --header-color: rgba(0, 0, 0, 0.24);
     --prymary-font: "Ubuntu";
+    --main-font-size: 17px;
     --main-background-color: #e6ecec;
+
+    --list-card-font-size: 13px;
+    --list-wrapper-font-size: 14px;
+    --decision-date-font-size: 14px;
+    --checkout-font-size: 14px;
 
     --button-font-weight: 200;
     --button-font-size: 0.8rem;
@@ -103,7 +109,7 @@
 
 
     --list-wrapper: #ead8d8;
-    --card-detail-color: white;
+    --card-detail-color: #f3eded;
     --content_edit_opacity: 100%;
     --list-header-color: #020231;
     --checkout-color: #83f39a;

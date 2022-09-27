@@ -1,5 +1,9 @@
 .board{
     display: flex;
+
+}
+.columns{
+    display: flex;
 }
 
 .wrapper_list{

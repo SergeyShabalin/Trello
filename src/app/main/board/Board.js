@@ -9,7 +9,7 @@ export default function Board() {
 
     const [column, setColumn] = useState([])
 
-    useEffect(()=> {
+    useEffect(() => {
         axios.get('http://localhost:4000/columns').then((resp) => {
             setColumn(resp.data)
         }).catch((error) => {
@@ -17,18 +17,31 @@ export default function Board() {
         })
     }, [])
 
-    const columnList = column.map(item=>{
-       return <ListWrapper key={item.id} header={item.header}/>
+
+    function addNewColumn() {
+
+        // axios.post('http://localhost:4000/columns/new', 'dededew').then(() => {
+        // })
+
+    }
+
+
+    const columnList = column.map(item => {
+        return <ListWrapper key={item.id} header={item.header}/>
     })
+
 
     return (
         <div className={classes.board}>
 
             <div className={classes.wrapper_list}>
-                {columnList}
+                <div>Наименование доски
+                    <div className={classes.columns}>{columnList}</div>
+                </div>
             </div>
             <div className={classes.add_list}>
                 <Button
+                    onClick={addNewColumn}
                     variant='contained'
                     label='Добавить еще одну колонку'
                     startIcon={<AiOutlinePlus/>}>

@@ -18,5 +18,5 @@
 }
 
 .date {
-    font-size: 1rem;
+    font-size: var(--decision-date-font-size);
 }

@@ -23,14 +23,14 @@ export default function ListCard() {
                         <div className={classes.quick_editor_input}>
                             <Input
                                 rows={5} cols={30}
-                                value='Составление технической документации'
+                                value='Разработка информационной системы'
                                 onChange={getNewValue}
                             />
                          </div>
 
 
                     :
-                    <div className={classes.content}>Составление технической документации</div>
+                    <div className={classes.content}>Разработка информационной системы</div>
                 }
 
                 <ContentEdit setIsEdit={setIsEdit}/>
