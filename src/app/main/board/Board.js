@@ -6,6 +6,8 @@ import {AiOutlinePlus} from "react-icons/ai";
 
 import classes from './styles/Board.module.css'
 import {axiosColumns} from "../../../store/asyncAction/Columns";
+import {addAllColumns, addNewColumns, viewAllColumns} from "../../../store/reducers/column-reducer";
+import {Api} from "../../../Api";
 
 
 export default function Board() {
@@ -13,10 +15,18 @@ export default function Board() {
     const dispatch = useDispatch()
     const columns = useSelector(state => state.columns.columns)
 
+    function addColumn(){
+
+            Api.post(`/columns/new`).catch((error) => {
+                console.warn(error, 'server error');
+            })
+        dispatch(addNewColumns())
+    }
+
+
     useEffect(() => {
        dispatch(axiosColumns())
-
-    }, [])
+    }, [columns])
 
     return (
         <div className={classes.board}>
@@ -32,6 +42,7 @@ export default function Board() {
             </div>
             <div className={classes.add_list}>
                 <Button
+                    onClick={addColumn}
                     variant='contained'
                     label='Добавить еще одну колонку'
                     startIcon={<AiOutlinePlus/>}>

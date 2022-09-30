@@ -3,16 +3,21 @@
     margin: 5px;
     padding: 5px;
     border-radius: 5px;
+
 }
 
 .title {
+    position: relative;
+    cursor: pointer;
     background-color: var(--card-detail-color);
     display: flex;
     margin: 5px;
     font-size: var(--list-card-font-size);
 }
 
-.quick_editor{
+
+
+.quick_editor {
     bottom: 0;
     color: #fff;
     left: 0;
@@ -21,13 +26,18 @@
     top: 0;
 }
 
-.quick_editor_input{
+.quick_editor_input {
 
 }
 
-.content {
-display: flex;
+.content_edit {
+    position: absolute;
+    right: 0;
+}
 
+.content {
+    display: flex;
+    max-width: 85%;
 }
 
 .footer {

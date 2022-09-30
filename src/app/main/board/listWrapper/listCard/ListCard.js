@@ -24,10 +24,11 @@ export default function ListCard() {
         let cardId = location.pathname.split('/')[2]
         let resp = await Api.get('/cards/' )
         setCards(resp.data)
+        console.log(cardId)
     }
 
     useEffect(() => {
-
+        getCards()
     }, [])
 
     function getNewValue({target}) {
@@ -40,22 +41,18 @@ export default function ListCard() {
              <div>
                 <div className={classes.title} onClick={() => setIsEdit(false)}>
                     {isEdit ?
-
                         <div className={classes.quick_editor_input}>
-
                             <Input
                                 rows={5} cols={30}
                                 value={item.header}
                                 onChange={getNewValue}
                             />
                         </div>
-
-
                         :
                         <div className={classes.content}>{item.header}</div>
                     }
 
-                    <ContentEdit setIsEdit={setIsEdit}/>
+                  <div className={classes.content_edit}><ContentEdit setIsEdit={setIsEdit}/></div>
                 </div>
                 <div className={classes.footer}>
                 <DecisionDate/>
@@ -64,12 +61,7 @@ export default function ListCard() {
                 </div>
                 <hr/>
              </div>
-                 ))} <Button
-                 variant='outlined'
-                 label='data'
-                 onClick={getCards}
-                 endIcon={<MdKeyboardArrowDown/>}>
-             </Button>
+                 ))}
                 </div>
 
                 );
