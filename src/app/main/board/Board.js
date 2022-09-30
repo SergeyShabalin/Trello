@@ -7,6 +7,7 @@ import {AiOutlinePlus} from "react-icons/ai";
 import classes from './styles/Board.module.css'
 import {axiosColumns} from "../../../store/asyncAction/Columns";
 
+
 export default function Board() {
 
     const dispatch = useDispatch()
@@ -14,6 +15,7 @@ export default function Board() {
 
     useEffect(() => {
        dispatch(axiosColumns())
+
     }, [])
 
     return (
@@ -25,6 +27,7 @@ export default function Board() {
                             <ListWrapper key={item.id} header={item.header}/>
                         ))}
                     </div>
+
                 </div>
             </div>
             <div className={classes.add_list}>

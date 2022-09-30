@@ -9,7 +9,7 @@ export default  function cardsReducer(state = defaultState, action) {
     switch (action.type) {
 
         case VIEW_ALL_CARD:
-            return{...state, cards:[...state.cards, ...action.cards]}
+            return{...state, cards:[...action.payload]}
 
         default:
             return (state)
