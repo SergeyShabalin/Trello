@@ -24,7 +24,7 @@ export default function ListCard() {
         let cardId = location.pathname.split('/')[2]
         let resp = await Api.get('/cards/' )
         setCards(resp.data)
-        console.log(cardId)
+
     }
 
     useEffect(() => {

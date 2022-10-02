@@ -1,0 +1,11 @@
+.add_list_wrapper {
+    background-color: var(--list-creator-background);
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.list_add_controls {
+    display: flex;
+    justify-content: space-between;
+}
+

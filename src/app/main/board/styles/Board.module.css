@@ -1,5 +1,9 @@
 .board{
-    display: flex;
+
+
+}
+
+.board_header{
 
 }
 .columns{
@@ -12,5 +16,5 @@
 
 .add_list{
     padding: 5px;
-    margin: 1%;
+margin: 5px;
 }

@@ -15,6 +15,7 @@ export default  function columnReducer(state = defaultState, action) {
             return{...state, columns:[...action.payload]}
 
         case ADD_NEW_COLUMN:
+            console.log('payload',action.payload)
             return{...state, columns:[...action.payload]}
 
         default:
