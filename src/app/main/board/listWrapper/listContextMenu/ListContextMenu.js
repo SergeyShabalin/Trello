@@ -1,23 +1,26 @@
 import React from 'react';
 import Button from "../../../../../components/basic/button/Button";
 import {AiOutlineClose} from "react-icons/ai";
-import {Api} from "../../../../../Api";
+import {useDispatch} from "react-redux";
+import {deleteColumn} from "../../../../../store/asyncAction/Columns";
 import classes from './styles/ListContextMenu.module.css'
 
+
 function ListContextMenu({onContextMenu}){
+
+
+    const dispatch = useDispatch()
 
     function submit(e){
         e.preventDefault()
     }
 
-    function deleteColumn(column_id) {
-        Api.delete(`/columns/delete`, {id: column_id}).catch((error) => {
-            console.warn(error, 'server error');
-        })
-
+    function columnDelete(column_id) {
+        dispatch(deleteColumn(column_id))
     }
+
     return (
-        <form onSubmit={submit} >
+        <form onSubmit={submit}>
             <div className={classes.context_menu} >
                 <div className={classes.context_header}>Действия со списком
                     <Button
@@ -28,9 +31,11 @@ function ListContextMenu({onContextMenu}){
                 </div>
                 <hr/>
                 <Button
-                    onClick={deleteColumn}
+                    onClick={columnDelete}
+                    size='full_sized'
                     label='Удалить список'/>
                 <Button
+                    size='full_sized'
                     label='Добавить карточку'/>
             </div>
         </form>

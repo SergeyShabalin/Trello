@@ -15,6 +15,7 @@
     --button-font-weight: 200;
     --button-font-size: 0.8rem;
     --button-padding: 8px 10px;
+    --button-margin: 0;
 
     --button-label-margin: 0 5px;
     --button-background-hover: #ffffff;

@@ -25,18 +25,17 @@ export default function UiKit() {
         {id: 6, value: 'item value 6'}
     ]
 
-    function submit(e){
+    function submit(e) {
         e.preventDefault()
     }
 
-    function onChange(e){
-        if(e.target){
-            setForm( (prev) => ({
-                ...prev,[e.target.name]: e.target.value
-            }))}
-
-        else  setForm( (prev) => ({
-            ...prev,[e.name]: e.value
+    function onChange(e) {
+        if (e.target) {
+            setForm((prev) => ({
+                ...prev, [e.target.name]: e.target.value
+            }))
+        } else setForm((prev) => ({
+            ...prev, [e.name]: e.value
         }))
     }
 
@@ -45,317 +44,334 @@ export default function UiKit() {
     return (
         <form onSubmit={submit}>
 
-        <div className={classes.buttons}>
-            <div className={classes.buttons_text}>
-                <Button
-                    label='text'>
-                </Button>
+            <div className={classes.buttons}>
+                <div className={classes.buttons_text}>
+                    <Button
+                        label='text'>
+                    </Button>
 
-                <Button
-                    label='text start icon'
-                    startIcon={<AiOutlinePlus/>}>
-                </Button>
+                    <Button
+                        label='text start icon'
+                        startIcon={<AiOutlinePlus/>}>
+                    </Button>
 
-                <Button
-                    label='text end icon'
-                    endIcon={<MdKeyboardArrowDown/>}>
-                </Button>
+                    <Button
+                        label='text end icon'
+                        endIcon={<MdKeyboardArrowDown/>}>
+                    </Button>
 
-                <Button
-                    color='submit'
-                    label='text submit'>
-                </Button>
+                    <Button
+                        color='submit'
+                        label='text submit'>
+                    </Button>
 
-                <Button
-                    color='error'
-                    label='error'>
-                </Button>
+                    <Button
+                        color='error'
+                        label='error'>
+                    </Button>
 
-                <Button
-                    disabled={true}
-                    label='text disabled'>
-                </Button>
-            </div>
-
-            <div className={classes.buttons_contained}>
-                <Button
-                    variant='contained'
-                    label='contained'>
-                </Button>
-
-                <Button
-                    variant='contained'
-                    label='contained start icon'
-                    startIcon={<AiOutlinePlus/>}>
-                </Button>
-
-                <Button
-                    variant='contained'
-                    label='contained end icon'
-                    endIcon={<MdKeyboardArrowDown/>}>
-                </Button>
-
-                <Button
-                    variant='contained'
-                    color='submit'
-                    label='contained submit'>
-                </Button>
-
-                <Button
-                    variant='contained'
-                    color='error'
-                    label='contained error'>
-                </Button>
-
-                <Button
-                    variant='contained'
-                    disabled={true}
-                    label='contained disabled'>
-                </Button>
-            </div>
-
-            <div className={classes.buttons_outlined}>
-                <Button
-                    variant='outlined'
-                    label='outlined'>
-                </Button>
-
-                <Button
-                    variant='outlined'
-                    label='outlined start icon'
-                    startIcon={<AiOutlinePlus/>}>
-                </Button>
-
-                <Button
-                    variant='outlined'
-                    label='outlined end icon'
-                    endIcon={<MdKeyboardArrowDown/>}>
-                </Button>
-
-                <Button
-                    variant='outlined'
-                    color='submit'
-                    label='outlined submit'>
-                </Button>
-
-                <Button
-                    variant='outlined'
-                    color='error'
-                    label='outlined error'>
-                </Button>
-
-                <Button
-                    variant='outlined'
-                    disabled={true}
-                    label='outlined disabled'>
-                </Button>
-            </div>
-
-
-            <div className={classes.buttons_only_icon}>
-                <Button
-                    variant='just_icon'
-                    icon={<MdOutlineModeEditOutline/>}>
-                </Button>
-
-                <Button
-                    variant='just_icon'
-                    icon={<MdKeyboardArrowDown/>}>
-                </Button>
-
-                <Button
-                    variant='just_icon'
-                    icon={<AiOutlinePlus/>}>
-                </Button>
-
-                <Button
-                    variant='just_icon'
-                    icon={<GoKebabHorizontal/>}>
-                </Button>
-
-                <Button
-                    variant='just_icon'
-                    icon={<CgMenuGridO/>}>
-                </Button>
-
-                <Button
-                    variant='just_icon'
-                    disabled={true}
-                    icon={<MdOutlineModeEditOutline/>}>
-                </Button>
-
-                <Button
-                    variant='just_icon'
-                    disabled={true}
-                    icon={<MdKeyboardArrowDown/>}>
-                </Button>
-
-                <Button
-                    variant='just_icon'
-                    disabled={true}
-                    icon={<AiOutlinePlus/>}>
-                </Button>
-
-                <Button
-                    variant='just_icon'
-                    disabled={true}
-                    icon={<GoKebabHorizontal/>}>
-                </Button>
-
-                <Button
-                    variant='just_icon'
-                    disabled={true}
-                    icon={<CgMenuGridO/>}>
-                </Button>
-
-
-                <Button
-                    variant='just_icon'
-                    variety='sized'
-                    icon={<MdOutlineModeEditOutline/>}>
-                </Button>
-
-                <Button
-                    variant='just_icon'
-                    variety='sized'
-                    icon={<MdKeyboardArrowDown/>}>
-                </Button>
-
-                <Button
-                    variant='just_icon'
-                    variety='sized'
-                    icon={<AiOutlinePlus/>}>
-                </Button>
-
-                <Button
-                    variant='just_icon'
-                    variety='sized'
-                    icon={<GoKebabHorizontal/>}>
-                </Button>
-
-                <Button
-                    variant='just_icon'
-                    variety='sized'
-                    icon={<CgMenuGridO/>}>
-                </Button>
-
-                <Button
-                    variant='just_icon'
-                    variety='sized'
-                    color='changed'
-                    icon={<AiOutlineBgColors/>}>
-                </Button>
-            </div>
-
-            <hr/>
-
-            <div className={classes.other_content}>
-                <div className={classes.inputs}>
-                    <Input
-                        iconLeft={
-                            <Button
-                                variant='just_icon'
-                                variety='sized'
-                                icon={<HiOutlineSearch/>}>
-                            </Button>
-                        }
-                        value='icon left'>
-                    </Input>
-                    <Input
-                        iconRight={
-                            <Button
-                                variant='just_icon'
-                                variety='sized'
-                                icon={<HiOutlineSearch/>}>
-                            </Button>
-                        }
-                        value='icon right'>
-                        >
-                    </Input>
-                    <Input
-                        placeholder='placeholder'></Input>
-                    <Input
+                    <Button
                         disabled={true}
-                        value='disabled'>
-                    </Input>
-                    <Input
-                        label='label'></Input>
-                    <Input
-                        label='label textarea'
-                        placeholder='placeholder textarea'
-                        cols={25}
-                        rows={3}
-                        value='textarea'>
-                    </Input>
-                    <Input
-                        placeholder='placeholder textarea'
-                        cols={25}
-                        rows={3}>
-                    </Input>
-
+                        label='text disabled'>
+                    </Button>
                 </div>
 
-
-                <div className={classes.modal}>
+                <div className={classes.buttons_contained}>
                     <Button
                         variant='contained'
-                        onClick={() => setOpenModal(true)}>Модалка</Button>
-                    <Modal
-                        open={openModal}
-                        onClose={() => setOpenModal(false)}>
-                        <div>
-                            <p>Модальное окно</p>
-                        </div>
-                    </Modal>
+                        label='contained'>
+                    </Button>
+
+                    <Button
+                        variant='contained'
+                        label='contained start icon'
+                        startIcon={<AiOutlinePlus/>}>
+                    </Button>
+
+                    <Button
+                        variant='contained'
+                        label='contained end icon'
+                        endIcon={<MdKeyboardArrowDown/>}>
+                    </Button>
+
+                    <Button
+                        variant='contained'
+                        color='submit'
+                        label='contained submit'>
+                    </Button>
+
+                    <Button
+                        variant='contained'
+                        color='error'
+                        label='contained error'>
+                    </Button>
+
+                    <Button
+                        variant='contained'
+                        disabled={true}
+                        label='contained disabled'>
+                    </Button>
                 </div>
 
+                <div className={classes.buttons_outlined}>
+                    <Button
+                        variant='outlined'
+                        label='outlined'>
+                    </Button>
 
-                <div className={classes.checkbox}>
-                    <Checkbox/>
-                    <Checkbox
-                        label='checkbox with label'
-                    />
-                    <Checkbox
-                        label='contained checkbox'
-                        variant='contained'
-                    />
-                    <Checkbox
-                        label='outlined checkbox'
+                    <Button
                         variant='outlined'
-                    />
-                    <Checkbox
-                        label='disabled text'
-                        disabled={true}
-                    />
-                    <Checkbox
-                        variant='contained'
-                        label='disabled contained'
-                        disabled={true}
-                    />
-                    <Checkbox
+                        label='outlined start icon'
+                        startIcon={<AiOutlinePlus/>}>
+                    </Button>
+
+                    <Button
                         variant='outlined'
-                        label='disabled outlined'
+                        label='outlined end icon'
+                        endIcon={<MdKeyboardArrowDown/>}>
+                    </Button>
+
+                    <Button
+                        variant='outlined'
+                        color='submit'
+                        label='outlined submit'>
+                    </Button>
+
+                    <Button
+                        variant='outlined'
+                        color='error'
+                        label='outlined error'>
+                    </Button>
+
+                    <Button
+                        variant='outlined'
                         disabled={true}
-                    />
+                        label='outlined disabled'>
+                    </Button>
                 </div>
 
-                <div className={classes.select}>
+                <div className="button_full_sized">
+                    <Button
+                        size='full_sized'
+                        label='text full size'>
+                    </Button>
 
-                    <Select
+                    <Button
+                        variant='contained'
+                        size='full_sized'
+                        label='contained full size'>
+                    </Button>
+
+                    <Button
                         variant='outlined'
-                        values={[selectValue[0],selectValue[1], selectValue[2]]}
-                        onChange={onChange}/>
+                        size='full_sized'
+                        label='outlined full size'>
+                    </Button>
+                </div>
 
-                    <Select
-                            name='test select 2'
-                            defaultValue='test select 2'
-                            values={[selectValue[3],selectValue[4], selectValue[5]]}
+                <div className={classes.buttons_only_icon}>
+                    <Button
+                        variant='just_icon'
+                        icon={<MdOutlineModeEditOutline/>}>
+                    </Button>
+
+                    <Button
+                        variant='just_icon'
+                        icon={<MdKeyboardArrowDown/>}>
+                    </Button>
+
+                    <Button
+                        variant='just_icon'
+                        icon={<AiOutlinePlus/>}>
+                    </Button>
+
+                    <Button
+                        variant='just_icon'
+                        icon={<GoKebabHorizontal/>}>
+                    </Button>
+
+                    <Button
+                        variant='just_icon'
+                        icon={<CgMenuGridO/>}>
+                    </Button>
+
+                    <Button
+                        variant='just_icon'
+                        disabled={true}
+                        icon={<MdOutlineModeEditOutline/>}>
+                    </Button>
+
+                    <Button
+                        variant='just_icon'
+                        disabled={true}
+                        icon={<MdKeyboardArrowDown/>}>
+                    </Button>
+
+                    <Button
+                        variant='just_icon'
+                        disabled={true}
+                        icon={<AiOutlinePlus/>}>
+                    </Button>
+
+                    <Button
+                        variant='just_icon'
+                        disabled={true}
+                        icon={<GoKebabHorizontal/>}>
+                    </Button>
+
+                    <Button
+                        variant='just_icon'
+                        disabled={true}
+                        icon={<CgMenuGridO/>}>
+                    </Button>
+
+
+                    <Button
+                        variant='just_icon'
+                        variety='sized'
+                        icon={<MdOutlineModeEditOutline/>}>
+                    </Button>
+
+                    <Button
+                        variant='just_icon'
+                        variety='sized'
+                        icon={<MdKeyboardArrowDown/>}>
+                    </Button>
+
+                    <Button
+                        variant='just_icon'
+                        variety='sized'
+                        icon={<AiOutlinePlus/>}>
+                    </Button>
+
+                    <Button
+                        variant='just_icon'
+                        variety='sized'
+                        icon={<GoKebabHorizontal/>}>
+                    </Button>
+
+                    <Button
+                        variant='just_icon'
+                        variety='sized'
+                        icon={<CgMenuGridO/>}>
+                    </Button>
+
+                    <Button
+                        variant='just_icon'
+                        variety='sized'
+                        color='changed'
+                        icon={<AiOutlineBgColors/>}>
+                    </Button>
+                </div>
+
+                <hr/>
+
+                <div className={classes.other_content}>
+                    <div className={classes.inputs}>
+                        <Input
+                            iconLeft={
+                                <Button
+                                    variant='just_icon'
+                                    variety='sized'
+                                    icon={<HiOutlineSearch/>}>
+                                </Button>
+                            }
+                            value='icon left'>
+                        </Input>
+                        <Input
+                            iconRight={
+                                <Button
+                                    variant='just_icon'
+                                    variety='sized'
+                                    icon={<HiOutlineSearch/>}>
+                                </Button>
+                            }
+                            value='icon right'>
+                        </Input>
+                        <Input
+                            placeholder='placeholder'></Input>
+                        <Input
+                            disabled={true}
+                            value='disabled'>
+                        </Input>
+                        <Input
+                            label='label'></Input>
+                        <Input
+                            label='label textarea'
+                            placeholder='placeholder textarea'
+                            cols={25}
+                            rows={3}
+                            value='textarea'>
+                        </Input>
+                        <Input
+                            placeholder='placeholder textarea'
+                            cols={25}
+                            rows={3}>
+                        </Input>
+
+                    </div>
+
+
+                    <div className={classes.modal}>
+                        <Button
+                            variant='contained'
+                            onClick={() => setOpenModal(true)}>Модалка</Button>
+                        <Modal
+                            open={openModal}
+                            onClose={() => setOpenModal(false)}>
+                            <div>
+                                <p>Модальное окно</p>
+                            </div>
+                        </Modal>
+                    </div>
+
+
+                    <div className={classes.checkbox}>
+                        <Checkbox/>
+                        <Checkbox
+                            label='checkbox with label'
+                        />
+                        <Checkbox
+                            label='contained checkbox'
+                            variant='contained'
+                        />
+                        <Checkbox
+                            label='outlined checkbox'
+                            variant='outlined'
+                        />
+                        <Checkbox
+                            label='disabled text'
+                            disabled={true}
+                        />
+                        <Checkbox
+                            variant='contained'
+                            label='disabled contained'
+                            disabled={true}
+                        />
+                        <Checkbox
+                            variant='outlined'
+                            label='disabled outlined'
+                            disabled={true}
+                        />
+                    </div>
+
+                    <div className={classes.select}>
+
+                        <Select
+                            variant='outlined'
+                            values={[selectValue[0], selectValue[1], selectValue[2]]}
                             onChange={onChange}/>
 
-                </div>
+                        <Select
+                            name='test select 2'
+                            defaultValue='test select 2'
+                            values={[selectValue[3], selectValue[4], selectValue[5]]}
+                            onChange={onChange}/>
 
+                    </div>
+
+                </div>
             </div>
-        </div>
         </form>
     )
 }

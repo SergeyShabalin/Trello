@@ -15,6 +15,7 @@ function ListCreator({columnCreator,addList}) {
 
     function submit(e){
         e.preventDefault()
+        console.log(e)
     }
 
     return (

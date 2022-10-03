@@ -13,6 +13,10 @@
     white-space: nowrap;
 }
 
+.full_sized{
+    width: 100%;
+}
+
 .text {
     display: flex;
     color: var(--button-text-color);
