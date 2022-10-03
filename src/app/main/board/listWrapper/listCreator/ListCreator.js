@@ -5,20 +5,18 @@ import {AiOutlineClose} from "react-icons/ai";
 
 import classes from './styles/ListCreator.module.css'
 
-
-
 function ListCreator({columnCreator,addColumn}) {
 
     const [header, setHeader] = useState({header: ''})
 
     function getColumnHeader(e){
-        setHeader(e.target.value)
+        setHeader({header: e.target.value})
     }
+
 
     function submit(e){
         e.preventDefault()
     }
-
 
     return (
         <form onSubmit={submit}>

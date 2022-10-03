@@ -1,0 +1,18 @@
+.context_menu {
+    background-color: var(--list-context-menu-background);
+    position: absolute;
+    z-index: 2;
+    border: solid 1px #9a9898;
+    border-radius: 5px;
+    padding: 5px;
+    top: 12%;
+    color: var(--list-context-color);
+}
+
+.context_header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5px;
+}
+

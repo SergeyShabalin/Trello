@@ -110,6 +110,8 @@
 
     --list-wrapper: #dacaca;
     --list-creator-background: #dacaca;
+    --list-context-menu-background: #ecd9d9;
+    --list-context-color: #383636;
     --card-detail-color: #f3eded;
     --content_edit_opacity: 100%;
     --list-header-color: #020231;
