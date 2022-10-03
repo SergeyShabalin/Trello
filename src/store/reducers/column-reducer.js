@@ -15,7 +15,6 @@ export default  function columnReducer(state = defaultState, action) {
             return{...state, columns:[...action.payload]}
 
         case ADD_NEW_COLUMN:
-            console.log('payload',action.payload)
             return{...state, columns:[...action.payload]}
 
         default:
@@ -24,4 +23,4 @@ export default  function columnReducer(state = defaultState, action) {
 }
 
 export const viewAllColumns = (payload)=> ({type: VIEW_ALL_COLUMNS, payload})
-export const addNewColumns = (payload)=> ({type: ADD_NEW_COLUMN, payload})
+export const addNewColumn = (payload)=> ({type: ADD_NEW_COLUMN, payload})

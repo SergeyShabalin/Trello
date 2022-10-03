@@ -5,14 +5,13 @@ import {AiOutlineClose} from "react-icons/ai";
 
 import classes from './styles/ListCreator.module.css'
 
-function ListCreator({columnCreator,addColumn}) {
+function ListCreator({columnCreator,addList}) {
 
     const [header, setHeader] = useState({header: ''})
 
     function getColumnHeader(e){
         setHeader({header: e.target.value})
     }
-
 
     function submit(e){
         e.preventDefault()
@@ -28,7 +27,7 @@ function ListCreator({columnCreator,addColumn}) {
                 </Input>
                 <div className={classes.list_add_controls}>
                     <Button
-                        onClick={()=>addColumn(header)}
+                        onClick={()=>addList(header)}
                         label='Добавить список'>
                     </Button>
                     <Button

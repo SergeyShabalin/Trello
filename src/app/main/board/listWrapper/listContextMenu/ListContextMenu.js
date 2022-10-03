@@ -1,8 +1,8 @@
 import React from 'react';
 import Button from "../../../../../components/basic/button/Button";
-import classes from './styles/ListContextMenu.module.css'
 import {AiOutlineClose} from "react-icons/ai";
 import {Api} from "../../../../../Api";
+import classes from './styles/ListContextMenu.module.css'
 
 function ListContextMenu({onContextMenu}){
 
@@ -10,8 +10,8 @@ function ListContextMenu({onContextMenu}){
         e.preventDefault()
     }
 
-    function deleteColumn(header) {
-        Api.delete(`/columns/delete`).catch((error) => {
+    function deleteColumn(column_id) {
+        Api.delete(`/columns/delete`, {id: column_id}).catch((error) => {
             console.warn(error, 'server error');
         })
 
