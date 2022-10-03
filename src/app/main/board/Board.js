@@ -22,11 +22,11 @@ export default function Board() {
     }
 
     function addColumn(header) {
-
-        Api.post(`/columns/new`, header).catch((error) => {
+        Api.post(`/columns/new`, {header: header}).catch((error) => {
             console.warn(error, 'server error');
         })
         dispatch(addNewColumns(header))
+        columnCreator()
     }
 
     useEffect(() => {

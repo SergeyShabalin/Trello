@@ -23,7 +23,7 @@ function ListCreator({columnCreator,addColumn}) {
     return (
         <form onSubmit={submit}>
             <div className={classes.add_list_wrapper}>
-                <Input
+                <Input autoFocus
                     placeholder='Ввести заголовок списка'
                     onChange={getColumnHeader}
                 >

@@ -11,7 +11,8 @@ export default function Input({ value,
                                   label,
                                   disabled,
                                   iconLeft,
-                                  iconRight}) {
+                                  iconRight,
+                              ...props}) {
 
     return (
         <div>
@@ -25,6 +26,7 @@ export default function Input({ value,
                     cols={cols}
                     defaultValue={value}
                     onChange={onChange}
+                    {...props}
                 />
                 </div>
                 :
@@ -39,6 +41,7 @@ export default function Input({ value,
                                onChange={onChange}
                                className={classes.input}
                                defaultValue={value}
+                               {...props}
                         />
                         {iconRight && iconRight}
                     </div>
