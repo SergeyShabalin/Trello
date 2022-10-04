@@ -32,7 +32,7 @@ export default function Board() {
             <div className={classes.wrapper_list}>
                 <div className={classes.columns}>
                     {columns.map(item => (
-                        <ListWrapper key={item._id} id={item._id} header={item.header}/>
+                        <ListWrapper key={item._id} columnId={item._id} header={item.header}/>
                     ))}
                 </div>
 

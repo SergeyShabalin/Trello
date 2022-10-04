@@ -24,9 +24,9 @@ export  function addColumn(header) {
 
 export  function deleteColumn(columnId) {
     return function (dispatch) {
-        console.log(columnId)
-        Api.delete(`/columns/delete`).then((resp) => {
-            dispatch(deleteOneColumn(resp.data))
+        Api.delete(`/columns/delete/${columnId}` ).then((resp) => {
+            console.log(resp.data)//пофиксить
+             // dispatch(deleteOneColumn(resp.data))
         }).catch((error) => {
             console.warn(error, 'server error');
         })

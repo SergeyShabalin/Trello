@@ -6,7 +6,7 @@ import {deleteColumn} from "../../../../../store/asyncAction/Columns";
 import classes from './styles/ListContextMenu.module.css'
 
 
-function ListContextMenu({onContextMenu}){
+function ListContextMenu({onContextMenu, columnId}){
 
     const dispatch = useDispatch()
 
@@ -15,7 +15,8 @@ function ListContextMenu({onContextMenu}){
     }
 
     function columnDelete() {
-        dispatch(deleteColumn())
+
+          dispatch(deleteColumn(columnId))
     }
 
     return (

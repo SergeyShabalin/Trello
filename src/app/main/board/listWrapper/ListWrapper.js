@@ -5,13 +5,11 @@ import ListCard from "./listCard/ListCard";
 import CardCreator from "./cardCreator/CardCreator";
 import classes from './styles/ListWrapper.module.css'
 
-export default function ListWrapper({header, id}) {
-    console.log(id)
+export default function ListWrapper({header, columnId}) {
 
     return (
         <div className={classes.list_wrapper}>
-
-            <ListHeader header ={header}/>
+            <ListHeader header ={header} columnId={columnId}/>
             <ListCard/>
             <CardCreator/>
         </div>

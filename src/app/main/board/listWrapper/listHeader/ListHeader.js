@@ -5,7 +5,7 @@ import ListContextMenu from "../listContextMenu/ListContextMenu";
 import classes from './styles/ListHeader.module.css'
 
 
-export default function ListHeader({header}) {
+export default function ListHeader({header, columnId}) {
 
     const [isContext, setIsContext] = useState(false)
 
@@ -21,7 +21,7 @@ export default function ListHeader({header}) {
                 variant={'just_icon'}
                 icon={<GoKebabHorizontal/>}>
             </Button>
-            {isContext ? <ListContextMenu onContextMenu={onContextMenu} /> : null}
+            {isContext ? <ListContextMenu columnId={columnId} onContextMenu={onContextMenu} /> : null}
         </div>
     );
 };
