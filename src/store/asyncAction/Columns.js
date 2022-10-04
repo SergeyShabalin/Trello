@@ -14,6 +14,7 @@ export function getAllColumns() {
 export  function addColumn(header) {
     return function (dispatch) {
         Api.post(`/columns/new`, header).then((resp) => {
+            console.log('data',resp.data)
             dispatch(addNewColumn(resp.data))
         }).catch((error) => {
             console.warn(error, 'server error');
@@ -24,7 +25,7 @@ export  function addColumn(header) {
 export  function deleteColumn(columnId) {
     return function (dispatch) {
         console.log(columnId)
-        Api.delete(`/columns/delete`, {id: columnId}).then((resp) => {
+        Api.delete(`/columns/delete`).then((resp) => {
             dispatch(deleteOneColumn(resp.data))
         }).catch((error) => {
             console.warn(error, 'server error');

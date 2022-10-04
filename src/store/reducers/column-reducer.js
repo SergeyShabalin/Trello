@@ -16,7 +16,7 @@ export default  function columnReducer(state = defaultState, action) {
             return{...state, columns:[...action.payload]}
 
         case ADD_NEW_COLUMN:
-            return{...state, columns:[...action.payload]}
+            return{...state, columns:[...state.columns, action.payload]}
 
         case DELETE_COLUMN:
             return{...state, columns:[...action.payload]}

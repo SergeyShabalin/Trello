@@ -14,7 +14,7 @@ import Button from "../../../../../components/basic/button/Button";
 import {MdKeyboardArrowDown} from "react-icons/md";
 
 
-export default function ListCard() {
+export default function ListCard({id}) {
 
     const [isEdit, setIsEdit] = useState(false)
     const [cards, setCards] = useState([])
@@ -22,9 +22,8 @@ export default function ListCard() {
 
     async function getCards() {
         let cardId = location.pathname.split('/')[2]
-        let resp = await Api.get('/cards/' )
+        let resp = await Api.get(`/cards/`)
         setCards(resp.data)
-
     }
 
     useEffect(() => {
@@ -38,7 +37,7 @@ export default function ListCard() {
     return (
              <div className={classes.list_card}>
                  {cards.map(item=>(
-             <div>
+             <div key={item._id}>
                 <div className={classes.title} onClick={() => setIsEdit(false)}>
                     {isEdit ?
                         <div className={classes.quick_editor_input}>

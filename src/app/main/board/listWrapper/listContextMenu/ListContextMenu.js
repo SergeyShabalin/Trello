@@ -8,15 +8,14 @@ import classes from './styles/ListContextMenu.module.css'
 
 function ListContextMenu({onContextMenu}){
 
-
     const dispatch = useDispatch()
 
     function submit(e){
         e.preventDefault()
     }
 
-    function columnDelete(column_id) {
-        dispatch(deleteColumn(column_id))
+    function columnDelete() {
+        dispatch(deleteColumn())
     }
 
     return (
