@@ -24,3 +24,16 @@
     padding: var(--modal-background-padding);
     border-radius: var(--modal-background-border-radius);
 }
+
+.context_menu{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}

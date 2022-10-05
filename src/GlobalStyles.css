@@ -74,7 +74,7 @@
     --textarea-border-radius: 5px;
 
     --modal-background-color: rgba(2, 2, 2, 0.37);
-    --modal-card-background-color: white;
+    --modal-card-background-color: rgba(255, 255, 255, 0);
     --modal-background-padding: 10px;
     --modal-background-border-radius: 10px;
 

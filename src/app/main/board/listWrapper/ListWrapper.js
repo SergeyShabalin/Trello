@@ -5,7 +5,6 @@ import ListCard from "./listCard/ListCard";
 import CardCreator from "./cardCreator/CardCreator";
 import classes from './styles/ListWrapper.module.css'
 
-
 export default function ListWrapper({header, onClick}) {
 
     return (

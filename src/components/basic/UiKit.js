@@ -318,6 +318,7 @@ export default function UiKit() {
                             onClick={() => setOpenModal(true)}>Модалка</Button>
                         <Modal
                             open={openModal}
+                            variat='modal_background'
                             onClose={() => setOpenModal(false)}>
                             <div>
                                 <p>Модальное окно</p>

@@ -6,7 +6,7 @@ import classes from './styles/Modal.module.css'
 
 const modalRootElement = document.querySelector('#modal')
 
-export default function Modal({children, open, onClose}) {
+export default function Modal({children, open, onClose, variant}) {
 
     const element = useMemo(() => document.createElement("div"), [])
 
@@ -26,11 +26,11 @@ export default function Modal({children, open, onClose}) {
 
     if (open) {
         return createPortal(
-            <div>
-                <div className={classes.modal_background} onClick={closeModal}>
+
+                <div  className={`${classes[variant]}`} onClick={closeModal}>
                     <div className={classes.modal_card}>{children}</div>
                 </div>
-            </div>
+
             , element)
     }
     return null

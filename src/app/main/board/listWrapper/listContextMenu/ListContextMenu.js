@@ -6,7 +6,7 @@ import {deleteColumn} from "../../../../../store/asyncAction/Columns";
 import classes from './styles/ListContextMenu.module.css'
 
 
-function ListContextMenu({onContextMenu}) {
+function ListContextMenu({closeModalWindow}) {
 
     const dispatch = useDispatch()
     const columnId = useSelector(state => state.columns.idColumn)
@@ -24,7 +24,7 @@ function ListContextMenu({onContextMenu}) {
             <div className={classes.context_menu}>
                 <div className={classes.context_header}>Действия со списком
                     <Button
-                        onClick={onContextMenu}
+                        onClick={closeModalWindow}
                         variant='just_icon'
                         icon={<AiOutlineClose/>}>
                     </Button>
