@@ -7,6 +7,7 @@ import {addColumn, getAllColumns} from "../../../store/asyncAction/Columns";
 import ListCreator from "./listWrapper/listCreator/ListCreator";
 
 import classes from './styles/Board.module.css'
+import {getIdColumn} from "../../../store/reducers/column-reducer";
 
 export default function Board() {
 
@@ -17,6 +18,7 @@ export default function Board() {
     useEffect(() => {
         dispatch(getAllColumns())
     }, [])
+
     function columnCreator() {
         setIsCreator(!isCreator)
     }
@@ -26,13 +28,20 @@ export default function Board() {
         columnCreator()
     }
 
+    function sendColumnId(columnId) {
+        dispatch(getIdColumn(columnId))
+    }
+
     return (
         <div className={classes.board}>
             <div className={classes.board_header}>Наименование доски</div>
             <div className={classes.wrapper_list}>
                 <div className={classes.columns}>
                     {columns.map(item => (
-                        <ListWrapper key={item._id} columnId={item._id} header={item.header}/>
+                        <ListWrapper onClick={() => sendColumnId(item._id)}
+                                     key={item._id}
+                                     header={item.header}
+                        />
                     ))}
                 </div>
 
@@ -45,7 +54,7 @@ export default function Board() {
                         </Button>
                         : <ListCreator
                             columnCreator={columnCreator}
-                            addList={addList}/> }
+                            addList={addList}/>}
                 </div>
 
             </div>

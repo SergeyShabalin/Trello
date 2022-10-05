@@ -1,27 +1,27 @@
 import React from 'react';
 import Button from "../../../../../components/basic/button/Button";
 import {AiOutlineClose} from "react-icons/ai";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {deleteColumn} from "../../../../../store/asyncAction/Columns";
 import classes from './styles/ListContextMenu.module.css'
 
 
-function ListContextMenu({onContextMenu, columnId}){
+function ListContextMenu({onContextMenu}) {
 
     const dispatch = useDispatch()
+    const columnId = useSelector(state => state.columns.idColumn)
 
-    function submit(e){
+    function submit(e) {
         e.preventDefault()
     }
 
     function columnDelete() {
-
-          dispatch(deleteColumn(columnId))
+        dispatch(deleteColumn(columnId))
     }
 
     return (
         <form onSubmit={submit}>
-            <div className={classes.context_menu} >
+            <div className={classes.context_menu}>
                 <div className={classes.context_header}>Действия со списком
                     <Button
                         onClick={onContextMenu}

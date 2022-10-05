@@ -1,5 +1,5 @@
 import {Api} from "../../Api";
-import {addNewColumn, viewAllColumns, deleteOneColumn} from "../reducers/column-reducer";
+import {addNewColumn, viewAllColumns} from "../reducers/column-reducer";
 
 export function getAllColumns() {
     return function (dispatch) {
@@ -14,7 +14,6 @@ export function getAllColumns() {
 export  function addColumn(header) {
     return function (dispatch) {
         Api.post(`/columns/new`, header).then((resp) => {
-            console.log('data',resp.data)
             dispatch(addNewColumn(resp.data))
         }).catch((error) => {
             console.warn(error, 'server error');
@@ -24,9 +23,8 @@ export  function addColumn(header) {
 
 export  function deleteColumn(columnId) {
     return function (dispatch) {
-        Api.delete(`/columns/delete/${columnId}` ).then((resp) => {
-            console.log(resp.data)//пофиксить
-             // dispatch(deleteOneColumn(resp.data))
+        Api.delete(`/columns/delete/${columnId}`).then((resp) => {
+             dispatch(getAllColumns())
         }).catch((error) => {
             console.warn(error, 'server error');
         })
