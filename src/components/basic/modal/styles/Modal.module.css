@@ -19,20 +19,27 @@
 
 .modal_card{
     position: fixed;
+    top: 10vh;
+    left: 30vw;
     z-index: 2;
     background: var(--modal-card-background-color);
     padding: var(--modal-background-padding);
     border-radius: var(--modal-background-border-radius);
 }
 
+.context_card{
+
+}
+
+
 .context_menu{
-    position: fixed;
+     position: absolute;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
     overflow: hidden;
-    display: flex;
+background-color: rgba(0, 0, 0, 0);
     flex-direction: row;
     justify-content: center;
     align-items: center;

@@ -30,6 +30,7 @@ export default function Board() {
 
     function sendColumnId(columnId) {
         dispatch(getIdColumn(columnId))
+
     }
 
     return (
@@ -38,7 +39,8 @@ export default function Board() {
             <div className={classes.wrapper_list}>
                 <div className={classes.columns}>
                     {columns.map(item => (
-                        <ListWrapper onClick={() => sendColumnId(item._id)}
+                        <ListWrapper id={'list_wrapper'}
+                            onClick={() => sendColumnId(item._id)}
                                      key={item._id}
                                      header={item.header}
                         />

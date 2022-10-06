@@ -10,10 +10,14 @@ import Modal from "./modal/Modal";
 import Checkbox from "./checkbox/Checkbox";
 import Select from "./select/Select";
 import classes from './styles/UiKit.module.css'
+import ListContextMenu from "../../app/main/board/listWrapper/listContextMenu/ListContextMenu";
 
 export default function UiKit() {
 
     const [openModal, setOpenModal] = useState(false)
+    const [openContextMenu, setOpenContextMenu] = useState(false)
+    const [coordinates, setCoordinates] = useState()
+
     const [form, setForm] = useState({name: ''})
 
     const selectValue = [
@@ -27,6 +31,16 @@ export default function UiKit() {
 
     function submit(e) {
         e.preventDefault()
+    }
+
+    function contextMenuOpen(e){
+        setOpenContextMenu(true)
+        const currentCoord = e.currentTarget.getBoundingClientRect();
+        setCoordinates(currentCoord)
+    }
+
+    function contextMenuClose() {
+        setOpenContextMenu(false)
     }
 
     function onChange(e) {
@@ -313,19 +327,34 @@ export default function UiKit() {
 
 
                     <div className={classes.modal}>
+                       <div className={classes.container}>
+                           <Button
+                               variant='contained'
+                               onClick={() => setOpenModal(true)}>Модалка</Button>
+                           <Modal
+                               open={openModal}
+                               variat='modal_background'
+                               onClose={() => setOpenModal(false)}>
+                               <div>
+                                   <p>Модальное окно</p>
+                               </div>
+                           </Modal>
+                       </div>
+
+                        <div className={classes.container}>
                         <Button
                             variant='contained'
-                            onClick={() => setOpenModal(true)}>Модалка</Button>
-                        <Modal
-                            open={openModal}
-                            variat='modal_background'
-                            onClose={() => setOpenModal(false)}>
-                            <div>
-                                <p>Модальное окно</p>
-                            </div>
-                        </Modal>
-                    </div>
+                            onClick={contextMenuOpen}>Контекстное меню</Button>
+                    <Modal
+                        coordinates = {coordinates}
+                        open={openContextMenu}
+                        variant='context_menu'
+                        onClose={contextMenuClose}>
+                        <ListContextMenu closeModalWindow={contextMenuClose}/>
 
+                    </Modal>
+                        </div>
+                    </div>
 
                     <div className={classes.checkbox}>
                         <Checkbox/>

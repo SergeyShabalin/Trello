@@ -73,8 +73,8 @@
     --textarea-margin: 5px 0;
     --textarea-border-radius: 5px;
 
-    --modal-background-color: rgba(2, 2, 2, 0.37);
-    --modal-card-background-color: rgba(255, 255, 255, 0);
+    --modal-background-color: rgba(82, 72, 72, 0.69);
+    --modal-card-background-color: rgba(218, 84, 84, 0.6);
     --modal-background-padding: 10px;
     --modal-background-border-radius: 10px;
 
@@ -115,7 +115,7 @@
     --list-context-color: #383636;
     --card-detail-color: #f3eded;
     --content_edit_opacity: 100%;
-    --list-header-color: #020231;
+    --list-header-color: #03034f;
     --checkout-color: #83f39a;
     --decision-date-overdue: #ecafaf;
     --decision-date-hover: #d39191;

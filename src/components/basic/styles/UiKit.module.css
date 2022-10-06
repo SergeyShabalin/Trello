@@ -29,9 +29,12 @@
     display: flex;
 }
 
+
+.container{
+    margin: 5px;
+}
 .modal{
 margin: 0 20px;
-
 }
 
 .other_content{

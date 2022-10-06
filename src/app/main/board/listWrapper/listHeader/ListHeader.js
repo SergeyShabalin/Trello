@@ -8,31 +8,34 @@ import Modal from "../../../../../components/basic/modal/Modal";
 
 export default function ListHeader({header}) {
 
-    const [isContext, setIsContext] = useState(false)
     const [openModal, setOpenModal] = useState(false)
+    const [coordinates, setCoordinates] = useState()
 
-    function openModalWindow(){
+    function openModalWindow(e) {
         setOpenModal(true)
+        const currentCoord = e.currentTarget.getBoundingClientRect();
+        setCoordinates(currentCoord)
     }
 
-    function closeModalWindow(){
+    function closeModalWindow() {
         setOpenModal(false)
     }
 
     return (
         <div className={classes.header}>
-            <div className={classes.title}>{header}</div>
+            <div className={classes.title}  >{header}</div>
             <Button
                 onClick={openModalWindow}
                 variant={'just_icon'}
                 icon={<GoKebabHorizontal/>}>
             </Button>
 
-                <Modal
+            <Modal
+                coordinates = {coordinates}
                 open={openModal}
                 variant='context_menu'
                 onClose={closeModalWindow}>
-                    <ListContextMenu closeModalWindow={closeModalWindow} />
+                <ListContextMenu closeModalWindow={closeModalWindow}/>
             </Modal>
         </div>
     );
