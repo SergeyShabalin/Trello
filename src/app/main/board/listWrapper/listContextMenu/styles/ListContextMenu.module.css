@@ -17,3 +17,10 @@
     white-space: nowrap;
 }
 
+.context_form{
+
+
+    z-index: 2;
+
+    background-color: rgba(12, 117, 93, 0.36);
+}

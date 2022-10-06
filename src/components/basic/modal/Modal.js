@@ -6,7 +6,7 @@ import classes from './styles/Modal.module.css'
 
 const modalRootElement = document.querySelector('#modal')
 
-export default function Modal({children, open, onClose, variant, coordinates}) {
+export default function Modal({children, open, onClose}) {
 
     const element = useMemo(() => document.createElement("div"), [])
 
@@ -27,16 +27,9 @@ export default function Modal({children, open, onClose, variant, coordinates}) {
 
     if (open) {
         return createPortal(
-            <div className={`${classes[variant]}`} onClick={closeModal}>
-                {variant === 'context_menu' ? <div style={{
-                        position: 'relative', left: coordinates.left + 25,
-                        top: coordinates.top + 15
-                    }} className={classes.context_card}>{children}</div>
-                    :
+            <div className={classes.modal_background} onClick={closeModal}>
                     <div className={classes.modal_card}> {children}</div>
-                }
             </div>
-
             , element)
     }
     return null

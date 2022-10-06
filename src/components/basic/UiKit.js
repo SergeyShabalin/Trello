@@ -15,8 +15,7 @@ import ListContextMenu from "../../app/main/board/listWrapper/listContextMenu/Li
 export default function UiKit() {
 
     const [openModal, setOpenModal] = useState(false)
-    const [openContextMenu, setOpenContextMenu] = useState(false)
-    const [coordinates, setCoordinates] = useState()
+
 
     const [form, setForm] = useState({name: ''})
 
@@ -33,15 +32,7 @@ export default function UiKit() {
         e.preventDefault()
     }
 
-    function contextMenuOpen(e){
-        setOpenContextMenu(true)
-        const currentCoord = e.currentTarget.getBoundingClientRect();
-        setCoordinates(currentCoord)
-    }
 
-    function contextMenuClose() {
-        setOpenContextMenu(false)
-    }
 
     function onChange(e) {
         if (e.target) {
@@ -333,28 +324,15 @@ export default function UiKit() {
                                onClick={() => setOpenModal(true)}>Модалка</Button>
                            <Modal
                                open={openModal}
-                               variat='modal_background'
                                onClose={() => setOpenModal(false)}>
                                <div>
                                    <p>Модальное окно</p>
                                </div>
                            </Modal>
                        </div>
-
-                        <div className={classes.container}>
-                        <Button
-                            variant='contained'
-                            onClick={contextMenuOpen}>Контекстное меню</Button>
-                    <Modal
-                        coordinates = {coordinates}
-                        open={openContextMenu}
-                        variant='context_menu'
-                        onClose={contextMenuClose}>
-                        <ListContextMenu closeModalWindow={contextMenuClose}/>
-
-                    </Modal>
-                        </div>
                     </div>
+
+
 
                     <div className={classes.checkbox}>
                         <Checkbox/>

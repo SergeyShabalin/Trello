@@ -74,7 +74,7 @@
     --textarea-border-radius: 5px;
 
     --modal-background-color: rgba(82, 72, 72, 0.69);
-    --modal-card-background-color: rgba(218, 84, 84, 0.6);
+    --modal-card-background-color: rgba(252, 252, 252, 0.94);
     --modal-background-padding: 10px;
     --modal-background-border-radius: 10px;
 
@@ -111,8 +111,8 @@
 
     --list-wrapper: #dacaca;
     --list-creator-background: #dacaca;
-    --list-context-menu-background: #ecd9d9;
-    --list-context-color: #383636;
+    --list-context-menu-background: #d3c1c1;
+    --list-context-color: #363232;
     --card-detail-color: #f3eded;
     --content_edit_opacity: 100%;
     --list-header-color: #03034f;

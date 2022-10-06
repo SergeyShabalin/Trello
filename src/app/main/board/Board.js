@@ -39,10 +39,10 @@ export default function Board() {
             <div className={classes.wrapper_list}>
                 <div className={classes.columns}>
                     {columns.map(item => (
-                        <ListWrapper id={'list_wrapper'}
+                        <ListWrapper
                             onClick={() => sendColumnId(item._id)}
-                                     key={item._id}
-                                     header={item.header}
+                            key={item._id}
+                            header={item.header}
                         />
                     ))}
                 </div>

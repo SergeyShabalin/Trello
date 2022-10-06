@@ -18,9 +18,7 @@
 }
 
 .modal_card{
-    position: fixed;
-    top: 10vh;
-    left: 30vw;
+
     z-index: 2;
     background: var(--modal-card-background-color);
     padding: var(--modal-background-padding);
