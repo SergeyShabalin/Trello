@@ -19,10 +19,8 @@ function ListContextMenu({closeModalWindow}) {
         dispatch(deleteColumn(columnId))
     }
 
-
-
-    return (
-        <form onSubmit={submit} className={classes.context_form}  >
+      return (
+        <form onSubmit={submit} className={classes.context_form}>
             <div className={classes.context_menu} id='contextMenu'>
                 <div className={classes.context_header}>Действия со списком
                     <Button
@@ -44,4 +42,4 @@ function ListContextMenu({closeModalWindow}) {
     );
 };
 
-export default ListContextMenu;
+export default ListContextMenu
