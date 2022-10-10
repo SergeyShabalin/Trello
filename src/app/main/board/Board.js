@@ -1,13 +1,13 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import ListWrapper from "./listWrapper/ListWrapper";
 import Button from "../../../components/basic/button/Button";
 import {AiOutlinePlus} from "react-icons/ai";
 import {addColumn, getAllColumns} from "../../../store/asyncAction/Columns";
+import {getIdColumn} from "../../../store/reducers/column-reducer";
 import ListCreator from "./listWrapper/listCreator/ListCreator";
 
 import classes from './styles/Board.module.css'
-import {getIdColumn} from "../../../store/reducers/column-reducer";
 
 export default function Board() {
 
@@ -15,9 +15,12 @@ export default function Board() {
     const columns = useSelector(state => state.columns.columns)
     const [isCreator, setIsCreator] = useState(true)
 
+
     useEffect(() => {
         dispatch(getAllColumns())
+        setIsCreator(true)
     }, [])
+
 
     function columnCreator() {
         setIsCreator(!isCreator)
@@ -30,7 +33,6 @@ export default function Board() {
 
     function sendColumnId(columnId) {
         dispatch(getIdColumn(columnId))
-
     }
 
     return (
@@ -48,15 +50,22 @@ export default function Board() {
                 </div>
 
                 <div className={classes.add_list}>
-                    {isCreator ? <Button
+
+                    {isCreator ?
+                        <Button
                             onClick={columnCreator}
                             variant='contained'
                             label='Добавить еще одну колонку'
                             startIcon={<AiOutlinePlus/>}>
                         </Button>
-                        : <ListCreator
-                            columnCreator={columnCreator}
-                            addList={addList}/>}
+                        :
+                      <div>
+                          <ListCreator
+                          columnCreator={columnCreator}
+                          addList={addList}/>
+                      </div>
+                    }
+
                 </div>
 
             </div>

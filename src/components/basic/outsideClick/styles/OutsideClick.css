@@ -5,6 +5,7 @@
 .menu.-active .menu__list {
     transform: scale(1);
 }
+
 .menu__list {
     position: absolute;
     transition: 0.25s ease all;

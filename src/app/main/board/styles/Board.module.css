@@ -1,20 +1,22 @@
-.board{
+.board {
 
 
 }
 
-.board_header{
+.board_header {
 
 }
-.columns{
+
+.columns {
     display: flex;
 }
 
-.wrapper_list{
+.wrapper_list {
     display: flex;
 }
 
-.add_list{
+.add_list {
     padding: 5px;
-margin: 5px;
+    margin: 5px;
 }
+

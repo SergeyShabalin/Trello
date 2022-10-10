@@ -1,9 +1,10 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import Input from "../../../../../components/basic/input/Input";
 import Button from "../../../../../components/basic/button/Button";
 import {AiOutlineClose} from "react-icons/ai";
 
 import classes from './styles/ListCreator.module.css'
+
 
 function ListCreator({columnCreator,addList}) {
 
@@ -15,7 +16,6 @@ function ListCreator({columnCreator,addList}) {
 
     function submit(e){
         e.preventDefault()
-        console.log(e)
     }
 
     return (
