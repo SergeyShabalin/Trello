@@ -1,12 +1,11 @@
 import React, {useState, useEffect, useRef} from 'react';
 import Input from "../../../../../components/basic/input/Input";
 import Button from "../../../../../components/basic/button/Button";
-import {AiOutlineClose} from "react-icons/ai";
 
 import classes from './styles/ListCreator.module.css'
 
 
-function ListCreator({columnCreator,addList}) {
+function ListCreator({addList}) {
 
     const [header, setHeader] = useState({header: ''})
 
@@ -31,11 +30,7 @@ function ListCreator({columnCreator,addList}) {
                         onClick={()=>addList(header)}
                         label='Добавить список'>
                     </Button>
-                    <Button
-                        onClick={columnCreator}
-                        variant='just_icon'
-                        icon={<AiOutlineClose/>}>
-                    </Button>
+
                 </div>
             </div>
         </form>

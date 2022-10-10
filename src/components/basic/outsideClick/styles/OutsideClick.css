@@ -12,3 +12,15 @@
     transform: scale(0);
 }
 
+.outside_wrapper{
+    z-index: 2;
+}
+
+
+.externalOpen{
+
+}
+
+.externalClose{
+    display: none;
+}

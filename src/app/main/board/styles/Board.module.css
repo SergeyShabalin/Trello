@@ -18,5 +18,7 @@
 .add_list {
     padding: 5px;
     margin: 5px;
+    transition: 0.55s ease-in all;
+
 }
 

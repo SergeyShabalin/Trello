@@ -8,6 +8,7 @@ import {getIdColumn} from "../../../store/reducers/column-reducer";
 import ListCreator from "./listWrapper/listCreator/ListCreator";
 
 import classes from './styles/Board.module.css'
+import OutsideClick from "../../../components/basic/outsideClick/OutsideClick";
 
 export default function Board() {
 
@@ -20,7 +21,6 @@ export default function Board() {
         dispatch(getAllColumns())
         setIsCreator(true)
     }, [])
-
 
     function columnCreator() {
         setIsCreator(!isCreator)
@@ -51,20 +51,20 @@ export default function Board() {
 
                 <div className={classes.add_list}>
 
-                    {isCreator ?
-                        <Button
-                            onClick={columnCreator}
-                            variant='contained'
-                            label='Добавить еще одну колонку'
-                            startIcon={<AiOutlinePlus/>}>
-                        </Button>
-                        :
-                      <div>
-                          <ListCreator
-                          columnCreator={columnCreator}
-                          addList={addList}/>
-                      </div>
-                    }
+                    <OutsideClick
+                        external={
+                            <Button
+                                variant='contained'
+                                label='Добавить еще одну колонку'
+                                startIcon={<AiOutlinePlus/>}>
+                            </Button>
+                        }
+                        type='replace'>
+                        <div>
+                            <ListCreator
+                                addList={addList}/>
+                        </div>
+                    </OutsideClick>
 
                 </div>
 
