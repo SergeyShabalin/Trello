@@ -1,12 +1,11 @@
-import React from 'react';
+import React, {useEffect, useRef} from 'react';
 import Button from "../../../../../components/basic/button/Button";
-import {AiOutlineClose} from "react-icons/ai";
 import {useDispatch, useSelector} from "react-redux";
 import {deleteColumn} from "../../../../../store/asyncAction/Columns";
 import classes from './styles/ListContextMenu.module.css'
 
 
-function ListContextMenu({closeModalWindow}) {
+function ListContextMenu() {
 
     const dispatch = useDispatch()
     const columnId = useSelector(state => state.columns.idColumn)
@@ -23,11 +22,6 @@ function ListContextMenu({closeModalWindow}) {
         <form onSubmit={submit} className={classes.context_form}>
             <div className={classes.context_menu} id='contextMenu'>
                 <div className={classes.context_header}>Действия со списком
-                    <Button
-                        onClick={closeModalWindow}
-                        variant='just_icon'
-                        icon={<AiOutlineClose/>}>
-                    </Button>
                 </div>
                 <hr/>
                 <Button
@@ -37,6 +31,9 @@ function ListContextMenu({closeModalWindow}) {
                 <Button
                     size='full_sized'
                     label='Добавить карточку'/>
+                <Button
+                    size='full_sized'
+                    label='Переместить карточку'/>
             </div>
         </form>
     );

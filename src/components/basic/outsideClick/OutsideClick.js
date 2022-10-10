@@ -12,7 +12,7 @@ function OutsideClick({children}) {
     }
 
     useEffect(() => {
-        addClick()
+           addClick()
     }, [])
 
     function addClick() {
@@ -20,6 +20,7 @@ function OutsideClick({children}) {
             const cur = menuRef.current
             if (cur && cur.contains(target)) return
             setIsOpen(false)
+            return () => document.removeEventListener('click', addClick);
         });
     }
 

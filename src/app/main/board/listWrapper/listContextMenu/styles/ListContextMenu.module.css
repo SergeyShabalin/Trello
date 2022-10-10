@@ -9,9 +9,9 @@
 
 .context_header{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    padding: 0 5px;
+    padding:  5px;
     white-space: nowrap;
 }
 
