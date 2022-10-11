@@ -12,12 +12,18 @@
     transform: scale(0);
 }
 
+.replace{
+
+    transition: 0.25s ease all;
+    transform: scale(1);
+}
+
 .outside_wrapper{
     z-index: 2;
 }
 
 
-.externalOpen{
+.external{
 
 }
 

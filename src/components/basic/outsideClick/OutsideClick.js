@@ -18,28 +18,20 @@ function OutsideClick({children, external, type = 'context'}) {
 
     return (
         <div className='outside_wrapper'>
-            {type === 'context'
-                ? <div ref={menuRef} className={isOpen ? "menu -active" : "menu "}>
-                    <div onClick={toggle}>
-                        {external}
-                    </div>
-                    <div className="menu__list">
-                        {children}
-                    </div>
-                </div>
-                :  <div ref={menuRef} onClick={toggle} className={ isOpen ? "menu -active" : "menu"}>
-                      <div>
+                 <div onClick={toggle} ref={menuRef} className={isOpen ? "menu -active" : "menu "}>
+                    {type === 'context' ?
+                        <div>
+                            <div>{external}</div>
+                            <div className="menu__list">{children}</div>
+                        </div>
 
-                        <div className={isOpen ? 'externalClose' : null}>{external}</div>
-                    </div>
-                     <div className="menu__list">
-                         {isOpen ?    <div>{children}</div> : null}
-                    </div>
-
+                        : <div className='replace'>
+                            <div className={isOpen ? 'externalClose' : null}>{external}</div>
+                            {isOpen ?  <div className="menu__list">{children}</div> : null}
+                        </div>
+                    }
                 </div>
-            }
         </div>
-
     );
 };
 
