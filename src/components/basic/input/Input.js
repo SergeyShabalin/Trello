@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import classes from './styles/Input.module.css'
 
 
-export default function Input({ value,
+export default function Input({
+                                  value,
                                   rows = 1,
                                   cols,
                                   placeholder,
@@ -12,34 +13,37 @@ export default function Input({ value,
                                   disabled,
                                   iconLeft,
                                   iconRight,
-                              ...props}) {
+                                  variant = 'input',
+                                  container = 'input_container',
+                                  ...props
+                              }) {
 
     return (
         <div>
             {rows > 1 ?
                 <div>
                     {label && <div className={classes.label}>{label}</div>}
-                <textarea
-                    className={classes.text_area}
-                    placeholder={placeholder}
-                    rows={rows}
-                    cols={cols}
-                    defaultValue={value}
-                    onChange={onChange}
-                    {...props}
-                />
+                    <textarea
+                        className={classes.text_area}
+                        placeholder={placeholder}
+                        rows={rows}
+                        cols={cols}
+                        defaultValue={value}
+                        onChange={onChange}
+                        {...props}
+                    />
                 </div>
                 :
                 <div>
                     {label && <div className={classes.label}>{label}</div>}
 
-                    <div className={classes.input_container}>
+                    <div className={`${classes[container]}`}>
                         {iconLeft && iconLeft}
                         <input type="text"
                                disabled={disabled}
                                placeholder={placeholder}
                                onChange={onChange}
-                               className={classes.input}
+                               className={`${classes[variant]}`}
                                defaultValue={value}
                                {...props}
                         />
@@ -51,7 +55,7 @@ export default function Input({ value,
     );
 };
 
-Input.propTypes={
+Input.propTypes = {
     cols: PropTypes.number,
     rows: PropTypes.number,
     placeholder: PropTypes.string,

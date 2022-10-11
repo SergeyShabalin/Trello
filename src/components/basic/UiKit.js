@@ -294,7 +294,12 @@ export default function UiKit() {
                             value='icon right'>
                         </Input>
                         <Input
+                            variant='transparent'
+                            container='custom'
                             placeholder='placeholder'></Input>
+                        <Input
+                            placeholder='placeholder'></Input>
+
                         <Input
                             disabled={true}
                             value='disabled'>

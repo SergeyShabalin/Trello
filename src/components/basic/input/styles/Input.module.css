@@ -1,4 +1,5 @@
 .input {
+    width: 80%;
     border: none;
     outline: none;
     font-weight: var(--input-font-weight);
@@ -16,6 +17,13 @@
     margin: var(--input-container-margin);
 }
 
+.custom {
+    background-color: transparent;
+    display: flex;
+    border: solid 1px blue;
+    border-radius: 5px;
+}
+
 .text_area {
     font-size: 1rem;
     font-weight: var(--textarea-font-weight);
@@ -31,4 +39,12 @@
     font-size: var(--input-label-font-size);
 }
 
+.transparent {
+    border: none;
+    outline: none;
+    width: 70%;
+    padding: var(--input-padding);
+    margin: var(--input-margin);
+    background-color: transparent;
+}
 

@@ -8,6 +8,8 @@ function ListHeaderEdit({header, toggleEdit}) {
     return (
         <div className={classes.edit_wrapper}>
             <Input autoFocus
+                   variant='transparent'
+                   container='custom'
                    iconRight={
                        <Button
                            onClick={toggleEdit}

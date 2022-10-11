@@ -1,6 +1,8 @@
 .header {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    height: 12%;
 }
 
 .title {
@@ -10,6 +12,16 @@
     position: relative;
     font-weight: 500;
     margin: 5px;
-    width: 80%;
+    cursor: pointer;
+
     color: var(--list-header-color)
+}
+
+.title_wrapper{
+display: flex;
+    white-space: nowrap;
+}
+
+.context_wrapper{
+    z-index: 2;
 }

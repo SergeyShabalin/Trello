@@ -1,6 +1,6 @@
 .list_wrapper {
     margin: 5px;
-    padding: 5px;
+    padding:  5px;
     font-size: var(--list-wrapper-font-size);
     width: 270px;
     max-height: 80vh;

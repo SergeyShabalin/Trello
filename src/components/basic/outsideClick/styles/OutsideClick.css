@@ -1,5 +1,4 @@
 .menu {
-    z-index: 2;
 }
 
 .menu.-active .menu__list {
@@ -7,7 +6,7 @@
 }
 
 .menu__list {
-    position: absolute;
+
     transition: 0.25s ease all;
     transform: scale(0);
 }
