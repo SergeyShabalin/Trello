@@ -5,11 +5,13 @@ import ListCard from "./listCard/ListCard";
 import CardCreator from "./cardCreator/CardCreator";
 import classes from './styles/ListWrapper.module.css'
 
+
 export default function ListWrapper({header, onClick}) {
+
 
     return (
         <div className={classes.list_wrapper}
-            onClick={onClick}>
+             onClick={onClick}>
             <ListHeader header={header}/>
             <ListCard/>
             <CardCreator/>
@@ -17,7 +19,7 @@ export default function ListWrapper({header, onClick}) {
     );
 };
 
-ListWrapper.propTypes ={
+ListWrapper.propTypes = {
     header: PropTypes.string
 }
 

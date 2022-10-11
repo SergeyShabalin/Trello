@@ -1,16 +1,24 @@
-import React, {useState} from 'react';
+import React,{useState} from 'react';
 import OutsideClick from "../../../../../components/basic/outsideClick/OutsideClick";
-import classes from './styles/ListHeader.module.css'
 import Button from "../../../../../components/basic/button/Button";
 import {GoKebabHorizontal} from "react-icons/go";
 import ListContextMenu from "../listContextMenu/ListContextMenu";
-
+import ListHeaderEdit from "./listHeaderEdit/ListHeaderEdit";
+import classes from './styles/ListHeader.module.css'
 
 export default function ListHeader({header}) {
 
+    const [isEdit, setIsEdit] = useState(false);
+
+    function toggleEdit(){
+        setIsEdit(!isEdit)
+    }
+
     return (
         <div className={classes.header}>
-            <div className={classes.title}>{header}</div>
+            {isEdit ?
+                <ListHeaderEdit toggleEdit={toggleEdit} header={header}/>
+                : <div onClick={toggleEdit} className={classes.title}>{header}</div> }
             <OutsideClick
                 external={
                     <Button
