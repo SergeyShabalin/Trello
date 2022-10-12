@@ -3,16 +3,27 @@ import classes from './styles/ListHeaderEdit.module.css'
 import Input from "../../../../../../components/basic/input/Input";
 import Button from "../../../../../../components/basic/button/Button";
 import {MdOutlineFileDownloadDone} from "react-icons/md";
+import {useDispatch, useSelector} from "react-redux";
+import {updateColumn} from "../../../../../../store/asyncAction/Columns";
 
-function ListHeaderEdit({header, toggleEdit}) {
+function ListHeaderEdit({header}) {
+
+    const dispatch = useDispatch()
+    const columnId = useSelector(state => state.columns.idColumn)
+
+    function saveChanged(){
+        dispatch(updateColumn(columnId))
+    }
+
     return (
         <div className={classes.edit_wrapper}>
             <Input autoFocus
+
                    variant='transparent'
                    container='custom'
                    iconRight={
                        <Button
-                           onClick={toggleEdit}
+                           onClick={saveChanged}
                            variant='just_icon'
                            variety='sized'
                            icon={<MdOutlineFileDownloadDone/>}>
