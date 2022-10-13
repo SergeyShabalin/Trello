@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import classes from './styles/ListHeaderEdit.module.css'
 import Input from "../../../../../../components/basic/input/Input";
 import Button from "../../../../../../components/basic/button/Button";
@@ -9,16 +9,22 @@ import {updateColumn} from "../../../../../../store/asyncAction/Columns";
 function ListHeaderEdit({header}) {
 
     const dispatch = useDispatch()
+    const [newHeader, setNewHeader] = useState({});
     const columnId = useSelector(state => state.columns.idColumn)
 
     function saveChanged(){
-        dispatch(updateColumn(columnId))
+        dispatch(updateColumn(columnId, newHeader))
+
+    }
+    function getNewValue({target}){
+        setNewHeader({header:target.value})
     }
 
     return (
+
         <div className={classes.edit_wrapper}>
             <Input autoFocus
-
+                    onChange={getNewValue}
                    variant='transparent'
                    container='custom'
                    iconRight={
@@ -32,6 +38,7 @@ function ListHeaderEdit({header}) {
                 placeholder='placeholder'
                 value={header}></Input>
         </div>
+
     );
 };
 

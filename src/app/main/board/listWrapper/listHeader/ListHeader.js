@@ -5,8 +5,12 @@ import {GoKebabHorizontal} from "react-icons/go";
 import ListContextMenu from "../listContextMenu/ListContextMenu";
 import ListHeaderEdit from "./listHeaderEdit/ListHeaderEdit";
 import classes from './styles/ListHeader.module.css'
+import PropTypes from "prop-types";
+
+
 
 export default function ListHeader({header}) {
+
 
     return (
         <div className={classes.header}>
@@ -15,8 +19,9 @@ export default function ListHeader({header}) {
                 type='replace'
                 external={
                     <div className={classes.title}>{header}</div>}>
-                <ListHeaderEdit  header={header}/>
+                <ListHeaderEdit header={header}/>
             </OutsideClick>
+
         </div>
             <div className={classes.context_wrapper}>
                 <OutsideClick
@@ -32,4 +37,9 @@ export default function ListHeader({header}) {
         </div>
     );
 };
+
+
+ListHeader.propTypes = {
+    header: PropTypes.string
+}
 

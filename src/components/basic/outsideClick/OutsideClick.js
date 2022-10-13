@@ -10,6 +10,7 @@ function OutsideClick({children, external, type = 'context'}) {
         setIsOpen(!isOpen);
     }
 
+
     useEffect(() => {
         const onClick = e => menuRef.current.contains(e.target) || setIsOpen(false);
         document.addEventListener('click', onClick);
