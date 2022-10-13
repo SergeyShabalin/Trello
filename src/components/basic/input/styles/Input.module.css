@@ -20,6 +20,7 @@
 .custom {
     background-color: transparent;
     display: flex;
+    width: 100%;
     border: solid 1px blue;
     border-radius: 5px;
 }
@@ -42,7 +43,7 @@
 .transparent {
     border: none;
     outline: none;
-    width: 70%;
+    width: 100%;
     padding: var(--input-padding);
     margin: var(--input-margin);
     background-color: transparent;

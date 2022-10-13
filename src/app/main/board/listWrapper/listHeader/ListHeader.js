@@ -8,21 +8,23 @@ import classes from './styles/ListHeader.module.css'
 import PropTypes from "prop-types";
 
 
-
 export default function ListHeader({header}) {
 
+    const slice = header.slice(0, 25);
 
     return (
         <div className={classes.header}>
-        <div className={classes.title_wrapper}>
-            <OutsideClick
-                type='replace'
-                external={
-                    <div className={classes.title}>{header}</div>}>
-                <ListHeaderEdit header={header}/>
-            </OutsideClick>
+            <div className={classes.title_wrapper}>
+                <OutsideClick
+                    type='replace'
+                    external={
+                        header.length > 30 ? <div className={classes.title}>{slice}...</div>
+                            : <div className={classes.title}>{header}</div>
+                    }>
+                    <ListHeaderEdit header={header}/>
+                </OutsideClick>
 
-        </div>
+            </div>
             <div className={classes.context_wrapper}>
                 <OutsideClick
                     external={

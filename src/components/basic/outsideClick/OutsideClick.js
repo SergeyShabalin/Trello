@@ -10,6 +10,11 @@ function OutsideClick({children, external, type = 'context'}) {
         setIsOpen(!isOpen);
     }
 
+    function saveChanged(e){
+        if(e.keyCode === 13){
+            setIsOpen(false)
+        }
+    }
 
     useEffect(() => {
         const onClick = e => menuRef.current.contains(e.target) || setIsOpen(false);
@@ -33,8 +38,8 @@ function OutsideClick({children, external, type = 'context'}) {
                         <div onClick={toggle}>
                             <div className={isOpen ? 'externalClose' : null}>{external}</div>
                         </div>
-                        <div className="menu__list">
-                            {isOpen ? <div>{children}</div> : null}
+                        <div  className="menu__list">
+                            {isOpen ? <div  onKeyDown={saveChanged}>{children}</div> : null}
                         </div>
                     </div>
                 }
