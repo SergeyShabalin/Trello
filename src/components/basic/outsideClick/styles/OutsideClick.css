@@ -1,4 +1,6 @@
 .menu {
+
+
 }
 
 .menu.-active .menu__list {
@@ -7,13 +9,10 @@
 
 .menu__list {
 
-    transition: 0.25s ease all;
     transform: scale(0);
 }
 
 .replace{
-
-    transition: 0.25s ease all;
     transform: scale(1);
 }
 

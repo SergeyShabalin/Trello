@@ -14,6 +14,8 @@ function OutsideClick({children, external, type = 'context'}) {
         if(e.keyCode === 13){
             setIsOpen(false)
         }
+
+        // пофиксить закрывание окна добавления
     }
 
     useEffect(() => {
@@ -39,7 +41,7 @@ function OutsideClick({children, external, type = 'context'}) {
                             <div className={isOpen ? 'externalClose' : null}>{external}</div>
                         </div>
                         <div  className="menu__list">
-                            {isOpen ? <div  onKeyDown={saveChanged}>{children}</div> : null}
+                            {isOpen ? <div onKeyDown={saveChanged}>{children}</div> : null}
                         </div>
                     </div>
                 }

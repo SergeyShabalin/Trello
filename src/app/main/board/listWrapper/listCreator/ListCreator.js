@@ -13,12 +13,19 @@ function ListCreator({addList}) {
         setHeader({header: e.target.value})
     }
 
+    function addColumn(e){
+        if(e.keyCode === 13){
+            addList(header)
+        }
+    }
+
     function submit(e){
         e.preventDefault()
     }
 
     return (
-        <form onSubmit={submit}>
+        <form onSubmit={submit}
+              onKeyDown={addColumn} >
             <div className={classes.add_list_wrapper}>
                 <Input autoFocus
                     placeholder='Ввести заголовок списка'

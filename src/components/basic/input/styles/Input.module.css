@@ -8,6 +8,7 @@
     margin: var(--input-margin);
     border-radius: var(--input-border-radius);
     background-color: var(--input-background-color);
+
 }
 
 .input_container {
@@ -23,6 +24,7 @@
     width: 100%;
     border: solid 1px blue;
     border-radius: 5px;
+
 }
 
 .text_area {
@@ -47,5 +49,8 @@
     padding: var(--input-padding);
     margin: var(--input-margin);
     background-color: transparent;
+    font-weight: 500;
+    color: #03034FFF;
+    font-family: var(--prymary-font);
 }
 
