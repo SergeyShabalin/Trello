@@ -12,17 +12,16 @@ import OutsideClick from "../../../components/basic/outsideClick/OutsideClick";
 import {getALLCard, getAllCards, getCard} from "../../../store/asyncAction/Cards";
 import {Api} from "../../../Api";
 import {viewAllCards} from "../../../store/reducers/card-reducer";
+import ListCard from "./listWrapper/listCard/ListCard";
 
 export default function Board() {
 
     const dispatch = useDispatch()
-    const columns = useSelector(state => state.columns.columns)
+    const columnsStore = useSelector(state => state.columns.columns)
+    const cardStore = useSelector(state => state.cards.cards)
     const [isCreator, setIsCreator] = useState(true)
 
-    const [head, setHead] = useState('')
-    const kkk = useSelector(state => state.cards.cards)
 
-    console.log(kkk)
 
     useEffect(() => {
         dispatch(getAllColumns())
@@ -44,43 +43,32 @@ export default function Board() {
     }
 
 
-
-
     let c
-    const columnsList = columns.map(item => {
+    const columnsList = columnsStore.map(column => {
 
-        c = item.cards.map(idCard => {
-            let cardHeader = kkk.find(kkk => kkk._id === idCard)
+        c = column.cards.map(idCard => {
+            let cardHeader = cardStore.find(cardStore => cardStore._id === idCard)
             if (cardHeader) return (cardHeader.header)
         })
 
         let cc = c.map(i => (
-                <div>{i}</div>
+                <ListCard>{i}</ListCard>
             )
         )
-        console.log(item, c)
         return (
             <div>
-                {/*<div style={{border: 'solid 1px black'}}>{item.header}*/}
-                {/*    <div>{cc}</div>*/}
-                    <Column
-                        onClick={() => sendColumnId(item)}
-                        key={item._id}
-                        header={item.header}
-                        cards={cc}
-                    />
-                {/*</div>*/}
+                <Column
+                onClick={() => sendColumnId(column)}
+                key={column._id}
+                header={column.header}
+                cards={cc}
+            >
+                <div>{cc}</div>
+            </Column>
             </div>
 
         )
     })
-
-
-
-
-
-
-
 
 
     return (
@@ -89,11 +77,8 @@ export default function Board() {
             <div className={classes.wrapper_list}>
                 <div className={classes.columns}>
                     {columnsList}
-
                 </div>
-
                 <div className={classes.add_list}>
-
                     <OutsideClick
                         external={
                             <Button
@@ -108,7 +93,6 @@ export default function Board() {
                                 addList={addList}/>
                         </div>
                     </OutsideClick>
-
                 </div>
 
             </div>

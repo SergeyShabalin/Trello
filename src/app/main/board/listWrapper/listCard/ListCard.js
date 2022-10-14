@@ -15,7 +15,7 @@ import {MdKeyboardArrowDown} from "react-icons/md";
 
 
 
-export default function ListCard({id, card }) {
+export default function ListCard({id, card, children }) {
 
     const [isEdit, setIsEdit] = useState(false)
     const dispatch = useDispatch()
@@ -35,7 +35,7 @@ export default function ListCard({id, card }) {
                                 />
                             </div>
                             :
-                            <div className={classes.content}>{card}</div>
+                            <div className={classes.content}>{children}</div>
                         }
 
                         <div className={classes.content_edit}><ContentEdit setIsEdit={setIsEdit}/></div>
