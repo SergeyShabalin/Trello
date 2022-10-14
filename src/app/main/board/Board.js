@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useRef} from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import ListWrapper from "./listWrapper/ListWrapper";
+import Column from "./listWrapper/Column";
 import Button from "../../../components/basic/button/Button";
 import {AiOutlinePlus} from "react-icons/ai";
 import {addColumn, getAllColumns} from "../../../store/asyncAction/Columns";
@@ -9,6 +9,9 @@ import ListCreator from "./listWrapper/listCreator/ListCreator";
 
 import classes from './styles/Board.module.css'
 import OutsideClick from "../../../components/basic/outsideClick/OutsideClick";
+import {getALLCard, getAllCards, getCard} from "../../../store/asyncAction/Cards";
+import {Api} from "../../../Api";
+import {viewAllCards} from "../../../store/reducers/card-reducer";
 
 export default function Board() {
 
@@ -16,10 +19,15 @@ export default function Board() {
     const columns = useSelector(state => state.columns.columns)
     const [isCreator, setIsCreator] = useState(true)
 
+    const [head, setHead] = useState('')
+    const kkk = useSelector(state => state.cards.cards)
+
+    console.log(kkk)
 
     useEffect(() => {
         dispatch(getAllColumns())
         setIsCreator(true)
+        dispatch(getALLCard())
     }, [])
 
     function columnCreator() {
@@ -31,22 +39,57 @@ export default function Board() {
         columnCreator()
     }
 
-    function sendColumnId(columnId) {
-        dispatch(getIdColumn(columnId))
+    function sendColumnId(item) {
+        dispatch(getIdColumn(item._id))
     }
+
+
+
+
+    let c
+    const columnsList = columns.map(item => {
+
+        c = item.cards.map(idCard => {
+            let cardHeader = kkk.find(kkk => kkk._id === idCard)
+            if (cardHeader) return (cardHeader.header)
+        })
+
+        let cc = c.map(i => (
+                <div>{i}</div>
+            )
+        )
+        console.log(item, c)
+        return (
+            <div>
+                {/*<div style={{border: 'solid 1px black'}}>{item.header}*/}
+                {/*    <div>{cc}</div>*/}
+                    <Column
+                        onClick={() => sendColumnId(item)}
+                        key={item._id}
+                        header={item.header}
+                        cards={cc}
+                    />
+                {/*</div>*/}
+            </div>
+
+        )
+    })
+
+
+
+
+
+
+
+
 
     return (
         <div className={classes.board}>
             <div className={classes.board_header}>Наименование доски</div>
             <div className={classes.wrapper_list}>
                 <div className={classes.columns}>
-                    {columns.map(item => (
-                        <ListWrapper
-                            onClick={() => sendColumnId(item._id)}
-                            key={item._id}
-                            header={item.header}
-                        />
-                    ))}
+                    {columnsList}
+
                 </div>
 
                 <div className={classes.add_list}>

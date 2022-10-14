@@ -14,8 +14,6 @@ function OutsideClick({children, external, type = 'context'}) {
         if(e.keyCode === 13){
             setIsOpen(false)
         }
-
-        // пофиксить закрывание окна добавления
     }
 
     useEffect(() => {

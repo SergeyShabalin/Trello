@@ -1,6 +1,6 @@
 import {Api} from "../../Api";
 import {addNewColumn, viewAllColumns} from "../reducers/column-reducer";
-import axios from "axios";
+
 
 export function getAllColumns() {
     return function (dispatch) {

@@ -7,7 +7,6 @@ const defaultState={
     idColumn: ''
 }
 
-// пофиксить добавление новых таких же колонок к старым
 export default  function columnReducer(state = defaultState, action) {
 
     switch (action.type) {
