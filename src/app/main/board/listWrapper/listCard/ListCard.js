@@ -22,15 +22,12 @@ export default function ListCard({id, card, children }) {
 
     return (
         <div className={classes.list_card}>
-
-            {/*{card.map(item => (*/}
-            {/*    <div key={item._id}>*/}
                     <div className={classes.title} onClick={() => setIsEdit(false)}>
                         {isEdit ?
                             <div className={classes.quick_editor_input}>
                                 <Input
                                     rows={5} cols={30}
-                                    value={card}
+                                    value={children}
                                     // onChange={getNewValue}
                                 />
                             </div>
@@ -46,8 +43,6 @@ export default function ListCard({id, card, children }) {
 
                     </div>
                     <hr/>
-             {/*   </div>*/}
-             {/*))}*/}
         </div>
 
     );

@@ -36,10 +36,10 @@ function OutsideClick({children, external, type = 'context'}) {
                     </div>
                     : <div>
                         <div onClick={toggle}>
-                            <div className={isOpen ? 'externalClose' : null}>{external}</div>
+                            <div className={isOpen ? 'externalClose' : ''}>{external}</div>
                         </div>
                         <div  className="menu__list">
-                            {isOpen ? <div onKeyDown={saveChanged}>{children}</div> : null}
+                            {isOpen && <div onKeyDown={saveChanged}>{children}</div>}
                         </div>
                     </div>
                 }

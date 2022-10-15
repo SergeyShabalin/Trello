@@ -14,13 +14,11 @@ function ListCreator({addList}) {
     }
 
     function addColumn(e){
-        if(e.keyCode === 13){
-            addList(header)
-        }
+        if(e.keyCode === 13) addList(header)
     }
 
     function submit(e){
-        e.preventDefault()
+        e.preventDefault() //TODO удалить!!!!
     }
 
     return (
