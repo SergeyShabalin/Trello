@@ -8,7 +8,7 @@ import {useLocation} from 'react-router-dom'
 import classes from './ListCard.module.css'
 import Select from "../../../../components/basic/Select";
 import {useDispatch, useSelector} from "react-redux";
-import {getAllCards} from "../../../../store/asyncAction/Cards";
+
 import Button from "../../../../components/basic/Button";
 import {MdKeyboardArrowDown} from "react-icons/md";
 import Input from "../../../../components/basic/Input";

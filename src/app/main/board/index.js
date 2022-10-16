@@ -1,18 +1,16 @@
 import React, {useState, useEffect, useRef} from 'react';
 import {useDispatch, useSelector} from "react-redux";
+import {AiOutlinePlus} from "react-icons/ai";
 import Column from "./Columns";
 import Button from "../../../components/basic/Button";
-import {AiOutlinePlus} from "react-icons/ai";
-import {addColumn, getAllColumns} from "../../../store/asyncAction/Columns";
-import {getIdColumn} from "../../../store/reducers/column-reducer";
+import {addColumn, getAllColumns} from "../../../store/columns/asyncActions";
+import {columnsAC} from "../../../store/columns/actions";
 import ListCreator from "./ColumnCreator";
-
-import classes from './Board.module.css'
 import OutsideClick from "../../../components/basic/OutsideClick";
-import {getALLCard, getAllCards, getCard} from "../../../store/asyncAction/Cards";
-import {Api} from "../../../Api";
-import {viewAllCards} from "../../../store/reducers/card-reducer";
+import {getALLCard} from "../../../store/cards/asyncActions";
 import ListCard from "./Cards";
+import classes from './Board.module.css'
+
 
 export default function Board() {
 
@@ -39,7 +37,7 @@ export default function Board() {
     }
 
     function sendColumnId(item) {
-        dispatch(getIdColumn(item._id))
+        dispatch(columnsAC.getIdColumn(item._id))
     }
 
 

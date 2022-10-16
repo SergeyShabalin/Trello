@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classes from './styles/Input.module.css'
+import classes from './Input.module.css'
 
 
 export default function Input({

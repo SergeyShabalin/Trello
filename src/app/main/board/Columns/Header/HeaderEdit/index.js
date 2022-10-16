@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from "react-redux";
 
 import classes from './ListHeaderEdit.module.css'
 import Input from "../../../../../../components/basic/Input";
-import {updateColumn} from "../../../../../../store/asyncAction/Columns";
+import {updateColumn} from "../../../../../../store/columns/asyncActions";
 
 function ListHeaderEdit({header}) {
 

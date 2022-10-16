@@ -1,6 +1,6 @@
 import {createStore, combineReducers, applyMiddleware} from 'redux'
-import cardReducer from  "./reducers/card-reducer";
-import columnReducer from  "./reducers/column-reducer";
+import cardReducer from  "./cards/reducer";
+import columnReducer from  "./columns/reducer";
 import thunk from "redux-thunk";
 
 

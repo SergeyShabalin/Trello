@@ -1,7 +1,7 @@
 import React, {useEffect, useRef} from 'react';
 import Button from "../../../../../components/basic/Button";
 import {useDispatch, useSelector} from "react-redux";
-import {deleteColumn} from "../../../../../store/asyncAction/Columns";
+import {deleteColumn} from "../../../../../store/columns/asyncActions";
 import classes from './ListContextMenu.module.css'
 
 

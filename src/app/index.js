@@ -17,10 +17,10 @@ function App() {
 export default App;
 
 
-// style +++
-// directores
+// style //TODO+++
+// directores //TODO+++
 // убрать id из стора listContextMenu
-// сократить санки
+// сократить санки //TODO+++
 // /columns/delete/${columnId}` == /columns/${columnId}`
 // убрать dispatch(getAllColumns())
 // создать папку api
@@ -29,4 +29,4 @@ export default App;
 // переписать меню на список !!!
 // заменить div на span or p для текста !!!
 // создать hook https://usehooks.com/page/3 !!!
-// переписать редакс (по желанию)
+// переписать редакс (по желанию) //TODO+++

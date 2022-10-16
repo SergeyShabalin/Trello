@@ -1,43 +1,39 @@
 import {Api} from "../../Api";
-import {addNewColumn, viewAllColumns} from "../reducers/column-reducer";
+import {columnsAC} from "../columns/actions";
 
-
-export function getAllColumns() {
-    return function (dispatch) {
-        Api.get(`/columns`).then((resp) => {
-            dispatch(viewAllColumns(resp.data))
-        }).catch((error) => {
-            console.warn(error, 'server error');
-        })
+export const getAllColumns = () => async (dispatch) => {
+    try {
+        const resp = await Api.get(`/columns`)
+        dispatch(columnsAC.viewAllColumns(resp.data))
+    } catch (error) {
+        console.warn(error, 'server error');
     }
 }
 
-export function addColumn(header) {
-    return function (dispatch) {
-        Api.post(`/columns/new`, header).then((resp) => {
-            dispatch(addNewColumn(resp.data))
-        }).catch((error) => {
-            console.warn(error, 'server error');
-        })
+export const addColumn = (header) => async (dispatch) => {
+    try {
+        const resp = await Api.post(`/columns/new`, header)
+        dispatch(columnsAC.addNewColumn(resp.data))
+    } catch (error) {
+        console.warn(error, 'server error');
     }
 }
 
-export function deleteColumn(columnId) {
-    return function (dispatch) {
-        Api.delete(`/columns/delete/${columnId}`).then((resp) => {
-            dispatch(getAllColumns())
-        }).catch((error) => {
-            console.warn(error, 'server error');
-        })
+export const deleteColumn = (columnId) => async (dispatch) => {
+    try {
+        await Api.delete(`/columns/delete/${columnId}`)
+        dispatch(getAllColumns())
+    } catch (error) {
+        console.warn(error, 'server error');
     }
 }
 
-export function updateColumn(columnId, data) {
-    return function (dispatch) {
-        Api.patch(`/columns/update/${columnId}`, data).then((resp) =>{
-            dispatch(getAllColumns())
-        }).catch((error) => {
-            console.warn(error, 'server error');
-        })
+export const updateColumn = (columnId, data) => async (dispatch) => {
+    try {
+        await Api.patch(`/columns/update/${columnId}`, data)
+        dispatch(getAllColumns())
+    } catch (error) {
+        console.warn(error, 'server error');
     }
 }
+
