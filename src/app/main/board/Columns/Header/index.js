@@ -8,7 +8,7 @@ import classes from './ListHeader.module.css'
 import PropTypes from "prop-types";
 
 
-export default function ListHeader({header}) {
+export default function ListHeader({header=''}) {
 
     const slice = header.slice(0, 25);
 

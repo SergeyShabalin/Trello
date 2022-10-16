@@ -23,7 +23,7 @@ export default App;
 // сократить санки //TODO+++
 // /columns/delete/${columnId}` == /columns/${columnId}`
 // убрать dispatch(getAllColumns())
-// создать папку api
+// создать папку api //TODO+++
 // придумать как отображать header (transform/tooltip/text)!!!
 // isFullSize button
 // переписать меню на список !!!

@@ -1,4 +1,4 @@
-import {Api} from "../../Api";
+import {Api} from "../../api";
 import {cardsAC} from "../cards/actions";
 
 export const getALLCard = () => async (dispatch) => {
