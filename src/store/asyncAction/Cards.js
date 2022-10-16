@@ -28,7 +28,7 @@ export const getALLCard = () => async (dispatch) => {
         const resp = await Api.get(`/cards1`)
         dispatch(viewAllCards(resp.data))
     } catch (error) {
-        console.warn(error.response.status, 'server error');
+        console.warn(error, 'server error');
     } finally {
 
     }

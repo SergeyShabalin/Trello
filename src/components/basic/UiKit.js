@@ -4,13 +4,13 @@ import {HiOutlineSearch} from "react-icons/hi";
 import {CgMenuGridO} from "react-icons/cg";
 import {MdKeyboardArrowDown, MdOutlineModeEditOutline} from "react-icons/md";
 import {GoKebabHorizontal} from "react-icons/go";
-import Button from './button/Button'
-import Input from "./input/Input";
-import Modal from "./modal/Modal";
-import Checkbox from "./checkbox/Checkbox";
-import Select from "./select/Select";
-import classes from './styles/UiKit.module.css'
-import ListContextMenu from "../../app/main/board/listWrapper/listContextMenu/ListContextMenu";
+import Button from './Button'
+import Input from "./Input";
+import Modal from "./Modal";
+import Checkbox from "./Сheckbox";
+import Select from "./Select";
+import classes from './UiKit.module.css'
+import ListContextMenu from '../../app/main/Board/Columns/ContexMenu'
 
 export default function UiKit() {
 
