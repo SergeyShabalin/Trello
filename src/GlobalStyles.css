@@ -41,7 +41,7 @@
     --button-contained-background-hover: rgba(0, 0, 0, 0.35);
     --button-contained-background-disabled: #e0c6c6;
     --button-contained-border-radius-disabled: 5px;
-    --button-contained-submit-background:  #098109;
+    --button-contained-submit-background: #098109;
     --button-contained-color-submit: #16c716;
     --button-contained-background-submit-hover: #034203;
     --button-contained-background-error: #dc0000;
@@ -86,7 +86,7 @@
     --checkbox-container-text-hover: 1px 1px 2px rgba(40, 44, 40, 0.35);
     --checkbox-container-outlined-border: solid 1px;
     --checkbox-container-outlined-color: #5e5858;
-    --checkbox-container-outlined-hover-shadow:1px 0 5px 0 inset;
+    --checkbox-container-outlined-hover-shadow: 1px 0 5px 0 inset;
     --checkbox-label-padding: 2px 5px;
     --checkbox-border-radius: 5px;
     --checkbox-disabled-color: #989191;
@@ -96,7 +96,7 @@
 
     --select-box-shadow: 0 0 0 1px #7373d0;
     --select-button-outlined-margin: 0;
-    --select-label-margin:0 5px;
+    --select-label-margin: 0 5px;
     --dropdown-border-radius: 5px;
     --dropdown-list-background: #ded4d4;
     --dropdown-list-border-radius: 6px;
@@ -104,15 +104,21 @@
     --dropdown-list-item-padding: 10px 20px;
     --dropdown-list-item-border: 1px solid rgba(162, 162, 168, 0.6);
     --dropdown-list-item-margin: 0;
-    --dropdown-list-item-first-border-radius: 5px 5px 0 0 ;
-    --dropdown-list-item-last-border-radius: 0 0  5px 5px;
+    --dropdown-list-item-first-border-radius: 5px 5px 0 0;
+    --dropdown-list-item-last-border-radius: 0 0 5px 5px;
 
+    --li-context-menu-color: #383131;
+    --li-context-menu-padding: 8px 5px;
+    --li-context-menu-margin: 10px;
+    --li-context-menu-border-radius: 5px;
+    --li-context-menu-background-color: white;
+    --li-context-menu-width: 100%;
 
 
     --list-wrapper: #ccd7cc;
     --list-creator-background: #dacaca;
-    --list-context-menu-background: #dcc9c9;
-    --list-context-color: #363232;
+    --list-context-menu-background: #dcc7c7;
+    --list-context-color: #2a2828;
     --card-detail-color: #f3eded;
     --content_edit_opacity: 100%;
     --list-header-color: #03034f;
@@ -120,6 +126,7 @@
     --decision-date-overdue: #ecafaf;
     --decision-date-hover: #d39191;
     --menu-color: rgba(0, 0, 0, 0.28);
+
 }
 
 

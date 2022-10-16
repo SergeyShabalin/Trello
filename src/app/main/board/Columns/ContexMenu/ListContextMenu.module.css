@@ -7,15 +7,37 @@
     color: var(--list-context-color);
 }
 
-.context_header{
+.context_header {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding:  5px;
+    padding: 5px;
     white-space: nowrap;
 }
 
-.context_form{
-    z-index: 2;
-    background-color: rgba(12, 117, 93, 0.36);
+.context_form {
+
 }
+
+.ul {
+    padding-right: 10px;
+    white-space: nowrap;
+    list-style-type: none;
+    padding-inline-start: 0;
+    margin-right: 5px;
+}
+
+.li {
+    margin: 5px;
+    cursor: pointer;
+    border-radius: var(--li-context-menu-border-radius);
+    font-family: var(--prymary-font);
+    padding: var(--li-context-menu-padding);
+    width: var(--li-context-menu-width);
+    color: var(--li-context-menu-color);
+}
+
+.li:hover {
+    background-color: var(--li-context-menu-background-color);
+}
+

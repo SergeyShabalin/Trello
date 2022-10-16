@@ -1,6 +1,5 @@
 import ColumnsAPI from "../../api/ColumnsAPI";
 import {columnsAC} from "../columns/actions";
-import {Api} from "../../api";
 
 
 export const getAllColumns = () => async (dispatch) => {

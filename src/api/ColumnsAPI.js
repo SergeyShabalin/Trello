@@ -1,5 +1,4 @@
 import {Api} from "./index";
-import {deleteColumn, getAllColumns, updateColumn} from "../store/columns/asyncActions";
 
 class ColumnsAPI {
     async getAllColumnsAPI() {

@@ -10,35 +10,25 @@ function ListContextMenu() {
     const dispatch = useDispatch()
     const columnId = useSelector(state => state.columns.idColumn)
 
-    function submit(e) {
-        e.preventDefault()
-    }
-
     function columnDelete() {
         dispatch(deleteColumn(columnId))
     }
 //TODO УДАЛИТЬ ФОРМУ
       return (
-        <form onSubmit={submit} className={classes.context_form}>
+        <form  className={classes.context_form}>
             <div className={classes.context_menu} id='contextMenu'>
                 <div className={classes.context_header}>Действия со списком
                 </div>
                 <hr/>
-                {/*<li>*/}
-                {/*    <ul></ul>*/}
-                {/*    <ul></ul>*/}
-                {/*    <ul></ul>*/}
-                {/*</li>*/}
-                <Button
-                    onClick={columnDelete}
-                    size='full_sized'
-                    label='Удалить список'/>
-                <Button
-                    size='full_sized'
-                    label='Добавить карточку'/>
-                <Button
-                    size='full_sized'
-                    label='Переместить карточку'/>
+                <div>
+                    <ul className={classes.ul}>
+                        <li className={classes.li} onClick={columnDelete}>Удалить список</li>
+                        <li className={classes.li}>Добавить карточку</li>
+                        <li className={classes.li}>Переместить карточку</li>
+                    </ul>
+                </div>
+
+
             </div>
         </form>
     );
