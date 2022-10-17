@@ -7,18 +7,7 @@
     width: 95%;
 }
 
-.title {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: relative;
-    font-weight: 500;
-    margin: 5px;
-    padding-left: 10px;
-    cursor: pointer;
-    color: var(--list-header-color);
-    word-break: normal
-}
+
 
 .title_wrapper {
     display: flex;

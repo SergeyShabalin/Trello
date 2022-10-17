@@ -4,6 +4,7 @@ import ListHeader from "./Header";
 import CardCreator from "../CardCreator";
 import classes from './ColumnWrapper.module.css'
 
+
 export default function Column({column, onClick, children}) {
 
     return (

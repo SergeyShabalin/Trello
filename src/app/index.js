@@ -28,6 +28,9 @@ export default App;
 // isFullSize button
 // переписать меню на список !!! //TODO+++
 // заменить div на span or p для текста !!!
-// создать hook https://usehooks.com/page/3 !!!
+// создать hook https://usehooks.com/page/3 !!! //TODO+++
 // переписать редакс (по желанию) //TODO+++
+
+
 //{} в headerEdit
+//Пофиксить несоответсие типов HeaderEdit стр 26

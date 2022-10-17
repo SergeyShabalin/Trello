@@ -10,29 +10,27 @@ import PropTypes from "prop-types";
 
 export default function ListHeader({column}) {
 
-
     return (
         <div className={classes.header}>
             <div className={classes.title_wrapper}>
-                <OutsideClick
-                    type='replace'
-                    external={
-                        <div className={classes.title}>{column.header}</div>
-                    }>
-                    <ListHeaderEdit header={column.header}/>
-                </OutsideClick>
-
+                <ListHeaderEdit header={column.header} columnId={column._id}/>
             </div>
             <div className={classes.context_wrapper}>
-                <OutsideClick
-                    external={
-                        <Button
-                            variant={'just_icon'}
-                            icon={<GoKebabHorizontal/>}>
-                        </Button>
-                    }>
-                    <ListContextMenu column={column._id}/>
-                </OutsideClick>
+
+
+                {/*<OutsideClick*/}
+                {/*    external={*/}
+                {/*        <Button*/}
+                {/*            variant={'just_icon'}*/}
+                {/*            icon={<GoKebabHorizontal/>}>*/}
+                {/*        </Button>*/}
+                {/*    }>*/}
+                {/*    <ListContextMenu columnId={column._id}/>*/}
+                {/*</OutsideClick>*/}
+
+
+                <ListContextMenu columnId={column._id}/>
+
             </div>
         </div>
     );

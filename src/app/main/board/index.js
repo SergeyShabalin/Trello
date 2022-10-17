@@ -77,20 +77,25 @@ export default function Board() {
                     {columnsList}
                 </div>
                 <div className={classes.add_list}>
-                    <OutsideClick
-                        external={
-                            <Button
-                                variant='contained'
-                                label='Добавить еще одну колонку'
-                                startIcon={<AiOutlinePlus/>}>
-                            </Button>
-                        }
-                        type='replace'>
-                        <div>
-                            <ListCreator
-                                addList={addList}/>
-                        </div>
-                    </OutsideClick>
+
+                    {/*TODO переписать на хук */}
+                    {/*<OutsideClick*/}
+                    {/*    external={*/}
+                    {/*        <Button*/}
+                    {/*            variant='contained'*/}
+                    {/*            label='Добавить еще одну колонку'*/}
+                    {/*            startIcon={<AiOutlinePlus/>}>*/}
+                    {/*        </Button>*/}
+                    {/*    }*/}
+                    {/*    type='replace'>*/}
+                    {/*    <div>*/}
+                    {/*        <ListCreator*/}
+                    {/*            addList={addList}/>*/}
+                    {/*    </div>*/}
+                    {/*</OutsideClick>*/}
+
+                    <ListCreator addList={addList}/>
+
                 </div>
 
             </div>

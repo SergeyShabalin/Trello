@@ -1,43 +1,54 @@
-import React, {useState} from 'react';
-import {useDispatch, useSelector} from "react-redux";
-
-import classes from './ListHeaderEdit.module.css'
-import Input from "../../../../../../components/basic/Input";
+import React, {useState, useRef} from 'react';
+import {useDispatch} from "react-redux";
 import {updateColumn} from "../../../../../../store/columns/asyncActions";
+import Input from "../../../../../../components/basic/Input";
+import useOnClickOutside from "../../../../../../hooks/UseOnClickOutside";
+import classes from './ListHeaderEdit.module.css'
 
-function ListHeaderEdit({header}) {
 
+function ListHeaderEdit({header, columnId}) {
+
+    const ref = useRef();
     const dispatch = useDispatch()
-    const [newHeader, setNewHeader] = useState({}); //TODO ???????????
-    const columnId = useSelector(state => state.columns.idColumn)
+    const [newHeader, setNewHeader] = useState();
+    const [isModalOpen, setModalOpen] = useState(false);
+
+    useOnClickOutside(ref, () => setModalOpen(false));
 
     function saveChanged(e) {
         if (e.keyCode === 13) {
             dispatch(updateColumn(columnId, newHeader))
+            setModalOpen(false)
         }
     }
 
     function getNewValue({target}) {
-        setNewHeader({header: target.value})
+        setNewHeader({header: target.value}) //TODO пофиксить несоответсвие типов
     }
 
-    const rowsInput = Math.ceil(1+ header.length/30)
+    const rowsInput = Math.ceil(1 + header.length / 30)
 
     return (
-        <div className={classes.edit_wrapper}>
-            <Input
-                rows={rowsInput}
-                cols={35}
-                autoFocus
-                onKeyDown={saveChanged}
-                onChange={getNewValue}
-                variant='transparent'
-                container='custom'
-                placeholder='placeholder'
-                value={header}
-            />
+        <div>
+            {isModalOpen ?
+                <div ref={ref}
+                     className={classes.edit_wrapper}>
+                    <Input
+                        rows={rowsInput}
+                        cols={35}
+                        autoFocus
+                        onKeyDown={saveChanged}
+                        onChange={getNewValue}
+                        variant='transparent'
+                        container='custom'
+                        placeholder='placeholder'
+                        value={header}
+                    />
+                </div>
+                : <div onClick={() => setModalOpen(true)}
+                       className={classes.title}>{header}</div>
+            }
         </div>
-
     );
 };
 
