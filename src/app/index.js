@@ -26,7 +26,7 @@ export default App;
 // создать папку api //TODO+++
 // придумать как отображать header (transform/tooltip/text)!!!
 // isFullSize button
-// переписать меню на список !!! //TODO+-
+// переписать меню на список !!! //TODO+++
 // заменить div на span or p для текста !!!
 // создать hook https://usehooks.com/page/3 !!!
 // переписать редакс (по желанию) //TODO+++

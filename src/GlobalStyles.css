@@ -107,18 +107,22 @@
     --dropdown-list-item-first-border-radius: 5px 5px 0 0;
     --dropdown-list-item-last-border-radius: 0 0 5px 5px;
 
-    --li-context-menu-color: #383131;
-    --li-context-menu-padding: 8px 5px;
-    --li-context-menu-margin: 10px;
-    --li-context-menu-border-radius: 5px;
-    --li-context-menu-background-color: white;
-    --li-context-menu-width: 100%;
-
+    --context-menu-background-color:#eee4e4;
+    --context-menu-border: solid 1px #bb9999;
+    --context-menu-border-radius: 5px;
+    --context-menu-color: #383131;
+    --context-menu-box-shadow: 1px 1px 7px 1px rgba(128, 128, 128, 0.58);
+    --context-menu-header-padding: 5px 5px 0 0;
+    --context-menu-ul-padding-inline-start: 0;
+    --context-menu-ul-margin-top: 5px;
+    --context-menu-ul-margin-bottom: 5px;
+    --context-menu-li-padding: 10px;
+    --context-menu-li-background-color-hover: #ffffff;
 
     --list-wrapper: #ccd7cc;
     --list-creator-background: #dacaca;
-    --list-context-menu-background: #dcc7c7;
-    --list-context-color: #2a2828;
+    --list-context-menu-background: #ccd7cc;
+    --list-context-color: #463b3b;
     --card-detail-color: #f3eded;
     --content_edit_opacity: 100%;
     --list-header-color: #03034f;
