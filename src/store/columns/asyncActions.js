@@ -20,10 +20,12 @@ export const addColumn = (header) => async (dispatch) => {
     }
 }
 
-export const deleteColumn = (columnId) => async (dispatch) => {
+export const deleteColumn = (columnId) => async (dispatch, getState) => {
+    const store = getState().columns
     try {
         await ColumnsAPI.deleteColumnAPI(columnId)
-        dispatch(getAllColumns())
+        const columnsAfterDelete = (store.columns.filter(item => item._id !== columnId))
+        dispatch(columnsAC.columnDelete(columnsAfterDelete))
     } catch (error) {
         console.warn(error, 'server error');
     }

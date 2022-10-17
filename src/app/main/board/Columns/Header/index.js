@@ -1,11 +1,9 @@
-import React, {useState} from 'react';
-import OutsideClick from "../../../../../components/basic/OutsideClick";
-import Button from "../../../../../components/basic/Button";
-import {GoKebabHorizontal} from "react-icons/go";
+import React from 'react';
+import PropTypes from "prop-types";
 import ListContextMenu from "../ContexMenu";
 import ListHeaderEdit from "./HeaderEdit";
 import classes from './ListHeader.module.css'
-import PropTypes from "prop-types";
+
 
 
 export default function ListHeader({column}) {
@@ -16,21 +14,7 @@ export default function ListHeader({column}) {
                 <ListHeaderEdit header={column.header} columnId={column._id}/>
             </div>
             <div className={classes.context_wrapper}>
-
-
-                {/*<OutsideClick*/}
-                {/*    external={*/}
-                {/*        <Button*/}
-                {/*            variant={'just_icon'}*/}
-                {/*            icon={<GoKebabHorizontal/>}>*/}
-                {/*        </Button>*/}
-                {/*    }>*/}
-                {/*    <ListContextMenu columnId={column._id}/>*/}
-                {/*</OutsideClick>*/}
-
-
                 <ListContextMenu columnId={column._id}/>
-
             </div>
         </div>
     );

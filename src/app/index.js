@@ -5,7 +5,6 @@ import Main from "./main";
 
 
 function App() {
-
         return (
             <Routes>
                 <Route path="/" element={<Main/>}/>
@@ -22,7 +21,7 @@ export default App;
 // убрать id из стора listContextMenu//TODO+++
 // сократить санки //TODO+++
 // /columns/delete/${columnId}` == /columns/${columnId}`
-// убрать dispatch(getAllColumns())
+// убрать dispatch(getAllColumns())//TODO+- у update тоже убрать
 // создать папку api //TODO+++
 // придумать как отображать header (transform/tooltip/text)!!! //TODO+++
 // isFullSize button
@@ -31,6 +30,5 @@ export default App;
 // создать hook https://usehooks.com/page/3 !!! //TODO+++
 // переписать редакс (по желанию) //TODO+++
 
-
-//{} в headerEdit
+//  В Board исправить вывод карточек
 //Пофиксить несоответсие типов HeaderEdit стр 26

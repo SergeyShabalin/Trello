@@ -8,7 +8,7 @@ export default function Checkout({check}){
     return (
           <div className={classes.checkout}>
            <div className={classes.icon}><IoMdCheckboxOutline/></div>
-            <div className={classes.tasks}>3/5</div>
+            <span className={classes.tasks}>3/5</span>
             {/*<MdOutlineCheckBoxOutlineBlank/>*/}
         </div>
     );
