@@ -8,9 +8,8 @@ import classes from './ListHeader.module.css'
 import PropTypes from "prop-types";
 
 
-export default function ListHeader({header=''}) {
+export default function ListHeader({column}) {
 
-    const slice = header.slice(0, 25);
 
     return (
         <div className={classes.header}>
@@ -18,10 +17,9 @@ export default function ListHeader({header=''}) {
                 <OutsideClick
                     type='replace'
                     external={
-                        header.length > 30 ? <div className={classes.title}>{slice}...</div>
-                            : <div className={classes.title}>{header}</div>
+                        <div className={classes.title}>{column.header}</div>
                     }>
-                    <ListHeaderEdit header={header}/>
+                    <ListHeaderEdit header={column.header}/>
                 </OutsideClick>
 
             </div>
@@ -33,7 +31,7 @@ export default function ListHeader({header=''}) {
                             icon={<GoKebabHorizontal/>}>
                         </Button>
                     }>
-                    <ListContextMenu/>
+                    <ListContextMenu column={column._id}/>
                 </OutsideClick>
             </div>
         </div>

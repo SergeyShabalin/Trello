@@ -21,9 +21,13 @@ function ListHeaderEdit({header}) {
         setNewHeader({header: target.value})
     }
 
+    const rowsInput = Math.ceil(1+ header.length/30)
+
     return (
         <div className={classes.edit_wrapper}>
             <Input
+                rows={rowsInput}
+                cols={35}
                 autoFocus
                 onKeyDown={saveChanged}
                 onChange={getNewValue}

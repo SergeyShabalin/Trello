@@ -1,12 +1,11 @@
 .checkout {
-    background-color: var(--checkout-color);
+    background-color: var(--card-checkout-background-color);
     justify-content: center;
     align-items: center;
     display: flex;
-    border-radius: 5px;
-    border: none;
-    padding: 2px;
-    margin: 5px;
+    border-radius: var(--card-checkout-border-radius);
+    padding: var(--card-checkout-padding);
+    margin: var(--card-checkout-margin);
 }
 
 .checkout_active {
@@ -19,6 +18,5 @@
 }
 
 .tasks {
-    font-weight: 400;
     font-size: var(--checkout-font-size)
 }

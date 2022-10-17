@@ -1,9 +1,10 @@
 .header {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
     height: 12%;
-    padding: 10px;
+    padding: 10px 10px 5px  5px;
+    width: 95%;
 }
 
 .title {
@@ -13,16 +14,16 @@
     position: relative;
     font-weight: 500;
     margin: 5px;
-    padding-left: 15px;
+    padding-left: 10px;
     cursor: pointer;
-    color: var(--list-header-color)
+    color: var(--list-header-color);
+    word-break: normal
 }
 
 .title_wrapper {
     display: flex;
-    white-space: nowrap;
 }
 
 .context_wrapper {
-    z-index: 2;
+z-index: 3;
 }

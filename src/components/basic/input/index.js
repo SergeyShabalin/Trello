@@ -21,13 +21,13 @@ export default function Input({
     return (
         <div>
             {rows > 1 ?
-                <div>
+                <div className= {`${classes[container]}`}>
                     {label && <div className={classes.label}>{label}</div>}
                     <textarea
-                        className={classes.text_area}
                         placeholder={placeholder}
                         rows={rows}
                         cols={cols}
+                        className={`${classes[variant]}`}
                         defaultValue={value}
                         onChange={onChange}
                         {...props}

@@ -2,14 +2,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--decision-date-overdue);
-    border-radius: 5px;
-    padding: 1px;
-    margin: 5px;
+    background-color: var(--card-decision-date-background-color);
+    border-radius: var(--card-decision-date-border-radius);
+    padding: var(--card-decision-date-padding);
+    margin: var(--card-decision-date-margin);
 }
 
 .decision_date:hover{
-    background-color: var(--decision-date-hover);
+    background-color: var(--card-decision-date-background-color-hover);
 }
 
 .icon {

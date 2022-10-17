@@ -119,16 +119,26 @@
     --context-menu-li-padding: 10px;
     --context-menu-li-background-color-hover: #ffffff;
 
+    --card-checkout-padding: 3px;
+    --card-checkout-margin: 5px;
+    --card-checkout-border-radius: 5px;
+    --card-checkout-background-color: #83f39a;
+
+    --card-decision-date-background-color:#ecafaf;
+    --card-decision-date-background-color-hover: #d39191;
+    --card-decision-date-border-radius: 5px;
+    --card-decision-date-padding: 3px;
+    --card-decision-date-margin: 5px;
+
     --list-wrapper: #ccd7cc;
     --list-creator-background: #dacaca;
     --list-context-menu-background: #ccd7cc;
     --list-context-color: #463b3b;
     --card-detail-color: #f3eded;
     --content_edit_opacity: 100%;
-    --list-header-color: #03034f;
-    --checkout-color: #83f39a;
-    --decision-date-overdue: #ecafaf;
-    --decision-date-hover: #d39191;
+    --list-header-color: #040462;
+
+
     --menu-color: rgba(0, 0, 0, 0.28);
 
 }

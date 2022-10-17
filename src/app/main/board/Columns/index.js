@@ -4,12 +4,12 @@ import ListHeader from "./Header";
 import CardCreator from "../CardCreator";
 import classes from './ColumnWrapper.module.css'
 
-export default function Column({header, onClick, children}) {
+export default function Column({column, onClick, children}) {
 
     return (
         <div className={classes.list_wrapper}
              onClick={onClick}>
-            <ListHeader header={header}/>
+            <ListHeader column={column}/>
             {children} {/*listcard*/}
             <CardCreator/>
         </div>

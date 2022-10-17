@@ -19,14 +19,15 @@ export default App;
 
 // style //TODO+++
 // directores //TODO+++
-// убрать id из стора listContextMenu
+// убрать id из стора listContextMenu//TODO+++
 // сократить санки //TODO+++
 // /columns/delete/${columnId}` == /columns/${columnId}`
 // убрать dispatch(getAllColumns())
 // создать папку api //TODO+++
-// придумать как отображать header (transform/tooltip/text)!!!
+// придумать как отображать header (transform/tooltip/text)!!! //TODO+++
 // isFullSize button
 // переписать меню на список !!! //TODO+++
 // заменить div на span or p для текста !!!
 // создать hook https://usehooks.com/page/3 !!!
 // переписать редакс (по желанию) //TODO+++
+//{} в headerEdit

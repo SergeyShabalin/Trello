@@ -58,7 +58,7 @@ export default function Board() {
                 <Column
                 onClick={() => sendColumnId(column)}
                 key={column._id}
-                header={column.header}
+                column={column}
                 cards={cc}
             >
                     <div>{column.cards.map(item => <ListCard key={item._id}>{item.header}</ListCard>)}</div>
