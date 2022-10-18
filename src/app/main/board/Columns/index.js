@@ -5,13 +5,12 @@ import CardCreator from "../CardCreator";
 import classes from './ColumnWrapper.module.css'
 
 
-export default function Column({column, onClick, children}) {
+export default function Column({column, cardList}) {
 
     return (
-        <div className={classes.list_wrapper}
-             onClick={onClick}>
+        <div className={classes.list_wrapper}>
             <ListHeader column={column}/>
-            {children} {/*listcard*/}
+            {cardList}
             <CardCreator/>
         </div>
     );
@@ -20,4 +19,3 @@ export default function Column({column, onClick, children}) {
 Column.propTypes = {
     header: PropTypes.string
 }
-
