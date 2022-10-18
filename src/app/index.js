@@ -30,5 +30,5 @@ export default App;
 // создать hook https://usehooks.com/page/3 !!! //TODO+++
 // переписать редакс (по желанию) //TODO+++
 
-//  В Board исправить вывод карточек
+//  В Board исправить вывод карточек //TODO+++
 //Пофиксить несоответсие типов HeaderEdit стр 26

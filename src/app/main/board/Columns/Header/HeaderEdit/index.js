@@ -10,7 +10,7 @@ function ListHeaderEdit({header, columnId}) {
 
     const ref = useRef();
     const dispatch = useDispatch()
-    const [newHeader, setNewHeader] = useState();
+    const [newHeader, setNewHeader] = useState({});
     const [isModalOpen, setModalOpen] = useState(false);
 
     useOnClickOutside(ref, () => setModalOpen(false));

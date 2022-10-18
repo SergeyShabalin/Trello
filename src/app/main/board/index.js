@@ -3,7 +3,6 @@ import {useDispatch, useSelector} from "react-redux";
 import Column from "./Columns";
 import {addColumn, getAllColumns} from "../../../store/columns/asyncActions";
 import ListCreator from "./ColumnCreator";
-import {getALLCard} from "../../../store/cards/asyncActions";
 import ListCard from "./Cards";
 import classes from './Board.module.css'
 
@@ -17,8 +16,8 @@ export default function Board() {
     useEffect(() => {
         dispatch(getAllColumns())
         setIsCreator(true)
-        dispatch(getALLCard())
     }, [])
+
 
     function columnCreator() {
         setIsCreator(!isCreator)
@@ -28,8 +27,6 @@ export default function Board() {
         dispatch(addColumn(header))
         columnCreator()
     }
-
-//TODO поправить
 
     const columnsList = columnsStore.map(column => {
         return (
@@ -46,7 +43,6 @@ export default function Board() {
             </div>
         )
     })
-
 
     return (
         <div className={classes.board}>
