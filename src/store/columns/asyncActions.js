@@ -31,27 +31,23 @@ export const deleteColumn = (columnId) => async (dispatch, getState) => {
     }
 }
 
-export const updateColumn = (columnId, data) => async (dispatch, getState) => {
+export const updateColumn = (columnId, header) => async (dispatch, getState) => {
 
-    try {
-        await ColumnsAPI.updateColumnAPI(columnId, data)
-        const store = getState().columns
 
-        const columnAfterUpdate = store.columns.filter(item => item._id === columnId)
 
-        columnAfterUpdate.map(item => {
-            item.header = data.header
-        })
-        let after = columnAfterUpdate.map(item => {
-            return (item)
-        })
+    try { const allColumns = getState().columns.columns;
+        console.log(allColumns)
+        await ColumnsAPI.updateColumnAPI(columnId, header)
 
-        const my_array = getState().columns.columns;
-        const start_index = store.columns.findIndex(item => item._id === columnId);
-        const number_of_elements_to_remove = 1;
-        my_array.splice(start_index, number_of_elements_to_remove, after[0]);
-
-        dispatch(columnsAC.columnUpdate(my_array))
+        const columnsForUpdate = allColumns.map((item) => (
+           item._id === columnId
+            ?  {...item, header: header}
+               : item
+        ))
+     // const a=  allColumns.filter(item=> item._id===columnId)
+     //    // a[0].header=header
+     //    console.log('старый',allColumns)
+         dispatch(columnsAC.columnUpdate(allColumns))
     } catch (error) {
         console.warn(error, 'server error');
     }

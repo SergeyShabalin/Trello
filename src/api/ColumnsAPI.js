@@ -14,7 +14,7 @@ class ColumnsAPI {
     }
 
     async updateColumnAPI(columnId, data) {
-        return Api.patch(`/columns/update/${columnId}`, data)
+        return Api.patch(`/columns/update/${columnId}`, {header: data})
     }
 }
 

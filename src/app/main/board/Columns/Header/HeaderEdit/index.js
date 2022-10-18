@@ -10,7 +10,7 @@ function ListHeaderEdit({header, columnId}) {
 
     const ref = useRef();
     const dispatch = useDispatch()
-    const [newHeader, setNewHeader] = useState({});
+    const [newHeader, setNewHeader] = useState(header);
     const [isModalOpen, setModalOpen] = useState(false);
 
     useOnClickOutside(ref, () => setModalOpen(false));
@@ -23,7 +23,7 @@ function ListHeaderEdit({header, columnId}) {
     }
 
     function getNewValue({target}) {
-        setNewHeader({header: target.value}) //TODO пофиксить несоответсвие типов
+        setNewHeader(target.value)
     }
 
     const rowsInput = Math.ceil(1 + header.length / 30)
@@ -33,6 +33,7 @@ function ListHeaderEdit({header, columnId}) {
             {isModalOpen ?
                 <div ref={ref}
                      className={classes.edit_wrapper}>
+
                     <Input
                         rows={rowsInput}
                         cols={35}
