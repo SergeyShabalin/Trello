@@ -10,10 +10,10 @@ export default function Button({
                                    variant = "text",
                                    disabled,
                                    color,
-                                   variety,
+                                   variety= false,
                                    children,
                                    onClick,
-                                    size,
+                                   fullSize = false,
                                    ...props
                                }) {
 
@@ -22,11 +22,15 @@ export default function Button({
             <button disabled={disabled}
                     onClick={onClick}
                     {...props}
-                    className={`${classes[variant]} ${classes[size]} ${classes[color]} ${classes[variety]} ${classes.button}`}
+                    className={`${classes[variant]}
+                     ${fullSize && classes.fullSize} 
+                     ${classes[color]}
+                     ${variety && classes.sized} 
+                     ${classes.button}`}
             >
                 {startIcon && <div className={classes.startIcon}>{startIcon}</div>}
                 {icon && <div className={classes.only_icon}>{icon}</div>}
-                {label && <div className={classes.label}>{label}</div>}
+                {label && <span className={classes.label}>{label}</span>}
                 {children}
                 {endIcon && <div className={classes.endIcon}>{endIcon}</div>}
             </button>
@@ -42,7 +46,7 @@ Button.propTypes = {
     icon: PropTypes.object,
     startIcon: PropTypes.object,
     endIcon: PropTypes.object,
-    variety: PropTypes.string,
+    variety: PropTypes.bool,
 }
 
 

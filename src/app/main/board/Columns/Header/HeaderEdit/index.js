@@ -46,8 +46,8 @@ function ListHeaderEdit({header, columnId}) {
                         value={header}
                     />
                 </div>
-                : <div onClick={() => setModalOpen(true)}
-                       className={classes.title}>{header}</div>
+                : <span onClick={() => setModalOpen(true)}
+                       className={classes.title}>{header}</span>
             }
         </div>
     );

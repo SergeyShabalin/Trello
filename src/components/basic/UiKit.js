@@ -10,7 +10,6 @@ import Modal from "./Modal";
 import Checkbox from "./Сheckbox";
 import Select from "./Select";
 import classes from './UiKit.module.css'
-import ListContextMenu from '../../app/main/Board/Columns/ContexMenu'
 
 export default function UiKit() {
 
@@ -157,19 +156,19 @@ export default function UiKit() {
 
                 <div className="button_full_sized">
                     <Button
-                        size='full_sized'
+                        fullSize={true}
                         label='text full size'>
                     </Button>
 
                     <Button
                         variant='contained'
-                        size='full_sized'
+                        fullSize={true}
                         label='contained full size'>
                     </Button>
 
                     <Button
                         variant='outlined'
-                        size='full_sized'
+                        fullSize={true}
                         label='outlined full size'>
                     </Button>
                 </div>
@@ -233,37 +232,37 @@ export default function UiKit() {
 
                     <Button
                         variant='just_icon'
-                        variety='sized'
+                        variety={true}
                         icon={<MdOutlineModeEditOutline/>}>
                     </Button>
 
                     <Button
                         variant='just_icon'
-                        variety='sized'
+                        variety={true}
                         icon={<MdKeyboardArrowDown/>}>
                     </Button>
 
                     <Button
                         variant='just_icon'
-                        variety='sized'
+                        variety={true}
                         icon={<AiOutlinePlus/>}>
                     </Button>
 
                     <Button
                         variant='just_icon'
-                        variety='sized'
+                        variety={true}
                         icon={<GoKebabHorizontal/>}>
                     </Button>
 
                     <Button
                         variant='just_icon'
-                        variety='sized'
+                        variety={true}
                         icon={<CgMenuGridO/>}>
                     </Button>
 
                     <Button
                         variant='just_icon'
-                        variety='sized'
+                        variety={true}
                         color='changed'
                         icon={<AiOutlineBgColors/>}>
                     </Button>
@@ -277,7 +276,7 @@ export default function UiKit() {
                             iconLeft={
                                 <Button
                                     variant='just_icon'
-                                    variety='sized'
+                                    variety={true}
                                     icon={<HiOutlineSearch/>}>
                                 </Button>
                             }
@@ -287,7 +286,7 @@ export default function UiKit() {
                             iconRight={
                                 <Button
                                     variant='just_icon'
-                                    variety='sized'
+                                    variety={true}
                                     icon={<HiOutlineSearch/>}>
                                 </Button>
                             }

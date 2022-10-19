@@ -13,7 +13,7 @@ export default function Header() {
             <div className={classes.menu}>
                 <Button
                     variant='just_icon'
-                    variety='sized'
+                    variety={true}
                     color='changed'
                     icon={<CgMenuGridO/>}>
                 </Button>

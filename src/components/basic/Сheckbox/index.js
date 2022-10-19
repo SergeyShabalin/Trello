@@ -13,7 +13,7 @@ export default function Checkbox({label, variant = 'text', disabled, ...props}) 
                     type="checkbox"
                     className={classes.checkbox_label}
                     {...props}/>
-                {label && <div className={classes.label}>{label}</div>}
+                {label && <span className={classes.label}>{label}</span>}
             </div>
         </div>
 

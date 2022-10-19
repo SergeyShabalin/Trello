@@ -22,9 +22,9 @@ export default function Input({
         <div>
             {rows > 1 ?
                 <div className= {`${classes[container]}`}>
-                    {label && <div className={classes.label}>{label}</div>}
+                    {label && <span className={classes.label}>{label}</span>}
                     <textarea
-                        placeholder={placeholder}
+                        placeholder=''
                         rows={rows}
                         cols={cols}
                         className={`${classes[variant]}`}
@@ -35,7 +35,7 @@ export default function Input({
                 </div>
                 :
                 <div>
-                    {label && <div className={classes.label}>{label}</div>}
+                    {label && <span className={classes.label}>{label}</span>}
 
                     <div className={`${classes[container]}`}>
                         {iconLeft && iconLeft}

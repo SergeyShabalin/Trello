@@ -32,22 +32,15 @@ export const deleteColumn = (columnId) => async (dispatch, getState) => {
 }
 
 export const updateColumn = (columnId, header) => async (dispatch, getState) => {
-
-
-
-    try { const allColumns = getState().columns.columns;
-        console.log(allColumns)
+    const allColumns = getState().columns.columns;
+      try {
         await ColumnsAPI.updateColumnAPI(columnId, header)
-
         const columnsForUpdate = allColumns.map((item) => (
-           item._id === columnId
-            ?  {...item, header: header}
-               : item
+            item._id === columnId
+                ? {...item, header: header}
+                : item
         ))
-     // const a=  allColumns.filter(item=> item._id===columnId)
-     //    // a[0].header=header
-     //    console.log('старый',allColumns)
-         dispatch(columnsAC.columnUpdate(allColumns))
+        dispatch(columnsAC.columnUpdate(columnsForUpdate))
     } catch (error) {
         console.warn(error, 'server error');
     }

@@ -6,15 +6,15 @@ class ColumnsAPI {
     }
 
     async addNewColumnAPI(header) {
-        return Api.post(`/columns/new`, header)
+        return Api.post(`/columns/`, header)
     }
 
     async deleteColumnAPI(columnId) {
-        return Api.delete(`/columns/delete/${columnId}`)
+        return Api.delete(`/columns/${columnId}`)
     }
 
     async updateColumnAPI(columnId, data) {
-        return Api.patch(`/columns/update/${columnId}`, {header: data})
+        return Api.patch(`/columns/${columnId}`, {header: data})
     }
 }
 
