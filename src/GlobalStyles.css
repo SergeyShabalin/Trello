@@ -41,9 +41,9 @@
     --button-contained-background-hover: rgba(0, 0, 0, 0.35);
     --button-contained-background-disabled: #e0c6c6;
     --button-contained-border-radius-disabled: 5px;
-    --button-contained-submit-background: #098109;
-    --button-contained-color-submit: #16c716;
-    --button-contained-background-submit-hover: #034203;
+    --button-contained-submit-background: #00a900;
+    --button-contained-color-submit: #ebf5eb;
+    --button-contained-background-submit-hover: #089a08;
     --button-contained-background-error: #dc0000;
     --button-contained-color-error: white;
     --button-contained-color-error-hover: #640303;
@@ -124,6 +124,7 @@
     --card-checkout-border-radius: 5px;
     --card-checkout-background-color: #83f39a;
 
+    --card-background-color: #ffffff;
     --card-decision-date-background-color:#ecafaf;
     --card-decision-date-background-color-hover: #d39191;
     --card-decision-date-border-radius: 5px;
@@ -134,7 +135,6 @@
     --list-creator-background: #dacaca;
     --list-context-menu-background: #ccd7cc;
     --list-context-color: #463b3b;
-    --card-detail-color: #f3eded;
     --content_edit_opacity: 100%;
     --list-header-color: #040462;
 

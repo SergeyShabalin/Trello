@@ -34,11 +34,7 @@ export default function Board() {
                 <Column
                     key={column._id}
                     column={column}
-                    cardList={column.cards.map(item =>
-                        <ListCard
-                            key={item._id}
-                            header={item.header}>
-                        </ListCard>)}
+                    cardList={column.cards}
                 />
             </div>
         )

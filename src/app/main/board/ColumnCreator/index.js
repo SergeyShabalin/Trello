@@ -17,7 +17,7 @@ function ListCreator({addList}) {
     useOnClickOutside(ref, () => setModalOpen(false));
 
     function getColumnHeader(e){
-        setHeader({header: e.target.value})
+        setHeader({header: e.target.value}) //TODO поправить
     }
 
     function addColumn(e){

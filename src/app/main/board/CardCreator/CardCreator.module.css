@@ -1,5 +1,27 @@
 .card_creator{
     display: flex;
     align-items: center;
-    width: 80%;
+    margin: 5px;
+}
+
+.control_creator{
+
+}
+
+.control_input{
+
+}
+
+.btns{
+display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.add_btn{
+
+}
+
+.close_btn{
+
 }

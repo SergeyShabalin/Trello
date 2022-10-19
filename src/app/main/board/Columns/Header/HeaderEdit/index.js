@@ -42,7 +42,7 @@ function ListHeaderEdit({header, columnId}) {
                         onChange={getNewValue}
                         variant='transparent'
                         container='custom'
-                        placeholder='placeholder'
+                        placeholder='Введите заголовок колонки'
                         value={header}
                     />
                 </div>

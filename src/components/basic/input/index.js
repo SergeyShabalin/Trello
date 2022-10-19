@@ -24,7 +24,7 @@ export default function Input({
                 <div className= {`${classes[container]}`}>
                     {label && <span className={classes.label}>{label}</span>}
                     <textarea
-                        placeholder=''
+                        placeholder={placeholder}
                         rows={rows}
                         cols={cols}
                         className={`${classes[variant]}`}

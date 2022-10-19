@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import ListHeader from "./Header";
 import CardCreator from "../CardCreator";
 import classes from './ColumnWrapper.module.css'
+import ListCard from "../Cards";
 
 
 export default function Column({column, cardList}) {
@@ -10,7 +11,12 @@ export default function Column({column, cardList}) {
     return (
         <div className={classes.list_wrapper}>
             <ListHeader column={column}/>
-            {cardList}
+            {cardList.map(item =>
+                <ListCard
+                    key={item._id}
+                    header={item.header}>
+                </ListCard>)
+            }
             <CardCreator/>
         </div>
     );
