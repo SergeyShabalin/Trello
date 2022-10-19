@@ -9,7 +9,7 @@ import classes from './CardCreator.module.css'
 import {addNewCard} from "../../../../store/cards/asyncActions";
 
 
-export default function CardCreator() {
+export default function CardCreator({columnId}) {
 
     const [isCreator, setIsCreator] = useState(false)
     const [cardHeader, setCardHeader] = useState('')
@@ -25,9 +25,13 @@ export default function CardCreator() {
         setIsCreator(false)
     }
 
+    function addCard(){
+        dispatch(addNewCard(columnId,cardHeader))
+    }
+
     function saveChanged(e) {
         if (e.keyCode === 13) {
-            dispatch(addNewCard(cardHeader))
+            addCard()
         }
     }
 
@@ -53,6 +57,7 @@ export default function CardCreator() {
                    </div>
                     <div className={classes.btns}>
                         <Button
+                            onClick={addCard}
                             className={classes.add_btn}
                             variant='contained'
                             color='submit'
@@ -71,8 +76,7 @@ export default function CardCreator() {
                     <Button onClick={menuCreate}
                             variant={'text'}
                             label={'Добавить карточку'}
-                            startIcon={<AiOutlinePlus/>}>
-                    </Button>
+                            startIcon={<AiOutlinePlus/>} />
                 </div>
             }
         </div>

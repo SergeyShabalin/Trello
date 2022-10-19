@@ -13,9 +13,10 @@ class ColumnsAPI {
         return Api.delete(`/columns/${columnId}`)
     }
 
-    async updateColumnAPI(columnId, data) {
-        return Api.patch(`/columns/${columnId}`, {header: data})
+    async updateColumnAPI(columnId, header) {
+        return Api.patch(`/columns/${columnId}`, {header})
     }
+
 }
 
 export default new ColumnsAPI()

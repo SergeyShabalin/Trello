@@ -2,11 +2,11 @@ import CardsApi from "../../api/CardsApi";
 import {cardsAC} from "../cards/actions";
 
 
-export const addNewCard = (header) => async (dispatch) => {
-    console.log(header)
+export const addNewCard = (id,header) => async (dispatch) => {
+
 
     try {
-         await CardsApi.addNewCardAPI(header)
+         await CardsApi.addNewCardAPI(id,header)
 
         // dispatch(cardsAC.viewAllCards(resp.data))
     } catch (error) {

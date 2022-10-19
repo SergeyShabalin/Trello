@@ -21,8 +21,10 @@ function ListCreator({addList}) {
     }
 
     function addColumn(e){
-        if(e.keyCode === 13) {addList(header)
-        setModalOpen(false)}
+        if(e.keyCode === 13) {
+            addList(header)
+        setModalOpen(false)
+        }
     }
 
     function addListColumn(){

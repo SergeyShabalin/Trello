@@ -21,10 +21,10 @@ export const addColumn = (header) => async (dispatch) => {
 }
 
 export const deleteColumn = (columnId) => async (dispatch, getState) => {
-    const store = getState().columns
+    const { columns } = getState().columns
     try {
         await ColumnsAPI.deleteColumnAPI(columnId)
-        const columnsAfterDelete = (store.columns.filter(item => item._id !== columnId))
+        const columnsAfterDelete = (columns.filter(item => item._id !== columnId))
         dispatch(columnsAC.columnDelete(columnsAfterDelete))
     } catch (error) {
         console.warn(error, 'server error');
@@ -32,7 +32,7 @@ export const deleteColumn = (columnId) => async (dispatch, getState) => {
 }
 
 export const updateColumn = (columnId, header) => async (dispatch, getState) => {
-    const allColumns = getState().columns.columns;
+    const allColumns = getState().columns.columns; //TODO
       try {
         await ColumnsAPI.updateColumnAPI(columnId, header)
         const columnsForUpdate = allColumns.map((item) => (

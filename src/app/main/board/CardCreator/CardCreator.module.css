@@ -1,27 +1,29 @@
-.card_creator{
+.card_creator {
     display: flex;
     align-items: center;
-    margin: 5px;
-}
-
-.control_creator{
+    margin: 0 5px;
 
 }
 
-.control_input{
+.control_creator {
+    padding-top: 0;
+}
+
+.control_input {
 
 }
 
-.btns{
-display: flex;
+.btns {
+    display: flex;
     align-items: center;
     justify-content: space-between;
+    padding-top: 10px;
 }
 
-.add_btn{
+.add_btn {
 
 }
 
-.close_btn{
+.close_btn {
 
 }

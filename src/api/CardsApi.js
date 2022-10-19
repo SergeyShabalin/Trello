@@ -1,9 +1,8 @@
 import {Api} from "./index";
 
 class CardsApi {
-    async addNewCardAPI(data) {
-        console.log(data)
-        return Api.post(`/cards/`, {header: data})
+    async addNewCardAPI(columnId, title) {
+        return Api.post(`/cards/`, {header: title, columnId, column: columnId})
     }
 
 }

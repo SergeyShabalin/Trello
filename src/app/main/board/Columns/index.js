@@ -14,10 +14,10 @@ export default function Column({column, cardList}) {
             {cardList.map(item =>
                 <ListCard
                     key={item._id}
-                    header={item.header}>
-                </ListCard>)
+                    header={item.header} />
+              )
             }
-            <CardCreator/>
+            <CardCreator columnId={column._id}/>
         </div>
     );
 };

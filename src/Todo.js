@@ -30,20 +30,20 @@
 
 
 //TODO
-// const dd =  [
-//     {
-//         _id: '1',
-//         header: 'Готово'
-//     } ,
-//     {_id: '2',
-//         header: 'Готово',
-//         },
-//     {_id: '3',
-//         header: 'Готово',
-//        }
-// ]
-// console.log(dd)
-//   const a=  dd.filter(item=> item._id==='2')
-// console.log(a)
-// a[0].header='провернуть'
-//   console.log('новый',dd)
+const dd =  [
+    {
+        _id: '1',
+        header: 'Готово'
+    } ,
+    {_id: '2',
+        header: 'Готово',
+        },
+    {_id: '3',
+        header: 'Готово',
+       }
+]
+console.log(dd)
+  const a=  dd.filter(item=> item._id==='2')
+console.log(a)
+a[0].header='провернуть'
+  console.log('новый',dd)
