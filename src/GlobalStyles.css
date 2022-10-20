@@ -130,9 +130,9 @@
     --card-background-color: #fafafa;
     --card-decision-date-background-color:#ecafaf;
     --card-decision-date-background-color-hover: #d39191;
-    --card-decision-date-border-radius: 5px;
+    --card-decision-date-border-radius: 3px;
     --card-decision-date-padding: 3px;
-    --card-decision-date-margin: 5px;
+    --card-decision-date-margin: 5px 5px 3px 0px;
 
     --list-wrapper: #ccd7cc;
     --list-creator-background: #dacaca;

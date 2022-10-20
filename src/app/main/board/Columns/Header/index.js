@@ -6,7 +6,7 @@ import classes from './ListHeader.module.css'
 
 
 
-export default function ListHeader({column}) {
+export default function ListHeader({column, addCardMenuCreate}) {
 
     return (
         <div className={classes.header}>
@@ -14,7 +14,9 @@ export default function ListHeader({column}) {
                 <ListHeaderEdit header={column.header} columnId={column._id}/>
             </div>
             <div className={classes.context_wrapper}>
-                <ListContextMenu columnId={column._id}/>
+                <ListContextMenu
+                    addCardMenuCreate={addCardMenuCreate}
+                    columnId={column._id}/>
             </div>
         </div>
     );

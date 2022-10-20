@@ -5,25 +5,16 @@ import {GrClose} from "react-icons/gr";
 import Button from "../../../../components/basic/Button";
 import Input from "../../../../components/basic/Input";
 import useOnClickOutside from '../../../../hooks/UseOnClickOutside'
-import classes from './CardCreator.module.css'
 import {addNewCard} from "../../../../store/cards/asyncActions";
+import classes from './CardCreator.module.css'
 
+export default function CardCreator({columnId, isCreator, menuCreate, menuClose}) {
 
-export default function CardCreator({columnId}) {
-
-    const [isCreator, setIsCreator] = useState(false)
     const [cardHeader, setCardHeader] = useState('')
     const ref = useRef();
     const dispatch = useDispatch()
-    useOnClickOutside(ref, () => setIsCreator(false));
+    useOnClickOutside(ref, menuClose);
 
-    function menuCreate() {
-        setIsCreator(true)
-    }
-
-    function menuClose(){
-        setIsCreator(false)
-    }
 
     function addCard(){
         dispatch(addNewCard(columnId,cardHeader))

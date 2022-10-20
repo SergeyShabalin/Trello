@@ -8,7 +8,8 @@ export default function ListCard({header}) {
 
     return (
         <div className={classes.list_card}>
-                <ContentEdit header={header}/>
+                <ContentEdit
+                    header={header}/>
             <div className={classes.footer}>
                 <DecisionDate/>
                 <Checkout/>

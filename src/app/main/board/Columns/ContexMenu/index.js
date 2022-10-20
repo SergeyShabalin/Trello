@@ -8,7 +8,7 @@ import Button from "../../../../../components/basic/Button";
 import useOnClickOutside from "../../../../../hooks/UseOnClickOutside";
 import classes from './ListContextMenu.module.css'
 
-function ListContextMenu({columnId}) {
+function ListContextMenu({columnId, addCardMenuCreate}) {
 
     const ref = useRef();
     const [isModalOpen, setModalOpen] = useState(false);
@@ -17,6 +17,10 @@ function ListContextMenu({columnId}) {
 
     function modalOpen() {
         setModalOpen(true)
+    }
+    function viewAddCard(){
+        setModalOpen(false)
+        addCardMenuCreate()
     }
 
     function columnDelete() {
@@ -43,7 +47,7 @@ function ListContextMenu({columnId}) {
                                 onClick={columnDelete}>
                                 <RiDeleteBin5Line/> <span className={classes.li_header}>Удалить список</span>
                             </li>
-                            <li className={classes.li}>
+                            <li className={classes.li} onClick={viewAddCard}>
                                 <MdLibraryAdd/> <span className={classes.li_header}>Добавить карточку</span>
                             </li>
                             <li className={classes.li}>

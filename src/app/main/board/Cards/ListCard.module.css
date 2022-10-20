@@ -1,11 +1,11 @@
 .list_card {
     background-color: var(--card-background-color);
     margin:  5px;
-    padding: 5px;
+    padding: 5px 10px 5px 7px;
     border-radius: 5px;
-
 }
 
 .footer {
     display: flex;
+    padding: 0;
 }
