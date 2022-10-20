@@ -1,27 +1,74 @@
-import React,{useState} from 'react';
-import {MdOutlineModeEditOutline} from "react-icons/md";
+import React, {useState, useRef} from 'react';
+import {BiEdit} from "react-icons/bi";
+import useOnClickOutside from "../../../../../hooks/UseOnClickOutside";
 import Button from "../../../../../components/basic/Button";
+import Input from "../../../../../components/basic/Input";
 import Modal from "../../../../../components/basic/Modal";
+import CardContextMenu from "../ContextMenu";
 import classes from './ContentEdit.module.css'
 
-export default function ContentEdit({children, open, onClose}) {
+export default function ContentEdit({header}) {
 
-    const [isEdit, setIsEdit]=useState(false)
+    const [isEdit, setIsEdit] = useState(false)
+    const [isModal, setIsModal] = useState(false)
+    const ref = useRef();
+    useOnClickOutside(ref, () => setIsEdit(false));
+
+
+    function openCloseEditFrom() {
+        setIsEdit(!isEdit)
+    }
+
+    function openCloseModal() {
+        setIsModal(!isModal)
+    }
 
     return (
-        <div className={classes.content_edit} >
+        <> {
+            isEdit ? <div className={classes.editor} ref={ref}>
+                    <Input
+                        rows={3}
+                        cols={35}
+                        autoFocus
+                        // onKeyDown={saveChanged}
+                        // onChange={getNewValue}
+                        variant='transparent'
+                        container='custom'
+                        placeholder='Введите заголовок карточки'
+                        value={header}
+                    />
 
-            <Button
-                onClick={()=>setIsEdit(true)}
-                variant={'just_icon'}
-                icon={<MdOutlineModeEditOutline/>}
-            >
-            </Button>
-            <Modal
-            open={isEdit}
-            onClose={() => setIsEdit(false)}><p>Окно быстрого редактирования</p>
-        </Modal>
-        </div>
+                <div className={classes.button}>
+                    <Button
+                    variant='contained'
+                    label='Сохранить'
+                    color='blue'
+                />
+                </div>
+
+                    <CardContextMenu/>
+
+                </div>
+                : <div className={classes.header}>
+
+                <div className={classes.title} onClick={openCloseModal}>
+                    {header}
+                </div>
+                    <div className={classes.content_edit}>
+                        <Button
+                            opacity={true}
+                            onClick={openCloseEditFrom}
+                            variant={'just_icon'}
+                            icon={<BiEdit/>}/>
+
+                        <Modal
+                            open={isModal}
+                            onClose={openCloseModal}><p>Окно быстрого редактирования</p>
+                        </Modal>
+                    </div>
+            </div>
+        }
+        </>
     );
 };
 

@@ -32,10 +32,10 @@ export const deleteColumn = (columnId) => async (dispatch, getState) => {
 }
 
 export const updateColumn = (columnId, header) => async (dispatch, getState) => {
-    const allColumns = getState().columns.columns; //TODO
-      try {
+    const {columns}  = getState().columns;
+       try {
         await ColumnsAPI.updateColumnAPI(columnId, header)
-        const columnsForUpdate = allColumns.map((item) => (
+        const columnsForUpdate = columns.map((item) => (
             item._id === columnId
                 ? {...item, header: header}
                 : item
@@ -44,5 +44,5 @@ export const updateColumn = (columnId, header) => async (dispatch, getState) => 
     } catch (error) {
         console.warn(error, 'server error');
     }
-}
+ }
 

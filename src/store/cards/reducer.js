@@ -6,7 +6,7 @@ export default function cardsReducer(state = defaultState, {type, payload}) {
     switch (type) {
 
         case CARD_TYPES.VIEW_ALL_CARD:
-            return{...state, cards:[...payload]} //TODO
+            return{...state, cards:payload} //TODO
 
         default:
             return (state)

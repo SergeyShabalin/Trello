@@ -86,7 +86,6 @@
 
 }
 
-
 .contained {
     display: flex;
     font-family: var(--prymary-font);
@@ -117,6 +116,15 @@
     background-color: var(--button-contained-background-submit-hover);
 }
 
+.contained.blue {
+    background-color: var(--button-contained-blue-background);
+    color: var(--button-contained-color-blue);
+}
+
+.contained.blue:hover {
+    background-color: var(--button-contained-background-blue-hover);
+}
+
 .contained.error {
     background-color: var(--button-contained-background-error);
     color: var(--button-contained-color-error);
@@ -143,7 +151,7 @@
 }
 
 .just_icon:hover{
-     background-color: var(--button-just-icon-background-hover);
+    background-color: var(--button-just-icon-background-hover);
  }
 
 .just_icon:disabled {
@@ -160,6 +168,14 @@
 
 .just_icon.changed {
     color: var(--button-just-icon-changed-color);
+}
+
+.just_icon.opacity{
+    opacity: 0.5;
+}
+
+.just_icon.opacity:hover{
+    opacity: 1;
 }
 
 .just_icon.sized:hover {

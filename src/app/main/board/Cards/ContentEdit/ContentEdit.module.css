@@ -1,9 +1,36 @@
+.header{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.editor{
+    position: relative;
+}
+.title{
+    padding: 5px;
+    margin-left: 5px;
+    width: 80%;
+    cursor: pointer;
+
+}
+
+.header:hover .content_edit{
+    transition: all 0.5s ease-in-out;
+    opacity: 0.8;
+}
+
 .content_edit{
    opacity: 0;
-    max-width: 20%;
     transition: all 0.2s ease;
 }
-.content_edit:hover{
-    transition: all 0.5s ease-in-out;
-    opacity: var(--content_edit_opacity);
+
+.content {
+
+}
+.button{
+
+    margin-top: 5px;
+
 }

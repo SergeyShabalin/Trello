@@ -14,6 +14,7 @@ export default function Button({
                                    children,
                                    onClick,
                                    fullSize = false,
+                                   opacity=false,
                                    ...props
                                }) {
 
@@ -24,6 +25,7 @@ export default function Button({
                     {...props}
                     className={`${classes[variant]}
                      ${fullSize && classes.fullSize} 
+                     ${opacity && classes.opacity} 
                      ${classes[color]}
                      ${variety && classes.sized} 
                      ${classes.button}`}

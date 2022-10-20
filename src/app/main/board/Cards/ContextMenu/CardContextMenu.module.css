@@ -1,0 +1,38 @@
+.contextWrapper {
+    position: absolute;
+    left: 100%;
+    top: 0;
+    z-index: 4;
+}
+
+.ul {
+    white-space: nowrap;
+    padding-inline-start: 0;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.li_title {
+    margin-left: 10px;
+}
+
+.li {
+    background-color: rgba(0, 0, 0, 0.78);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+
+    padding: 7px;
+    margin: 0 0 3px 10px;
+    border-radius: 5px;
+
+    list-style: none;
+    cursor: pointer;
+
+}
+
+.li:hover {
+    transform: translate(5px, 0);
+    transition: all 0.1s ease-out;
+}
