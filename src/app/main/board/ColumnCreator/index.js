@@ -38,6 +38,9 @@ function ListCreator({addList}) {
             <div onKeyDown={addColumn} ref={ref}>
                 <div className={classes.add_list_wrapper}>
                     <Input autoFocus
+                           rows={3}
+                           cols={35}
+                           variant='transparent'
                            placeholder='Ввести заголовок списка'
                            onChange={getColumnHeader}
                     >
@@ -54,7 +57,7 @@ function ListCreator({addList}) {
                 <Button
                     onClick={() => setModalOpen(true)}
                     variant='contained'
-                    label='Добавить еще одну колонку'
+                    label='Добавить колонку'
                     startIcon={<AiOutlinePlus/>}>
                 </Button> }
         </div>

@@ -3,7 +3,9 @@
     padding:  5px;
     font-size: var(--list-wrapper-font-size);
     width: 270px;
-    max-height: 80vh;
+    max-height: 85vh;
     background-color: var(--list-wrapper);
     border-radius: 5px;
+    /*overflow-y: auto;*/
+    /*overflow-x: hidden;*/
 }

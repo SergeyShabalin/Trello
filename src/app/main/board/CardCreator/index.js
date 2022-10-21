@@ -18,6 +18,7 @@ export default function CardCreator({columnId, isCreator, menuCreate, menuClose}
 
     function addCard(){
         dispatch(addNewCard(columnId,cardHeader))
+       menuClose()
     }
 
     function saveChanged(e) {
@@ -42,8 +43,8 @@ export default function CardCreator({columnId, isCreator, menuCreate, menuClose}
                            onKeyDown={saveChanged}
                            onChange={getNewValue}
                            variant='transparent'
+                           container='custom'
                            placeholder='Введите название карточки'
-                           // value={cardHeader}
                        />
                    </div>
                     <div className={classes.btns}>

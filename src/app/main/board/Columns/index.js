@@ -26,6 +26,7 @@ export default function Column({column, cardList}) {
             {cardList.map(item =>
                 <ListCard
                     key={item._id}
+                    cardId={item._id}
                     header={item.header}
                 />
             )

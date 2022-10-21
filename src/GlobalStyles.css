@@ -127,14 +127,14 @@
     --card-checkout-border-radius: 5px;
     --card-checkout-background-color: #83f39a;
 
-    --card-background-color: #fafafa;
+    --card-background-color: #ffffff;
     --card-decision-date-background-color:#ecafaf;
     --card-decision-date-background-color-hover: #d39191;
     --card-decision-date-border-radius: 3px;
     --card-decision-date-padding: 3px;
     --card-decision-date-margin: 5px 5px 3px 0px;
 
-    --list-wrapper: #ccd7cc;
+    --list-wrapper: #c2c7bc;
     --list-creator-background: #dacaca;
     --list-context-menu-background: #ccd7cc;
     --list-context-color: #463b3b;

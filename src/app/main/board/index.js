@@ -28,7 +28,7 @@ export default function Board() {
         columnCreator()
     }
 
-    const columnsList = columnsStore.map(column => {
+    const columnsList = columnsStore && columnsStore.map(column => {
         return (
             <div  key={column._id}>
                 <Column
