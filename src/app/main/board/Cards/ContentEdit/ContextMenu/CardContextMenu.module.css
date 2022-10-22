@@ -1,8 +1,5 @@
 .contextWrapper {
-    position: absolute;
-    left: 100%;
-    top: 0;
-    z-index: 4;
+
 }
 
 .ul {

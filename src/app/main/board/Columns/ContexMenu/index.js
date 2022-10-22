@@ -24,7 +24,7 @@ function ListContextMenu({columnId, addCardMenuCreate}) {
     }
 
     function columnDelete() {
-        if (window.confirm('Удалить колнку? Вместе с ней произойдет удаление карточек, находящихся в ней')) {
+        if (window.confirm('Удалить колнку?')) {
             dispatch(deleteColumn(columnId))
         }
     }

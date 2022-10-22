@@ -30,8 +30,8 @@ export default function Board() {
 
     const columnsList = columnsStore && columnsStore.map(column => {
         return (
-            <div  key={column._id}>
-                <Column
+            <div  >
+                <Column key={column._id}
                     column={column}
                     cardList={column.cards}
                 />

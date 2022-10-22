@@ -23,6 +23,7 @@ export default function Column({column, cardList}) {
             <ListHeader column={column}
                         addCardMenuCreate={addCardMenuCreate}/>
 
+        <div className={classes.cards_wrapper}>
             {cardList.map(item =>
                 <ListCard
                     key={item._id}
@@ -31,6 +32,7 @@ export default function Column({column, cardList}) {
                 />
             )
             }
+        </div>
             <CardCreator
                 isCreator={isCreator}
                 menuClose={menuClose}

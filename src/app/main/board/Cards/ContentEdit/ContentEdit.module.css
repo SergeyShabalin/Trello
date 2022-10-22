@@ -1,36 +1,38 @@
-.header{
+.header {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
     width: 100%;
 }
 
-.editor{
-    position: relative;
-}
-.title{
-    padding: 5px;
 
+.title {
+    padding: 5px;
     width: 90%;
     cursor: pointer;
-
 }
 
-.header:hover .content_edit{
+.header:hover .button_edit {
     transition: all 0.5s ease-in-out;
     opacity: 0.8;
 }
+.modal_open{
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+}
 
-.content_edit{
-   opacity: 0;
+.content_edit {
+    display: flex;
+
+}
+
+.button_edit{
+    opacity: 0;
     transition: all 0.2s ease;
 }
 
 .content {
 
 }
-.button{
 
-    margin-top: 5px;
-
-}

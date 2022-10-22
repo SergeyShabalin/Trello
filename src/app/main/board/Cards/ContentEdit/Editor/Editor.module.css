@@ -1,0 +1,19 @@
+.editor {
+    position: relative;
+
+}
+
+.textarea{
+    background-color: white;
+    border-radius: 5px;
+    padding: 7px;
+}
+
+.footer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.button {
+    margin-top: 5px;
+}

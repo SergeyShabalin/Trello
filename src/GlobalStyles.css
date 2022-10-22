@@ -5,7 +5,7 @@
     --header-color: rgba(0, 0, 0, 0.24);
     --prymary-font: "ubuntu";
     --main-font-size: 17px;
-    --main-background-color: #efe8e8;
+    --main-background-color: #ffffff;
 
     --list-card-font-size: 12px;
     --list-wrapper-font-size: 14px;
@@ -76,8 +76,8 @@
     --textarea-margin: 5px 0;
     --textarea-border-radius: 5px;
 
-    --modal-background-color: rgba(82, 72, 72, 0.69);
-    --modal-card-background-color: rgba(252, 252, 252, 0.94);
+    --modal-background-color: rgba(0, 0, 0, 0.73);
+    --modal-card-background-color: rgba(252, 252, 252, 0);
     --modal-background-padding: 10px;
     --modal-background-border-radius: 10px;
 
@@ -134,7 +134,7 @@
     --card-decision-date-padding: 3px;
     --card-decision-date-margin: 5px 5px 3px 0px;
 
-    --list-wrapper: #c2c7bc;
+    --list-wrapper: #d9d1d1;
     --list-creator-background: #dacaca;
     --list-context-menu-background: #ccd7cc;
     --list-context-color: #463b3b;

@@ -18,12 +18,12 @@
 }
 
 .modal_card{
-
     z-index: 2;
     background: var(--modal-card-background-color);
     padding: var(--modal-background-padding);
     border-radius: var(--modal-background-border-radius);
 }
+
 
 .context_card{
 
