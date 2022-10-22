@@ -23,21 +23,23 @@ export default function Column({column, cardList}) {
             <ListHeader column={column}
                         addCardMenuCreate={addCardMenuCreate}/>
 
-        <div className={classes.cards_wrapper}>
-            {cardList.map(item =>
-                <ListCard
-                    key={item._id}
-                    cardId={item._id}
-                    header={item.header}
-                />
-            )
-            }
-        </div>
-            <CardCreator
-                isCreator={isCreator}
-                menuClose={menuClose}
-                menuCreate={addCardMenuCreate}
-                columnId={column._id}/>
+            <div className={classes.cards_wrapper}>
+                {cardList.map(item =>
+                    <ListCard
+                        key={item._id}
+                        cardId={item._id}
+                        header={item.header}
+                    />
+                )
+                }
+            </div>
+            <div className={classes.card_creator}>
+                <CardCreator
+                    isCreator={isCreator}
+                    menuClose={menuClose}
+                    menuCreate={addCardMenuCreate}
+                    columnId={column._id}/>
+            </div>
         </div>
     );
 };
