@@ -25,7 +25,7 @@
 }
 
 .cards_wrapper::-webkit-scrollbar-track{
-    background-color: lightgrey;
+    background-color: transparent;
 
 }
 

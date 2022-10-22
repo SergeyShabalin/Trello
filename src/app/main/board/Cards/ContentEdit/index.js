@@ -13,7 +13,6 @@ export default function ContentEdit({header, cardId}) {
     const [isModalContextMenu, setIsModalContextMenu] = useState(false)
     const [coordinates, setCoordinates] = useState()
 
-
     function openCloseModal() {
         setIsModal(!isModal)
     }
