@@ -4,11 +4,11 @@ import ContentEdit from "./ContentEdit";
 import DecisionDate from "./DecisionDate";
 import classes from './ListCard.module.css';
 
-export default function ListCard({header, cardId}) {
+export default function ListCard({header, cardId, columnId}) {
 
     return (
         <div className={classes.list_card}>
-            <ContentEdit cardId={cardId} header={header} />
+            <ContentEdit cardId={cardId} header={header} columnId={columnId}/>
             <div className={classes.footer}>
                 <DecisionDate/>
                 <Checkout/>

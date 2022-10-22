@@ -1,20 +1,20 @@
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch } from "react-redux";
 import { RiDeleteBin5Line } from "react-icons/ri";
 import { MdOutlineDriveFileMoveRtl } from "react-icons/md";
 import { BsEnvelopeOpen } from "react-icons/bs";
 import { deleteCard } from "../../../../../../store/cards/asyncActions";
 import classes from "./CardContextMenu.module.css";
-import Modal from "../../../../../../components/basic/Modal";
-import { deleteColumn } from "../../../../../../store/columns/asyncActions";
 
-export default function CardContextMenu({ cardId, closeModalContextMenu }) {
+
+export default function CardContextMenu({ cardId, closeModalContextMenu, columnId}) {
 
   const dispatch = useDispatch();
 
   function cardDelete() {
-    const isDelete = window.confirm("Удалить карточку?");
-    if (isDelete) dispatch(deleteCard(cardId));
+     const isDelete = window.confirm("Удалить карточку?");
+    if (isDelete)
+      dispatch(deleteCard(cardId, columnId));
     closeModalContextMenu();
   }
 

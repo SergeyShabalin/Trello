@@ -6,4 +6,5 @@ export const columnsAC = {
     columnDelete: (payload) => ({type: COLUMNS_TYPES.VIEW_ALL_COLUMNS, payload}),
     columnUpdate: (payload) => ({type: COLUMNS_TYPES.VIEW_ALL_COLUMNS, payload}),
     cardsAdd: (payload) => ({type: COLUMNS_TYPES.VIEW_ALL_COLUMNS, payload}),
+    cardDelete: (payload) => ({type: COLUMNS_TYPES.VIEW_ALL_COLUMNS, payload})
 }
