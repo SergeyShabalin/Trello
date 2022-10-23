@@ -22,18 +22,18 @@ export const addNewCard = (columnId, title) => async (dispatch, getState) => {
 };
 
 export const deleteCard = (cardId, columnId) => async (dispatch, getState) => {
-
   const { columns } = getState().columns;
-  const columnsForDelete = columns.filter(column => (column._id === columnId));
-  const [cardsForDelete] = columnsForDelete.map(card => (
-    card.cards.filter(item => (item._id !== cardId))
-  ));
-
   const ColumnsAfterDelete = columns.map(column => (
     column._id === columnId
-      ? { ...column, cards: cardsForDelete }
-      : column)
-  );
+      ? {
+        ...column, cards: column.cards.filter(item => (
+          item._id !== cardId
+            ? item
+            : null
+        ))
+      }
+      : column
+  ));
 
   try {
     dispatch(columnsAC.cardDelete(ColumnsAfterDelete));
@@ -42,6 +42,7 @@ export const deleteCard = (cardId, columnId) => async (dispatch, getState) => {
     console.warn(error, "server error");
   }
 };
+
 
 export const updateCard = (cardId, title) => async (dispatch) => {
   console.log(cardId, title);
