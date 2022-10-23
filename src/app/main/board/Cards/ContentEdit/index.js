@@ -47,6 +47,7 @@ export default function ContentEdit({ header, cardId, columnId }) {
             coordinates={coordinates}>
             <div className={classes.content_edit}>
               <Editor
+                columnId={columnId}
                 header={header}
                 closeModalContextMenu={closeModalContextMenu}
                 cardId={cardId}

@@ -29,7 +29,7 @@ export const deleteCard = (cardId, columnId) => async (dispatch, getState) => {
         ...column, cards: column.cards.filter(item => (
           item._id !== cardId
             ? item
-            : null
+            : false
         ))
       }
       : column
@@ -44,12 +44,22 @@ export const deleteCard = (cardId, columnId) => async (dispatch, getState) => {
 };
 
 
-export const updateCard = (cardId, title) => async (dispatch) => {
-  console.log(cardId, title);
+export const updateCard = (cardId, title, columnId) => async (dispatch, getState) => {
+  const { columns } = getState().columns;
+  const ColumnsAfterUpdate = columns.map(column => (
+    column._id === columnId
+      ? {
+        ...column, cards: column.cards.map(item => (
+          item._id === cardId
+            ? { ...item, header: title }
+            : item
+        ))
+      }
+      : column
+  ));
   try {
+    dispatch(columnsAC.cardUpdate(ColumnsAfterUpdate));
     await CardsApi.updateCardAPI(cardId, title);
-
-
   } catch (error) {
     console.warn(error, "server error");
   }

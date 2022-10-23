@@ -7,7 +7,7 @@ import Checkout from "../../Checkout";
 import { useDispatch } from "react-redux";
 import { updateCard } from "../../../../../../store/cards/asyncActions";
 
-export default function Editor({ header, closeModalContextMenu, cardId }) {
+export default function Editor({ header, closeModalContextMenu, cardId, columnId }) {
   const dispatch = useDispatch();
 
   const [newTitle, setNewTitle] = useState("");
@@ -18,7 +18,7 @@ export default function Editor({ header, closeModalContextMenu, cardId }) {
 
   function saveChanged(e) {
     if (e.keyCode === 13) {
-      dispatch(updateCard(cardId, newTitle));
+      dispatch(updateCard(cardId, newTitle, columnId));
       closeModalContextMenu();
     }
   }
