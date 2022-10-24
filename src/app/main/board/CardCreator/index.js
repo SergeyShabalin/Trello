@@ -48,14 +48,12 @@ export default function CardCreator({ columnId, isCreator, menuCreate, menuClose
           <div className={classes.btns}>
             <Button
               onClick={addCard}
-              className={classes.add_btn} //TODO
               variant="contained"
               color="submit"
               label="Добавить карточку">
             </Button>
             <Button
               onClick={menuClose}
-              className={classes.close_btn}
               variant="just_icon"
               icon={<GrClose />}>
             </Button>

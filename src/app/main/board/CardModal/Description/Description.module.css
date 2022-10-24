@@ -1,0 +1,25 @@
+.description{
+    padding: 5px 10px 40px 10px;
+    margin: 5px;
+}
+
+.description_hidden{
+
+}
+
+.textarea{
+  margin: 10px 10px 10px 25px;
+}
+
+.description_wrapper{
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.description_title{
+    padding: 0 10px 0 10px;
+    margin: 5px;
+}
+
+

@@ -1,12 +1,14 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { BiEdit } from "react-icons/bi";
 import Button from "../../../../../components/basic/Button";
 import Modal from "../../../../../components/basic/Modal";
 import CardContextMenu from "./ContextMenu";
 import Editor from "./Editor";
 import classes from "./ContentEdit.module.css";
+import CardModal from "../../CardModal";
 
-export default function ContentEdit({ header, cardId, columnId }) {
+export default function ContentEdit({ header, cardId, columnId, columnHeader}) {
 
   const [isModal, setIsModal] = useState(false);
 
@@ -16,6 +18,7 @@ export default function ContentEdit({ header, cardId, columnId }) {
   function openCloseModal() {
     setIsModal(!isModal);
   }
+
 
   function openModalContextMenu(e) {
     const coords = e.currentTarget.getBoundingClientRect();
@@ -30,9 +33,11 @@ export default function ContentEdit({ header, cardId, columnId }) {
   return (
     <>
       <div className={classes.header}>
-        <div className={classes.title} onClick={openCloseModal}>
-          {header}
-        </div>
+        <Link className={classes.link} to={`/card/${cardId}`}>
+          <div className={classes.title}
+               onClick={openCloseModal}>{header}</div>
+        </Link>
+
 
         <div className={classes.button_edit}>
           <Button
@@ -62,8 +67,8 @@ export default function ContentEdit({ header, cardId, columnId }) {
 
           <Modal
             open={isModal}
-            onClose={openCloseModal}><span
-            className={classes.modal_open}>Окно быстрого редактирования</span>
+            onClose={openCloseModal}>
+            <CardModal columnHeader = {columnHeader} titleCard={header} />
           </Modal>
         </div>
       </div>

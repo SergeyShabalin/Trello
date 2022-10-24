@@ -3,13 +3,15 @@
     align-items: flex-start;
     justify-content: space-between;
     width: 100%;
+
 }
 
 
 .title {
     padding: 5px;
-    width: 90%;
+    width: 95%;
     cursor: pointer;
+    list-style: none;
 }
 
 .header:hover .button_edit {
@@ -34,5 +36,10 @@
 
 .content {
 
+}
+
+.link{
+    text-decoration: none;
+    color: #181818;
 }
 

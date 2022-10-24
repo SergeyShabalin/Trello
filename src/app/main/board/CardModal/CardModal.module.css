@@ -1,0 +1,38 @@
+.card_modal_wrapper{
+    background-color: white;
+    padding: 15px 15px;
+    border-radius: 5px;
+    max-width: 50vw;
+    min-width: 40vw;
+
+}
+
+.title_wrapper{
+    display: flex;
+    align-items: center;
+}
+
+.title{
+    padding-left: 10px;
+    margin: 5px;
+    display: flex;
+
+}
+
+.title_column{
+    font-size: 0.9rem;
+    padding-left: 20px;
+    margin: 5px;
+}
+
+
+.checkbox_title_wrapper{
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.checkbox_title{
+    padding: 0 10px 0 10px;
+    margin: 5px;
+}

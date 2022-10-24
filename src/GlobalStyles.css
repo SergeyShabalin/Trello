@@ -5,7 +5,7 @@
     --header-color: rgba(0, 0, 0, 0.24);
     --prymary-font: "ubuntu";
     --main-font-size: 17px;
-    --main-background-color: #ffffff;
+    --main-background-color: #fffdfd;
 
     --list-card-font-size: 12px;
     --list-wrapper-font-size: 14px;
@@ -35,10 +35,10 @@
     --button-outlined-submit: green;
     --button-outlined-error-label-color: rgb(168, 4, 4);
 
-    --button-contained-background: rgba(0, 0, 0, 0.21);
+    --button-contained-background: rgba(0, 0, 0, 0.29);
     --button-contained-color: #efe4e4;
     --button-contained-color-disabled: #8a8282;
-    --button-contained-background-hover: rgba(0, 0, 0, 0.35);
+    --button-contained-background-hover: rgba(0, 0, 0, 0.48);
     --button-contained-background-disabled: #e0c6c6;
     --button-contained-border-radius-disabled: 5px;
     --button-contained-submit-background: #00a900;
@@ -81,11 +81,11 @@
     --modal-background-padding: 10px;
     --modal-background-border-radius: 10px;
 
-    --checkbox-container-padding: 5px;
+    --checkbox-container-padding: 10px;
     --checkbox-container-margin: 5px;
     --checkbox-container-font-size: 1rem;
-    --checkbox-container-background-color: #e8ebf5;
-    --checkbox-container-background-color-hover: #cbbaba;
+    --checkbox-container-background-color: transparent;
+    --checkbox-container-background-color-hover: rgba(52, 147, 213, 0.37);
     --checkbox-container-text-hover: 1px 1px 2px rgba(40, 44, 40, 0.35);
     --checkbox-container-outlined-border: solid 1px;
     --checkbox-container-outlined-color: #5e5858;

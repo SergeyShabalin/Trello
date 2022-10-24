@@ -26,6 +26,7 @@ export default function Column({ column, cardList }) {
       <div className={classes.cards_wrapper}>
         {cardList.map(item =>
           <ListCard
+            columnHeader={column.header}
             columnId={column._id}
             key={item._id}
             cardId={item._id}
@@ -43,7 +44,7 @@ export default function Column({ column, cardList }) {
       </div>
     </div>
   );
-};
+}
 
 Column.propTypes = {
   header: PropTypes.string

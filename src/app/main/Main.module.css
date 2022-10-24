@@ -3,7 +3,7 @@
     overflow-y: hidden;
     background-color: var(--main-background-color);
     font-size: var(--main-font-size);
-
+min-height: 100vh;
 }
 .header_main{
     font-family: var(--prymary-font);
