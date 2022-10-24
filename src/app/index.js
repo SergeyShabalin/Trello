@@ -9,7 +9,7 @@ function App() {
 
   return (
     <Routes>
-      <Route path="/*" element={<Main />}>
+      <Route path="/" element={<Main />}>
         <Route path="card/:cardId" element={<Modal/>} />
       </Route>
       <Route path="/ui" element={<UiKit />} />

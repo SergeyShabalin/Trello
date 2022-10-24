@@ -1,5 +1,5 @@
 .checkList_wrapper {
- color: #2a2828;
+ color: #172b4d;
 }
 
 .checkbox{
@@ -11,6 +11,10 @@
 
 .checkbox_title{
     cursor: pointer;
+}
+
+.checkbox_title_done{
+    text-decoration: line-through;
 }
 
 .checkbox:hover{

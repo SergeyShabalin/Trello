@@ -37,7 +37,9 @@ export default function Description() {
             />
           </div>
 
-        : <span className={classes.description_card} onClick={openEditDescription}>Описание карточки</span>}
+        : <div className={classes.description_card} > <Button onClick={openEditDescription} variant="contained" label="Изменить"  />Описание карточки</div>
+
+      }
 
     </>
   );
