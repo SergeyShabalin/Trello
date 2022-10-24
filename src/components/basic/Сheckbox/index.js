@@ -11,14 +11,15 @@ export default function Checkbox({ label, variant = "text", disabled, ...props }
         <input
           disabled={disabled}
           type="checkbox"
-          className={classes.checkbox_label}
+          className={classes.custom_checkbox}
           {...props} />
+
         {label && <span className={classes.label}>{label}</span>}
       </div>
     </div>
 
   );
-};
+}
 
 Checkbox.propTypes = {
   label: PropTypes.string,

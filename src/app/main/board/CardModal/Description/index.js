@@ -23,29 +23,21 @@ export default function Description() {
 
   return (
     <>
-      <div className={classes.description_wrapper}><AiOutlineMenuUnfold />
-      <h4 className={classes.description_title}>Описание</h4>
-      <Button
-        onClick={openEditDescription}
-        variant="contained"
-        label="Изменить">
-      </Button>
-    </div>
+      {isEditDescription
+        ?
+          <div className={classes.textarea} ref={ref}>
+            <Input
+              rows={4}
+              cols={28}
+              autoFocus
+              variant="transparent"
+              container="custom"
+              placeholder="Введите заголовок карточки"
+              value="Описание"
+            />
+          </div>
 
-
-      <div  className={classes.textarea} ref={ref}>
-        <Input
-          rows={4}
-          cols={28}
-          autoFocus
-          variant="transparent"
-          container="custom"
-          placeholder="Введите заголовок карточки"
-          value="Описание"
-        /></div>
-
-        <span className={`${isEditDescription &&  classes.description_hidden}`}>Описание карточки</span>
-
+        : <span className={classes.description_card} onClick={openEditDescription}>Описание карточки</span>}
 
     </>
   );

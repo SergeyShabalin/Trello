@@ -338,7 +338,7 @@ export default function UiKit() {
 
 
                     <div className={classes.checkbox}>
-                        <Checkbox/>
+
                         <Checkbox
                             label='checkbox with label'
                         />
