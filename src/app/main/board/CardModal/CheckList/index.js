@@ -28,12 +28,10 @@ export default function CheckList() {
   function saveInEnter(e){
     if (e.keyCode === 13) {
       closeEditCheckbox();
-      console.log(checkboxValue);
     }
   }
 
   function saveCheckboxValue(){
-      console.log(checkboxValue);
       closeEditCheckbox();
   }
 

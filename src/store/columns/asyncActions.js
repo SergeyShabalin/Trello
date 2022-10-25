@@ -12,9 +12,10 @@ export const getAllColumns = () => async (dispatch) => {
 };
 
 export const addColumn = (header) => async (dispatch) => {
+  console.log(header)
   try {
     const resp = await ColumnsAPI.addNewColumnAPI(header);
-    dispatch(columnsAC.addNewColumn(resp.data));
+     dispatch(columnsAC.addNewColumn(resp.data));
   } catch (error) {
     console.warn(error, "server error");
   }

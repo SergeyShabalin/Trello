@@ -31,6 +31,7 @@ export default function Column({ column, cardList }) {
             key={item._id}
             cardId={item._id}
             header={item.header}
+            description={item.description}
           />
         )
         }

@@ -9,7 +9,7 @@ import useOnClickOutside from "../../../../hooks/UseOnClickOutside";
 
 function ListCreator({ addList }) {
 
-  const [header, setHeader] = useState({ header: "" });
+  const [header, setHeader] = useState('');
   const [isModalOpen, setModalOpen] = useState(false);
 
   const ref = useRef();
@@ -17,7 +17,7 @@ function ListCreator({ addList }) {
   useOnClickOutside(ref, () => setModalOpen(false));
 
   function getColumnHeader(e) {
-    setHeader({ header: e.target.value }); //TODO поправить
+    setHeader(e.target.value );
   }
 
   function addColumn(e) {

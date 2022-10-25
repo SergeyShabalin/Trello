@@ -10,3 +10,15 @@
     transform: scale(1.3);
     color: #030a36
 }
+
+.edit_btn{
+    display: flex;
+    margin-top: 5px;
+}
+.save_btn{
+    margin-right: 5px;
+}
+
+.cancel_btn{
+
+}
