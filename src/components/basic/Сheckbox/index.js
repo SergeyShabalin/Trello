@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import classes from "./Checkbox.module.css";
 
-export default function Checkbox({ label, variant = "text", disabled, ...props }) {
+export default function Checkbox({ label, variant = "text", disabled=false, ...props }) {
   return (
     <div>
 

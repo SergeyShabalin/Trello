@@ -1,23 +1,23 @@
-.modal_background{
+.modal_background {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
     overflow: hidden;
-    background-color:var(--modal-background-color);
+    background-color: var(--modal-background-color);
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
 }
 
-.modal_wrapper{
+.modal_wrapper {
     display: flex;
     justify-content: center;
 }
 
-.modal_card{
+.modal_card {
     z-index: 2;
     background: var(--modal-card-background-color);
     padding: var(--modal-background-padding);
@@ -25,19 +25,19 @@
 }
 
 
-.context_card{
+.context_card {
 
 }
 
 
-.context_menu{
-     position: absolute;
+.context_menu {
+    position: absolute;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
     overflow: hidden;
-background-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0);
     flex-direction: row;
     justify-content: center;
     align-items: center;

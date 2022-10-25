@@ -1,32 +1,31 @@
 .checkList_wrapper {
- color: #172b4d;
+    color: #172b4d;
 }
 
-.checkbox{
+.checkbox {
     display: flex;
     align-items: center;
     border-radius: 5px;
     padding: 5px;
 }
 
-.checkbox_title{
+.checkbox_title {
     cursor: pointer;
 }
 
-.checkbox_title_done{
+.checkbox_title_done {
     text-decoration: line-through;
 }
 
-.checkbox:hover{
+.checkbox:hover {
     background-color: rgba(27, 27, 215, 0.26);
-
 }
 
-.checkbox_editor{
+.checkbox_editor {
     padding: 5px;
     border-radius: 5px;
 }
 
-.save_edit_btn{
+.save_edit_btn {
     margin-top: 5px;
 }

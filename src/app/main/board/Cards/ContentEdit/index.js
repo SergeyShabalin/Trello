@@ -34,13 +34,14 @@ export default function ContentEdit({ header, cardId, columnId, columnHeader}) {
     <>
       <div className={classes.header}>
         <Link className={classes.link} to={`/card/${cardId}`}>
-          <div className={classes.title}
-               onClick={openCloseModal}>{header}</div>
           <Modal
             open={isModal}
             onClose={openCloseModal}>
             <CardModal columnHeader = {columnHeader} titleCard={header} />
           </Modal>
+          <div className={classes.title}
+               onClick={openCloseModal}>{header}</div>
+
         </Link>
 
 

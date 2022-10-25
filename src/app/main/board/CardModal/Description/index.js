@@ -5,40 +5,27 @@ import useOnClickOutside from "../../../../../hooks/UseOnClickOutside";
 import { AiOutlineMenuUnfold } from "react-icons/ai";
 import Button from "../../../../../components/basic/Button";
 
-export default function Description() {
+export default function Description({closeEditDescription, isEditDescription}) {
 
-  const [isEditDescription, setIsEditDescription] = useState(false);
   const ref = useRef();
-
   useOnClickOutside(ref, closeEditDescription);
-
-  function openEditDescription() {
-    setIsEditDescription(true);
-  }
-
-  function closeEditDescription() {
-    setIsEditDescription(false);
-  }
-
 
   return (
     <>
       {isEditDescription
         ?
-          <div className={classes.textarea} ref={ref}>
-            <Input
-              rows={4}
-              cols={28}
-              autoFocus
-              variant="transparent"
-              container="custom"
-              placeholder="Введите заголовок карточки"
-              value="Описание"
-            />
-          </div>
-
-        : <div className={classes.description_card} > <Button onClick={openEditDescription} variant="contained" label="Изменить"  />Описание карточки</div>
-
+        <div className={classes.textarea} ref={ref}>
+          <Input
+            rows={4}
+            cols={28}
+            autoFocus
+            variant="transparent"
+            container="custom"
+            placeholder="Введите заголовок карточки"
+            value="Описание"
+          />
+        </div>
+        : <span className={classes.description_card}>Здесь будет описание  карточки</span>
       }
 
     </>
