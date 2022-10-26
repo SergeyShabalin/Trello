@@ -4,11 +4,14 @@ import classes from "./Description.module.css";
 import useOnClickOutside from "../../../../../hooks/UseOnClickOutside";
 
 import Button from "../../../../../components/basic/Button";
+import { updateCard } from "../../../../../store/cards/asyncActions";
+import { useDispatch } from "react-redux";
 
-export default function Description({ closeEditDescription, isEditDescription, description = "" }) {
+export default function Description({ closeEditDescription, isEditDescription, description = "", cardId, columnId, titleCard }) {
 
   const [descriptionValue, setDescriptionValue] = useState("");
   const ref = useRef();
+  const dispatch = useDispatch();
   useOnClickOutside(ref, closeEditDescription);
 
   function getDescriptionValue(e) {
@@ -16,7 +19,8 @@ export default function Description({ closeEditDescription, isEditDescription, d
   }
 
   function saveDescriptionValue() {
-    console.log(descriptionValue);
+    dispatch( updateCard(cardId, titleCard, columnId, descriptionValue));
+    closeEditDescription();
   }
 
   return (
@@ -55,11 +59,11 @@ export default function Description({ closeEditDescription, isEditDescription, d
           </div>
 
 
-
         </div>
         : <div>
-          {description !== "" ? <div className={classes.description_card}>{description}</div>
-            : <div className={classes.description_card}>нет описания</div>
+          {
+            description !== "" ? <div className={classes.description_card}>{description}</div>
+              : <div className={classes.description_card}>нет описания</div>
           }
         </div>
       }

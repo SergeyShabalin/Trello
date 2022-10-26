@@ -8,7 +8,7 @@ import Button from "../../../../components/basic/Button";
 import Checkbox from "../../../../components/basic/Сheckbox";
 
 
-export default function CardModal({ columnHeader = "", titleCard = "", description, openCloseModal }) {
+export default function CardModal({ columnHeader = "", titleCard = "", description, openCloseModal, cardId,columnId }) {
 
   const [isEditDescription, setIsEditDescription] = useState(false);
 
@@ -49,6 +49,9 @@ export default function CardModal({ columnHeader = "", titleCard = "", descripti
 
       </div>
       <Description description={description}
+                   columnId={columnId}
+                   titleCard={titleCard}
+                   cardId={cardId}
                    openEditDescription={openEditDescription}
                    closeEditDescription={closeEditDescription}
                    isEditDescription={isEditDescription} />
