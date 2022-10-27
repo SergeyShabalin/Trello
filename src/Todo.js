@@ -33,8 +33,8 @@ export default Todo;
 //[…columns][columnIndex][cardIndex]= newCard избавиться от перебора map
 //Описание карточек
 //Чеклист карточек
-// Когда открываю карточку - делаю запрос к серверу на получение всех данных о карточке//TODO+++
-
+// TODO+++ Когда открываю карточку - делаю запрос к серверу на получение всех данных о карточке
+//TODO +++ Добавление чеклиста на сервере TODO
 
 // console.log( 'cardId', cardId,  'title', title,  'columnId', columnId, 'desc', description);
 // console.log(newTitle, "cardIndex", cardIndex, "columnIndex", columnIndex);

@@ -1,0 +1,13 @@
+.main_wrapper{
+    padding: 10px 20px;
+}
+
+
+.control_button{
+    display: flex;
+    margin-top: 5px;
+}
+
+.btn_add{
+    margin-right: 5px;
+}

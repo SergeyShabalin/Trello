@@ -9,12 +9,13 @@
     padding: 5px;
 }
 
-.checkbox_title {
+.checkbox_title_none {
     cursor: pointer;
+    text-decoration: line-through;
 }
 
 .checkbox_title_done {
-    text-decoration: line-through;
+    cursor: pointer;
 }
 
 .checkbox:hover {

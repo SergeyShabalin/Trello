@@ -1,6 +1,7 @@
 import CardsApi from "../../api/CardsApi";
 import { columnsAC } from "../columns/actions";
 import { cardsAC } from "./actions";
+import CheckListApi from "../../api/CheckListApi";
 
 
 export const addNewCard = (columnId, title) => async (dispatch, getState) => {
@@ -70,6 +71,15 @@ export const getCardInfo = (cardId) => async (dispatch) => {
   try {
     const resp = await CardsApi.getCardInfoAPI(cardId);
     dispatch(cardsAC.viewInfoCard(resp.data));
+  } catch (error) {
+    console.warn(error, "server error");
+  }
+};
+
+export const NewTaskAdd = (cardId, task) => async (dispatch) => {
+  try {
+    const resp = await CheckListApi.addNewTaskAPI(cardId, task);
+
   } catch (error) {
     console.warn(error, "server error");
   }

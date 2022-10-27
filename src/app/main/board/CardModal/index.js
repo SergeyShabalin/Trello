@@ -7,6 +7,7 @@ import CheckList from "./CheckList";
 import { AiOutlineMenuUnfold, AiOutlineCreditCard, AiOutlineClose } from "react-icons/ai";
 import Button from "../../../../components/basic/Button";
 import { getCardInfo } from "../../../../store/cards/asyncActions";
+import CheckListCreator from "./CheckListCreator";
 
 
 export default function CardModal({
@@ -67,7 +68,9 @@ export default function CardModal({
         <AiOutlineMenuUnfold className={classes.icons} />
         <h4 className={classes.description_title}>Описание</h4>
 
-        <Button variant="contained" label="Изменить" onClick={openEditDescription} />
+        <Button variant="outlined"
+                label="Изменить"
+                onClick={openEditDescription} />
 
       </div>
       <Description description={cardInfo.description}
@@ -78,8 +81,8 @@ export default function CardModal({
       <div className={classes.checkbox_title_wrapper}>
         <BsCheck2Square className={classes.icons} />
         <h4 className={classes.checkbox_title}>Чек-лист</h4></div>
-
       {CheckLists}
+      <CheckListCreator cardId={cardId}/>
     </form>
 
   );
