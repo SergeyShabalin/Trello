@@ -10,12 +10,7 @@ import { getCardInfo } from "../../../../store/cards/asyncActions";
 import CheckListCreator from "./CheckListCreator";
 
 
-export default function CardModal({
-                                    columnHeader = "",
-                                    openCloseModal,
-                                    cardId,
-                                    columnId
-                                  }) {
+export default function CardModal({columnHeader = "",openCloseModal,cardId}) {
 
   const [isEditDescription, setIsEditDescription] = useState(false);
   const cardInfo = useSelector(state => state.cards.cards);
@@ -34,7 +29,8 @@ export default function CardModal({
   }
 
 
-  const CheckLists = cardInfo.checkList && cardInfo.checkList.map(checkItem => {
+  const CheckLists = cardInfo.checkList &&
+    cardInfo.checkList.map(checkItem => {
     return (
       <CheckList key={checkItem._id}
                  task={checkItem.task}
@@ -81,8 +77,9 @@ export default function CardModal({
       <div className={classes.checkbox_title_wrapper}>
         <BsCheck2Square className={classes.icons} />
         <h4 className={classes.checkbox_title}>Чек-лист</h4></div>
-      {CheckLists}
-      <CheckListCreator cardId={cardId}/>
+      <div className={classes.checklists_wrapper}>{CheckLists}</div>
+      <CheckListCreator cardId={cardId} />
+
     </form>
 
   );

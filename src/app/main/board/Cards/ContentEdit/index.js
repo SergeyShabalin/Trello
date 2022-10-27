@@ -9,7 +9,7 @@ import classes from "./ContentEdit.module.css";
 import CardModal from "../../CardModal";
 
 
-export default function ContentEdit({ header, cardId, columnId, columnHeader, description, cardIndex, columnIndex }) {
+export default function ContentEdit({ header, cardId, columnId, columnHeader, cardIndex, columnIndex }) {
 
   const [isModal, setIsModal] = useState(false);
 
@@ -71,11 +71,9 @@ export default function ContentEdit({ header, cardId, columnId, columnHeader, de
             open={isModal}
             onClose={openCloseModal}>
             <CardModal
-              columnId={columnId}
               cardId={cardId}
               openCloseModal={openCloseModal}
-              description={description}
-              columnHeader={columnHeader} titleCard={header} />
+              columnHeader={columnHeader} />
           </Modal>
 
         </div>

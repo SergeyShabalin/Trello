@@ -4,6 +4,8 @@ import classes from "./CheckList.module.css";
 import Input from "../../../../../components/basic/Input";
 import Button from "../../../../../components/basic/Button";
 import useOnClickOutside from "../../../../../hooks/UseOnClickOutside";
+import { GoKebabHorizontal } from "react-icons/go";
+import DeleteCheckTask from "./DeleteCheckTask";
 
 
 export default function CheckList({ task, done }) {
@@ -52,16 +54,22 @@ export default function CheckList({ task, done }) {
               <Button variant="contained"
                       label="Сохранить"
                       color="blue"
+                      variety={true}
                       onClick={saveCheckboxValue} />
             </div>
           </div>
 
           :
-            <span onClick={openEditChecklist} className={done ? `${classes.checkbox_title_none}` : `${classes.checkbox_title_done}`}>
+          <div className={classes.checkbox_content}>
+             <span onClick={openEditChecklist}
+                   className={done ? `${classes.checkbox_title_none}` : `${classes.checkbox_title_done}`}>
                 {task}
             </span>
-        }
 
+          </div>
+
+        }
+        <DeleteCheckTask/>
       </div>
     </div>
   );

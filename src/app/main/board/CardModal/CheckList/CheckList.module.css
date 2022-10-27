@@ -1,5 +1,6 @@
 .checkList_wrapper {
     color: #172b4d;
+
 }
 
 .checkbox {
@@ -8,18 +9,26 @@
     border-radius: 5px;
     padding: 5px;
 }
+.checkbox_content{
+    display: flex;
+    width: 90%;
+    align-items: center;
+}
 
 .checkbox_title_none {
     cursor: pointer;
+
+    display: flex;
     text-decoration: line-through;
 }
 
 .checkbox_title_done {
     cursor: pointer;
+    width: 90%;
 }
 
 .checkbox:hover {
-    background-color: rgba(27, 27, 215, 0.26);
+    background-color: rgba(27, 27, 215, 0.11);
 }
 
 .checkbox_editor {

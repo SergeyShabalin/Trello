@@ -66,7 +66,6 @@ export const updateCard = (newTitle, cardIndex, columnIndex, cardId, columnId) =
   }
 };
 
-
 export const getCardInfo = (cardId) => async (dispatch) => {
   try {
     const resp = await CardsApi.getCardInfoAPI(cardId);
@@ -76,10 +75,14 @@ export const getCardInfo = (cardId) => async (dispatch) => {
   }
 };
 
-export const NewTaskAdd = (cardId, task) => async (dispatch) => {
+export const NewTaskAdd = (cardId, task) => async (dispatch, getState) => {
+  const { cards } = getState().cards;
+  console.log('cards', cards);
   try {
     const resp = await CheckListApi.addNewTaskAPI(cardId, task);
-
+    cards.checkList.push(resp.data);
+    console.log('checklist',cards.checkList);
+     dispatch(cardsAC.addNewTask(cards.checkList));
   } catch (error) {
     console.warn(error, "server error");
   }

@@ -19,7 +19,6 @@ export default function ListHeader({ column, addCardMenuCreate }) {
   return (
     <div className={classes.header}>
       <div className={classes.title_wrapper} onClick={openEditHeader}>
-
         <ListHeaderEdit
           openEditHeader={openEditHeader}
           closeEditHeader={closeEditHeader}
