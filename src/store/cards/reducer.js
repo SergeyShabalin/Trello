@@ -1,14 +1,13 @@
-import {defaultState} from './initState'
-import {CARD_TYPES} from './constants'
+import { defaultState } from "./initState";
+import { CARD_TYPES } from "./constants";
 
-export default function cardsReducer(state = defaultState, {type, payload}) {
+export default function cardsReducer(state = defaultState, { type, payload }) {
 
-    switch (type) {
+  switch (type) {
 
-        case CARD_TYPES.VIEW_ALL_CARD:
-            return{...state, cards:payload} //TODO
-
-        default:
-            return (state)
-    }
+    case CARD_TYPES.VIEW_INFO_CARD:
+      return { ...state, cards: payload };
+    default:
+      return (state);
+  }
 }

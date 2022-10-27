@@ -12,7 +12,6 @@ export const getAllColumns = () => async (dispatch) => {
 };
 
 export const addColumn = (header) => async (dispatch) => {
-  console.log(header)
   try {
     const resp = await ColumnsAPI.addNewColumnAPI(header);
      dispatch(columnsAC.addNewColumn(resp.data));

@@ -7,7 +7,7 @@ import Button from "../../../../../components/basic/Button";
 import { updateCard } from "../../../../../store/cards/asyncActions";
 import { useDispatch } from "react-redux";
 
-export default function Description({ closeEditDescription, isEditDescription, description = "", cardId, columnId, titleCard }) {
+export default function Description({ closeEditDescription, isEditDescription, description = "" }) {
 
   const [descriptionValue, setDescriptionValue] = useState("");
   const ref = useRef();
@@ -19,8 +19,8 @@ export default function Description({ closeEditDescription, isEditDescription, d
   }
 
   function saveDescriptionValue() {
-    dispatch( updateCard(cardId, titleCard, columnId, descriptionValue));
-    closeEditDescription();
+    // dispatch( updateCard(cardId, titleCard, columnId, descriptionValue));
+    // closeEditDescription();
   }
 
   return (

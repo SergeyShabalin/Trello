@@ -1,6 +1,7 @@
 
 export const defaultState={
     columns: [
+
         // {_id: '634d2f29d1b918ec29ac0fa3',
         //     header: '',
         //     cards:[

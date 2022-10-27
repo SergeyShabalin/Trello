@@ -7,7 +7,7 @@ import Checkout from "../../Checkout";
 import { useDispatch } from "react-redux";
 import { updateCard } from "../../../../../../store/cards/asyncActions";
 
-export default function Editor({ header, closeModalContextMenu, cardId, columnId }) {
+export default function Editor({ header, closeModalContextMenu, cardId, columnId, cardIndex, columnIndex }) {
   const dispatch = useDispatch();
 
   const [newTitle, setNewTitle] = useState("");
@@ -15,11 +15,14 @@ export default function Editor({ header, closeModalContextMenu, cardId, columnId
   function getNewValue({ target }) {
     setNewTitle(target.value);
   }
+function saveChanged(){
+  dispatch(updateCard(newTitle, cardIndex, columnIndex, cardId, columnId));
+  closeModalContextMenu();
+}
 
-  function saveChanged(e) {
+  function saveChangedKeyDown(e) {
     if (e.keyCode === 13) {
-      dispatch(updateCard(cardId, newTitle, columnId));
-      closeModalContextMenu();
+      saveChanged()
     }
   }
 
@@ -30,7 +33,7 @@ export default function Editor({ header, closeModalContextMenu, cardId, columnId
           rows={4}
           cols={28}
           autoFocus
-          onKeyDown={saveChanged}
+          onKeyDown={saveChangedKeyDown}
           onChange={getNewValue}
           variant="transparent"
           container="custom"
@@ -44,7 +47,7 @@ export default function Editor({ header, closeModalContextMenu, cardId, columnId
       </div>
 
       <div className={classes.button}>
-        <Button variant="contained" label="Сохранить" color="blue" />
+        <Button variant="contained" label="Сохранить" color="blue" onClick={saveChanged}/>
       </div>
     </div>
   );

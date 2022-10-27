@@ -1,5 +1,5 @@
-import {CARD_TYPES} from './constants'
+import { CARD_TYPES } from "./constants";
 
 export const cardsAC = {
-    viewAllCards: (payload) => ({type: CARD_TYPES.VIEW_ALL_CARD, payload})
-}
+  viewInfoCard: (payload) => ({ type: CARD_TYPES.VIEW_INFO_CARD, payload })
+};

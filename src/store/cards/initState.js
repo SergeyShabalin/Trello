@@ -1,3 +1,5 @@
 export const defaultState={
-    cards: []
+    cards: {
+        checklist:[]
+    }
 }

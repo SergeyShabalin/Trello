@@ -6,10 +6,10 @@ import Button from "../../../../../components/basic/Button";
 import useOnClickOutside from "../../../../../hooks/UseOnClickOutside";
 
 
-export default function CheckList() {
+export default function CheckList({task, done}) {
 
   const [isEditCheckbox, setIsEditCheckbox] = useState(false);
-  const [checkboxValue, setCheckboxValue] = useState('');
+
   const ref = useRef();
   useOnClickOutside(ref, closeEditCheckbox);
 
@@ -21,9 +21,7 @@ export default function CheckList() {
     setIsEditCheckbox(false);
   }
 
-  function getCheckboxValue({target}){
-    setCheckboxValue(target.value);
-  }
+
 
   function saveInEnter(e){
     if (e.keyCode === 13) {
@@ -46,11 +44,10 @@ export default function CheckList() {
               cols={58}
               autoFocus
               onKeyDown={saveInEnter}
-              onChange={getCheckboxValue}
               variant="transparent"
               container="custom"
               placeholder="Введите заголовок карточки"
-              value="Описание"
+              value={task}
             />
             <div className={classes.save_edit_btn}>
               <Button variant="contained"
@@ -61,10 +58,11 @@ export default function CheckList() {
           </div>
 
           : <span onClick={openEditChecklist} className={`${classes.checkbox_title}`}>
-          Задача 1 длинный текст для проверки того как это будет выглядеть в таком виде
+          {task}
       </span>
         }
       </div>
+
 
     </div>
   );

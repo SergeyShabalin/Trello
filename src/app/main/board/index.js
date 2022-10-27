@@ -29,10 +29,11 @@ export default function Board() {
     columnCreator();
   }
 
-  const columnsList = columnsStore && columnsStore.map(column => {
+  const columnsList = columnsStore && columnsStore.map((column, index) => {
     return (
       <div key={column._id}>
         <Column
+          columnIndex={index}
           column={column}
           cardList={column.cards}
         />

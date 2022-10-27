@@ -8,7 +8,8 @@ import Editor from "./Editor";
 import classes from "./ContentEdit.module.css";
 import CardModal from "../../CardModal";
 
-export default function ContentEdit({ header, cardId, columnId, columnHeader, description }) {
+
+export default function ContentEdit({ header, cardId, columnId, columnHeader, description, cardIndex, columnIndex }) {
 
   const [isModal, setIsModal] = useState(false);
 
@@ -18,7 +19,6 @@ export default function ContentEdit({ header, cardId, columnId, columnHeader, de
   function openCloseModal() {
     setIsModal(!isModal);
   }
-
 
   function openModalContextMenu(e) {
     const coords = e.currentTarget.getBoundingClientRect();
@@ -33,28 +33,17 @@ export default function ContentEdit({ header, cardId, columnId, columnHeader, de
   return (
     <>
       <div className={classes.header}>
-        <Link className={classes.link} to={`/card/${cardId}`}>
-
-          <Modal
-            open={isModal}
-            onClose={openCloseModal}>
-            <CardModal
-              columnId={columnId}
-              cardId={cardId}
-              openCloseModal={openCloseModal}
-              description={description}
-              columnHeader={columnHeader} titleCard={header} />
-          </Modal>
+        <Link className={classes.link} to={`/card/${cardId}`} >
+          <div className={classes.title}
+               onClick={openCloseModal}>{header}</div>
         </Link>
-        <div className={classes.title}
-             onClick={openCloseModal}>{header}</div>
 
 
         <div className={classes.button_edit}>
           <Button
             opacity={true}
             onClick={openModalContextMenu}
-            variant={"just_icon"}
+            variant="just_icon"
             icon={<BiEdit />} />
 
           <Modal
@@ -63,6 +52,8 @@ export default function ContentEdit({ header, cardId, columnId, columnHeader, de
             coordinates={coordinates}>
             <div className={classes.content_edit}>
               <Editor
+                cardIndex={cardIndex}
+                columnIndex={columnIndex}
                 columnId={columnId}
                 header={header}
                 closeModalContextMenu={closeModalContextMenu}
@@ -76,6 +67,16 @@ export default function ContentEdit({ header, cardId, columnId, columnHeader, de
             </div>
           </Modal>
 
+          <Modal
+            open={isModal}
+            onClose={openCloseModal}>
+            <CardModal
+              columnId={columnId}
+              cardId={cardId}
+              openCloseModal={openCloseModal}
+              description={description}
+              columnHeader={columnHeader} titleCard={header} />
+          </Modal>
 
         </div>
       </div>
