@@ -35,6 +35,9 @@ export default Todo;
 //Чеклист карточек
 // TODO+++ Когда открываю карточку - делаю запрос к серверу на получение всех данных о карточке
 //TODO +++ Добавление чеклиста на сервере TODO
+//TODO сделай нормальные имена)))
+
+//TODO сделать глобальный стиль скролла
 
 // console.log( 'cardId', cardId,  'title', title,  'columnId', columnId, 'desc', description);
 // console.log(newTitle, "cardIndex", cardIndex, "columnIndex", columnIndex);

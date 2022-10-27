@@ -21,31 +21,25 @@ export const addNewCard = (columnId, title) => async (dispatch, getState) => {
 
 export const deleteCard = (cardId, columnId) => async (dispatch, getState) => {
   const { columns } = getState().columns;
-  const ColumnsAfterDelete = columns.map(column => {
-    if (column._id === columnId) {
-      return {
-        ...column, cards: column.cards.filter(item => {
-          if (item._id !== cardId) {
-            return item;
-          } else return false;
-        })
-      };
-    } else return column;
-  });
+  const ColumnsAfterDelete = columns.map(column => column._id === columnId
+    ? { ...column, cards: column.cards.filter(item => item._id !== cardId)}
+    : column
+  );
 
-  try {
-    dispatch(columnsAC.cardDelete(ColumnsAfterDelete));
-    await CardsApi.deleteCardAPI(cardId);
-  } catch (error) {
-    console.warn(error, "server error");
-  }
-};
+try {
+  dispatch(columnsAC.cardDelete(ColumnsAfterDelete));
+  await CardsApi.deleteCardAPI(cardId);
+} catch (error) {
+  console.warn(error, "server error");
+}
+}
+;
 
 
 export const updateCard = (newTitle, cardIndex, columnIndex, cardId, columnId) => async (dispatch, getState) => {
 
   const { columns } = getState().columns;
-
+//TODO делай красиво!
   const ColumnsAfterUpdate = columns.map(column => {
     if (column._id === columnId) {
       return {
@@ -77,12 +71,12 @@ export const getCardInfo = (cardId) => async (dispatch) => {
 
 export const NewTaskAdd = (cardId, task) => async (dispatch, getState) => {
   const { cards } = getState().cards;
-  console.log('cards', cards);
+  console.log("cards", cards);
   try {
     const resp = await CheckListApi.addNewTaskAPI(cardId, task);
-    cards.checkList.push(resp.data);
-    console.log('checklist',cards.checkList);
-     dispatch(cardsAC.addNewTask(cards.checkList));
+    const newCheckList = [...cards.checkList, resp.data];
+    console.log("checklist", cards.checkList);
+    dispatch(cardsAC.addNewTask(newCheckList));
   } catch (error) {
     console.warn(error, "server error");
   }

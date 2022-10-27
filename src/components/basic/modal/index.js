@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState, forwardRef } from "react";
 import { createPortal } from "react-dom";
 import PropTypes from "prop-types";
 import classes from "./Modal.module.css";
@@ -6,7 +6,7 @@ import classes from "./Modal.module.css";
 
 const modalRootElement = document.querySelector("#modal");
 
-export default function Modal({children, open, onClose, coordinates}) {
+const Modal = ({children, open, onClose, coordinates, ref }) => {
 
   const element = useMemo(() => document.createElement("div"), []);
 
@@ -25,24 +25,23 @@ export default function Modal({children, open, onClose, coordinates}) {
       onClose();
     }
   }
-
-  if (open) {
-    return createPortal(
-      <div className={classes.modal_background} onClick={closeModal}>
-        {coordinates ? <div className={classes.modal_card} style={{
-            position: "absolute",
-            left: coordinates.left - 230,
-            top: coordinates.top - 20
-          }}> {children}</div>
-          : <div className={classes.modal_card}>
-            {children}
-          </div>}
-      </div>
-      , element);
-  }
-  return null;
+// TODO Убрать повтор
+  if (!open) return null;
+  return createPortal(
+    <div className={classes.modal_background} onClick={closeModal}>
+      {coordinates ? <div className={classes.modal_card} style={{
+          position: "absolute",
+          left: coordinates.left - 230,
+          top: coordinates.top - 20
+        }}> {children}</div>
+        : <div ref={ref} className={classes.modal_card}>
+          {children}
+        </div>}
+    </div>, element);
 }
 
 Modal.propTypes = {
   open: PropTypes.bool
 };
+
+export default Modal

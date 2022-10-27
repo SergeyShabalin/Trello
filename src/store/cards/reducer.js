@@ -8,7 +8,7 @@ export default function cardsReducer(state = defaultState, { type, payload }) {
       return { ...state, cards: payload };
 
      case CARD_TYPES.ADD_NEW_TASK:
-       return { ...state,  cards:{checkList: payload}};
+       return { ...state,  cards:{ ...state.cards, checkList: payload}};
 
     default:
       return (state);

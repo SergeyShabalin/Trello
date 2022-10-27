@@ -7,7 +7,7 @@ import Button from "../../../../../components/basic/Button";
 import { updateCard } from "../../../../../store/cards/asyncActions";
 import { useDispatch } from "react-redux";
 
-export default function Description({ closeEditDescription, isEditDescription, description = "" }) {
+export default function Description({ closeEditDescription, openEditDescription,isEditDescription, description = "" }) {
 
   const [descriptionValue, setDescriptionValue] = useState("");
   const ref = useRef();
@@ -20,7 +20,7 @@ export default function Description({ closeEditDescription, isEditDescription, d
 
   function saveDescriptionValue() {
     // dispatch( updateCard(cardId, titleCard, columnId, descriptionValue));
-    // closeEditDescription();
+   //  closeEditDescription();
   }
 
   return (
@@ -60,7 +60,7 @@ export default function Description({ closeEditDescription, isEditDescription, d
 
 
         </div>
-        : <div>
+        : <div onClick={openEditDescription}>
           {
             description !== "" ? <div className={classes.description_card}>{description}</div>
               : <div className={classes.description_card}>нет описания</div>

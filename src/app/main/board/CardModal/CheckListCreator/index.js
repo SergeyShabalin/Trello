@@ -56,13 +56,11 @@ export default function CheckListCreator({ cardId }) {
               <Button
                 onClick={addNewTask}
                 variant="contained"
-                color="submit"
                 label="Добавить" />
             </div>
 
             <Button
               variant="contained"
-              color="error"
               label="Отменить" />
           </div>
 

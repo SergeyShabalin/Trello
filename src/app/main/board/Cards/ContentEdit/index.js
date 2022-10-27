@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import { BiEdit } from "react-icons/bi";
 import Button from "../../../../../components/basic/Button";
 import Modal from "../../../../../components/basic/Modal";
@@ -7,7 +7,6 @@ import CardContextMenu from "./ContextMenu";
 import Editor from "./Editor";
 import classes from "./ContentEdit.module.css";
 import CardModal from "../../CardModal";
-
 
 export default function ContentEdit({ header, cardId, columnId, columnHeader, cardIndex, columnIndex }) {
 
@@ -33,9 +32,8 @@ export default function ContentEdit({ header, cardId, columnId, columnHeader, ca
   return (
     <>
       <div className={classes.header}>
-        <Link className={classes.link} to={`/card/${cardId}`} >
-          <div className={classes.title}
-               onClick={openCloseModal}>{header}</div>
+        <Link className={classes.link} to={`card/${cardId}`} >
+          <div className={classes.title}>{header}</div>
         </Link>
 
 
@@ -66,15 +64,15 @@ export default function ContentEdit({ header, cardId, columnId, columnHeader, ca
               />
             </div>
           </Modal>
-
-          <Modal
-            open={isModal}
-            onClose={openCloseModal}>
-            <CardModal
-              cardId={cardId}
-              openCloseModal={openCloseModal}
-              columnHeader={columnHeader} />
-          </Modal>
+          <Outlet />
+          {/*<Modal*/}
+          {/*  open={isModal}*/}
+          {/*  onClose={openCloseModal}>*/}
+          {/*  <CardModal*/}
+          {/*    cardId={cardId}*/}
+          {/*    openCloseModal={openCloseModal}*/}
+          {/*    columnHeader={columnHeader} />*/}
+          {/*</Modal>*/}
 
         </div>
       </div>

@@ -1,13 +1,10 @@
 .checkList_wrapper {
     color: #172b4d;
-
 }
-
 .checkbox {
     display: flex;
     align-items: center;
     border-radius: 5px;
-    padding: 5px;
 }
 .checkbox_content{
     display: flex;
