@@ -3,6 +3,10 @@ import PropTypes from "prop-types";
 import classes from "./Checkbox.module.css";
 
 export default function Checkbox({ label, variant = "text", disabled=false, ...props }) {
+ function getValue({target}){
+   console.log(target.value);
+ }
+
   return (
     <div>
 

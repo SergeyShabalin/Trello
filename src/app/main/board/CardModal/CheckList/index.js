@@ -1,19 +1,27 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { MdClear } from "react-icons/md";
-import { TaskDelete } from "../../../../../store/cards/asyncActions";
+import { getCardInfo, TaskDelete, updateTaskValue } from "../../../../../store/cards/asyncActions";
 import Checkbox from "../../../../../components/basic/Сheckbox";
 import Input from "../../../../../components/basic/Input";
 import Button from "../../../../../components/basic/Button";
 import useOnClickOutside from "../../../../../hooks/UseOnClickOutside";
 import classes from "./CheckList.module.css";
 
+
 export default function CheckList({ task, done, checkListId, cardId }) {
 
   const [isEditCheckbox, setIsEditCheckbox] = useState(false);
+  const [taskTitle, setTaskTitle] = useState("");
+  const [isChecked, setChecked] = useState(false);
 
+  // useEffect(() => {
+  //   setChecked(done)
+  //   console.log(isChecked);
+  // }, [done]);
+  console.log(task, done);
   const ref = useRef();
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   useOnClickOutside(ref, closeEditCheckbox);
 
   function openEditChecklist() {
@@ -24,30 +32,43 @@ export default function CheckList({ task, done, checkListId, cardId }) {
     setIsEditCheckbox(false);
   }
 
+  function getTaskTitle({ target }) {
+    setTaskTitle(target.value);
+  }
+
+  function changeTaskDone() {
+    setChecked(!isChecked);
+    console.log(isChecked);
+    saveCheckboxValue();
+  }
+
   function saveInEnter(e) {
     if (e.keyCode === 13) {
+      saveCheckboxValue();
       closeEditCheckbox();
     }
   }
 
   function saveCheckboxValue() {
+    dispatch(updateTaskValue(taskTitle, isChecked, checkListId));
     closeEditCheckbox();
   }
 
-  function deleteTask(){
+  function deleteTask() {
     dispatch(TaskDelete(cardId, checkListId));
   }
 
   return (
     <div className={classes.checkList_wrapper}>
       <div className={classes.checkbox} ref={ref}>
-        <Checkbox />
+        <Checkbox checked={isChecked} onChange={changeTaskDone} />
         {isEditCheckbox
           ? <div className={classes.checkbox_editor}>
             <Input
               rows={3}
               cols={58}
               autoFocus
+              onChange={getTaskTitle}
               onKeyDown={saveInEnter}
               variant="transparent"
               container="custom"

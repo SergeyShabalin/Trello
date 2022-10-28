@@ -6,7 +6,7 @@ import classes from "./CardModal.module.css";
 import CheckList from "./CheckList";
 import { AiOutlineMenuUnfold, AiOutlineCreditCard, AiOutlineClose } from "react-icons/ai";
 import Button from "../../../../components/basic/Button";
-import { getCardInfo } from "../../../../store/cards/asyncActions";
+import { clearCardInfo, getCardInfo } from "../../../../store/cards/asyncActions";
 import CheckListCreator from "./CheckListCreator";
 import Modal from "../../../../components/basic/Modal";
 import { useNavigate, useParams } from "react-router-dom";
@@ -40,17 +40,18 @@ export default function CardModal({ columnHeader = "", openCloseModal }) {
 
   function closeModal() {
     navigate("/");
+    dispatch(clearCardInfo());
   }
 
   const CheckLists = cardInfo.checkList &&
     cardInfo.checkList.map(checkItem => {
       return (
-        <CheckList
-          cardId={cardId}
-          key={checkItem._id}
-          checkListId={checkItem._id}
-          task={checkItem.task}
-          done={checkItem.done} />
+          <CheckList
+            key={checkItem._id}
+            cardId={cardId}
+            checkListId={checkItem._id}
+            task={checkItem.task}
+            done={checkItem.done} />
       );
     });
 
@@ -92,7 +93,7 @@ export default function CardModal({ columnHeader = "", openCloseModal }) {
         <div className={classes.checkbox_title_wrapper}>
           <BsCheck2Square className={classes.icons} />
           <h4 className={classes.checkbox_title}>Чек-лист</h4></div>
-        <div className={classes.checklists_wrapper}>{CheckLists}</div>
+        <div  className={classes.checklists_wrapper}>{CheckLists}</div>
         <CheckListCreator cardId={cardId} />
 
       </div>

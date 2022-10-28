@@ -69,13 +69,20 @@ export const getCardInfo = (cardId) => async (dispatch) => {
   }
 };
 
+export const clearCardInfo = () => async (dispatch) => {
+  try {
+    const clearCard = {checkList: [{_id:1}],header: '', description: '' }
+    dispatch(cardsAC.clearInfoCard(clearCard));
+  } catch (error) {
+    console.warn(error, "server error");
+  }
+};
+
 export const NewTaskAdd = (cardId, task) => async (dispatch, getState) => {
   const { cards } = getState().cards;
   try {
-
     const resp = await CheckListApi.addNewTaskAPI(cardId, task);
     const newCheckList = [...cards.checkList, resp.data];
-    console.log(newCheckList);
     dispatch(cardsAC.addNewTask(newCheckList));
   } catch (error) {
     console.warn(error, "server error");
@@ -86,10 +93,30 @@ export const NewTaskAdd = (cardId, task) => async (dispatch, getState) => {
 export const TaskDelete = (cardId, checkListId) => async (dispatch, getState) => {
   const { cards } = getState().cards;
   const checkListAfterDelete = cards.checkList.filter(item => item._id !== checkListId);
-  console.log(checkListAfterDelete);
   try {
     dispatch(cardsAC.deleteTask(checkListAfterDelete));
     await CheckListApi.deleteTaskAPI(cardId, checkListId);
+  } catch (error) {
+    console.warn(error, "server error");
+  }
+
+};
+
+
+export const updateTaskValue = (taskTitle, taskDone, checkListId) => async (dispatch, getState) => {
+  const { cards } = getState().cards;
+
+
+  try {
+    if (taskTitle !=='') {
+      const checkListAfterUpdate = cards.checkList.map(item => {
+        if (item._id === checkListId) {
+          return { ...item, task: taskTitle }
+        } else return item
+      })
+      dispatch(cardsAC.updateTask(checkListAfterUpdate));
+    }
+    await CheckListApi.updateTaskAPI(taskTitle, taskDone, checkListId);
   } catch (error) {
     console.warn(error, "server error");
   }
