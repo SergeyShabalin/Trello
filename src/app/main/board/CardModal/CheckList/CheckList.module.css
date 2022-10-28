@@ -10,11 +10,11 @@
     display: flex;
     width: 90%;
     align-items: center;
+    cursor: pointer;
 }
 
 .checkbox_title_none {
     cursor: pointer;
-
     display: flex;
     text-decoration: line-through;
 }
@@ -25,7 +25,17 @@
 }
 
 .checkbox:hover {
-    background-color: rgba(27, 27, 215, 0.11);
+    background-color: rgba(70, 70, 231, 0.07);
+}
+
+.checkbox:hover .delete_btn {
+    transition: all 0.5s ease-in-out;
+    opacity: 0.8;
+}
+
+
+.delete_btn{
+    opacity: 0;
 }
 
 .checkbox_editor {
@@ -36,3 +46,11 @@
 .save_edit_btn {
     margin-top: 5px;
 }
+
+.delete_btn_wrapper{
+    display: flex;
+    justify-content: right;
+    cursor: pointer;
+}
+
+

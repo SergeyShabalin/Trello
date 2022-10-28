@@ -39,6 +39,9 @@ export default Todo;
 
 //TODO сделать глобальный стиль скролла
 
+//TODO сделать удаление чеклистов вместе с карточкой
+//TODO на бэке стоит запрет на добавление чеклистов с одинаковым описанием, убрать
+
 // console.log( 'cardId', cardId,  'title', title,  'columnId', columnId, 'desc', description);
 // console.log(newTitle, "cardIndex", cardIndex, "columnIndex", columnIndex);
 

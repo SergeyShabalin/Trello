@@ -1,18 +1,19 @@
 import React, { useState, useRef } from "react";
+import { useDispatch } from "react-redux";
+import { MdClear } from "react-icons/md";
+import { TaskDelete } from "../../../../../store/cards/asyncActions";
 import Checkbox from "../../../../../components/basic/Сheckbox";
-import classes from "./CheckList.module.css";
 import Input from "../../../../../components/basic/Input";
 import Button from "../../../../../components/basic/Button";
 import useOnClickOutside from "../../../../../hooks/UseOnClickOutside";
-import { GoKebabHorizontal } from "react-icons/go";
-import DeleteCheckTask from "./DeleteCheckTask";
+import classes from "./CheckList.module.css";
 
-
-export default function CheckList({ task, done }) {
+export default function CheckList({ task, done, checkListId, cardId }) {
 
   const [isEditCheckbox, setIsEditCheckbox] = useState(false);
 
   const ref = useRef();
+  const dispatch = useDispatch()
   useOnClickOutside(ref, closeEditCheckbox);
 
   function openEditChecklist() {
@@ -23,7 +24,6 @@ export default function CheckList({ task, done }) {
     setIsEditCheckbox(false);
   }
 
-
   function saveInEnter(e) {
     if (e.keyCode === 13) {
       closeEditCheckbox();
@@ -32,6 +32,10 @@ export default function CheckList({ task, done }) {
 
   function saveCheckboxValue() {
     closeEditCheckbox();
+  }
+
+  function deleteTask(){
+    dispatch(TaskDelete(cardId, checkListId));
   }
 
   return (
@@ -60,16 +64,25 @@ export default function CheckList({ task, done }) {
           </div>
 
           :
-          <div className={classes.checkbox_content}>
-             <span onClick={openEditChecklist}
-                   className={done ? `${classes.checkbox_title_none}` : `${classes.checkbox_title_done}`}>
+          <div className={classes.checkbox_content} onClick={openEditChecklist}>
+             <span
+               className={done ? `${classes.checkbox_title_none}`
+                 : `${classes.checkbox_title_done}`}>
                 {task}
             </span>
-
           </div>
 
         }
-        <DeleteCheckTask/>
+        <div className={classes.delete_btn}>
+          <div className={classes.delete_btn_wrapper}>
+            <Button
+              onClick={deleteTask}
+              variant={"just_icon"}
+              icon={<MdClear />}>
+            </Button>
+          </div>
+        </div>
+
       </div>
     </div>
   );

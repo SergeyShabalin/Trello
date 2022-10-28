@@ -1,6 +1,6 @@
 export const defaultState={
     cards: {
-        checkList: [],
+        checkList: [{}],
         header: '',
         description: ''
     }

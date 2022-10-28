@@ -38,7 +38,7 @@
     width: 100vw;
     height: 100vh;
     overflow: hidden;
-    background-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.55);
     flex-direction: row;
     justify-content: center;
     align-items: center;

@@ -44,16 +44,14 @@ export default function Description({ closeEditDescription, openEditDescription,
               <Button
                 variant="contained"
                 onClick={saveDescriptionValue}
-                label="Сохранить"
-                color="blue">
+                label="Сохранить">
               </Button>
             </div>
             <div className={classes.cancel_btn}>
               <Button
                 variant="contained"
                 onClick={closeEditDescription}
-                label="Отмена"
-                color="error">
+                label="Отмена">
               </Button>
             </div>
           </div>

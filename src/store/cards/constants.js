@@ -1,4 +1,4 @@
 export const CARD_TYPES = {
      VIEW_INFO_CARD : 'VIEW_INFO_CARD',
-     ADD_NEW_TASK: 'ADD_NEW_TASK'
+     CHANGES_TASKS: 'CHANGES_TASKS',
 }

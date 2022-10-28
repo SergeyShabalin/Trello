@@ -20,19 +20,19 @@ export const addNewCard = (columnId, title) => async (dispatch, getState) => {
 };
 
 export const deleteCard = (cardId, columnId) => async (dispatch, getState) => {
-  const { columns } = getState().columns;
-  const ColumnsAfterDelete = columns.map(column => column._id === columnId
-    ? { ...column, cards: column.cards.filter(item => item._id !== cardId)}
-    : column
-  );
+    const { columns } = getState().columns;
+    const ColumnsAfterDelete = columns.map(column => column._id === columnId
+      ? { ...column, cards: column.cards.filter(item => item._id !== cardId) }
+      : column
+    );
 
-try {
-  dispatch(columnsAC.cardDelete(ColumnsAfterDelete));
-  await CardsApi.deleteCardAPI(cardId);
-} catch (error) {
-  console.warn(error, "server error");
-}
-}
+    try {
+      dispatch(columnsAC.cardDelete(ColumnsAfterDelete));
+      await CardsApi.deleteCardAPI(cardId);
+    } catch (error) {
+      console.warn(error, "server error");
+    }
+  }
 ;
 
 
@@ -71,12 +71,25 @@ export const getCardInfo = (cardId) => async (dispatch) => {
 
 export const NewTaskAdd = (cardId, task) => async (dispatch, getState) => {
   const { cards } = getState().cards;
-  console.log("cards", cards);
   try {
+
     const resp = await CheckListApi.addNewTaskAPI(cardId, task);
     const newCheckList = [...cards.checkList, resp.data];
-    console.log("checklist", cards.checkList);
+    console.log(newCheckList);
     dispatch(cardsAC.addNewTask(newCheckList));
+  } catch (error) {
+    console.warn(error, "server error");
+  }
+
+};
+
+export const TaskDelete = (cardId, checkListId) => async (dispatch, getState) => {
+  const { cards } = getState().cards;
+  const checkListAfterDelete = cards.checkList.filter(item => item._id !== checkListId);
+  console.log(checkListAfterDelete);
+  try {
+    dispatch(cardsAC.deleteTask(checkListAfterDelete));
+    await CheckListApi.deleteTaskAPI(cardId, checkListId);
   } catch (error) {
     console.warn(error, "server error");
   }

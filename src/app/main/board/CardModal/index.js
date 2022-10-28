@@ -13,7 +13,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import useOnClickOutside from "../../../../hooks/UseOnClickOutside";
 
 //TODO:
-// 1.параметры из урла.
+// 1.параметры из урла. +++
 // 2.Заголовок колонки из запроса к серверу
 // 3. Избавиться от пропсов
 // 4. Добавить очистку карточки при ее закрытии
@@ -23,8 +23,8 @@ export default function CardModal({ columnHeader = "", openCloseModal }) {
   const cardInfo = useSelector(state => state.cards.cards);
   const dispatch = useDispatch();
 
-  const navigate = useNavigate()
-  const {cardId} = useParams()
+  const navigate = useNavigate();
+  const { cardId } = useParams();
 
   useEffect(() => {
     dispatch(getCardInfo(cardId));
@@ -39,60 +39,63 @@ export default function CardModal({ columnHeader = "", openCloseModal }) {
   }
 
   function closeModal() {
-    navigate('/')
+    navigate("/");
   }
 
   const CheckLists = cardInfo.checkList &&
     cardInfo.checkList.map(checkItem => {
       return (
-        <CheckList key={checkItem._id}
-                   task={checkItem.task}
-                   done={checkItem.done} />
+        <CheckList
+          cardId={cardId}
+          key={checkItem._id}
+          checkListId={checkItem._id}
+          task={checkItem.task}
+          done={checkItem.done} />
       );
     });
 
   return (
     <Modal onClose={closeModal} open>
-        <div  className={classes.card_modal_wrapper}>
-          <div className={classes.header}>
-            <div className={classes.title_wrapper}>
-              <div><AiOutlineCreditCard className={classes.icons} /></div>
-              <h3 className={classes.title}>{cardInfo.header}</h3>
-            </div>
-            <div className={classes.form_close}>
-              <Button
-                onClick={closeModal}
-                variant="just_icon"
-                icon={<AiOutlineClose />}>
-              </Button>
-            </div>
+      <div className={classes.card_modal_wrapper}>
+        <div className={classes.header}>
+          <div className={classes.title_wrapper}>
+            <div><AiOutlineCreditCard className={classes.icons} /></div>
+            <h3 className={classes.title}>{cardInfo.header}</h3>
           </div>
-
-          {/*<p className={classes.title_column}>в колонке "{columnHeader}"</p>*/}
-          <div className={classes.date_wrapper}>
-
+          <div className={classes.form_close}>
+            <Button
+              onClick={closeModal}
+              variant="just_icon"
+              icon={<AiOutlineClose />}>
+            </Button>
           </div>
+        </div>
 
-          <div className={classes.description_wrapper}>
-            <AiOutlineMenuUnfold className={classes.icons} />
-            <h4 className={classes.description_title}>Описание</h4>
-
-            <Button label="Изменить"
-                    onClick={openEditDescription} />
-
-          </div>
-          <Description description={cardInfo.description}
-                       openEditDescription={openEditDescription}
-                       closeEditDescription={closeEditDescription}
-                       isEditDescription={isEditDescription} />
-
-          <div className={classes.checkbox_title_wrapper}>
-            <BsCheck2Square className={classes.icons} />
-            <h4 className={classes.checkbox_title}>Чек-лист</h4></div>
-          <div className={classes.checklists_wrapper}>{CheckLists}</div>
-          <CheckListCreator cardId={cardId} />
+        {/*<p className={classes.title_column}>в колонке "{columnHeader}"</p>*/}
+        <div className={classes.date_wrapper}>
 
         </div>
+
+        <div className={classes.description_wrapper}>
+          <AiOutlineMenuUnfold className={classes.icons} />
+          <h4 className={classes.description_title}>Описание</h4>
+
+          <Button label="Изменить"
+                  onClick={openEditDescription} />
+
+        </div>
+        <Description description={cardInfo.description}
+                     openEditDescription={openEditDescription}
+                     closeEditDescription={closeEditDescription}
+                     isEditDescription={isEditDescription} />
+
+        <div className={classes.checkbox_title_wrapper}>
+          <BsCheck2Square className={classes.icons} />
+          <h4 className={classes.checkbox_title}>Чек-лист</h4></div>
+        <div className={classes.checklists_wrapper}>{CheckLists}</div>
+        <CheckListCreator cardId={cardId} />
+
+      </div>
     </Modal>
   );
 }
