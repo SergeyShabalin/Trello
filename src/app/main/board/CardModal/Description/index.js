@@ -4,10 +4,17 @@ import classes from "./Description.module.css";
 import useOnClickOutside from "../../../../../hooks/UseOnClickOutside";
 
 import Button from "../../../../../components/basic/Button";
-import { updateCard } from "../../../../../store/cards/asyncActions";
+import { updateCardDescription } from "../../../../../store/cards/asyncActions";
 import { useDispatch } from "react-redux";
 
-export default function Description({ closeEditDescription, openEditDescription,isEditDescription, description = "" }) {
+export default function Description({
+                                      closeEditDescription,
+                                      openEditDescription,
+                                      isEditDescription,
+                                      cardId,
+                                      columnId,
+                                      description = ""
+                                    }) {
 
   const [descriptionValue, setDescriptionValue] = useState("");
   const ref = useRef();
@@ -19,8 +26,14 @@ export default function Description({ closeEditDescription, openEditDescription,
   }
 
   function saveDescriptionValue() {
-    // dispatch( updateCard(cardId, titleCard, columnId, descriptionValue));
-   //  closeEditDescription();
+    dispatch(updateCardDescription(cardId, columnId, descriptionValue));
+    closeEditDescription();
+  }
+
+  function saveInEnter(e) {
+    if (e.keyCode === 13) {
+      saveDescriptionValue();
+    }
   }
 
   return (
@@ -32,6 +45,7 @@ export default function Description({ closeEditDescription, openEditDescription,
             rows={4}
             cols={28}
             autoFocus
+            onKeyDown={saveInEnter}
             onChange={getDescriptionValue}
             variant="transparent"
             container="custom"

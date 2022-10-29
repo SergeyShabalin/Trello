@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { MdClear } from "react-icons/md";
-import { getCardInfo, TaskDelete, updateTaskValue } from "../../../../../store/cards/asyncActions";
+import { TaskDelete, updateTaskTitle, updateTaskValue } from "../../../../../store/cards/asyncActions";
 import Checkbox from "../../../../../components/basic/Сheckbox";
 import Input from "../../../../../components/basic/Input";
 import Button from "../../../../../components/basic/Button";
@@ -9,18 +9,13 @@ import useOnClickOutside from "../../../../../hooks/UseOnClickOutside";
 import classes from "./CheckList.module.css";
 
 
-export default function CheckList({ task, done, checkListId, cardId }) {
+export default function CheckList({ task, done, _id, cardId }) {
 
   const [isEditCheckbox, setIsEditCheckbox] = useState(false);
-  const [taskTitle, setTaskTitle] = useState("");
-  const [isChecked, setChecked] = useState(false);
+  const [taskTitle, setTaskTitle] = useState(task);
+  const [isChecked, setChecked] = useState(done);
 
-
-  useEffect(() => {
-    if (done) {
-    setChecked(done)};
-  }, []);
-
+//TODO обновить значок чекеда только после ответа от сервера
   const ref = useRef();
   const dispatch = useDispatch();
   useOnClickOutside(ref, closeEditCheckbox);
@@ -37,27 +32,21 @@ export default function CheckList({ task, done, checkListId, cardId }) {
     setTaskTitle(target.value);
   }
 
-  function changeTaskDone(e) {
-    setChecked(e.target.checked);
-    const checked = (e.target.checked);
-    saveCheckboxValue(checked);
+  function changeTaskDone({ target }) {
+    const checked = target.checked;
+    setChecked(checked);
+    dispatch(updateTaskValue(checked, _id));
   }
 
-  function saveInEnter(e) {
-    if (e.keyCode === 13) {
-      saveCheckboxValue();
+  function saveCheckboxValue(e) {
+    if (!e.keyCode || e.keyCode === 13) {
+      dispatch(updateTaskTitle(taskTitle, _id));
       closeEditCheckbox();
     }
   }
 
-  function saveCheckboxValue(checked) {
-    console.log("checked", checked);
-    dispatch(updateTaskValue(taskTitle, checked, checkListId));
-    closeEditCheckbox();
-  }
-
   function deleteTask() {
-    dispatch(TaskDelete(cardId, checkListId));
+    dispatch(TaskDelete(cardId, _id));
   }
 
 
@@ -72,36 +61,35 @@ export default function CheckList({ task, done, checkListId, cardId }) {
               cols={58}
               autoFocus
               onChange={getTaskTitle}
-              onKeyDown={saveInEnter}
+              onKeyDown={saveCheckboxValue}
               variant="transparent"
               container="custom"
               placeholder="Введите заголовок карточки"
-              value={task}
+              value={taskTitle}
             />
             <div className={classes.save_edit_btn}>
-              <Button variant="contained"
-                      label="Сохранить"
-                      color="blue"
-                      variety={true}
-                      onClick={saveCheckboxValue} />
+              <Button
+                variant="contained"
+                label="Сохранить"
+                color="blue"
+                variety
+                onClick={saveCheckboxValue}
+              />
             </div>
           </div>
-
-          :
-          <div className={classes.checkbox_content} onClick={openEditChecklist}>
+          : <div className={classes.checkbox_content} onClick={openEditChecklist}>
              <span
                className={isChecked ? `${classes.checkbox_title_none}`
                  : `${classes.checkbox_title_done}`}>
-                {task}
+                {taskTitle}
             </span>
           </div>
-
         }
         <div className={classes.delete_btn}>
           <div className={classes.delete_btn_wrapper}>
             <Button
               onClick={deleteTask}
-              variant={"just_icon"}
+              variant="just_icon"
               icon={<MdClear />}>
             </Button>
           </div>

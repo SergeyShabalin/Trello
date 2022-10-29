@@ -10,8 +10,12 @@ class CardsApi {
     return Api.delete(`/checklist/${cardId}/${checkListId}`);
   }
 
-  async updateTaskAPI(taskTitle, taskDone, checkListId) {
-     return Api.patch(`/checklist/${checkListId}`, { task: taskTitle, done: taskDone });
+  async updateTaskTitleAPI(taskTitle, checkListId) {
+     return Api.patch(`/checklist/title/${checkListId}`, { task: taskTitle });
+  }
+
+  async updateValueTaskAPI(taskDone, checkListId) {
+    return Api.patch(`/checklist/value/${checkListId}`, { done: taskDone });
   }
 
 }

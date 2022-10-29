@@ -42,6 +42,9 @@ export default Todo;
 //TODO сделать удаление чеклистов вместе с карточкой
 //TODO на бэке стоит запрет на добавление чеклистов с одинаковым описанием, убрать
 
+
+//TODO переименовать cards на card в asyncAction updateTaskValue
+
 // console.log( 'cardId', cardId,  'title', title,  'columnId', columnId, 'desc', description);
 // console.log(newTitle, "cardIndex", cardIndex, "columnIndex", columnIndex);
 

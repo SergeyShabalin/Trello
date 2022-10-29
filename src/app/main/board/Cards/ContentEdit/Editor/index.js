@@ -5,7 +5,7 @@ import classes from "../Editor/Editor.module.css";
 import DecisionDate from "../../DecisionDate";
 import Checkout from "../../Checkout";
 import { useDispatch } from "react-redux";
-import { updateCard } from "../../../../../../store/cards/asyncActions";
+import { updateCardTitle } from "../../../../../../store/cards/asyncActions";
 
 export default function Editor({ header, closeModalContextMenu, cardId, columnId, cardIndex, columnIndex }) {
   const dispatch = useDispatch();
@@ -15,14 +15,15 @@ export default function Editor({ header, closeModalContextMenu, cardId, columnId
   function getNewValue({ target }) {
     setNewTitle(target.value);
   }
-function saveChanged(){
-  dispatch(updateCard(newTitle, cardIndex, columnIndex, cardId, columnId));
-  closeModalContextMenu();
-}
+
+  function saveChanged() {
+    dispatch(updateCardTitle(newTitle, cardId, columnId));
+    closeModalContextMenu();
+  }
 
   function saveChangedKeyDown(e) {
     if (e.keyCode === 13) {
-      saveChanged()
+      saveChanged();
     }
   }
 
@@ -47,7 +48,7 @@ function saveChanged(){
       </div>
 
       <div className={classes.button}>
-        <Button variant="contained" label="Сохранить" color="blue" onClick={saveChanged}/>
+        <Button variant="contained" label="Сохранить" color="blue" onClick={saveChanged} />
       </div>
     </div>
   );

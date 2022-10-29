@@ -9,8 +9,12 @@ class CardsApi {
     return Api.delete(`/cards/${cardId}`);
   }
 
-  async updateCardAPI(cardId, header) {
-    return Api.patch(`/cards/${cardId}`, { header });
+  async updateCardHeaderAPI(cardId, newTitle) {
+    return Api.patch(`/cards/title/${cardId}`, { header: newTitle });
+  }
+
+  async updateCardDescriptionAPI(cardId, descriptionValue) {
+    return Api.patch(`/cards/descriptions/${cardId}`, { description: descriptionValue });
   }
 
   async getCardInfoAPI(cardId) {

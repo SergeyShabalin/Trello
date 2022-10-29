@@ -15,9 +15,9 @@ import useOnClickOutside from "../../../../hooks/UseOnClickOutside";
 //TODO:
 // 1.параметры из урла. +++
 // 2.Заголовок колонки из запроса к серверу
-// 3. Избавиться от пропсов
-// 4. Добавить очистку карточки при ее закрытии
-export default function CardModal({ columnHeader = "", openCloseModal }) {
+// 3. Избавиться от пропсов+++
+// 4. Добавить очистку карточки при ее закрытии+++
+export default function CardModal() {
 
   const [isEditDescription, setIsEditDescription] = useState(false);
   const cardInfo = useSelector(state => state.cards.cards);
@@ -27,6 +27,7 @@ export default function CardModal({ columnHeader = "", openCloseModal }) {
   const { cardId } = useParams();
 
   useEffect(() => {
+
     dispatch(getCardInfo(cardId));
   }, []);
 
@@ -43,15 +44,13 @@ export default function CardModal({ columnHeader = "", openCloseModal }) {
     dispatch(clearCardInfo());
   }
 
-  const CheckLists = cardInfo.checkList &&
-    cardInfo.checkList.map(checkItem => {
+  const CheckLists = cardInfo?.checkList.map(checkItem => {
       return (
           <CheckList
             key={checkItem._id}
             cardId={cardId}
-            checkListId={checkItem._id}
-            task={checkItem.task}
-            done={checkItem.done} />
+            {...checkItem}
+            />
       );
     });
 
@@ -72,7 +71,7 @@ export default function CardModal({ columnHeader = "", openCloseModal }) {
           </div>
         </div>
 
-        {/*<p className={classes.title_column}>в колонке "{columnHeader}"</p>*/}
+        {/*<p className={classes.title_column}>{item.header}</p>*/}
         <div className={classes.date_wrapper}>
 
         </div>
@@ -86,6 +85,8 @@ export default function CardModal({ columnHeader = "", openCloseModal }) {
 
         </div>
         <Description description={cardInfo.description}
+                     columnId={cardInfo.column_id}
+                     cardId={cardId}
                      openEditDescription={openEditDescription}
                      closeEditDescription={closeEditDescription}
                      isEditDescription={isEditDescription} />
