@@ -15,11 +15,12 @@ export default function CheckList({ task, done, checkListId, cardId }) {
   const [taskTitle, setTaskTitle] = useState("");
   const [isChecked, setChecked] = useState(false);
 
-  // useEffect(() => {
-  //   setChecked(done)
-  //   console.log(isChecked);
-  // }, [done]);
-  console.log(task, done);
+
+  useEffect(() => {
+    if (done) {
+    setChecked(done)};
+  }, []);
+
   const ref = useRef();
   const dispatch = useDispatch();
   useOnClickOutside(ref, closeEditCheckbox);
@@ -36,10 +37,10 @@ export default function CheckList({ task, done, checkListId, cardId }) {
     setTaskTitle(target.value);
   }
 
-  function changeTaskDone() {
-    setChecked(!isChecked);
-    console.log(isChecked);
-    saveCheckboxValue();
+  function changeTaskDone(e) {
+    setChecked(e.target.checked);
+    const checked = (e.target.checked);
+    saveCheckboxValue(checked);
   }
 
   function saveInEnter(e) {
@@ -49,14 +50,16 @@ export default function CheckList({ task, done, checkListId, cardId }) {
     }
   }
 
-  function saveCheckboxValue() {
-    dispatch(updateTaskValue(taskTitle, isChecked, checkListId));
+  function saveCheckboxValue(checked) {
+    console.log("checked", checked);
+    dispatch(updateTaskValue(taskTitle, checked, checkListId));
     closeEditCheckbox();
   }
 
   function deleteTask() {
     dispatch(TaskDelete(cardId, checkListId));
   }
+
 
   return (
     <div className={classes.checkList_wrapper}>
@@ -87,7 +90,7 @@ export default function CheckList({ task, done, checkListId, cardId }) {
           :
           <div className={classes.checkbox_content} onClick={openEditChecklist}>
              <span
-               className={done ? `${classes.checkbox_title_none}`
+               className={isChecked ? `${classes.checkbox_title_none}`
                  : `${classes.checkbox_title_done}`}>
                 {task}
             </span>

@@ -16,6 +16,7 @@
 .checkbox_title_none {
     cursor: pointer;
     display: flex;
+    opacity: 0.7;
     text-decoration: line-through;
 }
 
@@ -25,14 +26,13 @@
 }
 
 .checkbox:hover {
-    background-color: rgba(70, 70, 231, 0.07);
+    background-color: rgba(0, 0, 0, 0.11);
 }
 
 .checkbox:hover .delete_btn {
     transition: all 0.5s ease-in-out;
     opacity: 0.8;
 }
-
 
 .delete_btn{
     opacity: 0;
