@@ -10,6 +10,7 @@ import Modal from "./Modal";
 import Checkbox from "./Сheckbox";
 import Select from "./Select";
 import classes from './UiKit.module.css'
+import Slider from "./Input/Slider";
 
 export default function UiKit() {
 
@@ -380,7 +381,16 @@ export default function UiKit() {
                             onChange={onChange}/>
 
                     </div>
-
+                </div>
+                <div className={classes.slider}>
+                    <Slider
+                      allTask='12'
+                      doneTask='6' />
+                </div>
+                <div className={classes.slider}>
+                    <Slider
+                      allTask='12'
+                      doneTask='12' />
                 </div>
             </div>
         </form>

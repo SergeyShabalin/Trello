@@ -8,18 +8,13 @@
 }
 
 
-.header {
-    display: flex;
-    justify-content: space-between;
-}
+
 
 .date_wrapper {
     margin-top: 10px;
 }
 
-.form_close {
-    margin: 15px 5px 10px 10px;
-}
+
 
 .description_wrapper {
     display: flex;
@@ -57,24 +52,9 @@
     margin: 2px;
 }
 
-.icons {
-    transform: scale(1.3);
-    color: #172b4d
-}
 
-.title_wrapper {
-    display: flex;
-    align-items: center;
-    margin: 10px 0 0 0;
-    width: 90%;
-}
 
-.title {
-    padding: 0 10px 0 10px;
-    margin: 5px;
-    display: flex;
 
-}
 
 .title_column {
     font-size: 0.9rem;

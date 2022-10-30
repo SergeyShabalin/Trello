@@ -12,6 +12,7 @@ import Modal from "../../../../components/basic/Modal";
 import { useNavigate, useParams, useLocation } from "react-router-dom";
 import useOnClickOutside from "../../../../hooks/UseOnClickOutside";
 import Slider from "../../../../components/basic/Input/Slider";
+import { Header } from "./Header";
 
 //TODO:
 // 1.параметры из урла. +++
@@ -55,19 +56,7 @@ export default function CardModal() {
     <Modal onClose={closeModal} open>
       <div className={classes.card_modal_wrapper}>
         {/*Header*/}
-        <div className={classes.header}>
-          <div className={classes.title_wrapper}>
-            <div><AiOutlineCreditCard className={classes.icons} /></div>
-            <h3 className={classes.title}>{cardInfo.header}</h3>
-          </div>
-          <div className={classes.form_close}>
-            <Button
-              onClick={closeModal}
-              variant="just_icon"
-              icon={<AiOutlineClose />}>
-            </Button>
-          </div>
-        </div>
+       <Header closeModal = {closeModal} title = {cardInfo.header}/>
         {/*Header*/}
 
         {/*<p className={classes.title_column}>{item.header}</p>*/}

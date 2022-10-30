@@ -81,6 +81,7 @@ export const getCardInfo = (cardId) => async (dispatch) => {
   }
 };
 
+
 export const clearCardInfo = () => async (dispatch) => {
   try {
     const clearCard = { checkList: [{ _id: 1 }], header: "", description: "" };

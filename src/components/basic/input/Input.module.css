@@ -22,9 +22,8 @@
     background-color: transparent;
     display: flex;
     width: 100%;
-    border: solid 1px blue;
+    border: solid 1px #3ab4d9;
     border-radius: 5px;
-
 }
 
 .text_area {
@@ -53,5 +52,6 @@
     font-weight: 500;
     color: #03034FFF;
     font-family: var(--prymary-font);
+    resize: none;
 }
 

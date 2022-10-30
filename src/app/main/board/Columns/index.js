@@ -6,7 +6,7 @@ import classes from "./ColumnWrapper.module.css";
 import ListCard from "../Cards";
 
 
-export default function Column({ column, cardList, columnIndex }) {
+export default function Column({ column, cardList }) {
 
   const [isCreator, setIsCreator] = useState(false);
 
@@ -24,10 +24,8 @@ export default function Column({ column, cardList, columnIndex }) {
                   addCardMenuCreate={addCardMenuCreate} />
 
       <div className={classes.cards_wrapper}>
-        {cardList.map((item, index) => (
+        {cardList.map((item) => (
           <ListCard
-            cardIndex={index}
-            columnIndex={columnIndex}
             columnHeader={column.header}
             columnId={column._id}
             key={item._id}
