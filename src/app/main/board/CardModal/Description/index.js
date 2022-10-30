@@ -31,56 +31,49 @@ export default function Description({
   }
 
   function saveInEnter(e) {
-    if (e.keyCode === 13) {
-      saveDescriptionValue();
-    }
+    if (e.keyCode === 13) saveDescriptionValue();
   }
 
-  return (
-    <>
-      {isEditDescription
-        ?
-        <div className={classes.textarea} ref={ref}>
-          <Input
-            rows={4}
-            cols={28}
-            autoFocus
-            onKeyDown={saveInEnter}
-            onChange={getDescriptionValue}
-            variant="transparent"
-            container="custom"
-            placeholder="Введите заголовок карточки"
-            value={description}
-          />
-
-          <div className={classes.edit_btn}>
-            <div className={classes.save_btn}>
-              <Button
-                variant="contained"
-                onClick={saveDescriptionValue}
-                label="Сохранить">
-              </Button>
-            </div>
-            <div className={classes.cancel_btn}>
-              <Button
-                variant="contained"
-                onClick={closeEditDescription}
-                label="Отмена">
-              </Button>
-            </div>
-          </div>
-
-
-        </div>
-        : <div onClick={openEditDescription}>
-          {
-            description !== "" ? <div className={classes.description_card}>{description}</div>
-              : <div className={classes.description_card}>нет описания</div>
-          }
-        </div>
+//TODO вынести в отдельный окмпонент
+  if (!isEditDescription) return (
+    <div onClick={openEditDescription}>
+      {
+        description !== "" ? <div className={classes.description_card}>{description}</div>
+          : <div className={classes.description_card}>нет описания</div>
       }
+    </div>
+  );
+  return (
+    <div className={classes.textarea} ref={ref}>
+      <Input
+        rows={4}
+        cols={28}
+        autoFocus
+        onKeyDown={saveInEnter}
+        onChange={getDescriptionValue}
+        variant="transparent"
+        container="custom"
+        placeholder="Введите заголовок карточки"
+        value={description}
+      />
 
-    </>
+      <div className={classes.edit_btn}>
+        <div className={classes.save_btn}>
+          <Button
+            variant="contained"
+            onClick={saveDescriptionValue}
+            label="Сохранить">
+          </Button>
+        </div>
+        <div className={classes.cancel_btn}>
+          <Button
+            variant="contained"
+            onClick={closeEditDescription}
+            label="Отмена">
+          </Button>
+        </div>
+      </div>
+    </div>
   );
 }
 

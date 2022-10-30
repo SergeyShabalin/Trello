@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useLocation } from "react-router-dom";
 import { BiEdit } from "react-icons/bi";
 import Button from "../../../../../components/basic/Button";
 import Modal from "../../../../../components/basic/Modal";
@@ -9,6 +9,8 @@ import classes from "./ContentEdit.module.css";
 import CardModal from "../../CardModal";
 
 export default function ContentEdit({ header, cardId, columnId, columnHeader, cardIndex, columnIndex }) {
+
+  const location = useLocation();
 
   const [isModal, setIsModal] = useState(false);
 
@@ -30,9 +32,8 @@ export default function ContentEdit({ header, cardId, columnId, columnHeader, ca
   }
 
   return (
-    <>
       <div className={classes.header}>
-        <Link className={classes.link} to={`card/${cardId}`} >
+        <Link className={classes.link} state={{ background: location }} to={`/card/${cardId}`} >
           <div className={classes.title}>{header}</div>
         </Link>
 
@@ -76,8 +77,6 @@ export default function ContentEdit({ header, cardId, columnId, columnHeader, ca
 
         </div>
       </div>
-
-    </>
   );
 }
 

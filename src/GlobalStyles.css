@@ -76,7 +76,7 @@
     --textarea-margin: 5px 0;
     --textarea-border-radius: 5px;
 
-    --modal-background-color: rgba(0, 0, 0, 0.4);
+    --modal-background-color: rgba(0, 0, 0, 0.66);
     --modal-card-background-color: rgba(252, 252, 252, 0);
     --modal-background-padding: 10px;
     --modal-background-border-radius: 10px;
@@ -133,6 +133,9 @@
     --card-decision-date-border-radius: 3px;
     --card-decision-date-padding: 3px;
     --card-decision-date-margin: 5px 5px 3px 0px;
+
+
+    --card-modal-background-color: #e1eae1;
 
     --list-wrapper: #d9d1d1;
     --list-creator-background: #dacaca;

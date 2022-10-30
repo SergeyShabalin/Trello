@@ -7,10 +7,10 @@ import Checkout from "../../Checkout";
 import { useDispatch } from "react-redux";
 import { updateCardTitle } from "../../../../../../store/cards/asyncActions";
 
-export default function Editor({ header, closeModalContextMenu, cardId, columnId, cardIndex, columnIndex }) {
+export default function Editor({ header, closeModalContextMenu, cardId, columnId }) {
   const dispatch = useDispatch();
 
-  const [newTitle, setNewTitle] = useState("");
+  const [newTitle, setNewTitle] = useState(header);
 
   function getNewValue({ target }) {
     setNewTitle(target.value);
@@ -22,9 +22,7 @@ export default function Editor({ header, closeModalContextMenu, cardId, columnId
   }
 
   function saveChangedKeyDown(e) {
-    if (e.keyCode === 13) {
-      saveChanged();
-    }
+    if (e.keyCode === 13) saveChanged();
   }
 
   return (

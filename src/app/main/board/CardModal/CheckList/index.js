@@ -8,17 +8,8 @@ import Button from "../../../../../components/basic/Button";
 import useOnClickOutside from "../../../../../hooks/UseOnClickOutside";
 import classes from "./CheckList.module.css";
 
-
-export default function CheckList({ task, done, _id, cardId }) {
-
+function useOpenCheckListEditor() {
   const [isEditCheckbox, setIsEditCheckbox] = useState(false);
-  const [taskTitle, setTaskTitle] = useState(task);
-  const [isChecked, setChecked] = useState(done);
-
-//TODO обновить значок чекеда только после ответа от сервера
-  const ref = useRef();
-  const dispatch = useDispatch();
-  useOnClickOutside(ref, closeEditCheckbox);
 
   function openEditChecklist() {
     setIsEditCheckbox(true);
@@ -27,6 +18,31 @@ export default function CheckList({ task, done, _id, cardId }) {
   function closeEditCheckbox() {
     setIsEditCheckbox(false);
   }
+
+  return {
+    isEditCheckbox,
+    openEditChecklist,
+    closeEditCheckbox
+  };
+}
+
+export default function CheckList({ task, done, _id, cardId }) {
+//TODO написать свои хуки(например модалка)
+  // const [isEditCheckbox, setIsEditCheckbox] = useState(false);
+  const [taskTitle, setTaskTitle] = useState(task);
+  const [isChecked, setChecked] = useState(done);
+  const { isEditCheckbox, openEditChecklist, closeEditCheckbox } = useOpenCheckListEditor();
+  const ref = useRef();
+  const dispatch = useDispatch();
+  useOnClickOutside(ref, closeEditCheckbox);
+
+  // function openEditChecklist() {
+  //   setIsEditCheckbox(true);
+  // }
+  //
+  // function closeEditCheckbox() {
+  //   setIsEditCheckbox(false);
+  // }
 
   function getTaskTitle({ target }) {
     setTaskTitle(target.value);
@@ -48,7 +64,6 @@ export default function CheckList({ task, done, _id, cardId }) {
   function deleteTask() {
     dispatch(TaskDelete(cardId, _id));
   }
-
 
   return (
     <div className={classes.checkList_wrapper}>
