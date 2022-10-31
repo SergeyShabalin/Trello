@@ -1,51 +1,23 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import { useDispatch } from "react-redux";
 import { MdClear } from "react-icons/md";
 import { TaskDelete, updateTaskTitle, updateTaskValue } from "../../../../../store/cards/asyncActions";
 import Checkbox from "../../../../../components/basic/Сheckbox";
-import Input from "../../../../../components/basic/Input";
 import Button from "../../../../../components/basic/Button";
 import useOnClickOutside from "../../../../../hooks/UseOnClickOutside";
 import classes from "./CheckList.module.css";
 import Editor from "./Editor";
-import { FiCheckSquare } from "react-icons/fi";
-import Slider from "../../../../../components/basic/Input/Slider";
+import useOpenCheckListEditor from "./useOpenCheckListEditor";
 
-function useOpenCheckListEditor() {
-  const [isEditCheckbox, setIsEditCheckbox] = useState(false);
-
-  function openEditChecklist() {
-    setIsEditCheckbox(true);
-  }
-
-  function closeEditCheckbox() {
-    setIsEditCheckbox(false);
-  }
-
-  return {
-    isEditCheckbox,
-    openEditChecklist,
-    closeEditCheckbox
-  };
-}
 
 export default function CheckList({ task, done, _id, cardId }) {
-//TODO написать свои хуки(например модалка)
-  // const [isEditCheckbox, setIsEditCheckbox] = useState(false);
+
   const [taskTitle, setTaskTitle] = useState(task);
   const [isChecked, setChecked] = useState(done);
   const { isEditCheckbox, openEditChecklist, closeEditCheckbox } = useOpenCheckListEditor();
   const ref = useRef();
   const dispatch = useDispatch();
   useOnClickOutside(ref, closeEditCheckbox);
-
-  // function openEditChecklist() {
-  //   setIsEditCheckbox(true);
-  // }
-  //
-  // function closeEditCheckbox() {
-  //   setIsEditCheckbox(false);
-  // }
 
   function getTaskTitle({ target }) {
     setTaskTitle(target.value);

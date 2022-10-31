@@ -1,66 +1,44 @@
-import React, { useState, useEffect, useRef } from "react";
-import Input from "../../../../components/basic/Input";
-import Button from "../../../../components/basic/Button";
-
-import classes from "./ListCreator.module.css";
+import React, { useState } from "react";
 import { AiOutlinePlus } from "react-icons/ai";
-import useOnClickOutside from "../../../../hooks/UseOnClickOutside";
-
+import Button from "../../../../components/basic/Button";
+import Editor from "./Editor";
+import useOpenEditor from "./useOpenEditor";
 
 function ListCreator({ addList }) {
 
-  const [header, setHeader] = useState('');
-  const [isModalOpen, setModalOpen] = useState(false);
-
-  const ref = useRef();
-
-  useOnClickOutside(ref, () => setModalOpen(false));
+  const [header, setHeader] = useState("");
+  const { isEditor, openEditor, closeEditor } = useOpenEditor();
 
   function getColumnHeader(e) {
-    setHeader(e.target.value );
+    setHeader(e.target.value);
   }
 
   function addColumn(e) {
     if (e.keyCode === 13) {
       addList(header);
-      setModalOpen(false);
+      closeEditor();
     }
   }
 
   function addListColumn() {
     addList(header);
-    setModalOpen(false);
+    closeEditor();
   }
 
+  if (!isEditor) return (
+    <Button
+      onClick={openEditor}
+      variant="contained"
+      label="Добавить колонку"
+      startIcon={<AiOutlinePlus />}/>
+  );
+
   return (
-    <div>
-      {isModalOpen ?
-        <div onKeyDown={addColumn} ref={ref}>
-          <div className={classes.add_list_wrapper}>
-            <Input autoFocus
-                   rows={3}
-                   cols={35}
-                   variant="transparent"
-                   placeholder="Ввести заголовок списка"
-                   onChange={getColumnHeader}
-            >
-            </Input>
-            <div className={classes.list_add_controls}>
-              <Button
-                onClick={addListColumn}
-                label="Добавить список">
-              </Button>
-            </div>
-          </div>
-        </div>
-        :
-        <Button
-          onClick={() => setModalOpen(true)}
-          variant="contained"
-          label="Добавить колонку"
-          startIcon={<AiOutlinePlus />}>
-        </Button>}
-    </div>
+      <Editor
+        getColumnHeader={getColumnHeader}
+        addListColumn={addListColumn}
+        addColumn={addColumn}
+        closeEditor={closeEditor} />
   );
 };
 

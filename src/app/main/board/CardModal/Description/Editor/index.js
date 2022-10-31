@@ -10,6 +10,7 @@ export default function Editor({saveInEnter,
                                  description,
                                  saveDescriptionValue,
                                  closeEditDescription}){
+
   const ref = useRef();
   useOnClickOutside(ref, closeEditDescription);
 

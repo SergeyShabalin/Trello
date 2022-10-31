@@ -6,14 +6,12 @@ import Description from "./Description";
 import CheckList from "./CheckList";
 import CheckListCreator from "./CheckListCreator";
 import Modal from "../../../../components/basic/Modal";
-import classes from "./CardModal.module.css";
-
 import { Header } from "./Header";
 import ChecklistTitle from "./CheckList/Title";
+import classes from "./CardModal.module.css";
 
 export default function CardModal() {
 
-  const [isEditDescription, setIsEditDescription] = useState(false);
   const cardInfo = useSelector(({ cards }) => cards.cards);
   const dispatch = useDispatch();
 
@@ -24,14 +22,6 @@ export default function CardModal() {
   useEffect(() => {
     dispatch(getCardInfo(cardId));
   }, []);
-
-  function openEditDescription() {
-    setIsEditDescription(true);
-  }
-
-  function closeEditDescription() {
-    setIsEditDescription(false);
-  }
 
   function closeModal() {
     navigate("/");
@@ -48,17 +38,14 @@ export default function CardModal() {
         <Header closeModal={closeModal} title={cardInfo.header} />
         <p className={classes.title_column}>в колонке "{cardInfo?.columnHeader}"</p>
 
-        {/*decisionDate*/}
+       {/*TODO decisionDate*/}
         <div className={classes.date_wrapper}></div>
-        {/*decisionDate*/}
 
         <Description
           description={cardInfo.description}
           columnId={cardInfo.column_id}
           cardId={cardId}
-          openEditDescription={openEditDescription}
-          closeEditDescription={closeEditDescription}
-          isEditDescription={isEditDescription} />
+        />
 
         <ChecklistTitle
           allTask={cardInfo?.checkList.length}
