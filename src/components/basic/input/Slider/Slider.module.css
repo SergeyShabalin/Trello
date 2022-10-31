@@ -13,7 +13,7 @@
 .slider{
     -webkit-appearance: none;
     height: 8px;
-    background-color: transparent;
+    background-color: rgba(148, 141, 141, 0.28);
     width: 98%;
     border-radius: 5px;
     background-image: linear-gradient(#72d0ef, #72d0ef);

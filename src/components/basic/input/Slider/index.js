@@ -3,22 +3,23 @@ import classes from "./Slider.module.css";
 
 export default function Slider({allTask, doneTask}) {
 
-  const [progress, setProgress] = useState(0);
+  const [progress, setProgress] = useState(1);
   const checkListsProgress =((doneTask/allTask)*100)
 
+
   useEffect(() => {
-    setProgress(checkListsProgress);
+    if (allTask!==0) setProgress(checkListsProgress);
   }, [checkListsProgress]);
 
   function changeValue(e) {
   }
 
   const getBackgroundSize = () => {
-    return { backgroundSize: `${(progress * 100) / 100}% 100%` };
+    return { backgroundSize: `${ (progress * 100) / 100}% 100%` };
   };
   return (
     <div className={classes.wrapper}>
-      <span className={classes.progress_percent}>{allTask && progress.toFixed(0)}%</span>
+      <span className={classes.progress_percent}>{allTask && progress.toFixed(0).toString()}%</span>
       <input
              type="range"
              min="0"
