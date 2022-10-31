@@ -1,0 +1,15 @@
+.control_creator {
+    padding-top: 0;
+}
+
+.control_input {
+    background-color: #ffffff;
+    border-radius: 5px;
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0 5px 0;
+}

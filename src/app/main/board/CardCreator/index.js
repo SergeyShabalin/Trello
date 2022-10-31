@@ -1,24 +1,22 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { AiOutlinePlus } from "react-icons/ai";
-import { GrClose } from "react-icons/gr";
+import Editor from "./Editor";
 import Button from "../../../../components/basic/Button";
-import Input from "../../../../components/basic/Input";
-import useOnClickOutside from "../../../../hooks/UseOnClickOutside";
+import useOpenCardCreator from "./useOpenCreator";
 import { addNewCard } from "../../../../store/cards/asyncActions";
 import classes from "./CardCreator.module.css";
 
-export default function CardCreator({ columnId, isCreator, menuCreate, menuClose }) {
+
+export default function CardCreator({ columnId}) {
 
   const [cardHeader, setCardHeader] = useState("");
-  const ref = useRef();
+  const {isCreator, openCreator, closeCreator} = useOpenCardCreator()
   const dispatch = useDispatch();
-  useOnClickOutside(ref, menuClose);
-
 
   function addCard() {
     dispatch(addNewCard(columnId, cardHeader));
-    menuClose();
+    closeCreator();
   }
 
   function saveChanged(e) {
@@ -29,44 +27,22 @@ export default function CardCreator({ columnId, isCreator, menuCreate, menuClose
     setCardHeader(target.value);
   }
 
+  if (!isCreator) return (
+    <div className={classes.card_creator_launcher}>
+      <Button onClick={openCreator}
+              variant={"text"}
+              label={"Добавить карточку"}
+              startIcon={<AiOutlinePlus />}/>
+    </div>
+  );
+
   return (
     <div className={classes.card_creator}>
-      {isCreator ?
-        <div className={classes.control_creator} ref={ref}>
-          <div className={classes.control_input}>
-            <Input
-              rows={3}
-              cols={35}
-              autoFocus
-              onKeyDown={saveChanged}
-              onChange={getNewValue}
-              variant="transparent"
-              container="custom"
-              placeholder="Введите название карточки"
-            />
-          </div>
-          <div className={classes.btns}>
-            <Button
-              onClick={addCard}
-              variant="contained"
-              color="submit"
-              label="Добавить карточку">
-            </Button>
-            <Button
-              onClick={menuClose}
-              variant="just_icon"
-              icon={<GrClose />}>
-            </Button>
-          </div>
-        </div>
-
-        : <div>
-          <Button onClick={menuCreate}
-                  variant={"text"}
-                  label={"Добавить карточку"}
-                  startIcon={<AiOutlinePlus />} />
-        </div>
-      }
+        <Editor
+          getNewValue={getNewValue}
+          saveChanged={saveChanged}
+          addCard={addCard}
+          closeCreator={closeCreator} />
     </div>
   );
 }

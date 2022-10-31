@@ -21,7 +21,7 @@ function ListContextMenu({ columnId, addCardMenuCreate }) {
 
   function viewAddCard() {
     setModalOpen(false);
-    addCardMenuCreate();
+    // addCardMenuCreate();
   }
 
   function columnDelete() {

@@ -7,12 +7,12 @@ import { deleteCard } from "../../../../../../store/cards/asyncActions";
 import classes from "./CardContextMenu.module.css";
 
 
-export default function CardContextMenu({ cardId, closeModalContextMenu, columnId}) {
+export default function CardContextMenu({ cardId, closeModalContextMenu, columnId }) {
 
   const dispatch = useDispatch();
 
   function cardDelete() {
-     const isDelete = window.confirm("Удалить карточку?");
+    const isDelete = window.confirm("Удалить карточку?");
     if (isDelete)
       dispatch(deleteCard(cardId, columnId));
     closeModalContextMenu();

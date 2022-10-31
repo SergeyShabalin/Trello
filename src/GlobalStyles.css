@@ -41,10 +41,10 @@
     --button-contained-background-hover: rgba(0, 0, 0, 0.48);
     --button-contained-background-disabled: #e0c6c6;
     --button-contained-border-radius-disabled: 5px;
-    --button-contained-submit-background: #00a900;
-    --button-contained-color-submit: #ebf5eb;
+    --button-contained-submit-background: #67d9b9;
+    --button-contained-color-submit: #222622;
     --button-contained-color-blue: white;
-    --button-contained-background-submit-hover: #089a08;
+    --button-contained-background-submit-hover: #3cc29d;
     --button-contained-blue-background: #51b0d0;
     --button-contained-background-blue-hover: #72d0ef;
     --button-contained-background-error: #dc0000;

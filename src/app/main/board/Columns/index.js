@@ -8,20 +8,11 @@ import ListCard from "../Cards";
 
 export default function Column({ column, cardList }) {
 
-  const [isCreator, setIsCreator] = useState(false);
-
-  function addCardMenuCreate() {
-    setIsCreator(true);
-  }
-
-  function menuClose() {
-    setIsCreator(false);
-  }
-
   return (
     <div className={classes.list_wrapper}>
       <ListHeader column={column}
-                  addCardMenuCreate={addCardMenuCreate} />
+        // addCardMenuCreate={addCardMenuCreate}
+      />
 
       <div className={classes.cards_wrapper}>
         {cardList.map((item) => (
@@ -36,11 +27,7 @@ export default function Column({ column, cardList }) {
         }
       </div>
       <div className={classes.card_creator}>
-        <CardCreator
-          isCreator={isCreator}
-          menuClose={menuClose}
-          menuCreate={addCardMenuCreate}
-          columnId={column._id} />
+        <CardCreator columnId={column._id} />
       </div>
     </div>
   );

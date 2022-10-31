@@ -28,7 +28,7 @@ export default function ListHeader({ column, addCardMenuCreate }) {
       </div>
       <div className={classes.context_wrapper}>
         <ListContextMenu
-          addCardMenuCreate={addCardMenuCreate}
+          // addCardMenuCreate={addCardMenuCreate}
           columnId={column._id} />
       </div>
     </div>
