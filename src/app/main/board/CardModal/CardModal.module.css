@@ -3,28 +3,12 @@
     padding: 10px 10px 20px 20px;
     border-radius: 5px;
     width: 35vw;
-    color: #172b4d;
+    color: var(--card-modal-text-color);
     font: var(--prymary-font);
 }
 
-
-
-
 .date_wrapper {
     margin-top: 10px;
-}
-
-
-
-.description_wrapper {
-    display: flex;
-    align-items: center;
-    margin: 20px 0 20px 0;
-}
-
-.description_title {
-    padding: 0 10px 0 10px;
-    margin: 5px;
 }
 
 .slider{

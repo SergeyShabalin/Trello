@@ -6,7 +6,7 @@ import useOnClickOutside from "../../../../../../hooks/UseOnClickOutside";
 import classes from "./ListHeaderEdit.module.css";
 
 
-function ListHeaderEdit({ header, columnId, openEditHeader, closeEditHeader, isEditHeader }) {
+function ListHeaderEdit({ header, columnId, closeEditHeader, isEditHeader }) {
 
   const ref = useRef();
   const dispatch = useDispatch();
@@ -18,7 +18,7 @@ function ListHeaderEdit({ header, columnId, openEditHeader, closeEditHeader, isE
   function saveChanged(e) {
     if (e.keyCode === 13) {
       dispatch(updateColumn(columnId, newHeader));
-      openEditHeader();
+      closeEditHeader();
     }
   }
 

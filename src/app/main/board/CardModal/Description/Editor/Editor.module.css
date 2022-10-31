@@ -1,0 +1,15 @@
+.textarea{
+    margin: 10px 10px 10px 25px;
+}
+
+.edit_btn{
+    display: flex;
+    margin-top: 5px;
+}
+.save_btn{
+    margin-right: 5px;
+}
+
+.cancel_btn{
+
+}

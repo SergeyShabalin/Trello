@@ -45,8 +45,8 @@
     --button-contained-color-submit: #ebf5eb;
     --button-contained-color-blue: white;
     --button-contained-background-submit-hover: #089a08;
-    --button-contained-blue-background: #5a5aec;
-    --button-contained-background-blue-hover: #5151b9;
+    --button-contained-blue-background: #51b0d0;
+    --button-contained-background-blue-hover: #72d0ef;
     --button-contained-background-error: #dc0000;
     --button-contained-color-error: white;
     --button-contained-color-error-hover: #640303;
@@ -135,7 +135,8 @@
     --card-decision-date-margin: 5px 5px 3px 0px;
 
 
-    --card-modal-background-color: #e1eae1;
+    --card-modal-background-color: #ffeaea;
+    --card-modal-text-color: #172b4d;
 
     --list-wrapper: #d9d1d1;
     --list-creator-background: #dacaca;

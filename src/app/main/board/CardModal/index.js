@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { BsCheck2Square } from "react-icons/bs";
+import { FiCheckSquare } from "react-icons/fi";
 import Description from "./Description";
 import classes from "./CardModal.module.css";
 import CheckList from "./CheckList";
@@ -16,7 +16,7 @@ import { Header } from "./Header";
 
 //TODO:
 // 1.параметры из урла. +++
-// 2.Заголовок колонки из запроса к серверу
+// 2.Заголовок колонки из запроса к серверу +++
 // 3. Избавиться от пропсов+++
 // 4. Добавить очистку карточки при ее закрытии+++
 
@@ -51,41 +51,28 @@ export default function CardModal() {
   const CheckLists = cardInfo?.checkList.map(checkItem => (
     <CheckList key={checkItem._id} cardId={cardId} {...checkItem} />));
 
-
   return (
     <Modal onClose={closeModal} open>
       <div className={classes.card_modal_wrapper}>
-        {/*Header*/}
-       <Header closeModal = {closeModal} title = {cardInfo.header}/>
-        {/*Header*/}
 
-        {/*<p className={classes.title_column}>{item.header}</p>*/}
-        <div className={classes.date_wrapper}>
+        <Header closeModal={closeModal} title={cardInfo.header} />
+        <p className={classes.title_column}>в колонке "{cardInfo?.columnHeader}"</p>
 
-        </div>
+        {/*decisionDate*/}
+        <div className={classes.date_wrapper}></div>
+        {/*decisionDate*/}
 
-        {/*Description*/}
-        <div className={classes.description_wrapper}>
-          <AiOutlineMenuUnfold className={classes.icons} />
-          <h4 className={classes.description_title}>Описание</h4>
-
-          <Button label="Изменить"
-                  onClick={openEditDescription} />
-
-        </div>
         <Description
           description={cardInfo.description}
           columnId={cardInfo.column_id}
           cardId={cardId}
           openEditDescription={openEditDescription}
           closeEditDescription={closeEditDescription}
-          isEditDescription={isEditDescription}
-        />
-        {/*Description*/}
+          isEditDescription={isEditDescription} />
 
         {/*CheckLists*/}
         <div className={classes.checkbox_title_wrapper}>
-          <BsCheck2Square className={classes.icons} />
+         <FiCheckSquare className={classes.icons} />
           <h4 className={classes.checkbox_title}>Чек-лист</h4>
         </div>
 

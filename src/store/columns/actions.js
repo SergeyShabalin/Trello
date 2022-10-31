@@ -8,4 +8,5 @@ export const columnsAC = {
     cardsAdd: (payload) => ({type: COLUMNS_TYPES.VIEW_ALL_COLUMNS, payload}),
     cardDelete: (payload) => ({type: COLUMNS_TYPES.VIEW_ALL_COLUMNS, payload}),
     cardUpdate: (payload) => ({type: COLUMNS_TYPES.VIEW_ALL_COLUMNS, payload}),
+    getTaskInfo: (payload) => ({type: COLUMNS_TYPES.GET_TASK_INFO, payload}),
 };

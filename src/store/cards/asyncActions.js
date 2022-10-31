@@ -55,7 +55,6 @@ export const updateCardTitle = (newTitle, cardId, columnId) => async (dispatch, 
       )
     );
     dispatch(columnsAC.cardUpdate(ColumnsAfterUpdate));
-
   } catch (error) {
     console.warn(error, "server error");
   }
@@ -66,7 +65,6 @@ export const updateCardDescription = (cardId, columnId, descriptionValue) => asy
   try {
     await CardsApi.updateCardDescriptionAPI(cardId, descriptionValue);
     dispatch(cardsAC.updateDescription(descriptionValue));
-
   } catch (error) {
     console.warn(error, "server error");
   }

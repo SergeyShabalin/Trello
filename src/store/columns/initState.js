@@ -11,8 +11,9 @@ export const defaultState={
         //             header: '',
         //             __v: 0,
         //             decisionDate: '2022-07-13T21:00:00.000Z'}
-        //     ]}
-    ]
+
+    ],
+doneTask:[]
 }
 
 

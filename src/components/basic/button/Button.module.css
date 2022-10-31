@@ -119,6 +119,7 @@
 .contained.blue {
     background-color: var(--button-contained-blue-background);
     color: var(--button-contained-color-blue);
+
 }
 
 .contained.blue:hover {

@@ -5,7 +5,9 @@ import { columnsAC } from "../columns/actions";
 export const getAllColumns = () => async (dispatch) => {
   try {
     const resp = await ColumnsAPI.getAllColumnsAPI();
-    dispatch(columnsAC.viewAllColumns(resp.data));
+    dispatch(columnsAC.viewAllColumns(resp.data.columnData));
+    // dispatch(columnsAC.getTaskInfo(resp.data.doneTasks))
+    //TODO
   } catch (error) {
     console.warn(error, "server error");
   }

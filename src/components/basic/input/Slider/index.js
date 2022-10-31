@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { getCardInfo } from "../../../../store/cards/asyncActions";
 import classes from "./Slider.module.css";
 
 export default function Slider({allTask, doneTask}) {
@@ -19,7 +18,7 @@ export default function Slider({allTask, doneTask}) {
   };
   return (
     <div className={classes.wrapper}>
-      <span className={classes.progress_percent}>{progress.toFixed(0)}%</span>
+      <span className={classes.progress_percent}>{allTask && progress.toFixed(0)}%</span>
       <input
              type="range"
              min="0"

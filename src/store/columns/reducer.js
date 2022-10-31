@@ -10,6 +10,8 @@ export default function columnReducer(state = defaultState, {type, payload}) {
         case COLUMNS_TYPES.ADD_NEW_COLUMN:
              return{...state, columns:[...state.columns, payload]};
 
+        case COLUMNS_TYPES.GET_TASK_INFO:
+            return{...state, doneTask: payload};
 
         default:
             return (state);

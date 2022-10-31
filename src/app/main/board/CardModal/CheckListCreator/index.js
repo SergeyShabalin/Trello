@@ -5,6 +5,7 @@ import useOnClickOutside from "../../../../../hooks/UseOnClickOutside";
 import Input from "../../../../../components/basic/Input";
 import { NewTaskAdd } from "../../../../../store/cards/asyncActions";
 import classes from "./CheckListCreator.module.css";
+import { MdClear } from "react-icons/md";
 
 
 export default function CheckListCreator({ cardId }) {
@@ -60,8 +61,9 @@ export default function CheckListCreator({ cardId }) {
             </div>
 
             <Button
-              variant="contained"
-              label="Отменить" />
+              variant="just_icon"
+              icon={<MdClear />}
+            onClick={addMenuClose}/>
           </div>
 
         </div>

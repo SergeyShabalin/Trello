@@ -38,14 +38,6 @@
     opacity: 0;
 }
 
-.checkbox_editor {
-    padding: 5px;
-    border-radius: 5px;
-}
-
-.save_edit_btn {
-    margin-top: 5px;
-}
 
 .delete_btn_wrapper{
     display: flex;
