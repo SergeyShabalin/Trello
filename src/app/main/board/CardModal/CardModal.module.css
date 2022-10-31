@@ -11,10 +11,6 @@
     margin-top: 10px;
 }
 
-.slider{
-    margin: 0 25px 5px 10px;
-}
-
 .checklists_wrapper {
     overflow-y: auto;
     height: 50vh;
@@ -22,12 +18,10 @@
 
 .checklists_wrapper::-webkit-scrollbar {
     width: 5px;
-
 }
 
 .checklists_wrapper::-webkit-scrollbar-track {
     background-color: transparent;
-
 }
 
 .checklists_wrapper::-webkit-scrollbar-thumb {
@@ -36,22 +30,11 @@
     margin: 2px;
 }
 
-
-
-
-
 .title_column {
     font-size: 0.9rem;
     margin: 0px 20px 0 25px;
 }
 
 
-.checkbox_title_wrapper {
-    display: flex;
-    align-items: center;
-    margin-top: 20px;
-}
 
-.checkbox_title {
-    padding: 0 10px 0 10px;
-}
+
