@@ -1,22 +1,29 @@
-.decision_date {
+
+.decision_date, .over_decision_date {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--card-decision-date-background-color);
     border-radius: var(--card-decision-date-border-radius);
     padding: var(--card-decision-date-padding);
     margin: var(--card-decision-date-margin);
 }
+.decision_date{
+    color: #2d2626;
+}
 
-.decision_date:hover{
-    background-color: var(--card-decision-date-background-color-hover);
+.over_decision_date {
+    background-color: var(--card-decision-date-background-color);
+
+    color: #2f2c2c;
 }
 
 .icon {
     display: flex;
     align-items: center;
+    padding-right: 5px;
 }
-
 .date {
     font-size: var(--decision-date-font-size);
 }
+
+

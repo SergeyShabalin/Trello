@@ -13,10 +13,9 @@
 
 .cards_wrapper{
     /*background-color: rgba(4, 87, 196, 0.24);*/
-    padding: 10px 0 0 0;
+    padding: 0;
     overflow-y: auto;
     max-height: 75vh;
-
 }
 
 .cards_wrapper::-webkit-scrollbar{

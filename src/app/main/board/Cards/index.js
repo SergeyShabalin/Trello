@@ -11,7 +11,8 @@ export default function ListCard({
                                    header,
                                    cardId,
                                    columnId,
-                                   columnHeader
+                                   columnHeader,
+                                   decisionDate
                                  }) {
 
 
@@ -35,7 +36,7 @@ export default function ListCard({
         columnHeader={columnHeader}
       />
       <div className={classes.footer}>
-        <DecisionDate />
+        <DecisionDate decisionDate = {decisionDate}/>
         <Checkout
           // allTask={allTask} doneTask={doneTask}
         />

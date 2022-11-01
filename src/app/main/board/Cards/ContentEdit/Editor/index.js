@@ -40,8 +40,8 @@ export default function Editor({ header, closeModalContextMenu, cardId, columnId
           value={header}
         />
         <div className={classes.footer}>
-          <DecisionDate />
-          <Checkout />
+          {/*<DecisionDate />*/}
+          {/*<Checkout />*/}
         </div>
       </div>
 

@@ -12,6 +12,7 @@
     width: 90%;
     align-items: center;
     cursor: pointer;
+    font-size: 0.95rem;
 }
 
 .checkbox_title_none {
@@ -23,7 +24,7 @@
 
 .checkbox_title_done {
     cursor: pointer;
-    width: 90%;
+    width: 98%;
 }
 
 .checkbox:hover {
