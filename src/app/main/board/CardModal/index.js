@@ -9,6 +9,7 @@ import Modal from "../../../../components/basic/Modal";
 import { Header } from "./Header";
 import ChecklistTitle from "./CheckList/Title";
 import classes from "./CardModal.module.css";
+import Deadline from "./Deadline";
 
 export default function CardModal() {
 
@@ -38,8 +39,8 @@ export default function CardModal() {
         <Header closeModal={closeModal} title={cardInfo.header} />
         <p className={classes.title_column}>в колонке "{cardInfo?.columnHeader}"</p>
 
-       {/*TODO decisionDate*/}
-        <div className={classes.date_wrapper}></div>
+          <Deadline decisionDate={cardInfo.decisionDate}/>
+
 
         <Description
           description={cardInfo.description}

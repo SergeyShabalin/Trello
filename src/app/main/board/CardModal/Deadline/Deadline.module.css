@@ -1,0 +1,39 @@
+.wrapper {
+    padding-left: 35px;
+
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.calendar_wrapper {
+    position: absolute;
+    background: #ffffff;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 1px 5px 10px 4px rgba(4, 4, 54, 0.12);
+    width: 300px;
+    height: 400px;
+    z-index: 4;
+}
+
+.calendar {
+    border: none;
+}
+.date_time{
+   border-radius: 3px;
+    background: #cecec7;
+    padding: 3px 7px;
+    display: flex;
+}
+
+.icon{
+    display: flex;
+    align-items: center;
+    padding-left: 5px;
+}
+
+.date_wrapper {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
