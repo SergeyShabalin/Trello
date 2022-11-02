@@ -39,7 +39,10 @@ export default function CardModal() {
         <Header closeModal={closeModal} title={cardInfo.header} />
         <p className={classes.title_column}>в колонке "{cardInfo?.columnHeader}"</p>
 
-          <Deadline decisionDate={cardInfo.decisionDate}/>
+          <Deadline
+            columnId={cardInfo.column_id}
+            decisionDate={cardInfo.decisionDate}
+            cardId = {cardInfo._id}/>
 
 
         <Description

@@ -1,27 +1,44 @@
+
+
 .wrapper {
     padding-left: 35px;
-
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     font-weight: 600;
+}
+
+.title{
+    margin-bottom: 5px;
 }
 
 .calendar_wrapper {
     position: absolute;
+    top: 200px;
     background: #ffffff;
-    padding: 10px;
+    padding: 5px;
     border-radius: 10px;
     box-shadow: 1px 5px 10px 4px rgba(4, 4, 54, 0.12);
-    width: 300px;
-    height: 400px;
+
     z-index: 4;
 }
-
-.calendar {
-    border: none;
+.react-date-picker__calendar--open{
+    position: absolute;
 }
+.react-date-picker__calendar--closed{
+    position: absolute;
+}
+
+.calendar_wrapper{
+    position: absolute;
+    z-index: 1;
+    box-shadow: 1px 1px 15px 4px rgba(35, 177, 190, 0.35);
+    padding: 5px;
+    background: white;
+    border-radius: 10px;
+}
+
 .date_time{
    border-radius: 3px;
-    background: #cecec7;
+    background: #d3d3cc;
     padding: 3px 7px;
     display: flex;
 }

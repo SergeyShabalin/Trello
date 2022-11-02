@@ -17,6 +17,10 @@ class CardsApi {
     return Api.patch(`/cards/descriptions/${cardId}`, { description: descriptionValue });
   }
 
+  async updateCardDecisionDateAPI(cardId, decisionDate) {
+    return Api.patch(`/cards/decisionDate/${cardId}`, { decisionDate: decisionDate });
+  }
+
   async getCardInfoAPI(cardId) {
     return Api.get(`/cards/${cardId}`);
   }

@@ -36,7 +36,8 @@ export default function ListCard({
         columnHeader={columnHeader}
       />
       <div className={classes.footer}>
-        <DecisionDate decisionDate = {decisionDate}/>
+
+        {decisionDate &&  <DecisionDate decisionDate = {decisionDate}/>}
         <Checkout
           // allTask={allTask} doneTask={doneTask}
         />

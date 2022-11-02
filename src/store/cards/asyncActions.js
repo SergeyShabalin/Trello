@@ -20,24 +20,22 @@ export const addNewCard = (columnId, title) => async (dispatch, getState) => {
 };
 
 export const deleteCard = (cardId, columnId) => async (dispatch, getState) => {
-    const { columns } = getState().columns;
-    const ColumnsAfterDelete = columns.map(column => column._id === columnId
-      ? { ...column, cards: column.cards.filter(item => item._id !== cardId) }
-      : column
-    );
+  const { columns } = getState().columns;
+  const ColumnsAfterDelete = columns.map(column => column._id === columnId
+    ? { ...column, cards: column.cards.filter(item => item._id !== cardId) }
+    : column
+  );
 
-    try {
-      dispatch(columnsAC.cardDelete(ColumnsAfterDelete));
-      await CardsApi.deleteCardAPI(cardId);
-    } catch (error) {
-      console.warn(error, "server error");
-    }
+  try {
+    dispatch(columnsAC.cardDelete(ColumnsAfterDelete));
+    await CardsApi.deleteCardAPI(cardId);
+  } catch (error) {
+    console.warn(error, "server error");
   }
-;
+};
 
 
 export const updateCardTitle = (newTitle, cardId, columnId) => async (dispatch, getState) => {
-
   const { columns } = getState().columns;
 
   try {
@@ -65,6 +63,29 @@ export const updateCardDescription = (cardId, columnId, descriptionValue) => asy
   try {
     await CardsApi.updateCardDescriptionAPI(cardId, descriptionValue);
     dispatch(cardsAC.updateDescription(descriptionValue));
+  } catch (error) {
+    console.warn(error, "server error");
+  }
+};
+
+export const updateCardDecisionDate = (decisionDate, cardId, columnId) => async (dispatch, getState) => {
+  const { columns } = getState().columns;
+  try {
+    await CardsApi.updateCardDecisionDateAPI(cardId, decisionDate);
+    dispatch(cardsAC.updateDecisionDate(decisionDate));
+    const ColumnsAfterUpdate = columns.map(column => (
+        column._id === columnId
+          ? {
+            ...column, cards: column.cards.map(item => {
+              if (item._id === cardId) {
+                return { ...item, decisionDate: decisionDate };
+              } else return item;
+            })
+          }
+          : column
+      )
+    );
+    dispatch(columnsAC.cardUpdate(ColumnsAfterUpdate));
   } catch (error) {
     console.warn(error, "server error");
   }
@@ -118,13 +139,14 @@ export const updateTaskTitle = (taskTitle, checkListId) => async (dispatch, getS
   const { cards } = getState().cards;
 
   try {
+    await CheckListApi.updateTaskTitleAPI(taskTitle, checkListId);
     const checkListAfterUpdate = cards.checkList.map(item => (
       item._id === checkListId
         ? { ...item, task: taskTitle }
         : item
     ));
-    await CheckListApi.updateTaskTitleAPI(taskTitle, checkListId);
     dispatch(cardsAC.updateTask(checkListAfterUpdate));
+
 
   } catch (error) {
     console.warn(error, "server error");

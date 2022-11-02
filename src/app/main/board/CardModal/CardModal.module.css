@@ -13,7 +13,7 @@
 
 .checklists_wrapper {
     overflow-y: auto;
-    height: 50vh;
+    height: 40vh;
 }
 
 .checklists_wrapper::-webkit-scrollbar {

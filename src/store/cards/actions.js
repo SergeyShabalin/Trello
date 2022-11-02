@@ -7,4 +7,5 @@ export const cardsAC = {
   deleteTask: (payload)=>({type: CARD_TYPES.CHANGES_TASKS, payload}),
   updateTask: (payload)=>({type: CARD_TYPES.CHANGES_TASKS, payload}),
   updateDescription: (payload)=>({type: CARD_TYPES.CHANGE_DESCRIPTION, payload}),
+  updateDecisionDate: (payload)=>({type: CARD_TYPES.CHANGE_DECISION_DATE, payload})
 };

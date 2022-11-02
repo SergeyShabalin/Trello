@@ -2,6 +2,7 @@ export const defaultState={
     cards: {
         checkList: [{_id:1}],
         header: '',
-        description: ''
+        description: '',
+        decisionDate: new Date()
     }
 }
