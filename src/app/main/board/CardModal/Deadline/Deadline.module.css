@@ -39,7 +39,8 @@
 .date_time{
    border-radius: 3px;
     background: #d3d3cc;
-    padding: 3px 7px;
+    margin: 2px;
+    padding: 5px 7px;
     display: flex;
 }
 

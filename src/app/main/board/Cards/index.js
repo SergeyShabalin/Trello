@@ -7,13 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getCardInfo } from "../../../../store/cards/asyncActions";
 import { getAllColumns } from "../../../../store/columns/asyncActions";
 
-export default function ListCard({
-                                   header,
-                                   cardId,
-                                   columnId,
-                                   columnHeader,
-                                   decisionDate
-                                 }) {
+export default function ListCard({ header, cardId, columnId, columnHeader, decisionDate }) {
 
 
   const dispatch = useDispatch();
@@ -21,12 +15,6 @@ export default function ListCard({
     dispatch(getAllColumns());
   }, []);
 
-  //TODO на серваке написать получение чеклиста при отрисовке колонок
-
-  // const cardInfo = useSelector(({ columns }) => columns.columns);
-  // console.log(cardInfo);
-  // const doneTask =(cardInfo.checkList.filter(i=> i.done).length);
-  // const allTask =(cardInfo.checkList.length);
   return (
     <div className={classes.list_card}>
       <ContentEdit
@@ -37,7 +25,8 @@ export default function ListCard({
       />
       <div className={classes.footer}>
 
-        {decisionDate &&  <DecisionDate decisionDate = {decisionDate}/>}
+        {decisionDate && <DecisionDate decisionDate={decisionDate} />}
+        {/*TODO на серваке написать получение чеклиста при отрисовке колонок */}
         <Checkout
           // allTask={allTask} doneTask={doneTask}
         />

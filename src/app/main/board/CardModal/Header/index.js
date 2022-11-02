@@ -16,8 +16,7 @@ export function Header({closeModal, title}) {
         <Button
           onClick={closeModal}
           variant="just_icon"
-          icon={<AiOutlineClose />}>
-        </Button>
+          icon={<AiOutlineClose />}/>
       </div>
     </div>
   );
