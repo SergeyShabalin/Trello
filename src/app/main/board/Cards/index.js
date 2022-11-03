@@ -10,7 +10,6 @@ import { getAllColumns } from "../../../../store/columns/asyncActions";
 export default function ListCard({ header, cardId, columnId,
                                    columnHeader, decisionDate,
                                  countTask, doneTask}) {
-  // console.log('checklist', checkList);
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -28,7 +27,7 @@ export default function ListCard({ header, cardId, columnId,
       <div className={classes.footer}>
 
         {decisionDate && <DecisionDate decisionDate={decisionDate} />}
-        {/*TODO на серваке написать получение чеклиста при отрисовке колонок */}
+
         <Checkout
           countTask={countTask}
           doneTask={doneTask}

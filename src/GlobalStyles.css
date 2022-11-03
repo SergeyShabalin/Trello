@@ -126,7 +126,7 @@
     --card-checkout-margin: 5px;
     --card-checkout-border-radius: 5px;
     --card-checkout-background-color: #71e1c2;
-
+    --card-box-shadow: 0px 1px 5px 3px rgba(9, 30, 66, 0.13);
     --card-background-color: #ffffff;
     --card-decision-date-background-color: rgba(245, 53, 10, 0.37);
     --card-decision-date-background-color-hover: #d39191;
@@ -138,7 +138,7 @@
     --card-modal-background-color: #ffeaea;
     --card-modal-text-color: #172b4d;
 
-    --list-wrapper: #d9d1d1;
+    --list-wrapper: #eee3e3;
     --list-creator-background: #dacaca;
     --list-context-menu-background: #ccd7cc;
     --list-context-color: #463b3b;

@@ -42,37 +42,38 @@ export default function CheckList({ task, done, _id, cardId, columnId }) {
 
 
   if (!isEditCheckbox) return (
-      <div className={classes.checkbox} ref={ref}>
-        <Checkbox checked={isChecked} onChange={changeTaskDone} />
-        <div className={classes.checkbox_content} onClick={openEditChecklist}>
+    <div className={classes.checkbox} ref={ref}>
+      <Checkbox checked={isChecked} onChange={changeTaskDone} />
+      <div className={classes.checkbox_content} onClick={openEditChecklist}>
              <span
                className={isChecked ? `${classes.checkbox_title_none}`
                  : `${classes.checkbox_title_done}`}>
                 {taskTitle}
             </span>
-        </div>
-        <div className={classes.delete_btn}>
-          <div className={classes.delete_btn_wrapper}>
+      </div>
+      <div className={classes.delete_btn}>
+        <div className={classes.delete_btn_wrapper}>
+          {!isChecked &&
             <Button
               onClick={deleteTask}
               variant="just_icon"
-              icon={<MdClear />}>
-            </Button>
-          </div>
+              icon={<MdClear />} />
+          }
         </div>
       </div>
+    </div>
   );
 
   return (
-     <div className={classes.checkList_wrapper}>
-       <Editor isChecked={isChecked}
-               changeTaskDone={changeTaskDone}
-               isEditCheckbox={isEditCheckbox}
-               getTaskTitle={getTaskTitle}
-               saveCheckboxValue={saveCheckboxValue}
-               taskTitle={taskTitle}
-               closeEditCheckbox={closeEditCheckbox} />
-     </div>
+    <div className={classes.checkList_wrapper}>
+      <Editor isChecked={isChecked}
+              changeTaskDone={changeTaskDone}
+              isEditCheckbox={isEditCheckbox}
+              getTaskTitle={getTaskTitle}
+              saveCheckboxValue={saveCheckboxValue}
+              taskTitle={taskTitle}
+              closeEditCheckbox={closeEditCheckbox} />
+    </div>
   );
 }
 

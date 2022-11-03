@@ -1,11 +1,19 @@
-.checkout {
-    background-color: var(--card-checkout-background-color);
+.checkout_done, .checkout{
+
     justify-content: center;
     align-items: center;
     display: flex;
     border-radius: var(--card-checkout-border-radius);
     padding: var(--card-checkout-padding);
     margin: var(--card-checkout-margin);
+}
+
+.checkout{
+opacity: 0.8;
+}
+
+.checkout_done{
+    background-color: var(--card-checkout-background-color);
 }
 
 .checkout_active {

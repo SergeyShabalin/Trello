@@ -10,6 +10,7 @@
 .decision_date{
     color: #2d2626;
     background-color:  transparent;
+    opacity: 0.9;
 }
 
 .over_decision_date {
