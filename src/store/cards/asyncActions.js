@@ -110,23 +110,54 @@ export const clearCardInfo = () => async (dispatch) => {
   }
 };
 
-export const NewTaskAdd = (cardId, task) => async (dispatch, getState) => {
+export const NewTaskAdd = (cardId, task, columnId) => async (dispatch, getState) => {
   const { cards } = getState().cards;
   try {
     const resp = await CheckListApi.addNewTaskAPI(cardId, task);
     const newCheckList = [...cards.checkList, resp.data];
     dispatch(cardsAC.addNewTask(newCheckList));
+    const { columns } = getState().columns;
+    const ColumnsAfterUpdate = columns.map(column => (
+        column._id === columnId
+          ? {
+            ...column, cards: column.cards.map(item => {
+              if (item._id === cardId) {
+                return { ...item, countTask: item.countTask+1 };
+              } else return item;
+            })
+          }
+          : column
+      )
+    );
+    dispatch(columnsAC.cardUpdate(ColumnsAfterUpdate));
+
   } catch (error) {
     console.warn(error, "server error");
   }
 
 };
 
-export const TaskDelete = (cardId, checkListId) => async (dispatch, getState) => {
+export const TaskDelete = (cardId, checkListId, columnId) => async (dispatch, getState) => {
   const { cards } = getState().cards;
+
+
   const checkListAfterDelete = cards.checkList.filter(item => item._id !== checkListId);
   try {
     dispatch(cardsAC.deleteTask(checkListAfterDelete));
+    const { columns } = getState().columns;
+    const ColumnsAfterUpdate = columns.map(column => (
+        column._id === columnId
+          ? {
+            ...column, cards: column.cards.map(item => {
+              if (item._id === cardId) {
+                return { ...item, countTask: item.countTask-1 };
+              } else return item;
+            })
+          }
+          : column
+      )
+    );
+    dispatch(columnsAC.cardUpdate(ColumnsAfterUpdate));
     await CheckListApi.deleteTaskAPI(cardId, checkListId);
   } catch (error) {
     console.warn(error, "server error");
@@ -137,7 +168,6 @@ export const TaskDelete = (cardId, checkListId) => async (dispatch, getState) =>
 
 export const updateTaskTitle = (taskTitle, checkListId) => async (dispatch, getState) => {
   const { cards } = getState().cards;
-
   try {
     await CheckListApi.updateTaskTitleAPI(taskTitle, checkListId);
     const checkListAfterUpdate = cards.checkList.map(item => (
@@ -146,18 +176,17 @@ export const updateTaskTitle = (taskTitle, checkListId) => async (dispatch, getS
         : item
     ));
     dispatch(cardsAC.updateTask(checkListAfterUpdate));
-
-
   } catch (error) {
     console.warn(error, "server error");
   }
 
 };
 
-export const updateTaskValue = (taskDone, checkListId) => async (dispatch, getState) => {
+export const updateTaskValue = (taskDone, checkListId, cardId, columnId) => async (dispatch, getState) => {
   const { cards } = getState().cards;
+
   try {
-    await CheckListApi.updateValueTaskAPI(taskDone, checkListId);
+    await CheckListApi.updateValueTaskAPI(taskDone, checkListId, cardId);
     const checkListAfterUpdate = cards.checkList.map(item => (
       item._id === checkListId
         ? { ...item, done: taskDone }
@@ -165,6 +194,22 @@ export const updateTaskValue = (taskDone, checkListId) => async (dispatch, getSt
     ));
     dispatch(cardsAC.updateTask(checkListAfterUpdate));
 
+    const { columns } = getState().columns;
+    const ColumnsAfterUpdate = columns.map(column => (
+        column._id === columnId
+          ? {
+            ...column, cards: column.cards.map(item => {
+              if (item._id === cardId) {
+                if(taskDone){
+                return { ...item, doneTask: item.doneTask+1 }
+                } else return  { ...item, doneTask: item.doneTask-1 }
+              } else return item;
+            })
+          }
+          : column
+      )
+    );
+    dispatch(columnsAC.cardUpdate(ColumnsAfterUpdate));
   } catch (error) {
     console.warn(error, "server error");
   }

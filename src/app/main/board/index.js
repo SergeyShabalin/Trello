@@ -12,12 +12,13 @@ export default function Board() {
 
   const dispatch = useDispatch();
   const columnsStore = useSelector(state => state.columns.columns);
-  // const tasksStore = useSelector(state => state.columns);
+
 
   const [isCreator, setIsCreator] = useState(true);
-  // console.log(tasksStore);
+
   useEffect(() => {
     dispatch(getAllColumns());
+
     setIsCreator(true);
   }, []);
 

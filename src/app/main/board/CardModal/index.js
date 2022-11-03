@@ -30,7 +30,7 @@ export default function CardModal() {
   }
 
   const CheckLists = cardInfo?.checkList.map(checkItem => (
-    <CheckList key={checkItem._id} cardId={cardId} {...checkItem} />));
+    <CheckList key={checkItem._id} cardId={cardId} columnId={cardInfo.column_id} {...checkItem} />));
 
   return (
     <Modal onClose={closeModal} open>
@@ -55,7 +55,7 @@ export default function CardModal() {
           allTask={cardInfo?.checkList.length}
           doneTask={checkListDone.length} />
         <div className={classes.checklists_wrapper}>{CheckLists}</div>
-        <CheckListCreator cardId={cardId} />
+        <CheckListCreator  columnId={cardInfo.column_id} cardId={cardId} />
 
       </div>
     </Modal>

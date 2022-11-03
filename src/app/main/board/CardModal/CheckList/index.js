@@ -10,7 +10,7 @@ import Editor from "./Editor";
 import useOpenCheckListEditor from "./useOpenCheckListEditor";
 
 
-export default function CheckList({ task, done, _id, cardId }) {
+export default function CheckList({ task, done, _id, cardId, columnId }) {
 
   const [taskTitle, setTaskTitle] = useState(task);
   const [isChecked, setChecked] = useState(done);
@@ -26,7 +26,7 @@ export default function CheckList({ task, done, _id, cardId }) {
   function changeTaskDone({ target }) {
     const checked = target.checked;
     setChecked(checked);
-    dispatch(updateTaskValue(checked, _id));
+    dispatch(updateTaskValue(checked, _id, cardId, columnId));
   }
 
   function saveCheckboxValue(e) {
@@ -37,7 +37,7 @@ export default function CheckList({ task, done, _id, cardId }) {
   }
 
   function deleteTask() {
-    dispatch(TaskDelete(cardId, _id));
+    dispatch(TaskDelete(cardId, _id, columnId));
   }
 
 

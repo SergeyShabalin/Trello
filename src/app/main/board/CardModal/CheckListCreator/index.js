@@ -6,14 +6,14 @@ import useOpenAddMenu from "./useOpenAddMenu";
 import Editor from "./Editor";
 import classes from "./CheckListCreator.module.css";
 
-export default function CheckListCreator({ cardId }) {
+export default function CheckListCreator({ cardId, columnId }) {
 
   const [taskValue, setTaskValue] = useState("");
   const { isAddMenu, addMenuOpen, addMenuClose } = useOpenAddMenu();
   const dispatch = useDispatch();
 
   function addNewTask() {
-    dispatch(NewTaskAdd(cardId, taskValue));
+    dispatch(NewTaskAdd(cardId, taskValue, columnId));
     addMenuClose();
   }
 

@@ -7,8 +7,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { getCardInfo } from "../../../../store/cards/asyncActions";
 import { getAllColumns } from "../../../../store/columns/asyncActions";
 
-export default function ListCard({ header, cardId, columnId, columnHeader, decisionDate }) {
-
+export default function ListCard({ header, cardId, columnId,
+                                   columnHeader, decisionDate,
+                                 countTask, doneTask}) {
+  // console.log('checklist', checkList);
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -28,7 +30,8 @@ export default function ListCard({ header, cardId, columnId, columnHeader, decis
         {decisionDate && <DecisionDate decisionDate={decisionDate} />}
         {/*TODO на серваке написать получение чеклиста при отрисовке колонок */}
         <Checkout
-          // allTask={allTask} doneTask={doneTask}
+          countTask={countTask}
+          doneTask={doneTask}
         />
       </div>
       <hr />

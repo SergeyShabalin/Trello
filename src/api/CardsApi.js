@@ -2,7 +2,7 @@ import { Api } from "./index";
 
 class CardsApi {
   async addNewCardAPI(columnId, title) {
-    return Api.post(`/cards/`, { header: title, column_id: columnId, description: ""});
+    return Api.post(`/cards/`, { header: title, column_id: columnId, description: "",  doneTask: 0, countTask: 0});
   }
 
   async deleteCardAPI(cardId) {

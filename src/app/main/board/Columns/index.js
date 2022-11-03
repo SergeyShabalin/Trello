@@ -23,6 +23,9 @@ export default function Column({ column, cardList }) {
             cardId={item._id}
             header={item.header}
             decisionDate = {item.decisionDate}
+            checkList = {item.checkList}
+            countTask={item.countTask}
+            doneTask={item.doneTask}
           />
         ))
         }

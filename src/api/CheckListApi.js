@@ -3,7 +3,7 @@ import {Api} from './index';
 
 class CardsApi {
   async addNewTaskAPI(cardId, task) {
-    return Api.post(`/checklist/`, { task: task, cardId: cardId, done: false });
+    return Api.post(`/checklist/`, { task: task, cardId: cardId, done: false }, );
   }
 
   async deleteTaskAPI(cardId, checkListId) {
@@ -14,8 +14,8 @@ class CardsApi {
      return Api.patch(`/checklist/title/${checkListId}`, { task: taskTitle });
   }
 
-  async updateValueTaskAPI(taskDone, checkListId) {
-    return Api.patch(`/checklist/value/${checkListId}`, { done: taskDone });
+  async updateValueTaskAPI(taskDone, checkListId, cardId) {
+    return Api.patch(`/checklist/value/${checkListId}`, { done: taskDone, cardId });
   }
 
 }

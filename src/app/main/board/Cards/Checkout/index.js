@@ -5,12 +5,12 @@ import classes from './Checkout.module.css';
 import { useSelector } from "react-redux";
 
 
-export default function Checkout({allTask, doneTask}){
+export default function Checkout({countTask, doneTask}){
 
     return (
           <div className={classes.checkout}>
            <div className={classes.icon}><IoMdCheckboxOutline/></div>
-            <span className={classes.tasks}>3/5</span>
+            <span className={classes.tasks}>{doneTask}/{countTask}</span>
             {/*<MdOutlineCheckBoxOutlineBlank/>*/}
         </div>
     );
