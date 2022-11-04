@@ -17,7 +17,6 @@ class ColumnsAPI {
     return Api.patch(`/columns/${columnId}`, { header });
   }
 
-
 }
 
 export default new ColumnsAPI();

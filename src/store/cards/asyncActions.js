@@ -25,7 +25,6 @@ export const deleteCard = (cardId, columnId) => async (dispatch, getState) => {
     ? { ...column, cards: column.cards.filter(item => item._id !== cardId) }
     : column
   );
-
   try {
     dispatch(columnsAC.cardDelete(ColumnsAfterDelete));
     await CardsApi.deleteCardAPI(cardId);
@@ -37,7 +36,6 @@ export const deleteCard = (cardId, columnId) => async (dispatch, getState) => {
 
 export const updateCardTitle = (newTitle, cardId, columnId) => async (dispatch, getState) => {
   const { columns } = getState().columns;
-
   try {
     await CardsApi.updateCardHeaderAPI(cardId, newTitle);
     const ColumnsAfterUpdate = columns.map(column => (
@@ -122,7 +120,7 @@ export const NewTaskAdd = (cardId, task, columnId) => async (dispatch, getState)
           ? {
             ...column, cards: column.cards.map(item => {
               if (item._id === cardId) {
-                return { ...item, countTask: item.countTask+1 };
+                return { ...item, countTask: item.countTask + 1 };
               } else return item;
             })
           }
@@ -130,17 +128,13 @@ export const NewTaskAdd = (cardId, task, columnId) => async (dispatch, getState)
       )
     );
     dispatch(columnsAC.cardUpdate(ColumnsAfterUpdate));
-
   } catch (error) {
     console.warn(error, "server error");
   }
-
 };
 
 export const TaskDelete = (cardId, checkListId, columnId) => async (dispatch, getState) => {
   const { cards } = getState().cards;
-
-
   const checkListAfterDelete = cards.checkList.filter(item => item._id !== checkListId);
   try {
     dispatch(cardsAC.deleteTask(checkListAfterDelete));
@@ -150,7 +144,7 @@ export const TaskDelete = (cardId, checkListId, columnId) => async (dispatch, ge
           ? {
             ...column, cards: column.cards.map(item => {
               if (item._id === cardId) {
-                return { ...item, countTask: item.countTask-1 };
+                return { ...item, countTask: item.countTask - 1 };
               } else return item;
             })
           }
@@ -162,7 +156,6 @@ export const TaskDelete = (cardId, checkListId, columnId) => async (dispatch, ge
   } catch (error) {
     console.warn(error, "server error");
   }
-
 };
 
 
@@ -179,12 +172,10 @@ export const updateTaskTitle = (taskTitle, checkListId) => async (dispatch, getS
   } catch (error) {
     console.warn(error, "server error");
   }
-
 };
 
 export const updateTaskValue = (taskDone, checkListId, cardId, columnId) => async (dispatch, getState) => {
   const { cards } = getState().cards;
-
   try {
     await CheckListApi.updateValueTaskAPI(taskDone, checkListId, cardId);
     const checkListAfterUpdate = cards.checkList.map(item => (
@@ -193,16 +184,15 @@ export const updateTaskValue = (taskDone, checkListId, cardId, columnId) => asyn
         : item
     ));
     dispatch(cardsAC.updateTask(checkListAfterUpdate));
-
     const { columns } = getState().columns;
     const ColumnsAfterUpdate = columns.map(column => (
         column._id === columnId
           ? {
             ...column, cards: column.cards.map(item => {
               if (item._id === cardId) {
-                if(taskDone){
-                return { ...item, doneTask: item.doneTask+1 }
-                } else return  { ...item, doneTask: item.doneTask-1 }
+                if (taskDone) {
+                  return { ...item, doneTask: item.doneTask + 1 };
+                } else return { ...item, doneTask: item.doneTask - 1 };
               } else return item;
             })
           }
@@ -213,5 +203,35 @@ export const updateTaskValue = (taskDone, checkListId, cardId, columnId) => asyn
   } catch (error) {
     console.warn(error, "server error");
   }
+};
+
+export const dragDropCard = (currentCard, currentColumnId, targetColumn) => async (dispatch) => {
+
+  console.log('currentCard', currentCard );
+  console.log('currentColumnId', currentColumnId );
+  console.log('targetColumn', targetColumn );
+
+
+  //TODO так как карточка никуда не исчезает
+  // из схемы cards нужно просто поменять columnId в карточках и в колонке удалить id
+  // колонки current и добавить в колонке target
+
+  await CardsApi.dropCardAPI(currentCard, targetColumn); //
+  await CardsApi.dragCardAPI(currentCard, currentColumnId);
+
+  // console.log('dragCard', dragCard);
+  // console.log('dropCard', dropCard);
+  // const { cards } = getState().cards;
+  // try {
+  //   await CheckListApi.updateTaskTitleAPI(taskTitle, checkListId);
+  //   const checkListAfterUpdate = cards.checkList.map(item => (
+  //     item._id === checkListId
+  //       ? { ...item, task: taskTitle }
+  //       : item
+  //   ));
+  //   dispatch(cardsAC.updateTask(checkListAfterUpdate));
+  // } catch (error) {
+  //   console.warn(error, "server error");
+  // }
 
 };

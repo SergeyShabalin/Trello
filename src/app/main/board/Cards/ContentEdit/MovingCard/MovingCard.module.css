@@ -1,0 +1,26 @@
+.wrapper{
+    margin: 0 5px 20px 265px;
+    background: white;
+    border-radius: 5px;
+    padding: 5px;
+
+}
+
+.header{
+    display: flex;
+    align-items: center;
+}
+
+.title{
+    display: flex;
+    align-items: center;
+   justify-content:center ;
+
+
+}
+
+.close_button{
+    display: flex;
+    align-items: center;
+    margin-left: 5px;
+}

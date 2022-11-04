@@ -7,7 +7,7 @@ import { deleteCard } from "../../../../../../store/cards/asyncActions";
 import classes from "./CardContextMenu.module.css";
 
 
-export default function CardContextMenu({ cardId, closeModalContextMenu, columnId }) {
+export default function CardContextMenu({ cardId, closeModalContextMenu, columnId, openMoving }) {
 
   const dispatch = useDispatch();
 
@@ -26,7 +26,7 @@ export default function CardContextMenu({ cardId, closeModalContextMenu, columnI
           <BsEnvelopeOpen /> <span className={classes.li_title}>Открыть карточку</span>
         </li>
         <li className={classes.li}>
-          <MdOutlineDriveFileMoveRtl /> <span className={classes.li_title}>Переместить</span>
+          <MdOutlineDriveFileMoveRtl /> <span className={classes.li_title} onClick={openMoving}>Переместить</span>
         </li>
         <li className={classes.li} onClick={cardDelete}>
           <RiDeleteBin5Line /><span className={classes.li_title}

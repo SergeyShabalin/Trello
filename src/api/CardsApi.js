@@ -25,6 +25,14 @@ class CardsApi {
     return Api.get(`/cards/${cardId}`);
   }
 
+  async dropCardAPI(currentCard, targetColumn) {
+    return Api.post(`/cards/`, {});
+  }
+
+  async dragCardAPI(cardId) {
+    return Api.delete(`/cards/${cardId}`);
+  }
+
 }
 
 export default new CardsApi();

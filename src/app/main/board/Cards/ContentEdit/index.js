@@ -7,6 +7,8 @@ import CardContextMenu from "./ContextMenu";
 import Editor from "./Editor";
 import useOpenModalContextMenu from "./useOpenModalContextMenu";
 import classes from "./ContentEdit.module.css";
+import MovingCard from "./MovingCard";
+import useOpenMovingForm from "./useOpenMovingForm";
 
 
 export default function ContentEdit({ header, cardId, columnId }) {
@@ -15,6 +17,7 @@ export default function ContentEdit({ header, cardId, columnId }) {
 
   const [coordinates, setCoordinates] = useState();
   const {isModalContextMenu, openModalContextMenu,closeModalContextMenu} = useOpenModalContextMenu()
+  // const {isMoving, openMoving, closeMoving} = useOpenMovingForm()
 
   function openModal(e){
     const coords = e.currentTarget.getBoundingClientRect();
@@ -51,8 +54,11 @@ export default function ContentEdit({ header, cardId, columnId }) {
               columnId={columnId}
               cardId={cardId}
               closeModalContextMenu={closeModalContextMenu}
+              // openMoving={openMoving}
+              // closeMoving = {closeMoving}
             />
           </div>
+          {/*{isMoving &&  <MovingCard closeMoving={closeMoving}/>}*/}
         </Modal>
         <Outlet />
       </div>

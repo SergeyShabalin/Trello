@@ -4,9 +4,41 @@ import ListHeader from "./Header";
 import CardCreator from "../CardCreator";
 import classes from "./ColumnWrapper.module.css";
 import ListCard from "../Cards";
+import { useDispatch } from "react-redux";
+import { dragDropCard } from "../../../../store/cards/asyncActions";
 
 
 export default function Column({ column, cardList }) {
+
+  const [currentCard, setCurrentCard] = useState();
+  const [currentColumnId, setCurrentColumnId] = useState();
+
+
+  const dispatch = useDispatch()
+
+  function dragStartHandler(e, card, columnId) {
+    setCurrentCard(card);
+    setCurrentColumnId(columnId);
+  }
+
+  function dragLeaveHandler() {
+
+  }
+
+  function dragEndHandler(e) {
+    // e.target.style.background = '#ffffff';
+  }
+
+  function dragOverHandler(e) {
+    e.preventDefault();
+    // e.target.style.background = '#E5D8D8FF';
+  }
+
+  function dropHandler(e, card, columnId) {
+    e.preventDefault();
+    dispatch(dragDropCard(currentCard, currentColumnId, columnId))
+  }
+
 
   return (
     <div className={classes.list_wrapper}>
@@ -15,17 +47,23 @@ export default function Column({ column, cardList }) {
       />
 
       <div className={classes.cards_wrapper}>
-        {cardList.map((item) => (
+        {cardList.map((card) => (
           <ListCard
             columnHeader={column.header}
             columnId={column._id}
-            key={item._id}
-            cardId={item._id}
-            header={item.header}
-            decisionDate = {item.decisionDate}
-            checkList = {item.checkList}
-            countTask={item.countTask}
-            doneTask={item.doneTask}
+            key={card._id}
+            order={card.order}
+            cardId={card._id}
+            header={card.header}
+            decisionDate={card.decisionDate}
+            countTask={card.countTask}
+            doneTask={card.doneTask}
+            draggable={true}
+            onDragStart={(e) => dragStartHandler(e, card, column._id)}
+            onDragLeave={(e) => dragLeaveHandler(e)}
+            onDragEnd={(e) => dragEndHandler(e)}
+            onDragOver={(e) => dragOverHandler(e)}
+            onDrop={(e) => dropHandler(e, card, column._id)}
           />
         ))
         }

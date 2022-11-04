@@ -7,31 +7,36 @@ import { useDispatch, useSelector } from "react-redux";
 import { getCardInfo } from "../../../../store/cards/asyncActions";
 import { getAllColumns } from "../../../../store/columns/asyncActions";
 
-export default function ListCard({ header, cardId, columnId,
+export default function ListCard({
+                                   header, cardId, columnId,
                                    columnHeader, decisionDate,
-                                 countTask, doneTask}) {
+                                   countTask, doneTask, order, ...props
+                                 }) {
 
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(getAllColumns());
   }, []);
 
+
   return (
-    <div className={classes.list_card}>
+    <div className={classes.list_card} {...props}>
+<div>{order}</div>
       <ContentEdit
         cardId={cardId}
         header={header}
         columnId={columnId}
-        columnHeader={columnHeader}
-      />
+        columnHeader={columnHeader} />
+
       <div className={classes.footer}>
 
         {decisionDate && <DecisionDate decisionDate={decisionDate} />}
 
         <Checkout
           countTask={countTask}
-          doneTask={doneTask}
-        />
+          doneTask={doneTask}  />
+
       </div>
       <hr />
     </div>
