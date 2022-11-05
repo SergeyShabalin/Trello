@@ -205,33 +205,18 @@ export const updateTaskValue = (taskDone, checkListId, cardId, columnId) => asyn
   }
 };
 
-export const dragDropCard = (currentCard, currentColumnId, targetColumn) => async (dispatch) => {
+export const dragDropCard = (targetColumnId, currentCard) => async (dispatch) => {
 
+  console.log('targetColumn', targetColumnId );
   console.log('currentCard', currentCard );
-  console.log('currentColumnId', currentColumnId );
-  console.log('targetColumn', targetColumn );
 
 
   //TODO так как карточка никуда не исчезает
-  // из схемы cards нужно просто поменять columnId в карточках и в колонке удалить id
+  // из схемы cards нужно просто поменять columnId в карточках
+  // и в колонке удалить id
   // колонки current и добавить в колонке target
 
-  await CardsApi.dropCardAPI(currentCard, targetColumn); //
-  await CardsApi.dragCardAPI(currentCard, currentColumnId);
-
-  // console.log('dragCard', dragCard);
-  // console.log('dropCard', dropCard);
-  // const { cards } = getState().cards;
-  // try {
-  //   await CheckListApi.updateTaskTitleAPI(taskTitle, checkListId);
-  //   const checkListAfterUpdate = cards.checkList.map(item => (
-  //     item._id === checkListId
-  //       ? { ...item, task: taskTitle }
-  //       : item
-  //   ));
-  //   dispatch(cardsAC.updateTask(checkListAfterUpdate));
-  // } catch (error) {
-  //   console.warn(error, "server error");
-  // }
+  await CardsApi.dropCardAPI(currentCard, targetColumnId); //
 
 };
+

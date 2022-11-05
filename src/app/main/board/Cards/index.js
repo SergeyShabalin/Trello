@@ -22,7 +22,7 @@ export default function ListCard({
 
   return (
     <div className={classes.list_card} {...props}>
-<div>{order}</div>
+      <div>{order}</div>
       <ContentEdit
         cardId={cardId}
         header={header}
@@ -35,7 +35,7 @@ export default function ListCard({
 
         <Checkout
           countTask={countTask}
-          doneTask={doneTask}  />
+          doneTask={doneTask} />
 
       </div>
       <hr />

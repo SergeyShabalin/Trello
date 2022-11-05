@@ -26,12 +26,12 @@ class CardsApi {
   }
 
   async dropCardAPI(currentCard, targetColumn) {
-    return Api.post(`/cards/`, {});
+    // return Api.patch(`/cards/`, {});
   }
 
-  async dragCardAPI(cardId) {
-    return Api.delete(`/cards/${cardId}`);
-  }
+  // async dragCardAPI(cardId) {
+  //   return Api.delete(`/cards/${cardId}`);
+  // }
 
 }
 

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import ListHeader from "./Header";
 import CardCreator from "../CardCreator";
@@ -10,60 +10,46 @@ import { dragDropCard } from "../../../../store/cards/asyncActions";
 
 export default function Column({ column, cardList }) {
 
-  const [currentCard, setCurrentCard] = useState();
-  const [currentColumnId, setCurrentColumnId] = useState();
+  const dispatch = useDispatch();
 
+  const handleDragStart = (e, card) => {
+    e.dataTransfer.setData("card", card);
+  };
 
-  const dispatch = useDispatch()
-
-  function dragStartHandler(e, card, columnId) {
-    setCurrentCard(card);
-    setCurrentColumnId(columnId);
-  }
-
-  function dragLeaveHandler() {
-
-  }
-
-  function dragEndHandler(e) {
-    // e.target.style.background = '#ffffff';
-  }
-
-  function dragOverHandler(e) {
+  const handleDragOver = (e) => {
     e.preventDefault();
-    // e.target.style.background = '#E5D8D8FF';
-  }
+  };
 
-  function dropHandler(e, card, columnId) {
+  const handleDragEnd = (e) => {
+  };
+
+  function handleDrop(e) {
     e.preventDefault();
-    dispatch(dragDropCard(currentCard, currentColumnId, columnId))
+    const currentCard = e.dataTransfer.getData("card");
+    dispatch(dragDropCard(column._id, currentCard));
   }
 
 
   return (
     <div className={classes.list_wrapper}>
-      <ListHeader column={column}
-        // addCardMenuCreate={addCardMenuCreate}
-      />
-
+      <ListHeader column={column} />
       <div className={classes.cards_wrapper}>
         {cardList.map((card) => (
           <ListCard
+            key={card._id}
+            draggable
+            onDragStart={(e) => handleDragStart(e, card._id)}
+            onDragOver={(e) => handleDragOver(e)}
+            onDragEnd={(e) => handleDragEnd(e)}
+            onDrop={(e) => handleDrop(e)}
             columnHeader={column.header}
             columnId={column._id}
-            key={card._id}
             order={card.order}
             cardId={card._id}
             header={card.header}
             decisionDate={card.decisionDate}
             countTask={card.countTask}
             doneTask={card.doneTask}
-            draggable={true}
-            onDragStart={(e) => dragStartHandler(e, card, column._id)}
-            onDragLeave={(e) => dragLeaveHandler(e)}
-            onDragEnd={(e) => dragEndHandler(e)}
-            onDragOver={(e) => dragOverHandler(e)}
-            onDrop={(e) => dropHandler(e, card, column._id)}
           />
         ))
         }
