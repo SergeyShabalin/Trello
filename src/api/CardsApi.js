@@ -25,13 +25,9 @@ class CardsApi {
     return Api.get(`/cards/${cardId}`);
   }
 
-  async dropCardAPI(currentCard, targetColumn) {
-    // return Api.patch(`/cards/`, {});
+  async dragDropCardAPI(currentCard, targetColumn) {
+    return Api.patch(`/cards/dragDrop/${currentCard}`, {targetColumn});
   }
-
-  // async dragCardAPI(cardId) {
-  //   return Api.delete(`/cards/${cardId}`);
-  // }
 
 }
 

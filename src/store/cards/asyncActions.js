@@ -2,6 +2,7 @@ import CardsApi from "../../api/CardsApi";
 import { columnsAC } from "../columns/actions";
 import { cardsAC } from "./actions";
 import CheckListApi from "../../api/CheckListApi";
+import ColumnsAPI from "../../api/ColumnsAPI";
 
 
 export const addNewCard = (columnId, title) => async (dispatch, getState) => {
@@ -205,18 +206,27 @@ export const updateTaskValue = (taskDone, checkListId, cardId, columnId) => asyn
   }
 };
 
-export const dragDropCard = (targetColumnId, currentCard) => async (dispatch) => {
+export const dragDropCard = (targetColumnId, currentCardID, currentColumnId) => async (dispatch, getState) => {
+  const { columns } = getState().columns;
+  console.log(currentCardID);
 
-  console.log('targetColumn', targetColumnId );
-  console.log('currentCard', currentCard );
+//  const currentCard = cards.filter(item=>item._id===currentCardID)
+//   console.log('currentCard',cards);
+  const currentColumn = columns.map(item => {
+   if(item._id === currentColumnId){
+     return {...item, cards: item.cards.filter(i=>{
+      if(i._id !== currentCardID) return i
+    })}
+   } else return item
+  });
+  console.log('currentColumn',currentColumn);
+  dispatch(columnsAC.dragCards(currentColumn));
+  try {
+    // await CardsApi.dragDropCardAPI(currentCardID, targetColumnId);
+    // await ColumnsAPI.dragDropCardInColumnAPI(currentCardID, targetColumnId, currentColumnId);
 
+  } catch (error) {
 
-  //TODO так как карточка никуда не исчезает
-  // из схемы cards нужно просто поменять columnId в карточках
-  // и в колонке удалить id
-  // колонки current и добавить в колонке target
-
-  await CardsApi.dropCardAPI(currentCard, targetColumnId); //
-
+  }
 };
 
