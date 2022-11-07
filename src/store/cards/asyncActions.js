@@ -206,27 +206,30 @@ export const updateTaskValue = (taskDone, checkListId, cardId, columnId) => asyn
   }
 };
 
-export const dragDropCard = (targetColumnId, currentCardID, currentColumnId) => async (dispatch, getState) => {
+export const dragDropCard = (targetColumnId, card) => async (dispatch, getState) => {
   const { columns } = getState().columns;
-  console.log(currentCardID);
 
-//  const currentCard = cards.filter(item=>item._id===currentCardID)
-//   console.log('currentCard',cards);
-  const currentColumn = columns.map(item => {
-   if(item._id === currentColumnId){
-     return {...item, cards: item.cards.filter(i=>{
-      if(i._id !== currentCardID) return i
-    })}
-   } else return item
-  });
-  console.log('currentColumn',currentColumn);
-  dispatch(columnsAC.dragCards(currentColumn));
   try {
-    // await CardsApi.dragDropCardAPI(currentCardID, targetColumnId);
-    // await ColumnsAPI.dragDropCardInColumnAPI(currentCardID, targetColumnId, currentColumnId);
+    await CardsApi.dragDropCardAPI(card._id, targetColumnId);
+    await ColumnsAPI.dragDropCardInColumnAPI(card._id, targetColumnId, card.column_id);
+    const currentColumn = columns.map(item => {
+      if (item._id === card.column_id) {
+        return {
+          ...item, cards: item.cards.filter(i => {
+            if (i._id !== card._id) return i;
+          })
+        };
+
+      }
+      if (item._id === targetColumnId) {
+        return { ...item, cards: [...item.cards, card] };
+      } else return item;
+    });
+    console.log("currentColumn", currentColumn);
+    dispatch(columnsAC.dragCards(currentColumn));
 
   } catch (error) {
-
+    console.warn(error, "server error");
   }
 };
 

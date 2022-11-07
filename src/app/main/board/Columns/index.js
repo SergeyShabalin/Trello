@@ -12,9 +12,8 @@ export default function Column({ column, cardList }) {
 
   const dispatch = useDispatch();
 
-  const handleDragStart = (e, currentCardId, currentColumnId) => {
-    e.dataTransfer.setData("currentCardId", currentCardId);
-    e.dataTransfer.setData("currentColumnId", currentColumnId);
+  const handleDragStart = (e, currentCardId, currentColumnId, card) => {
+    e.dataTransfer.setData("card", JSON.stringify(card));
   };
 
   const handleDragOver = (e) => {
@@ -26,9 +25,8 @@ export default function Column({ column, cardList }) {
 
   function handleDrop(e) {
     e.preventDefault();
-    const currentCardId = e.dataTransfer.getData("currentCardId");
-    const currentColumnId = e.dataTransfer.getData("currentColumnId");
-    dispatch(dragDropCard(column._id, currentCardId, currentColumnId));
+    const card = JSON.parse(e.dataTransfer.getData("card"));
+    dispatch(dragDropCard(column._id, card));
   }
 
 
@@ -40,7 +38,7 @@ export default function Column({ column, cardList }) {
           <ListCard
             key={card._id}
             draggable
-            onDragStart={(e) => handleDragStart(e, card._id, column._id)}
+            onDragStart={(e) => handleDragStart(e, card._id, column._id, card)}
             onDragOver={(e) => handleDragOver(e)}
             onDragEnd={(e) => handleDragEnd(e)}
             onDrop={(e) => handleDrop(e)}
