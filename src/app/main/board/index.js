@@ -3,25 +3,19 @@ import { useDispatch, useSelector } from "react-redux";
 import Column from "./Columns";
 import { addColumn, getAllColumns } from "../../../store/columns/asyncActions";
 import ListCreator from "./ColumnCreator";
-import ListCard from "./Cards";
 import classes from "./Board.module.css";
-import Checkbox from "../../../components/basic/Сheckbox";
 
 
 export default function Board() {
 
   const dispatch = useDispatch();
   const columnsStore = useSelector(state => state.columns.columns);
-
-
   const [isCreator, setIsCreator] = useState(true);
 
   useEffect(() => {
     dispatch(getAllColumns());
-
     setIsCreator(true);
   }, []);
-
 
   function columnCreator() {
     setIsCreator(!isCreator);

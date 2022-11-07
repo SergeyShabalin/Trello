@@ -16,7 +16,7 @@ export default function ListCard({
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getAllColumns());
+    // dispatch(getAllColumns());
   }, []);
 
 

@@ -3,8 +3,6 @@ import Header from "./Header";
 import classes from "./Main.module.css";
 import "../../GlobalStyles.css";
 
-
-
 export default function Main() {
 
   return (

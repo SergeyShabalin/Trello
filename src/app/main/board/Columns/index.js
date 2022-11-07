@@ -5,30 +5,25 @@ import CardCreator from "../CardCreator";
 import classes from "./ColumnWrapper.module.css";
 import ListCard from "../Cards";
 import { useDispatch } from "react-redux";
-import { dragDropCard } from "../../../../store/cards/asyncActions";
+import {  dragDropCard } from "../../../../store/cards/asyncActions";
 
 
 export default function Column({ column, cardList }) {
 
   const dispatch = useDispatch();
 
-  const handleDragStart = (e, currentCardId, currentColumnId, card) => {
+  const handleDragStart = (e,  currentColumnId, card) => {
     e.dataTransfer.setData("card", JSON.stringify(card));
   };
 
-  const handleDragOver = (e) => {
-    e.preventDefault();
-  };
-
-  const handleDragEnd = (e) => {
-  };
+  const handleDragOver = (e) => { e.preventDefault();};
+  const handleDragEnd = (e) => {  };
 
   function handleDrop(e) {
     e.preventDefault();
     const card = JSON.parse(e.dataTransfer.getData("card"));
     dispatch(dragDropCard(column._id, card));
   }
-
 
   return (
     <div className={classes.list_wrapper}>
@@ -38,7 +33,7 @@ export default function Column({ column, cardList }) {
           <ListCard
             key={card._id}
             draggable
-            onDragStart={(e) => handleDragStart(e, card._id, column._id, card)}
+            onDragStart={(e) => handleDragStart(e, column._id, card)}
             onDragOver={(e) => handleDragOver(e)}
             onDragEnd={(e) => handleDragEnd(e)}
             onDrop={(e) => handleDrop(e)}

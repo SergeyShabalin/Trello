@@ -1,4 +1,5 @@
 import {COLUMNS_TYPES} from "./constants";
+import { CARD_TYPES } from "../cards/constants";
 
 export const columnsAC = {
     viewAllColumns: (payload) => ({type: COLUMNS_TYPES.VIEW_ALL_COLUMNS, payload}),

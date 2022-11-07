@@ -3,7 +3,7 @@ export const defaultState = {
 
 // {_id: '634d2f29d1b918ec29ac0fa3',
 //     header: '',
-//     cards:[
+//     cards:[]
 //         {
 //             checkList: Array(0),
 //             _id: '634d30b9824960f9a7b4babb',
