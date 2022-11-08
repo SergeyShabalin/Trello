@@ -33,6 +33,7 @@ export default function Board() {
           columnIndex={index}
           column={column}
           cardList={column.cards}
+          draggable
         />
       </div>
     );

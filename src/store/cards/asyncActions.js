@@ -208,15 +208,17 @@ export const updateTaskValue = (taskDone, checkListId, cardId, columnId) => asyn
 
 export const dragDropCard = (targetColumnId, card) => async (dispatch, getState) => {
   const { columns } = getState().columns;
-  console.log(targetColumnId);
+  //TODO при переносе карточки внутри колонки не менять id
+  //TODO разрешить переносить карточки в пустые колонки
   try {
     const currentColum = columns.map(item => {
+      if (item._id === targetColumnId) {
+        return { ...item, cards: [...item.cards, card] };
+      }
       if (item._id === card.column_id) {
         return { ...item, cards: item.cards.filter(i => i._id !== card._id)};
       }
-      if (item._id === targetColumnId) {
-         return { ...item, cards: [...item.cards, card] };
-      }
+
       else return item;
     });
     dispatch(columnsAC.dragCards(currentColum));
