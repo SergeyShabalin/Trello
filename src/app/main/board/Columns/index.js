@@ -14,6 +14,7 @@ export default function Column({ column, cardList, ...props }) {
 
   const handleDragStart = (e, currentColumnId, card) => {
     e.dataTransfer.setData("card", JSON.stringify(card));
+    e.dataTransfer.setData("currentColumnId", currentColumnId);
   };
 
   const handleDragOver = (e) => {
@@ -27,15 +28,15 @@ export default function Column({ column, cardList, ...props }) {
   function handleDrop(e) {
     e.preventDefault();
     const card = JSON.parse(e.dataTransfer.getData("card"));
-
-     dispatch(dragDropCard(column._id, card));
+    dispatch(dragDropCard(column._id, card));
   }
 
   function handleDropColumn(e) {
     e.preventDefault();
     const card = JSON.parse(e.dataTransfer.getData("card"));
+    const currentColumnId = e.dataTransfer.getData("currentColumnId");
     console.log(column._id);
-    dispatch(dragDropCard(column._id, card));
+    dispatch(dragDropCard(column._id, card,currentColumnId));
   }
 
   return (

@@ -206,25 +206,30 @@ export const updateTaskValue = (taskDone, checkListId, cardId, columnId) => asyn
   }
 };
 
-export const dragDropCard = (targetColumnId, card) => async (dispatch, getState) => {
+export const dragDropCard = (targetColumnId, card,currentColumnId) => async (dispatch, getState) => {
   const { columns } = getState().columns;
+
+  console.log( 'currentColumnId', currentColumnId)
+  console.log( 'card_column_id', card.column_id)
   //TODO при переносе карточки внутри колонки не менять id
   //TODO разрешить переносить карточки в пустые колонки
   try {
+// в первый раз по условиям удаляет, оставшиеся перестает фильтровать
     const currentColum = columns.map(item => {
       if (item._id === targetColumnId) {
         return { ...item, cards: [...item.cards, card] };
       }
-      if (item._id === card.column_id) {
-        return { ...item, cards: item.cards.filter(i => i._id !== card._id)};
+      //возможно, сранвнивать нужно не с колумн id card
+      if (item._id === currentColumnId) {
+        return {...item, cards: item.cards.filter(i =>  i._id !== card._id )};
       }
 
       else return item;
     });
-    dispatch(columnsAC.dragCards(currentColum));
-    await CardsApi.dragDropCardAPI(card._id, targetColumnId);
-    await ColumnsAPI.dragDropCardInColumnAPI(card._id, targetColumnId, card.column_id);
 
+     dispatch(columnsAC.dragCards(currentColum));
+    // await ColumnsAPI.dragDropCardInColumnAPI(card._id, targetColumnId, card.column_id);
+    // await CardsApi.dragDropCardAPI(card._id, targetColumnId);
   } catch (error) {
     console.warn(error, "server error");
   }
