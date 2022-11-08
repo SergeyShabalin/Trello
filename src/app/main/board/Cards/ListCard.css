@@ -6,6 +6,10 @@
     box-shadow: var(--card-box-shadow);
 }
 
+.list_card:hover{
+    background: #f8ebeb;
+}
+
 .footer {
     display: flex;
     align-items: center;

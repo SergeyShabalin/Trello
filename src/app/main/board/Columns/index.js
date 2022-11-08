@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import ListHeader from "./Header";
 import CardCreator from "../CardCreator";
 import classes from "./ColumnWrapper.module.css";
+import "../Cards/ListCard.css"
 import ListCard from "../Cards";
 import { useDispatch } from "react-redux";
 import { dragDropCard } from "../../../../store/cards/asyncActions";
@@ -11,6 +12,7 @@ import { dragDropCard } from "../../../../store/cards/asyncActions";
 export default function Column({ column, cardList, ...props }) {
 
   const dispatch = useDispatch();
+
 
   const handleDragStart = (e, currentColumnId, card) => {
     e.dataTransfer.setData("card", JSON.stringify(card));
@@ -21,21 +23,22 @@ export default function Column({ column, cardList, ...props }) {
     e.preventDefault();
 
   };
+
+
   const handleDragEnd = (e) => {
     console.log("end");
   };
 
-  function handleDrop(e) {
-    e.preventDefault();
-    const card = JSON.parse(e.dataTransfer.getData("card"));
-    dispatch(dragDropCard(column._id, card));
-  }
+  // function handleDrop(e) {
+  //   e.preventDefault();
+  //   const card = JSON.parse(e.dataTransfer.getData("card"));
+  //   dispatch(dragDropCard(column._id, card));
+  // }
 
   function handleDropColumn(e) {
     e.preventDefault();
     const card = JSON.parse(e.dataTransfer.getData("card"));
     const currentColumnId = e.dataTransfer.getData("currentColumnId");
-    console.log(column._id);
     dispatch(dragDropCard(column._id, card,currentColumnId));
   }
 
@@ -45,13 +48,12 @@ export default function Column({ column, cardList, ...props }) {
          onDragOver={(e) => handleDragOver(e)}
          onDragEnd={(e) => handleDragEnd(e)}>
       <ListHeader column={column} />
-      <div className={classes.cards_wrapper}>
+       <div className={classes.cards_wrapper}>
         {cardList.map((card) => (
           <ListCard
             key={card._id}
             draggable
             onDragStart={(e) => handleDragStart(e, column._id, card)}
-            // onDragOver={(e) => handleDragOver(e)}
             // onDragEnd={(e) => handleDragEnd(e)}
             // onDrop={(e) => handleDrop(e)}
             columnHeader={column.header}
@@ -62,10 +64,10 @@ export default function Column({ column, cardList, ...props }) {
             decisionDate={card.decisionDate}
             countTask={card.countTask}
             doneTask={card.doneTask}
-          />
-        ))
+          /> ))
         }
       </div>
+
       <div className={classes.card_creator}>
         <CardCreator columnId={column._id} />
       </div>
