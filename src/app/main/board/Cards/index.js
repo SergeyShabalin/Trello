@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { createRef, useEffect, useState } from "react";
 import Checkout from "./Checkout";
 import ContentEdit from "./ContentEdit";
 import DecisionDate from "./DecisionDate";
 import "./ListCard.css";
+import "../Columns/ColumnWrapper.css"
 
 
 export default function ListCard({
@@ -14,16 +15,37 @@ export default function ListCard({
                                  }) {
   const [shadow, setIsShadow] = useState(false);
 
+  const ref = createRef();
+
   function handleDragOver(e) {
-    if (e.target.className === "list_card") {
-      setIsShadow(true);
-    }
+     // if (e.target.className === "list_wrapper")
+        setIsShadow(true);
+  }
+
+  function handleDragEnd(e){
+    e.preventDefault()
+
+    setIsShadow(false);
+  }
+
+  function handleDragLeave(e){
+     if (e.target.className === "cardShadow"){
+    setIsShadow(true);} else
+    setIsShadow(false);
+  }
+
+  function handleDrop(){
+    setIsShadow(false);
   }
 
   return (
     <>
-      <div className="list_card" {...props}
-           onDragOver={(e) => handleDragOver(e)}>
+      <div className="list_card" {...props} ref={ref}
+           onDragOver={(e) => handleDragOver(e)}
+           onDragEnd={(e)=>handleDragEnd(e)}
+           onDragLeave={(e)=>handleDragLeave(e)}
+           onDrop={(e)=>handleDrop(e)}
+      >
         <div>{order}</div>
         <ContentEdit
           cardId={cardId}
@@ -36,15 +58,9 @@ export default function ListCard({
             countTask={countTask}
             doneTask={doneTask} />
         </div>
-        <hr />
+        <hr className='hr'/>
       </div>
-      {shadow && <div style={{
-        backgroundColor: "#a396a4",
-        width: "200px",
-        height: "30px",
-        borderRadius: "5px"
-      }}>Тень</div>}
-
+       <div className={shadow ? 'cardShadow' :'cardShadowHidden' }></div>
     </>
 
   );

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import ListHeader from "./Header";
 import CardCreator from "../CardCreator";
-import classes from "./ColumnWrapper.module.css";
+import  "./ColumnWrapper.css";
 import "../Cards/ListCard.css"
 import ListCard from "../Cards";
 import { useDispatch } from "react-redux";
@@ -43,12 +43,12 @@ export default function Column({ column, cardList, ...props }) {
   }
 
   return (
-    <div className={classes.list_wrapper}
+    <div className='list_wrapper'
          onDrop={(e) => handleDropColumn(e)}
          onDragOver={(e) => handleDragOver(e)}
          onDragEnd={(e) => handleDragEnd(e)}>
       <ListHeader column={column} />
-       <div className={classes.cards_wrapper}>
+       <div className='cards_wrapper'>
         {cardList.map((card) => (
           <ListCard
             key={card._id}
@@ -68,7 +68,7 @@ export default function Column({ column, cardList, ...props }) {
         }
       </div>
 
-      <div className={classes.card_creator}>
+      <div className='card_creator'>
         <CardCreator columnId={column._id} />
       </div>
     </div>
