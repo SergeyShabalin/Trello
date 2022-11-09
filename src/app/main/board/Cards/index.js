@@ -13,40 +13,41 @@ export default function ListCard({
 
                                    ...props
                                  }) {
-  const [shadow, setIsShadow] = useState(false);
-
-  const ref = createRef();
-
+  // const [shadows, setIsShadow] = useState(false);
+//TODO не использовать dragleave, на старом диве оставять тень, пока не перескочит на новый
+ // элемент
   function handleDragOver(e) {
-     // if (e.target.className === "list_wrapper")
-        setIsShadow(true);
+
+    // e.target.classList.add('new')
+    // e.previous.classList.remove('new')
+    //   setIsShadow(true);
+    // e.target.classList.add('new')
   }
+
 
   function handleDragEnd(e){
     e.preventDefault()
+    // if (e.currentTarget.className ===   "cardShadow" ) console.log('shadow');
+      // setIsShadow(false);
 
-    setIsShadow(false);
   }
 
   function handleDragLeave(e){
-     if (e.target.className === "cardShadow"){
-    setIsShadow(true);} else
-    setIsShadow(false);
+    // if (e.target.className !==   "cardShadowHidden")
+    //   setIsShadow(false);
+    // e.target.classList.remove('new')
   }
 
   function handleDrop(){
-    setIsShadow(false);
+    // setIsShadow(false);
   }
+
 
   return (
     <>
-      <div className="list_card" {...props} ref={ref}
-           onDragOver={(e) => handleDragOver(e)}
-           onDragEnd={(e)=>handleDragEnd(e)}
-           onDragLeave={(e)=>handleDragLeave(e)}
-           onDrop={(e)=>handleDrop(e)}
-      >
-        <div>{order}</div>
+      <div className="list_card" {...props}
+           onDragOver={(e) => handleDragOver(e)}>
+        {/*<div>{order}</div>*/}
         <ContentEdit
           cardId={cardId}
           header={header}
@@ -56,11 +57,14 @@ export default function ListCard({
           {decisionDate && <DecisionDate decisionDate={decisionDate} />}
           <Checkout
             countTask={countTask}
-            doneTask={doneTask} />
+            doneTask={doneTask}/>
         </div>
-        <hr className='hr'/>
+
       </div>
-       <div className={shadow ? 'cardShadow' :'cardShadowHidden' }></div>
+      {/*<div  onDragLeave={(e)=>handleDragLeave(e)}*/}
+      {/*      onDragEnd={(e)=>handleDragEnd(e)}*/}
+      {/*      onDrop={(e)=>handleDrop(e)}*/}
+      {/*      className=  'cardShadow' ></div>*/}
     </>
 
   );

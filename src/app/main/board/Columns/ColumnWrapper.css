@@ -1,8 +1,15 @@
+.wrapper{
+    height: 100vh;
+    background: rgba(0, 0, 0, 0);
+    margin: 0 4px
+}
+
 .list_wrapper {
     margin: 5px;
     padding:  5px;
     font-size: var(--list-wrapper-font-size);
     width: 270px;
+
     background-color: var(--list-wrapper);
     border-radius: 5px;
 }
