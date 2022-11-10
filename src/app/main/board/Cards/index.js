@@ -3,48 +3,58 @@ import Checkout from "./Checkout";
 import ContentEdit from "./ContentEdit";
 import DecisionDate from "./DecisionDate";
 import "./ListCard.css";
-import "../Columns/ColumnWrapper.css"
+import "../Columns/ColumnWrapper.css";
 
 
 export default function ListCard({
                                    header, cardId, columnId,
                                    columnHeader, decisionDate,
                                    countTask, doneTask, order,
-
+                                   viewShadow, closeShadow,
                                    ...props
                                  }) {
-  // const [shadows, setIsShadow] = useState(false);
-//TODO не использовать dragleave, на старом диве оставять тень, пока не перескочит на новый
- // элемент
+  const [shadowIn, setIsShadowIn] = useState(false);
+
+ if(shadowIn){
+   closeShadow()
+ };
+
+  function viewShadowIn() {
+    setIsShadowIn(true);
+  }
+
+  function closeShadowIn() {
+    setIsShadowIn(false);
+  }
+
   function handleDragOver(e) {
+    viewShadowIn();
+  }
 
-    // e.target.classList.add('new')
-    // e.previous.classList.remove('new')
-    //   setIsShadow(true);
-    // e.target.classList.add('new')
+  function handleDragOver2(e) {
+    closeShadow();
   }
 
 
-  function handleDragEnd(e){
-    e.preventDefault()
-    // if (e.currentTarget.className ===   "cardShadow" ) console.log('shadow');
-      // setIsShadow(false);
-
+  function handleDragEnd(e) {
+    e.preventDefault();
   }
 
-  function handleDragLeave(e){
-    // if (e.target.className !==   "cardShadowHidden")
-    //   setIsShadow(false);
-    // e.target.classList.remove('new')
+  function handleDragLeave(e) {
+    closeShadowIn()
   }
 
-  function handleDrop(){
+  function handleDrop() {
+    closeShadowIn()
     // setIsShadow(false);
   }
 
-
   return (
-    <>
+    <> {shadowIn && <div onDragLeave={(e) => handleDragLeave(e)}
+                         onDragEnd={(e) => handleDragEnd(e)}
+                         onDrop={(e) => handleDrop(e)}
+                         onDragOver={(e) => handleDragOver2(e)}
+                         className="cardShadow"></div>}
       <div className="list_card" {...props}
            onDragOver={(e) => handleDragOver(e)}>
         {/*<div>{order}</div>*/}
@@ -57,15 +67,17 @@ export default function ListCard({
           {decisionDate && <DecisionDate decisionDate={decisionDate} />}
           <Checkout
             countTask={countTask}
-            doneTask={doneTask}/>
+            doneTask={doneTask} />
         </div>
 
       </div>
-      {/*<div  onDragLeave={(e)=>handleDragLeave(e)}*/}
-      {/*      onDragEnd={(e)=>handleDragEnd(e)}*/}
-      {/*      onDrop={(e)=>handleDrop(e)}*/}
-      {/*      className=  'cardShadow' ></div>*/}
+
     </>
 
   );
 }
+
+// драглив привязан к врапперу, и он открывает тень. когда подходим к самой тени,
+//мы выходим за пределы врапера, попадая в дочерний класс listwrapper и срабатывает
+//обработчик драглив, закрывая тень. Как только тень закрывается - блок listwrapper
+//становится меньше по размерам, и тем самым курсор попадает в поле действия wrapper

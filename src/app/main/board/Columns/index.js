@@ -20,29 +20,42 @@ export default function Column({ column, cardList }) {
     e.dataTransfer.setData("currentColumnId", currentColumnId);
   };
 
+  function viewShadow(){setIsShadow(true) }
+  function closeShadow(){setIsShadow(false) }
+
   const handleDragOver = (e) => {
     e.preventDefault();
+
     //TODO сравнить старый таргет с новым,
     // когда будет новая колонка - удалить старую тень
-    setIsShadow(true);
+    // console.log('classname dragOver',e.target.className);
+    // console.log('сработал dragOver, появился курсор над классом wrapper')
+     viewShadow()
+    // console.log('тень открылась')
+  };
 
+  const handleDragOver2 = (e) => {
+    e.preventDefault();
+
+    closeShadow()
+    // console.log('тень открылась')
   };
 
   function handleDragLeave(e) {
-    e.preventDefault();
-   if (e.target.className.includes('CardCreator')){
-     setIsShadow(true)
-   }else setIsShadow(false)
+    if(e.target.children || e.target.className==='list_wrapper' ||'cards_wrapper' ){
+      closeShadow()
+    }
   }
 
   function handleDragEnd(e){
-    setIsShadow(false)
+    closeShadow()
   }
 
   function handleDropColumn(e) {
-    e.preventDefault();
+     e.preventDefault();
     const card = JSON.parse(e.dataTransfer.getData("card"));
     const currentColumnId = e.dataTransfer.getData("currentColumnId");
+    closeShadow()
     dispatch(dragDropCard(column._id, card, currentColumnId));
   }
 
@@ -52,7 +65,7 @@ export default function Column({ column, cardList }) {
          onDragOver={(e) => handleDragOver(e)}
          onDragEnd={ (e) => handleDragEnd(e)}
          onDrop={(e) => handleDropColumn(e)}>
-      <div className="list_wrapper">
+      <div className="list_wrapper" >
         <ListHeader column={column} />
         <div className="cards_wrapper">
           {cardList.map((card) => (
@@ -60,6 +73,7 @@ export default function Column({ column, cardList }) {
               key={card._id}
               draggable
               onDragStart={(e) => handleDragStart(e, column._id, card)}
+              onDragOver={(e) => handleDragOver2(e)}
               columnHeader={column.header}
               columnId={column._id}
               order={card.order}
@@ -68,10 +82,12 @@ export default function Column({ column, cardList }) {
               decisionDate={card.decisionDate}
               countTask={card.countTask}
               doneTask={card.doneTask}
+              viewShadow={viewShadow}
+              closeShadow={closeShadow}
             />))
           }
         </div>
-        {shadow && <div className="cardShadow"></div>}
+        {shadow && <div className="cardShadow" ></div>}
         <div className="card_creator">
           <CardCreator columnId={column._id} />
         </div>
