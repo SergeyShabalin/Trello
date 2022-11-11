@@ -138,7 +138,8 @@
     --card-modal-background-color: #ffeaea;
     --card-modal-text-color: #172b4d;
 
-    --list-wrapper: #e1d1d1;
+    --list-wrapper: rgba(227, 205, 205, 0.66);
+    /*#e1d1d1*/
     --list-creator-background: #dacaca;
     --list-context-menu-background: #ccd7cc;
     --list-context-color: #463b3b;

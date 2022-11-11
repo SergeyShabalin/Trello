@@ -3,6 +3,7 @@ export const defaultState={
         checkList: [{_id:1}],
         header: '',
         description: '',
-        decisionDate: new Date()
+        decisionDate: new Date(),
+        order: 0
     }
 }

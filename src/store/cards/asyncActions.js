@@ -206,25 +206,26 @@ export const updateTaskValue = (taskDone, checkListId, cardId, columnId) => asyn
   }
 };
 
-export const dragDropCard = (targetColumnId, card,currentColumnId) => async (dispatch, getState) => {
+export const dragDropCard = (targetColumnId, card,currentColumnId, order) => async (dispatch, getState) => {
   const { columns } = getState().columns;
-
   //TODO при переносе карточки внутри колонки не менять id
   //TODO разрешить переносить карточки в пустые колонки
 
+  //сделать сортировку
   try {
     const currentColum = columns.map(item => {
       if (item._id === targetColumnId) {
-        return { ...item, cards: [...item.cards, card] };
+        return { ...item, cards: [...item.cards,{...card, order: order+1}] };
       }
       if (item._id === currentColumnId) {
         return {...item, cards: item.cards.filter(i =>  i._id !== card._id )};
       }
       else return item;
     });
+
      dispatch(columnsAC.dragCards(currentColum));
      await ColumnsAPI.dragDropCardInColumnAPI(card._id, targetColumnId, currentColumnId);
-     await CardsApi.dragDropCardAPI(card._id, targetColumnId);
+     await CardsApi.dragDropCardAPI(card._id, targetColumnId, order);
   } catch (error) {
     console.warn(error, "server error");
   }

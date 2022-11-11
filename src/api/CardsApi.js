@@ -1,7 +1,7 @@
 import { Api } from "./index";
 
 class CardsApi {
-  async addNewCardAPI(columnId, title) {
+  async addNewCardAPI(columnId, title, order) {
     return Api.post(`/cards/`, { header: title, column_id: columnId, description: "",  doneTask: 0, countTask: 0});
   }
 
@@ -25,8 +25,8 @@ class CardsApi {
     return Api.get(`/cards/${cardId}`);
   }
 
-  async dragDropCardAPI(currentCard, targetColumn) {
-    return Api.patch(`/cards/dragDrop/${currentCard}`, {targetColumn});
+  async dragDropCardAPI(currentCard, targetColumn, order) {
+    return Api.patch(`/cards/dragDrop/${currentCard}`, {targetColumn, order});
   }
 
 }

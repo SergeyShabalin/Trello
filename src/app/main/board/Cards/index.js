@@ -4,58 +4,49 @@ import ContentEdit from "./ContentEdit";
 import DecisionDate from "./DecisionDate";
 import "./ListCard.css";
 import "../Columns/ColumnWrapper.css";
+import { dragDropCard } from "../../../../store/cards/asyncActions";
+import { useDispatch } from "react-redux";
+
 
 
 export default function ListCard({
                                    header, cardId, columnId,
                                    columnHeader, decisionDate,
                                    countTask, doneTask, order,
-                                   viewShadow, closeShadow,
                                    ...props
                                  }) {
   const [shadowIn, setIsShadowIn] = useState(false);
 
- if(shadowIn){
-   closeShadow()
- };
+  const dispatch = useDispatch();
 
-  function viewShadowIn() {
+  function handleDragOver(e) {
     setIsShadowIn(true);
   }
 
-  function closeShadowIn() {
+  function handleDragEnd(e) {
+    e.preventDefault();
     setIsShadowIn(false);
   }
 
-  function handleDragOver(e) {
-    viewShadowIn();
-  }
-
-  function handleDragOver2(e) {
-    closeShadow();
-  }
-
-
-  function handleDragEnd(e) {
-    e.preventDefault();
-  }
-
   function handleDragLeave(e) {
-    closeShadowIn()
+    if(e.target.className !=='cardShadow')
+    setIsShadowIn(false);
   }
 
-  function handleDrop() {
-    closeShadowIn()
-    // setIsShadow(false);
+  function handleDrop(e,order) {
+    setIsShadowIn(false);
+    const card = JSON.parse(e.dataTransfer.getData("card"));
+    const currentColumnId = e.dataTransfer.getData("currentColumnId");
+    console.log('card');
+    dispatch(dragDropCard(columnId, card, currentColumnId, order));
   }
 
   return (
-    <> {shadowIn && <div onDragLeave={(e) => handleDragLeave(e)}
-                         onDragEnd={(e) => handleDragEnd(e)}
-                         onDrop={(e) => handleDrop(e)}
-                         onDragOver={(e) => handleDragOver2(e)}
-                         className="cardShadow"></div>}
+    <>
       <div className="list_card" {...props}
+      onDragLeave={(e) => handleDragLeave(e)}
+      onDragEnd={(e) => handleDragEnd(e)}
+      onDrop={(e) => handleDrop(e, order)}
            onDragOver={(e) => handleDragOver(e)}>
         {/*<div>{order}</div>*/}
         <ContentEdit
@@ -71,12 +62,12 @@ export default function ListCard({
         </div>
 
       </div>
-
+      {shadowIn && <div className="cardShadow"
+                        onDragLeave={(e) => handleDragLeave(e)} ></div>}
     </>
 
   );
 }
-
 // драглив привязан к врапперу, и он открывает тень. когда подходим к самой тени,
 //мы выходим за пределы врапера, попадая в дочерний класс listwrapper и срабатывает
 //обработчик драглив, закрывая тень. Как только тень закрывается - блок listwrapper
