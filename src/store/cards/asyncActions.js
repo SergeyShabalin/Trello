@@ -211,15 +211,12 @@ export const dragDropCard = (targetColumnId, card, currentColumnId, currentOrder
   //TODO при переносе карточки внутри колонки не менять id
   //TODO разрешить переносить карточки в пустые колонки
 
-  //сделать сортировку
   try {
-
     const newColumns = columns.map(item => {//TODO пофиксить
-
       if (item._id === targetColumnId) {
         const index = item.sortArr.indexOf(targetOrder) + 1;
         item.sortArr.splice(index, 0, currentOrder);
-        return { ...item, cards: [...item.cards, { ...card, order: currentOrder + 1 }] };
+        return { ...item, cards: [...item.cards, card] };
       }
       if (item._id === currentColumnId) {
         return {

@@ -23,8 +23,9 @@ export default function ListCard({
   }
 
   function handleDragEnd(e) {
-    e.preventDefault();
-    setIsShadowIn(false);
+
+    console.log('dragend');
+
   }
 
   function handleDragLeave(e) {
@@ -33,6 +34,8 @@ export default function ListCard({
   }
 
   function handleDrop(e) {
+
+    setIsShadowIn(false);
     const card = JSON.parse(e.dataTransfer.getData("card"));
     const currentColumnId = e.dataTransfer.getData("currentColumnId");
     dispatch(dragDropCard(columnId, card, currentColumnId, card.order, cardId, order));
@@ -45,7 +48,6 @@ export default function ListCard({
            onDragEnd={(e) => handleDragEnd(e)}
            onDrop={(e) => handleDrop(e, order)}
            onDragOver={(e) => handleDragOver(e)}>
-        {/*<div>{order}</div>*/}
         <ContentEdit
           cardId={cardId}
           header={header}
@@ -59,8 +61,7 @@ export default function ListCard({
         </div>
 
       </div>
-      {shadowIn && <div className="cardShadow"
-                        onDragLeave={(e) => handleDragLeave(e)}></div>}
+      {shadowIn && <div className="cardShadow"></div>}
     </>
 
   );

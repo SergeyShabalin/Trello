@@ -27,21 +27,9 @@ export default function Column({ column, cardList, sortArr }) {
     e.preventDefault();
   }
 
-  console.log('sortArr',sortArr);
-  console.log("cardList", cardList);
-
-    const newCardList = sortArr.map(i => {
-      const newAr = cardList && cardList.filter(item => {
-        if (item.order === i) {
-          // console.log('item', item);
-          return item;
-        } else return false
-      });
-     return newAr[0];
-    });
-    console.log("newCardList", newCardList);
-
-
+  const newCardList = sortArr.map(i => {
+    return cardList.filter(item => item.order === i)[0];
+  });
 
   return (
     <div className="wrapper"
@@ -51,7 +39,7 @@ export default function Column({ column, cardList, sortArr }) {
 
         <ListHeader column={column} />
         <div className="cards_wrapper">
-          {cardList.map((card) => (
+          {newCardList.map((card) => (
             <ListCard
               key={card._id}
               draggable
