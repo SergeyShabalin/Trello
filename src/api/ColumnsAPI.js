@@ -6,7 +6,7 @@ class ColumnsAPI {
   }
 
   async addNewColumnAPI(header) {
-    return Api.post(`/columns/`, { header });
+    return Api.post(`/columns/`, { header, sortArr: [] });
   }
 
   async deleteColumnAPI(columnId) {
@@ -17,8 +17,8 @@ class ColumnsAPI {
     return Api.patch(`/columns/${columnId}`, { header });
   }
 
-  async dragDropCardInColumnAPI(currentCardId, targetColumnId, currentColumnId) {
-     return Api.patch(`/columns/dragDrop/${currentColumnId}`,{ currentCardId: currentCardId, targetColumnId:targetColumnId });
+  async dragDropCardInColumnAPI(currentCardId, targetColumnId, currentColumnId, currentOrder, targetCardId, targetOrder) {
+     return Api.patch(`/columns/dragDrop/${currentColumnId}`,{ currentCardId: currentCardId, targetColumnId:targetColumnId, currentOrder: currentOrder, targetCardId: targetCardId, targetOrder:targetOrder  });
   }
 
 }

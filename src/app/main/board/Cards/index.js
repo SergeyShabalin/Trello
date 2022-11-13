@@ -8,7 +8,6 @@ import { dragDropCard } from "../../../../store/cards/asyncActions";
 import { useDispatch } from "react-redux";
 
 
-
 export default function ListCard({
                                    header, cardId, columnId,
                                    columnHeader, decisionDate,
@@ -29,24 +28,22 @@ export default function ListCard({
   }
 
   function handleDragLeave(e) {
-    if(e.target.className !=='cardShadow')
-    setIsShadowIn(false);
+    if (e.target.className !== "cardShadow")
+      setIsShadowIn(false);
   }
 
-  function handleDrop(e,order) {
-    setIsShadowIn(false);
+  function handleDrop(e) {
     const card = JSON.parse(e.dataTransfer.getData("card"));
     const currentColumnId = e.dataTransfer.getData("currentColumnId");
-    console.log('card');
-    dispatch(dragDropCard(columnId, card, currentColumnId, order));
+    dispatch(dragDropCard(columnId, card, currentColumnId, card.order, cardId, order));
   }
 
   return (
     <>
       <div className="list_card" {...props}
-      onDragLeave={(e) => handleDragLeave(e)}
-      onDragEnd={(e) => handleDragEnd(e)}
-      onDrop={(e) => handleDrop(e, order)}
+           onDragLeave={(e) => handleDragLeave(e)}
+           onDragEnd={(e) => handleDragEnd(e)}
+           onDrop={(e) => handleDrop(e, order)}
            onDragOver={(e) => handleDragOver(e)}>
         {/*<div>{order}</div>*/}
         <ContentEdit
@@ -63,7 +60,7 @@ export default function ListCard({
 
       </div>
       {shadowIn && <div className="cardShadow"
-                        onDragLeave={(e) => handleDragLeave(e)} ></div>}
+                        onDragLeave={(e) => handleDragLeave(e)}></div>}
     </>
 
   );

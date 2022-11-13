@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { dragDropCard } from "../../../../store/cards/asyncActions";
 import PropTypes from "prop-types";
 import ListHeader from "./Header";
@@ -9,11 +9,10 @@ import "./ColumnWrapper.css";
 import "../Cards/ListCard.css";
 
 
-export default function Column({ column, cardList }) {
+export default function Column({ column, cardList, sortArr }) {
 
   const dispatch = useDispatch();
   // const [shadow, setIsShadow] = useState(false);
-
 
   const handleDragStart = (e, currentColumnId, card) => {
     e.dataTransfer.setData("card", JSON.stringify(card));
@@ -22,23 +21,35 @@ export default function Column({ column, cardList }) {
 
   const handleDragOver = (e) => {
     e.preventDefault();
-
   };
 
   function handleDropColumn(e) {
     e.preventDefault();
-    console.log('column');
   }
 
-  cardList.sort((a, b) => a.order > b.order ? 1 : -1);
+  console.log('sortArr',sortArr);
+  console.log("cardList", cardList);
+
+    const newCardList = sortArr.map(i => {
+      const newAr = cardList && cardList.filter(item => {
+        if (item.order === i) {
+          // console.log('item', item);
+          return item;
+        } else return false
+      });
+     return newAr[0];
+    });
+    console.log("newCardList", newCardList);
+
+
 
   return (
     <div className="wrapper"
          onDragOver={(e) => handleDragOver(e)}
-          onDrop={(e) => handleDropColumn(e)}
-      >
+         onDrop={(e) => handleDropColumn(e)}>
       <div className="list_wrapper">
-        <ListHeader column={column}/>
+
+        <ListHeader column={column} />
         <div className="cards_wrapper">
           {cardList.map((card) => (
             <ListCard
