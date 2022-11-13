@@ -27,6 +27,7 @@ export default function Column({ column, cardList, sortArr }) {
     e.preventDefault();
   }
 
+//TODO при добавлении карточки не обновляются на редаксе
   const newCardList = sortArr.map(i => {
     return cardList.filter(item => item.order === i)[0];
   });

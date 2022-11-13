@@ -212,7 +212,18 @@ export const dragDropCard = (targetColumnId, card, currentColumnId, currentOrder
   //TODO разрешить переносить карточки в пустые колонки
 
   try {
-    const newColumns = columns.map(item => {//TODO пофиксить
+
+    // if(targetColumnId===currentColumnId){
+    // const changedColumn =  columns.map(item=>{
+    //     const index = item.sortArr.indexOf(targetOrder) + 1;
+    //   const n =  item.sortArr.filter(i => i !== currentOrder)
+    //   n.splice(index, 0, currentOrder);
+    //   return {...item,  sortArr: n}
+    //   })
+    //   console.log(changedColumn) //TODO разобраться с переносом внутри карточки(на серваке все готово)
+    // }
+    // else{
+    const newColumns = columns.map(item => {
       if (item._id === targetColumnId) {
         const index = item.sortArr.indexOf(targetOrder) + 1;
         item.sortArr.splice(index, 0, currentOrder);
@@ -227,6 +238,7 @@ export const dragDropCard = (targetColumnId, card, currentColumnId, currentOrder
     });
 
     dispatch(columnsAC.dragCards(newColumns));
+  // }
     await ColumnsAPI.dragDropCardInColumnAPI(card._id, targetColumnId, currentColumnId, currentOrder, targetCardId, targetOrder);
     await CardsApi.dragDropCardAPI(card._id, targetColumnId);
   } catch (error) {

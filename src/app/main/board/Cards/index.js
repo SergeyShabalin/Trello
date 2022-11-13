@@ -6,6 +6,7 @@ import "./ListCard.css";
 import "../Columns/ColumnWrapper.css";
 import { dragDropCard } from "../../../../store/cards/asyncActions";
 import { useDispatch } from "react-redux";
+import { BsTextIndentRight } from "react-icons/bs";
 
 
 export default function ListCard({
@@ -15,17 +16,14 @@ export default function ListCard({
                                    ...props
                                  }) {
   const [shadowIn, setIsShadowIn] = useState(false);
-
   const dispatch = useDispatch();
 
   function handleDragOver(e) {
     setIsShadowIn(true);
   }
 
-  function handleDragEnd(e) {
-
-    console.log('dragend');
-
+  function handleDragEnd() {
+    setIsShadowIn(false);
   }
 
   function handleDragLeave(e) {
@@ -34,7 +32,6 @@ export default function ListCard({
   }
 
   function handleDrop(e) {
-
     setIsShadowIn(false);
     const card = JSON.parse(e.dataTransfer.getData("card"));
     const currentColumnId = e.dataTransfer.getData("currentColumnId");
@@ -45,7 +42,7 @@ export default function ListCard({
     <>
       <div className="list_card" {...props}
            onDragLeave={(e) => handleDragLeave(e)}
-           onDragEnd={(e) => handleDragEnd(e)}
+           onDragEnd={(e) => handleDragEnd()}
            onDrop={(e) => handleDrop(e, order)}
            onDragOver={(e) => handleDragOver(e)}>
         <ContentEdit
@@ -53,8 +50,10 @@ export default function ListCard({
           header={header}
           columnId={columnId}
           columnHeader={columnHeader} />
+
         <div className="footer">
           {decisionDate && <DecisionDate decisionDate={decisionDate} />}
+          {/*< BsTextIndentRight/>*/}
           <Checkout
             countTask={countTask}
             doneTask={doneTask} />
