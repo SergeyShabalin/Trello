@@ -7,18 +7,13 @@ import ColumnsAPI from "../../api/ColumnsAPI";
 
 export const addNewCard = (columnId, title) => async (dispatch, getState) => {
   const { columns } = getState().columns;
-  console.log(columns);
-  const { cards } = getState().cards;
-  console.log(cards);
   try {
     const resp = await CardsApi.addNewCardAPI(columnId, title);
     const columnsForAddCard = columns.map(item => {
       if (item._id === resp.data.column_id) {
-        return { ...item, cards: [...item.cards, resp.data] };
+        return { ...item, cards: [...item.cards, resp.data], sortArr: [...item.sortArr, resp.data.order] };
       } else return item;
     });
-//TODO обавлять в колумнс sortArr чтобы карточки при добавлении обновлялись
-
     dispatch(columnsAC.cardsAdd(columnsForAddCard));
   } catch (error) {
     console.warn(error, "server error");
