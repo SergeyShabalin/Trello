@@ -7,6 +7,9 @@ import ColumnsAPI from "../../api/ColumnsAPI";
 
 export const addNewCard = (columnId, title) => async (dispatch, getState) => {
   const { columns } = getState().columns;
+  console.log(columns);
+  const { cards } = getState().cards;
+  console.log(cards);
   try {
     const resp = await CardsApi.addNewCardAPI(columnId, title);
     const columnsForAddCard = columns.map(item => {
@@ -14,16 +17,19 @@ export const addNewCard = (columnId, title) => async (dispatch, getState) => {
         return { ...item, cards: [...item.cards, resp.data] };
       } else return item;
     });
+//TODO обавлять в колумнс sortArr чтобы карточки при добавлении обновлялись
+
     dispatch(columnsAC.cardsAdd(columnsForAddCard));
   } catch (error) {
     console.warn(error, "server error");
   }
 };
 
-export const deleteCard = (cardId, columnId) => async (dispatch, getState) => {
+export const deleteCard = (cardId, columnId, currentOrder) => async (dispatch, getState) => {
   const { columns } = getState().columns;
   const ColumnsAfterDelete = columns.map(column => column._id === columnId
-    ? { ...column, cards: column.cards.filter(item => item._id !== cardId) }
+    ? { ...column, cards: column.cards.filter(item => item._id !== cardId),
+      sortArr: column.sortArr.filter(item => item !== currentOrder)}
     : column
   );
   try {
@@ -238,7 +244,7 @@ export const dragDropCard = (targetColumnId, card, currentColumnId, currentOrder
     });
 
     dispatch(columnsAC.dragCards(newColumns));
-  // }
+    // }
     await ColumnsAPI.dragDropCardInColumnAPI(card._id, targetColumnId, currentColumnId, currentOrder, targetCardId, targetOrder);
     await CardsApi.dragDropCardAPI(card._id, targetColumnId);
   } catch (error) {

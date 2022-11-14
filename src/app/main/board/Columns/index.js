@@ -31,7 +31,7 @@ export default function Column({ column, cardList, sortArr }) {
   const newCardList = sortArr.map(i => {
     return cardList.filter(item => item.order === i)[0];
   });
-
+  console.log(sortArr);
   return (
     <div className="wrapper"
          onDragOver={(e) => handleDragOver(e)}

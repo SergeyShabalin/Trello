@@ -11,7 +11,7 @@ import MovingCard from "./MovingCard";
 import useOpenMovingForm from "./useOpenMovingForm";
 
 
-export default function ContentEdit({ header, cardId, columnId }) {
+export default function ContentEdit({ header, cardId, columnId, order }) {
 
   const location = useLocation();
 
@@ -53,6 +53,7 @@ export default function ContentEdit({ header, cardId, columnId }) {
             <CardContextMenu
               columnId={columnId}
               cardId={cardId}
+              order={order}
               closeModalContextMenu={closeModalContextMenu}
               // openMoving={openMoving}
               // closeMoving = {closeMoving}

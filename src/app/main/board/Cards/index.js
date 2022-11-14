@@ -48,6 +48,7 @@ export default function ListCard({
         <ContentEdit
           cardId={cardId}
           header={header}
+          order={order}
           columnId={columnId}
           columnHeader={columnHeader} />
 
