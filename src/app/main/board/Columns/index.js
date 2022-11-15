@@ -12,7 +12,7 @@ import "../Cards/ListCard.css";
 export default function Column({ column, cardList, sortArr }) {
 
   const dispatch = useDispatch();
-  // const [shadow, setIsShadow] = useState(false);
+  const [shadow, setIsShadow] = useState(false);
 
   const handleDragStart = (e, currentColumnId, card) => {
     e.dataTransfer.setData("card", JSON.stringify(card));
@@ -21,20 +21,28 @@ export default function Column({ column, cardList, sortArr }) {
 
   const handleDragOver = (e) => {
     e.preventDefault();
+    if(!column.cards[0]){
+      setIsShadow(true)
+    }
   };
 
   function handleDropColumn(e) {
     e.preventDefault();
+    setIsShadow(false)
   }
 
-//TODO при добавлении карточки не обновляются на редаксе
+  function handleDragLeave(e) {
+      setIsShadow(false);
+  }
+
   const newCardList = sortArr.map(i => {
     return cardList.filter(item => item.order === i)[0];
   });
-
+  console.log('newCardList', newCardList);
   return (
     <div className="wrapper"
          onDragOver={(e) => handleDragOver(e)}
+         onDragLeave={(e) => handleDragLeave(e)}
          onDrop={(e) => handleDropColumn(e)}>
       <div className="list_wrapper">
 
@@ -56,7 +64,7 @@ export default function Column({ column, cardList, sortArr }) {
             />))
           }
         </div>
-        {/*{shadow && <div className="cardShadow" ></div>}*/}
+        {shadow && <div className="cardShadow" ></div>}
         <div className="card_creator">
           <CardCreator columnId={column._id} />
         </div>

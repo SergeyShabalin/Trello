@@ -23,8 +23,10 @@ export const addNewCard = (columnId, title) => async (dispatch, getState) => {
 export const deleteCard = (cardId, columnId, currentOrder) => async (dispatch, getState) => {
   const { columns } = getState().columns;
   const ColumnsAfterDelete = columns.map(column => column._id === columnId
-    ? { ...column, cards: column.cards.filter(item => item._id !== cardId),
-      sortArr: column.sortArr.filter(item => item !== currentOrder)}
+    ? {
+      ...column, cards: column.cards.filter(item => item._id !== cardId),
+      sortArr: column.sortArr.filter(item => item !== currentOrder)
+    }
     : column
   );
   try {
@@ -209,37 +211,36 @@ export const updateTaskValue = (taskDone, checkListId, cardId, columnId) => asyn
 
 export const dragDropCard = (targetColumnId, card, currentColumnId, currentOrder, targetCardId, targetOrder) => async (dispatch, getState) => {
   const { columns } = getState().columns;
-  //TODO при переносе карточки внутри колонки не менять id
+
   //TODO разрешить переносить карточки в пустые колонки
-
   try {
-
-    // if(targetColumnId===currentColumnId){
-    // const changedColumn =  columns.map(item=>{
-    //     const index = item.sortArr.indexOf(targetOrder) + 1;
-    //   const n =  item.sortArr.filter(i => i !== currentOrder)
-    //   n.splice(index, 0, currentOrder);
-    //   return {...item,  sortArr: n}
-    //   })
-    //   console.log(changedColumn) //TODO разобраться с переносом внутри карточки(на серваке все готово)
-    // }
-    // else{
-    const newColumns = columns.map(item => {
-      if (item._id === targetColumnId) {
-        const index = item.sortArr.indexOf(targetOrder) + 1;
-        item.sortArr.splice(index, 0, currentOrder);
-        return { ...item, cards: [...item.cards, card] };
-      }
-      if (item._id === currentColumnId) {
-        return {
-          ...item, cards: item.cards.filter(i => i._id !== card._id),
-          sortArr: item.sortArr.filter(i => i !== currentOrder)
-        };
-      } else return item;
-    });
-
-    dispatch(columnsAC.dragCards(newColumns));
-    // }
+    if (targetColumnId === currentColumnId) {
+      const changedColumn = columns.map(item => {
+        if (item._id === targetColumnId) {
+          const targetIndex = item.sortArr.indexOf(targetOrder);
+          const currentIndex = item.sortArr.indexOf(currentOrder);
+          item.sortArr.splice(currentIndex, 1);
+          item.sortArr.splice(targetIndex, 0, currentOrder);
+          return { ...item, sortArr: item.sortArr };
+        } else return item;
+      });
+      dispatch(columnsAC.dragCards(changedColumn));
+    } else {
+      const newColumns = columns.map(item => {
+        if (item._id === targetColumnId) {
+          const index = item.sortArr.indexOf(targetOrder) + 1;
+          item.sortArr.splice(index, 0, currentOrder);
+          return { ...item, cards: [...item.cards, card] };
+        }
+        if (item._id === currentColumnId) {
+          return {
+            ...item, cards: item.cards.filter(i => i._id !== card._id),
+            sortArr: item.sortArr.filter(i => i !== currentOrder)
+          };
+        } else return item;
+      });
+      dispatch(columnsAC.dragCards(newColumns));
+    }
     await ColumnsAPI.dragDropCardInColumnAPI(card._id, targetColumnId, currentColumnId, currentOrder, targetCardId, targetOrder);
     await CardsApi.dragDropCardAPI(card._id, targetColumnId);
   } catch (error) {
