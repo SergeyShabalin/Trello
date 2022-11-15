@@ -4,7 +4,7 @@ import ContentEdit from "./ContentEdit";
 import DecisionDate from "./DecisionDate";
 import "./ListCard.css";
 import "../Columns/ColumnWrapper.css";
-import { dragDropCard } from "../../../../store/cards/asyncActions";
+import { dragDropCard, dragDropCardOneColumn } from "../../../../store/cards/asyncActions";
 import { useDispatch } from "react-redux";
 import { BsTextIndentRight } from "react-icons/bs";
 
@@ -35,6 +35,9 @@ export default function ListCard({
     setIsShadowIn(false);
     const card = JSON.parse(e.dataTransfer.getData("card"));
     const currentColumnId = e.dataTransfer.getData("currentColumnId");
+   if (columnId === currentColumnId){
+     dispatch(dragDropCardOneColumn(columnId, card, currentColumnId, card.order, cardId, order));
+   } else
     dispatch(dragDropCard(columnId, card, currentColumnId, card.order, cardId, order));
   }
 
