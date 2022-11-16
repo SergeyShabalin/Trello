@@ -15,41 +15,29 @@ export default function Column({ column, cardList, sortArr }) {
   const [shadow, setIsShadow] = useState(false);
 
   const handleDragStart = (e, currentColumnId, card) => {
-    console.log(currentColumnId);
     e.dataTransfer.setData("card", JSON.stringify(card));
     e.dataTransfer.setData("currentColumnId", currentColumnId);
   };
 
   const handleDragOver = (e) => {
     e.preventDefault();
-    if(!column.cards[0]){
-      setIsShadow(true)
+    if (!column.cards[0]) {
+      setIsShadow(true);
     }
   };
 
-  function cl(){
-
-  }
-
   function handleDropColumn(e, order, cardId) {
     e.preventDefault();
-    setIsShadow(false)
-    // console.log(column._id);
-     const card = JSON.parse(e.dataTransfer.getData("card"));
-     const currentColumnId = e.dataTransfer.getData("currentColumnId");
-    // // console.log('columns',columnId, card, currentColumnId, card.order, cardId, order);
-    // console.log('columnId',columnId);
-    //  console.log('card',card);
-    //   console.log('currentColumnId',currentColumnId);
-    //   console.log('card.order',card.order);
-    // console.log('cardId',cardId);
-    // console.log('order',order);
-    dispatch(dragDropCardToEmptyColumn(card, column._id, currentColumnId))
-    // dispatch(dragDropCard(columnId, card, currentColumnId, card.order, cardId, order));
+    setIsShadow(false);
+    const card = JSON.parse(e.dataTransfer.getData("card"));
+    const currentColumnId = e.dataTransfer.getData("currentColumnId");
+    if (!cardList[0]) {
+      dispatch(dragDropCardToEmptyColumn(card, column._id, currentColumnId));
+    }
   }
 
   function handleDragLeave(e) {
-      setIsShadow(false);
+    setIsShadow(false);
   }
 
   const newCardList = sortArr.map(i => {
@@ -58,7 +46,6 @@ export default function Column({ column, cardList, sortArr }) {
 
   return (
     <div className="wrapper"
-         onClick={cl}
          onDragOver={(e) => handleDragOver(e)}
          onDragLeave={(e) => handleDragLeave(e)}
          onDrop={(e) => handleDropColumn(e)}>
@@ -71,7 +58,7 @@ export default function Column({ column, cardList, sortArr }) {
               key={card._id}
               draggable
               onDragStart={(e) => handleDragStart(e, column._id, card)}
-               onDrop={(e) => handleDropColumn(e, column._id)}
+              onDrop={(e) => handleDropColumn(e, column._id)}
               columnHeader={column.header}
               columnId={column._id}
               order={card.order}
@@ -83,7 +70,7 @@ export default function Column({ column, cardList, sortArr }) {
             />))
           }
         </div>
-        {shadow && <div className="cardShadow" ></div>}
+        {shadow && <div className="cardShadow"></div>}
         <div className="card_creator">
           <CardCreator columnId={column._id} />
         </div>

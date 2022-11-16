@@ -11,4 +11,5 @@ export const columnsAC = {
     cardUpdate: (payload) => ({type: COLUMNS_TYPES.VIEW_ALL_COLUMNS, payload}),
     dragCards: (payload) => ({type: COLUMNS_TYPES.VIEW_ALL_COLUMNS, payload}),
     dragCardsOneColumn: (payload) => ({type: COLUMNS_TYPES.VIEW_ALL_COLUMNS, payload}),
+    dragCardsToEmptyColumn: (payload) => ({type: COLUMNS_TYPES.VIEW_ALL_COLUMNS, payload}),
 };

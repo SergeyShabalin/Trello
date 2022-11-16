@@ -255,10 +255,23 @@ export const dragDropCardOneColumn = (targetColumnId, card, currentColumnId, cur
 export const dragDropCardToEmptyColumn = (card, targetColumnId, currentColumnId) => async (dispatch, getState) => {
   const { columns } = getState().columns;
   try {
-    console.log('card',card);
-    console.log('currentColumnId',currentColumnId);
-    console.log('targetColumnId',targetColumnId);
+     // console.log('card',card);
+    // console.log('currentColumnId',currentColumnId);
+    // console.log('targetColumnId',targetColumnId);
 
+    const  columnsNew = columns.map(item => {
+      if (item._id === targetColumnId) {
+         item.sortArr.splice(0, 0, card.order);
+        return { ...item, cards: [...item.cards, card] };
+      }
+      if (item._id === currentColumnId) {
+        return {
+          ...item, cards: item.cards.filter(i => i._id !== card._id),
+           sortArr: item.sortArr.filter(i => i !== card.order)};
+      } else return item;
+    });
+    dispatch(columnsAC.dragCardsToEmptyColumn(columnsNew));
+    console.log('columnsNew', columnsNew);
      } catch (error) {
     console.warn(error, "server error");
   }
