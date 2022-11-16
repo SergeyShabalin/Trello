@@ -213,19 +213,20 @@ export const dragDropCard = (targetColumnId, card, currentColumnId, currentOrder
   const { columns } = getState().columns;
   //TODO разрешить переносить карточки в пустые колонки
   try {
-      const newColumns = columns.map(item => {
-        if (item._id === targetColumnId) {
-          const index = item.sortArr.indexOf(targetOrder) + 1;
-          item.sortArr.splice(index, 0, currentOrder);
-          return { ...item, cards: [...item.cards, card] };
-        }
-        if (item._id === currentColumnId) {
-          return {
-            ...item, cards: item.cards.filter(i => i._id !== card._id),
-            sortArr: item.sortArr.filter(i => i !== currentOrder)};
-        } else return item;
-      });
-      dispatch(columnsAC.dragCards(newColumns));
+    const newColumns = columns.map(item => {
+      if (item._id === targetColumnId) {
+        const index = item.sortArr.indexOf(targetOrder) + 1;
+        item.sortArr.splice(index, 0, currentOrder);
+        return { ...item, cards: [...item.cards, card] };
+      }
+      if (item._id === currentColumnId) {
+        return {
+          ...item, cards: item.cards.filter(i => i._id !== card._id),
+          sortArr: item.sortArr.filter(i => i !== currentOrder)
+        };
+      } else return item;
+    });
+    dispatch(columnsAC.dragCards(newColumns));
     await ColumnsAPI.dragDropCardInColumnAPI(card._id, targetColumnId, currentColumnId, currentOrder, targetCardId, targetOrder);
     await CardsApi.dragDropCardAPI(card._id, targetColumnId);
   } catch (error) {
@@ -236,43 +237,42 @@ export const dragDropCard = (targetColumnId, card, currentColumnId, currentOrder
 export const dragDropCardOneColumn = (targetColumnId, card, currentColumnId, currentOrder, targetCardId, targetOrder) => async (dispatch, getState) => {
   const { columns } = getState().columns;
   try {
-      const changedColumn = columns.map(item => {
-        if (item._id === targetColumnId) {
-          const targetIndex = item.sortArr.indexOf(targetOrder);
-          const currentIndex = item.sortArr.indexOf(currentOrder);
-          item.sortArr.splice(currentIndex, 1);
-          item.sortArr.splice(targetIndex, 0, currentOrder);
-          return { ...item, sortArr: item.sortArr };
-        } else return item;
-      });
-      dispatch(columnsAC.dragCardsOneColumn(changedColumn));
+    const changedColumn = columns.map(item => {
+      if (item._id === targetColumnId) {
+        const targetIndex = item.sortArr.indexOf(targetOrder);
+        const currentIndex = item.sortArr.indexOf(currentOrder);
+        item.sortArr.splice(currentIndex, 1);
+        item.sortArr.splice(targetIndex, 0, currentOrder);
+        return { ...item, sortArr: item.sortArr };
+      } else return item;
+    });
+    dispatch(columnsAC.dragCardsOneColumn(changedColumn));
     await ColumnsAPI.dragDropCardInColumnAPI(card._id, targetColumnId, currentColumnId, currentOrder, targetCardId, targetOrder);
   } catch (error) {
     console.warn(error, "server error");
   }
-}
+};
 
 export const dragDropCardToEmptyColumn = (card, targetColumnId, currentColumnId) => async (dispatch, getState) => {
+
   const { columns } = getState().columns;
   try {
-     // console.log('card',card);
-    // console.log('currentColumnId',currentColumnId);
-    // console.log('targetColumnId',targetColumnId);
-
-    const  columnsNew = columns.map(item => {
+    const columnsNew = columns.map(item => {
       if (item._id === targetColumnId) {
-         item.sortArr.splice(0, 0, card.order);
+        item.sortArr.splice(0, 0, card.order);
         return { ...item, cards: [...item.cards, card] };
       }
       if (item._id === currentColumnId) {
         return {
           ...item, cards: item.cards.filter(i => i._id !== card._id),
-           sortArr: item.sortArr.filter(i => i !== card.order)};
+          sortArr: item.sortArr.filter(i => i !== card.order)
+        };
       } else return item;
     });
     dispatch(columnsAC.dragCardsToEmptyColumn(columnsNew));
-    console.log('columnsNew', columnsNew);
-     } catch (error) {
+     await ColumnsAPI.dragDropCardInColumnAPIToEmpty(card, targetColumnId, currentColumnId);
+    // await CardsApi.dragDropCardAPI(card._id, targetColumnId); с этим все норм
+  } catch (error) {
     console.warn(error, "server error");
   }
-}
+};

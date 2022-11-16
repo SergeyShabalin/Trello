@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { dragDropCard, dragDropCardToEmptyColumn } from "../../../../store/cards/asyncActions";
+import React, {  useState } from "react";
+import { useDispatch } from "react-redux";
 import PropTypes from "prop-types";
+import { dragDropCardToEmptyColumn } from "../../../../store/cards/asyncActions";
 import ListHeader from "./Header";
 import CardCreator from "../CardCreator";
 import ListCard from "../Cards";
@@ -26,12 +26,13 @@ export default function Column({ column, cardList, sortArr }) {
     }
   };
 
-  function handleDropColumn(e, order, cardId) {
+  function handleDropColumn(e) {
     e.preventDefault();
     setIsShadow(false);
     const card = JSON.parse(e.dataTransfer.getData("card"));
     const currentColumnId = e.dataTransfer.getData("currentColumnId");
     if (!cardList[0]) {
+      console.log('перенес в пустую колонку на фронте');
       dispatch(dragDropCardToEmptyColumn(card, column._id, currentColumnId));
     }
   }

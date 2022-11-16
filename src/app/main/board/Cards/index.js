@@ -36,7 +36,7 @@ export default function ListCard({
     const card = JSON.parse(e.dataTransfer.getData("card"));
     const currentColumnId = e.dataTransfer.getData("currentColumnId");
    if (columnId === currentColumnId){
-     dispatch(dragDropCardOneColumn(columnId, card, currentColumnId, card.order, cardId, order));
+     dispatch(dragDropCardOneColumn(columnId, card, currentColumnId, card.order,cardId, order));
    } else
     dispatch(dragDropCard(columnId, card, currentColumnId, card.order, cardId, order));
   }

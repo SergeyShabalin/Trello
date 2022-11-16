@@ -21,6 +21,10 @@ class ColumnsAPI {
      return Api.patch(`/columns/dragDrop/${currentColumnId}`,{ currentCardId: currentCardId, targetColumnId:targetColumnId, currentOrder: currentOrder, targetCardId: targetCardId, targetOrder:targetOrder  });
   }
 
+  async dragDropCardInColumnAPIToEmpty(card, targetColumnId, currentColumnId) {
+    return Api.patch(`/columns/dragDropToEmpty/${currentColumnId}`,{ currentCardId: card._id, targetColumnId:targetColumnId });
+  }
+
 }
 
 export default new ColumnsAPI();
