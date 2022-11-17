@@ -4,7 +4,10 @@
 }
 
 .board_header {
-
+    margin: 15px;
+    font-weight: 500;
+    color: rgba(220, 204, 204, 0.67);
+    cursor: pointer;
 }
 
 .columns {
@@ -12,6 +15,7 @@
 }
 
 .wrapper_list {
+    margin-top: 5px;
     display: flex;
 }
 

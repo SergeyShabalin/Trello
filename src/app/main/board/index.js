@@ -4,9 +4,10 @@ import Column from "./Columns";
 import { addColumn, getAllColumns } from "../../../store/columns/asyncActions";
 import ListCreator from "./ColumnCreator";
 import classes from "./Board.module.css";
+import { getBoard } from "../../../store/board/asyncActions";
 
 
-export default function Board() {
+export default function Board({title}) {
 
   const dispatch = useDispatch();
   const columnsStore = useSelector(state => state.columns.columns);
@@ -42,7 +43,7 @@ export default function Board() {
 
   return (
     <div className={classes.board}>
-      <span className={classes.board_header}>Наименование доски</span>
+      <span className={classes.board_header}>{title}</span>
       <div className={classes.wrapper_list}>
         <div className={classes.columns}>
           {columnsList}
