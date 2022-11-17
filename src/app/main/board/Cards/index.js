@@ -18,7 +18,7 @@ export default function ListCard({
   const [shadowIn, setIsShadowIn] = useState(false);
   const dispatch = useDispatch();
 
-  function handleDragOver(e) {
+  function handleDragOver() {
     setIsShadowIn(true);
   }
 
@@ -30,7 +30,7 @@ export default function ListCard({
     if (e.target.className !== "cardShadow")
       setIsShadowIn(false);
   }
-
+//TODO сделать объект, в него пихнуть все что в диспатче
   function handleDrop(e) {
     setIsShadowIn(false);
     const card = JSON.parse(e.dataTransfer.getData("card"));
@@ -44,10 +44,10 @@ export default function ListCard({
   return (
     <>
       <div className="list_card" {...props}
-           onDragLeave={(e) => handleDragLeave(e)}
-           onDragEnd={(e) => handleDragEnd()}
-           onDrop={(e) => handleDrop(e, order)}
-           onDragOver={(e) => handleDragOver(e)}>
+           onDragLeave={handleDragLeave}
+           onDragEnd={handleDragEnd}
+           onDrop={handleDrop}
+           onDragOver={handleDragOver}>
         <ContentEdit
           cardId={cardId}
           header={header}

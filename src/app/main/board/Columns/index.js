@@ -20,7 +20,7 @@ export default function Column({ column, cardList, sortArr }) {
   };
 
   const handleDragOver = (e) => {
-    e.preventDefault();
+    e.preventDefault();//TODO arr lenght
     if (!column.cards[0]) {
       setIsShadow(true);
     }
@@ -32,7 +32,6 @@ export default function Column({ column, cardList, sortArr }) {
     const card = JSON.parse(e.dataTransfer.getData("card"));
     const currentColumnId = e.dataTransfer.getData("currentColumnId");
     if (!cardList[0]) {
-      console.log('перенес в пустую колонку на фронте');
       dispatch(dragDropCardToEmptyColumn(card, column._id, currentColumnId));
     }
   }
@@ -41,15 +40,13 @@ export default function Column({ column, cardList, sortArr }) {
     setIsShadow(false);
   }
 
-  const newCardList = sortArr.map(i => {
-    return cardList.filter(item => item.order === i)[0];
-  });
+  const newCardList = sortArr.map(i => cardList.find(item => item.order === i))
 
   return (
     <div className="wrapper"
-         onDragOver={(e) => handleDragOver(e)}
-         onDragLeave={(e) => handleDragLeave(e)}
-         onDrop={(e) => handleDropColumn(e)}>
+         onDragOver={handleDragOver}
+         onDragLeave={handleDragLeave}
+         onDrop={handleDropColumn}>
       <div className="list_wrapper">
 
         <ListHeader column={column} />
@@ -62,6 +59,7 @@ export default function Column({ column, cardList, sortArr }) {
               onDrop={(e) => handleDropColumn(e, column._id)}
               columnHeader={column.header}
               columnId={column._id}
+              //TODO
               order={card.order}
               cardId={card._id}
               header={card.header}

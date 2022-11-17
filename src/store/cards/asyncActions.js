@@ -31,6 +31,7 @@ export const deleteCard = (cardId, columnId, currentOrder) => async (dispatch, g
   );
   try {
     dispatch(columnsAC.cardDelete(ColumnsAfterDelete));
+    console.log('columns', columns);
     await CardsApi.deleteCardAPI(cardId);
   } catch (error) {
     console.warn(error, "server error");
@@ -211,7 +212,6 @@ export const updateTaskValue = (taskDone, checkListId, cardId, columnId) => asyn
 
 export const dragDropCard = (targetColumnId, card, currentColumnId, currentOrder, targetCardId, targetOrder) => async (dispatch, getState) => {
   const { columns } = getState().columns;
-  //TODO разрешить переносить карточки в пустые колонки
   try {
     const newColumns = columns.map(item => {
       if (item._id === targetColumnId) {
@@ -247,14 +247,13 @@ export const dragDropCardOneColumn = (targetColumnId, card, currentColumnId, cur
       } else return item;
     });
     dispatch(columnsAC.dragCardsOneColumn(changedColumn));
-    await ColumnsAPI.dragDropCardInColumnAPI(card._id, targetColumnId, currentColumnId, currentOrder, targetCardId, targetOrder);
+    await ColumnsAPI.dragDropCardInOneColumnAPI(card, card._id, targetColumnId, currentColumnId, currentOrder, targetCardId, targetOrder);
   } catch (error) {
     console.warn(error, "server error");
   }
 };
 
 export const dragDropCardToEmptyColumn = (card, targetColumnId, currentColumnId) => async (dispatch, getState) => {
-
   const { columns } = getState().columns;
   try {
     const columnsNew = columns.map(item => {
@@ -270,8 +269,9 @@ export const dragDropCardToEmptyColumn = (card, targetColumnId, currentColumnId)
       } else return item;
     });
     dispatch(columnsAC.dragCardsToEmptyColumn(columnsNew));
-     await ColumnsAPI.dragDropCardInColumnAPIToEmpty(card, targetColumnId, currentColumnId);
-    // await CardsApi.dragDropCardAPI(card._id, targetColumnId); с этим все норм
+    await ColumnsAPI.dragDropCardInColumnAPIToEmpty(card, targetColumnId, currentColumnId);
+    await CardsApi.dragDropCardAPI(card._id, targetColumnId);
+
   } catch (error) {
     console.warn(error, "server error");
   }
