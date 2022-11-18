@@ -27,6 +27,18 @@ export default function Board({boardStore}) {
     columnCreator();
   }
 
+
+  //TODO вывести только те колонки, id которых есть в конкретной доске
+ const newColumn = boardStore[0].columns.map(item=>
+   // console.log(item)
+
+    item === columnsStore.map(i=> {
+       return i
+ })
+
+ );
+  console.log('newColumn', newColumn);
+
   const columnsList = columnsStore && columnsStore.map((column, index) => {
     return (
       <div key={column._id}>
