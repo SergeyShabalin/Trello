@@ -1,3 +1,8 @@
 export const defaultState = {
-  boardTitle: ""
+    boards: [
+        {
+            title: "",
+            columns: []
+        }
+    ]
 }

@@ -7,7 +7,7 @@ import classes from "./Board.module.css";
 import { getBoard } from "../../../store/board/asyncActions";
 
 
-export default function Board({title}) {
+export default function Board({boardStore}) {
 
   const dispatch = useDispatch();
   const columnsStore = useSelector(state => state.columns.columns);
@@ -43,7 +43,7 @@ export default function Board({title}) {
 
   return (
     <div className={classes.board}>
-      <span className={classes.board_header}>{title}</span>
+      <span className={classes.board_header}>{boardStore[0].title}</span>
       <div className={classes.wrapper_list}>
         <div className={classes.columns}>
           {columnsList}

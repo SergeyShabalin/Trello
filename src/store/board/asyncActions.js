@@ -6,7 +6,8 @@ export const getBoard = () => async (dispatch) => {
 
   try {
     const resp = await BoardApi.getBoardAPI();
-    dispatch(BoardAC.viewBoard(resp.data));
+    const boards = resp.data.map(i=>i)
+    dispatch(BoardAC.viewBoard(boards));
   } catch (error) {
     console.warn(error, "server error");
   }
