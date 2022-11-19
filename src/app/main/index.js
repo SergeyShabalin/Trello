@@ -10,12 +10,11 @@ import "../../GlobalStyles.css";
 export default function Main() {
   const dispatch = useDispatch();
   const boardStore = useSelector(state => state.board.boards);
-  console.log("boards", boardStore);
+
 
   useEffect(() => {
     dispatch(getBoard());
   }, []);
-
 
 
   return (

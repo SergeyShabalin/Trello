@@ -5,18 +5,27 @@ import { addColumn, getAllColumns } from "../../../store/columns/asyncActions";
 import ListCreator from "./ColumnCreator";
 import classes from "./Board.module.css";
 import { getBoard } from "../../../store/board/asyncActions";
+import { BiEdit } from "react-icons/bi";
+import Button from "../../../components/basic/Button";
 
 
-export default function Board({boardStore}) {
+export default function Board({ boardStore }) {
 
   const dispatch = useDispatch();
   const columnsStore = useSelector(state => state.columns.columns);
   const [isCreator, setIsCreator] = useState(true);
+  const [countBoard, setCountBoard] = useState(0);
 
   useEffect(() => {
     dispatch(getAllColumns());
     setIsCreator(true);
   }, []);
+
+  function changeBoard(){
+    if(countBoard === 0){
+      setCountBoard(1)
+    } else  setCountBoard(0)
+  }
 
   function columnCreator() {
     setIsCreator(!isCreator);
@@ -29,40 +38,48 @@ export default function Board({boardStore}) {
 
 
   //TODO вывести только те колонки, id которых есть в конкретной доске
- const newColumn = boardStore[0].columns.map(item=>
-   // console.log(item)
 
-    item === columnsStore.map(i=> {
-       return i
- })
+  const newColumn = boardStore[countBoard].columns.map(item => {
+      return columnsStore.find(i => {
+        if (item === i._id) return i;
+      });
+    }
+  );
 
- );
-  console.log('newColumn', newColumn);
+  //TODO сейчас загружаются сразу все доски. Нужно подгружать отдельную доску при открытии
 
-  const columnsList = columnsStore && columnsStore.map((column, index) => {
-    return (
-      <div key={column._id}>
-        <Column
-          columnIndex={index}
-          column={column}
-          cardList={column.cards}
-          sortArr={column.sortArr}
-          draggable
-        />
-      </div>
-    );
-  });
+  let columnsList;
+  if (columnsStore.length !== 0) {
+    columnsList = newColumn.map((column, index) => {
+      return (
+        <div key={column._id}>
+          <Column
+            columnIndex={index}
+            column={column}
+            cardList={column.cards}
+            sortArr={column.sortArr}
+            draggable
+          />
+        </div>
+      );
+    });
+  }
 
   return (
     <div className={classes.board}>
-      <span className={classes.board_header}>{boardStore[0].title}</span>
+      <span className={classes.board_header}>{boardStore[countBoard].title}</span>
       <div className={classes.wrapper_list}>
         <div className={classes.columns}>
           {columnsList}
         </div>
         <div className={classes.add_list}>
+          <Button
+            opacity={true}
+            onClick={changeBoard}
+            label='изменить доску'/>
           <ListCreator addList={addList} />
         </div>
+
       </div>
     </div>
   );
