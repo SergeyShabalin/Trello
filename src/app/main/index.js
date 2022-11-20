@@ -16,13 +16,13 @@ export default function Main() {
     dispatch(getBoard());
   }, []);
 
-
+//нужно передать id board в диспатч получения всех колонок
   return (
     <div className={classes.main}>
       <div className={classes.header_main}>
         <Header />
         <div className={classes.work_space}>
-          <Board boardStore={boardStore} />
+          <Board boardStore={boardStore}   />
         </div>
       </div>
     </div>

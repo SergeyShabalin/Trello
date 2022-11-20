@@ -4,7 +4,7 @@ import Button from "../../../../components/basic/Button";
 import Editor from "./Editor";
 import useOpenEditor from "./useOpenEditor";
 
-function ListCreator({ addList }) {
+function ListCreator({ addList, boardId }) {
 
   const [header, setHeader] = useState("");
   const { isEditor, openEditor, closeEditor } = useOpenEditor();
@@ -15,13 +15,13 @@ function ListCreator({ addList }) {
 
   function addColumn(e) {
     if (e.keyCode === 13) {
-      addList(header);
+      addList(header, boardId);
       closeEditor();
     }
   }
 
   function addListColumn() {
-    addList(header);
+    addList(header, boardId)
     closeEditor();
   }
 

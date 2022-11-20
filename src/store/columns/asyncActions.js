@@ -1,5 +1,6 @@
 import ColumnsAPI from "../../api/ColumnsAPI";
 import { columnsAC } from "../columns/actions";
+import BoardApi from "../../api/BoardApi";
 
 
 export const getAllColumns = () => async (dispatch) => {
@@ -12,10 +13,12 @@ export const getAllColumns = () => async (dispatch) => {
   }
 };
 
-export const addColumn = (header) => async (dispatch) => {
+export const addColumn = (header, boardId) => async (dispatch) => {
+
   try {
-    const resp = await ColumnsAPI.addNewColumnAPI(header);
-     dispatch(columnsAC.addNewColumn(resp.data));
+    const resp = await ColumnsAPI.addNewColumnAPI(header, boardId);
+    dispatch(columnsAC.addNewColumn(resp.data));
+    //TODO сделать обновление на фронте
   } catch (error) {
     console.warn(error, "server error");
   }
@@ -25,6 +28,8 @@ export const deleteColumn = (columnId) => async (dispatch, getState) => {
   const { columns } = getState().columns;
   try {
     await ColumnsAPI.deleteColumnAPI(columnId);
+    await BoardApi.deleteColumnAPI(columnId);
+
     const columnsAfterDelete = (columns.filter(item => item._id !== columnId));
     dispatch(columnsAC.columnDelete(columnsAfterDelete));
   } catch (error) {

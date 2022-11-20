@@ -16,12 +16,14 @@ export default function Board({ boardStore }) {
   const [isCreator, setIsCreator] = useState(true);
   const [countBoard, setCountBoard] = useState(0);
 
+
   useEffect(() => {
     dispatch(getAllColumns());
     setIsCreator(true);
   }, []);
 
   function changeBoard(){
+
     if(countBoard === 0){
       setCountBoard(1)
     } else  setCountBoard(0)
@@ -31,11 +33,10 @@ export default function Board({ boardStore }) {
     setIsCreator(!isCreator);
   }
 
-  function addList(header) {
-    dispatch(addColumn(header));
+  function addList(header, boardId) {
+    dispatch(addColumn(header, boardId));
     columnCreator();
   }
-
 
   //TODO вывести только те колонки, id которых есть в конкретной доске
 
@@ -47,12 +48,12 @@ export default function Board({ boardStore }) {
   );
 
   //TODO сейчас загружаются сразу все доски. Нужно подгружать отдельную доску при открытии
-
+//TODO так же поправить удаление колонок и их добавление
   let columnsList;
   if (columnsStore.length !== 0) {
     columnsList = newColumn.map((column, index) => {
       return (
-        <div key={column._id}>
+        <div key={column._id} >
           <Column
             columnIndex={index}
             column={column}
@@ -77,7 +78,7 @@ export default function Board({ boardStore }) {
             opacity={true}
             onClick={changeBoard}
             label='изменить доску'/>
-          <ListCreator addList={addList} />
+          <ListCreator addList={addList} boardId={boardStore[countBoard]._id} />
         </div>
 
       </div>
