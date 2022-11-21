@@ -31,7 +31,6 @@ export const deleteCard = (cardId, columnId, currentOrder) => async (dispatch, g
   );
   try {
     dispatch(columnsAC.cardDelete(ColumnsAfterDelete));
-    console.log('columns', columns);
     await CardsApi.deleteCardAPI(cardId);
   } catch (error) {
     console.warn(error, "server error");
