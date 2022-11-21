@@ -1,9 +1,8 @@
 import { Api } from "./index";
 
 class ColumnsAPI {
-  async getAllColumnsAPI(countBoard) {
-    console.log(countBoard);
-    return Api.get(`/columns/${countBoard}`);
+  async getAllColumnsAPI(boardId) {
+    return Api.get(`/columns/${boardId}`);
   }
 
   async addNewColumnAPI(header, boardId) {

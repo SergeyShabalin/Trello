@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getBoard } from "../../store/board/asyncActions";
 import Board from "./Board";
@@ -10,20 +10,18 @@ import "../../GlobalStyles.css";
 
 export default function Main() {
   const dispatch = useDispatch();
-  const boardStore = useSelector(state => state.board.boards);
-  const [countBoard, setCountBoard] = useState(0);
+  const currentBoard = useSelector(state => state.board.boards[0]);
 
   useEffect(() => {
-     dispatch(getBoard(countBoard));
+     dispatch(getBoard('63776cc4d06f52c17e22b67c'));
   }, []);
 
-//нужно передать id board в диспатч получения всех колонок
   return (
     <div className={classes.main}>
       <div className={classes.header_main}>
         <Header />
         <div className={classes.work_space}>
-          <Board boardStore={boardStore} countBoard={countBoard}  />
+          <Board currentBoard={currentBoard}  />
         </div>
       </div>
     </div>

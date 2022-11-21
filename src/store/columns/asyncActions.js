@@ -3,34 +3,20 @@ import { columnsAC } from "../columns/actions";
 import BoardApi from "../../api/BoardApi";
 import { BoardAC } from "../board/actions";
 
-export const getAllColumns = (countBoard) => async (dispatch, getState) => {
+export const getAllColumns = (boardId) => async (dispatch, getState) => {
   try {
-     const resp = await ColumnsAPI.getAllColumnsAPI(countBoard);
-    console.log('data',resp.data);
+     const resp = await ColumnsAPI.getAllColumnsAPI(boardId);
     dispatch(columnsAC.viewAllColumns(resp.data));
   } catch (error) {
     console.warn(error, "server error");
   }
 };
 
-export const addColumn = (header, boardId) => async (dispatch,getState) => {
+export const addColumn = (header, boardId) => async (dispatch) => {
 
   try {
     const resp = await ColumnsAPI.addNewColumnAPI(header, boardId);
-
-    const { boards } = getState().board;
-    const { columns } = getState().columns;
-
-    // const newBoard =  boards.map(i=> {
-    //     if(i._id === resp.data._id) return resp.data
-    //     else return i
-    //   })
-    // console.log('newBoard', newBoard);
-    // dispatch(BoardAC.viewBoard(newBoard));
-    //TODO 2 диспатча не прокатит
     dispatch(columnsAC.addNewColumn(resp.data));
-
-    // //TODO сделать обновление на фронте
   } catch (error) {
     console.warn(error, "server error");
   }

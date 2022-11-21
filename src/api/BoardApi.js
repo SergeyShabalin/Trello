@@ -1,8 +1,8 @@
 import {Api} from './index'
 
 class BoardApi {
-  async getBoardAPI() {
-    return Api.get(`/boards`);
+  async getBoardAPI(boardId) {
+    return Api.get(`/boards/${boardId}`);
   }
 }
 
