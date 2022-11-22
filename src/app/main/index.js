@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getBoard } from "../../store/board/asyncActions";
+import { getCurrentBoard } from "../../store/board/asyncActions";
 import Board from "./Board";
 import Header from "./Header";
 import classes from "./Main.module.css";
@@ -13,7 +13,7 @@ export default function Main() {
   const currentBoard = useSelector(state => state.board.boards[0]);
 
   useEffect(() => {
-     dispatch(getBoard('63776cc4d06f52c17e22b67c'));
+     dispatch(getCurrentBoard('6332b2b3e0cf2e5dd34e1cf5'));
   }, []);
 
   return (

@@ -1,0 +1,31 @@
+.contextMenuWrapper{
+    position: absolute;
+    background-color: #ffffff;
+    border-radius: 5px;
+    padding: 10px;
+    z-index: 4;
+    margin-top: 5px;
+}
+
+.header{
+    display: flex;
+    font-size: 0.8rem;
+    color: #5e6c84;
+    align-items: center;
+}
+
+.title{
+    display: flex;
+    justify-content: center;
+    margin-left: 30px;
+}
+
+.btn_close{
+    display: flex;
+    justify-content: right;
+    margin-left: 30px;
+}
+
+.content{
+
+}
