@@ -1,3 +1,4 @@
 export const BOARD_TYPES = {
   VIEW_BOARD: "VIEW_BOARD",
+  VIEW_ALL_BOARD: "VIEW_ALL_BOARD"
 };

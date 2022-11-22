@@ -25,10 +25,7 @@ export default function Header() {
         </Button>
       </div>
 
-
-
-      <Workspaces/>
-
+      <Workspaces />
 
       <Button
         variant="text"

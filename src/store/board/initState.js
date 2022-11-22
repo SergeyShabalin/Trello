@@ -4,5 +4,6 @@ export const defaultState = {
             title: "",
             columns: []
         }
-    ]
+    ],
+    allBoards: []
 }

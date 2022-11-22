@@ -13,7 +13,7 @@ export default function Main() {
   const currentBoard = useSelector(state => state.board.boards[0]);
 
   useEffect(() => {
-     dispatch(getCurrentBoard('6332b2b3e0cf2e5dd34e1cf5'));
+     dispatch(getCurrentBoard('63776cc4d06f52c17e22b67c'));
   }, []);
 
   return (

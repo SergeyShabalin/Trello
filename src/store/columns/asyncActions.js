@@ -3,7 +3,7 @@ import { columnsAC } from "../columns/actions";
 import BoardApi from "../../api/BoardApi";
 import { BoardAC } from "../board/actions";
 
-export const getAllColumns = (boardId) => async (dispatch, getState) => {
+export const getAllColumns = (boardId) => async (dispatch,) => {
   try {
      const resp = await ColumnsAPI.getAllColumnsAPI(boardId);
     dispatch(columnsAC.viewAllColumns(resp.data));
@@ -12,11 +12,12 @@ export const getAllColumns = (boardId) => async (dispatch, getState) => {
   }
 };
 
-export const addColumn = (header, boardId) => async (dispatch) => {
+export const addColumn = (header, boardId) => async (dispatch,getState) => {
 
   try {
     const resp = await ColumnsAPI.addNewColumnAPI(header, boardId);
     dispatch(columnsAC.addNewColumn(resp.data));
+
   } catch (error) {
     console.warn(error, "server error");
   }

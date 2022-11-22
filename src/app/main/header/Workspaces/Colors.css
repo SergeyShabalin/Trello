@@ -1,0 +1,41 @@
+.iconRed, .iconBlue, .iconGreen, .iconYellow, .iconMagenta, .iconDark, .iconGrBl, .iconOrange {
+    color: white;
+    font-size: 20px;
+    padding: 11px 15px;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+.iconBlue {
+    background: linear-gradient(#0747a6, #008da6)
+}
+
+
+.iconGreen {
+    background: linear-gradient(#006644, #03b67a)
+}
+
+.iconRed{
+    background: linear-gradient(#ff0000, #ad1051)
+}
+
+
+.iconYellow{
+    background: linear-gradient(#bbd705, #667200)
+}
+
+.iconMagenta{
+    background: linear-gradient(#570b2c, #de4486)
+}
+
+.iconDark{
+    background: linear-gradient(#055457, #150f13)
+}
+
+.iconGrBl{
+    background: linear-gradient(#1d109a, #0aafaf)
+}
+
+.iconOrange{
+    background: linear-gradient(#ef6605, #6b4600)
+}

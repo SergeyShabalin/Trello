@@ -5,13 +5,11 @@ import Button from "../../../../components/basic/Button";
 import { AiOutlineClose } from "react-icons/ai";
 import { useSelector } from "react-redux";
 
-export default function ContextMenu({ title, closeContextMenu }) {
+export default function ContextMenu({ title, closeContextMenu, allWorkspaces }) {
 
   const ref = useRef();
   useOnClickOutside(ref, closeContextMenu);
-  const currentBoard = useSelector(state => state.board.boards);
 
-  console.log(currentBoard);
 
   return (
     <div ref={ref} className={classes.contextMenuWrapper}>
@@ -25,7 +23,9 @@ export default function ContextMenu({ title, closeContextMenu }) {
         </div>
       </div>
       <hr/>
-      <div className={classes.content}></div>
+      <div className={classes.content}>
+        {allWorkspaces}
+      </div>
     </div>
   );
 };
