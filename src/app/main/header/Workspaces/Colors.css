@@ -3,13 +3,13 @@
     font-size: 20px;
     padding: 11px 15px;
     margin: 5px;
-    border-radius: 5px;
+    border-radius: 10px;
+    min-width: 14px;
 }
 
 .iconBlue {
     background: linear-gradient(#0747a6, #008da6)
 }
-
 
 .iconGreen {
     background: linear-gradient(#006644, #03b67a)
@@ -18,7 +18,6 @@
 .iconRed{
     background: linear-gradient(#ff0000, #ad1051)
 }
-
 
 .iconYellow{
     background: linear-gradient(#bbd705, #667200)

@@ -4,14 +4,15 @@ import { MdKeyboardArrowDown } from "react-icons/md";
 import ContextMenu from "../ContextMenu";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllBoard, getCurrentBoard } from "../../../../store/board/asyncActions";
+import useOpenCloseContextMenu from "../useOpenCloseContextMenu";
 import classes from "./Workspaces.module.css";
 import "./Colors.css";
 
-export default function Workspaces({ icon }) {
 
-  const [isContext, setIsContext] = useState(false);
+export default function Workspaces() {
+
   const dispatch = useDispatch();
-
+  const { isContext, openContextMenu, closeContextMenu } = useOpenCloseContextMenu();
   const allBoards = useSelector(state => state.board.allBoards);
 
   useEffect(() => {
@@ -23,20 +24,12 @@ export default function Workspaces({ icon }) {
     closeContextMenu();
   }
 
-  function openContextMenu() {
-    setIsContext(true);
-  }
-
-  function closeContextMenu() {
-    setIsContext(false);
-  }
-
   function getRandomInt(max) {
     return Math.floor(Math.random() * max);
   }
 
   const colorsIcon = ["iconRed", "iconBlue", "iconGreen", "iconYellow",
-    "iconMagenta", "iconDark" , "iconGrBl", "iconOrange"];
+    "iconMagenta", "iconDark", "iconGrBl", "iconOrange"];
 
   const allWorkspaces = allBoards.map(board => {
       const color = getRandomInt(8);
@@ -57,14 +50,13 @@ export default function Workspaces({ icon }) {
         onClick={openContextMenu}
         variant="text"
         name="work_area"
-        label="Рабочие пространства"
-        endIcon={<MdKeyboardArrowDown />}>
-      </Button>
+        label="Рабочие доски"
+        endIcon={<MdKeyboardArrowDown />} />
 
       {isContext && <ContextMenu
         closeContextMenu={closeContextMenu}
-        title="Рабочие пространства"
-        allWorkspaces={allWorkspaces} />
+        content={allWorkspaces}
+        title="Рабочие доски" />
       }
     </div>
   );

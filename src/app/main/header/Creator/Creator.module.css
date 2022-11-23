@@ -1,0 +1,29 @@
+.wrapper{
+    cursor: pointer;
+    color: #515e70;
+    max-width: 280px;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+.wrapper:hover{
+    background-color: rgba(0, 0, 0, 0.06);
+}
+
+.header{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.title{
+    font-size: 0.92rem;
+    color: #1c2833;
+    margin-left: 5px;
+}
+
+p{
+    -webkit-appearance: none;
+    padding-top: 0;
+    margin: 4px;
+    font-size: 0.78rem;
+}

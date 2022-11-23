@@ -6,12 +6,10 @@ import classes from "./Header.module.css";
 import Button from "../../../components/basic/Button";
 import ContextMenu from "./ContextMenu";
 import Workspaces from "./Workspaces";
+import Creator from "./Creator";
 
 
 export default function Header() {
-
-
-
 
   return (
     <div className={classes.header}>
@@ -21,34 +19,23 @@ export default function Header() {
           variant="just_icon"
           variety={true}
           color="changed"
-          icon={<CgMenuGridO />}>
-        </Button>
+          icon={<CgMenuGridO />}/>
       </div>
 
-      <Workspaces />
+      <Workspaces/>
+      <Creator/>
+      {/*<Button*/}
+      {/*  variant="text"*/}
+      {/*  label="Недавние"*/}
+      {/*  endIcon={<MdKeyboardArrowDown />}/>*/}
 
-      <Button
-        variant="text"
-        label="Недавние"
-        endIcon={<MdKeyboardArrowDown />}>
-      </Button>
+      {/*<Button*/}
+      {/*  label="В избранном"*/}
+      {/*  endIcon={<MdKeyboardArrowDown />}/>*/}
 
-      <Button
-        label="В избранном"
-        endIcon={<MdKeyboardArrowDown />}
-      >
-      </Button>
-
-      <Button
-        label="Шаблоны"
-        endIcon={<MdKeyboardArrowDown />}>
-      </Button>
-
-      <Button
-        label="Создать"
-      />
-
-
+      {/*<Button*/}
+      {/*  label="Шаблоны"*/}
+      {/*  endIcon={<MdKeyboardArrowDown />}/>*/}
     </div>
   );
 }

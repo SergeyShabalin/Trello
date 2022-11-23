@@ -2,31 +2,38 @@
     position: absolute;
     background-color: #ffffff;
     border-radius: 5px;
-    padding: 10px;
+    padding: 10px 0;
     z-index: 4;
     margin-top: 5px;
     box-shadow: 0 2px 5px 1px rgba(0, 0, 0, 0.47);
 }
 
-.header{
-    display: flex;
-    font-size: 0.8rem;
-    color: #5e6c84;
-    align-items: center;
-}
-
 .title{
     display: flex;
+    font-size: 0.9rem;
+    color: #5e6c84;
+    align-items: center;
     justify-content: center;
-    margin-left: 30px;
-}
-
-.btn_close{
-    display: flex;
-    justify-content: right;
-    margin-left: 30px;
+    margin: 5px 0 5px 0;
 }
 
 .content{
+    padding: 5px;
+    max-height: 240px;
+    overflow-y: auto;
+}
 
+.content::-webkit-scrollbar {
+    width: 5px;
+}
+
+.content::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+.content::-webkit-scrollbar-thumb {
+    background-color: #bdbaba;
+    border-radius: 10px;
+    margin: 12px;
+    padding: 20px;
 }
