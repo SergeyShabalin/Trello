@@ -1,9 +1,8 @@
 export const defaultState = {
-    boards: [
-        {
+    //TODO Поменять на объект
+  currentBoard:  {
             title: "",
             columns: []
-        }
-    ],
+    },
     allBoards: []
 }

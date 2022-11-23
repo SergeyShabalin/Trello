@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import { CgMenuGridO } from "react-icons/cg";
-import { MdKeyboardArrowDown } from "react-icons/md";
-import { RiArrowDownSLine } from "react-icons/ri";
-import classes from "./Header.module.css";
-import Button from "../../../components/basic/Button";
-import ContextMenu from "./ContextMenu";
+
+import { RiTrelloFill } from "react-icons/ri";
+import Button from "../../../components/basic/Button";;
 import Workspaces from "./Workspaces";
 import Creator from "./Creator";
-
+import classes from "./Header.module.css";
 
 export default function Header() {
 
@@ -24,6 +22,11 @@ export default function Header() {
 
       <Workspaces/>
       <Creator/>
+
+      <div className={classes.logo}>
+       <span className={classes.icon}><RiTrelloFill/></span>
+        <span>TASK MANAGER</span>
+      </div>
       {/*<Button*/}
       {/*  variant="text"*/}
       {/*  label="Недавние"*/}

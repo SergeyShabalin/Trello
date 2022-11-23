@@ -10,3 +10,26 @@
 .menu{
 transform: scale(1.5);
 }
+
+.logo{
+    display: flex;
+    justify-content: right;
+    padding-right: 50px;
+    width: 100%;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.39);
+    transition: 0.3s ease-in-out;
+}
+
+.logo:hover{
+    color: rgba(255, 255, 255, 0.63);
+    transform: rotateX(0deg);
+}
+
+.icon{
+    display: flex;
+    align-items: center;
+    padding-right: 5px;
+    transform: scale(1.4);
+}
+

@@ -5,16 +5,27 @@
     padding: 10px 0;
     z-index: 4;
     margin-top: 5px;
+    min-width: 330px;
     box-shadow: 0 2px 5px 1px rgba(0, 0, 0, 0.47);
 }
 
-.title{
+.header{
     display: flex;
+    padding-left: 10px;
+    min-height: 30px;
+}
+
+.title{
+     display: flex;
     font-size: 0.9rem;
     color: #5e6c84;
     align-items: center;
-    justify-content: center;
     margin: 5px 0 5px 0;
+    width: 100%;
+}
+.back_btn{
+    transform: scale(0.9);
+
 }
 
 .content{

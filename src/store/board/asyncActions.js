@@ -14,8 +14,18 @@ export const getAllBoard = (boardId) => async (dispatch) => {
 export const getCurrentBoard = (boardId) => async (dispatch) => {
   try {
     const resp = await BoardApi.getBoardAPI(boardId);
-    const boards = resp.data.map(i => i);
-    dispatch(BoardAC.viewBoard(boards));
+    dispatch(BoardAC.viewBoard(resp.data));
+  } catch (error) {
+    console.warn(error, "server error");
+  }
+};
+
+export const addNewBoard = (title) => async (dispatch) => {
+  try {
+    const resp = await BoardApi.addNewBoardAPI(title);
+     const boards = resp.data
+    console.log(boards);
+      dispatch(BoardAC.addNewBoard(boards));
   } catch (error) {
     console.warn(error, "server error");
   }

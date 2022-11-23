@@ -10,7 +10,7 @@ import "../../GlobalStyles.css";
 
 export default function Main() {
   const dispatch = useDispatch();
-  const currentBoard = useSelector(state => state.board.boards[0]);
+  const currentBoard = useSelector(state => state.board.currentBoard);
 
   useEffect(() => {
      dispatch(getCurrentBoard('63776cc4d06f52c17e22b67c'));

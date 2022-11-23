@@ -8,7 +8,7 @@ import { addNewCard } from "../../../../store/cards/asyncActions";
 import classes from "./CardCreator.module.css";
 
 
-export default function CardCreator({ columnId}) {
+export default function CardCreator({columnId}) {
 
   const [cardHeader, setCardHeader] = useState("");
   const {isCreator, openCreator, closeCreator} = useOpenCardCreator()

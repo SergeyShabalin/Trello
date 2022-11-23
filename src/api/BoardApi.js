@@ -9,6 +9,10 @@ class BoardApi {
   async getBoardAPI(boardId) {
     return Api.get(`/boards/${boardId}`);
   }
+
+  async addNewBoardAPI(title) {
+     return Api.post(`/boards/`, {title: title, columns: []} );
+  }
 }
 
 export default new BoardApi();

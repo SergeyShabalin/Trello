@@ -1,4 +1,4 @@
-import React, { useEffect, useState,useRef } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Button from "../../../../components/basic/Button";
 import useOpenCloseContextMenu from "../useOpenCloseContextMenu";
 import ContextMenu from "../ContextMenu";
@@ -6,6 +6,7 @@ import classes from "./Creator.module.css";
 import { RiTrelloFill } from "react-icons/ri";
 import BoardCreator from "./BoardCreator";
 import useOnClickOutside from "../../../../hooks/UseOnClickOutside";
+import { GrPrevious } from "react-icons/gr";
 
 export default function Creator() {
 
@@ -13,19 +14,18 @@ export default function Creator() {
   const [isCreator, setIsCreator] = useState(false);
 
 
-  function openCreator(){
-    setIsCreator(true)
+  function openCreator() {
+    setIsCreator(true);
   }
 
-  function closeCreator(){
-    console.log('afsdf');
-    setIsCreator(false)
+  function closeCreator() {
+    setIsCreator(false);
   }
 
   const content = (
     <div className={classes.wrapper} onClick={openCreator}>
       <div className={classes.header}>
-        <RiTrelloFill/>
+        <RiTrelloFill />
         <span className={classes.title}>Cоздайте доску</span>
       </div>
       <p>Доска представляет собой совокупность карточек,
@@ -34,18 +34,24 @@ export default function Creator() {
     </div>
   );
 
+
   return (
     <div>
       <Button
         onClick={openContextMenu}
         label="Создать" />
-
       {isContext && <ContextMenu
         closeContextMenu={closeContextMenu}
         content={isCreator ? <BoardCreator
           closeContextMenu={closeContextMenu}
-          closeCreator={closeCreator}/> : content}
-        title="Создать"/>}
+          closeCreator={closeCreator} /> : content}
+        title="Создать">
+        {isCreator && <Button
+          onClick={closeCreator}
+          variant="just_icon"
+          icon={<GrPrevious />}
+        />}
+      </ContextMenu>}
     </div>
   );
 };

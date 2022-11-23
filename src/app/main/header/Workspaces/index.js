@@ -24,6 +24,8 @@ export default function Workspaces() {
     closeContextMenu();
   }
 
+  console.log(allBoards);
+
   function getRandomInt(max) {
     return Math.floor(Math.random() * max);
   }
