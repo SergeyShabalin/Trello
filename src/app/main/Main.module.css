@@ -1,16 +1,18 @@
-.main{
+.main {
     overflow-x: hidden;
     overflow-y: hidden;
     /*background-color: var(--main-background-color);*/
-    background-image:url("https://images.wallpaperscraft.ru/image/single/gory_skaly_vershiny_151531_1920x1080.jpg") ;
+    background-image: url("https://images.wallpaperscraft.ru/image/single/gory_skaly_vershiny_151531_1920x1080.jpg");
     background-size: auto;
     font-size: var(--main-font-size);
-min-height: 100vh;
+    min-height: 100vh;
 }
-.header_main{
+
+.header_main {
     font-family: var(--prymary-font);
 }
-.work_space{
+
+.work_space {
     display: flex;
     padding: 5px;
 }

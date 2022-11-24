@@ -24,7 +24,7 @@ export default function Board({ currentBoard }) {
   function columnCreator() {
     setIsCreator(!isCreator);
   }
-
+//TODO сделать хук
   function openEditor() {
     setIsEditor(true);
   }
@@ -56,8 +56,11 @@ export default function Board({ currentBoard }) {
   return (
     <div className={classes.board}>
       {!isEditor
-        ? <span className={classes.board_header} onClick={openEditor}>{currentBoard.title}</span>
-        : <BoardEditor title = {currentBoard.title} closeEditor={closeEditor}/>}
+        ? <div className={classes.board_header} onClick={openEditor}>{currentBoard.title}</div>
+        : <BoardEditor
+          boardId={currentBoard._id}
+          title={currentBoard.title}
+          closeEditor={closeEditor} />}
       <div className={classes.wrapper_list}>
         <div className={classes.columns}>
           {columnsList}

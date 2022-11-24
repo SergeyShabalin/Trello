@@ -319,6 +319,14 @@ export default function UiKit() {
                             rows={3}>
                         </Input>
 
+                        <Input
+                        rows={3}
+                        cols={36}
+                        autoFocus
+                        variant="large"
+                        container="custom"
+                        placeholder="Введите название доски" />
+
                     </div>
 
 

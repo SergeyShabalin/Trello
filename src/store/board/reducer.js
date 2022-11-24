@@ -11,7 +11,13 @@ export default function boardReducer(state = defaultState, { type, payload }) {
       return { ...state, allBoards: payload };
 
     case BOARD_TYPES.ADD_NEW_BOARD:
-      return { ...state, currentBoard: payload};
+      return { ...state, currentBoard: payload };
+
+    case BOARD_TYPES.UPDATE_BOARD:
+      return { ...state, currentBoard: { title: payload} };
+
+    case BOARD_TYPES.UPDATE_ALL_BOARD:
+      return { ...state, allBoards: payload };
 
     default:
       return (state);

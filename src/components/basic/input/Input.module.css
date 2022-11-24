@@ -41,7 +41,7 @@
     font-size: var(--input-label-font-size);
 }
 
-.transparent {
+.transparent, .large {
     border: none;
     resize: none;
     outline: none;
@@ -55,3 +55,10 @@
     resize: none;
 }
 
+
+.large {
+    max-height: 20px;
+    font-size: var(--main-font-size);
+    font-weight: 500;
+    color: rgba(220, 204, 204, 0.67)
+}

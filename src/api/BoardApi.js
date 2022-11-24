@@ -11,8 +11,13 @@ class BoardApi {
   }
 
   async addNewBoardAPI(title) {
-     return Api.post(`/boards/`, {title: title, columns: []} );
+     return Api.post(`/boards/`, {title: title, columns: []});
   }
+
+  async updateBoardAPI(boardId, title) {
+    return Api.patch(`/boards/${boardId}`, {title});
+  }
+
 }
 
 export default new BoardApi();

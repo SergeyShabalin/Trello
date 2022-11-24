@@ -14,7 +14,7 @@ transform: scale(1.5);
 .logo{
     display: flex;
     justify-content: right;
-    padding-right: 50px;
+    padding:  5px 50px 5px 0px;
     width: 100%;
     font-weight: 600;
     color: rgba(0, 0, 0, 0.39);

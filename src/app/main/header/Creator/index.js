@@ -1,12 +1,12 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, {  useState } from "react";
 import Button from "../../../../components/basic/Button";
 import useOpenCloseContextMenu from "../useOpenCloseContextMenu";
 import ContextMenu from "../ContextMenu";
 import classes from "./Creator.module.css";
 import { RiTrelloFill } from "react-icons/ri";
 import BoardCreator from "./BoardCreator";
-import useOnClickOutside from "../../../../hooks/UseOnClickOutside";
 import { GrPrevious } from "react-icons/gr";
+import { BiCopyAlt } from "react-icons/bi";
 
 export default function Creator() {
 
@@ -23,7 +23,8 @@ export default function Creator() {
   }
 
   const content = (
-    <div className={classes.wrapper} onClick={openCreator}>
+    <>
+      <div className={classes.wrapper} onClick={openCreator}>
       <div className={classes.header}>
         <RiTrelloFill />
         <span className={classes.title}>Cоздайте доску</span>
@@ -31,7 +32,16 @@ export default function Creator() {
       <p>Доска представляет собой совокупность карточек,
         упорядоченных в списках. Используйте её для управления проектом,
         отслеживания или организации чего угодно.</p>
+
     </div>
+      <div className={classes.wrapper}>
+        <div className={classes.header}>
+          <BiCopyAlt/>
+          <span className={classes.title}>Начните с шаблона</span>
+        </div>
+        <p>Начните работу быстрее, используя шаблон доски</p>
+      </div>
+    </>
   );
 
 
