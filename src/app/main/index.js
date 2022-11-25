@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getCurrentBoard } from "../../store/board/asyncActions";
 import Board from "./Board";
@@ -7,21 +8,23 @@ import classes from "./Main.module.css";
 import "../../GlobalStyles.css";
 
 
-
 export default function Main() {
   const dispatch = useDispatch();
   const currentBoard = useSelector(state => state.board.currentBoard);
 
+  const {boardId}  = useParams();
+
   useEffect(() => {
-     dispatch(getCurrentBoard('63776cc4d06f52c17e22b67c'));
+   boardId &&  dispatch(getCurrentBoard(boardId));
   }, []);
 
   return (
     <div className={classes.main}>
       <div className={classes.header_main}>
-        <Header />
+        <Header/>
         <div className={classes.work_space}>
-          <Board currentBoard={currentBoard}  />
+          {/*TODO поставить условие отсутствия доски*/}
+          <Board currentBoard={currentBoard}/>
         </div>
       </div>
     </div>

@@ -4,6 +4,7 @@ import UiKit from "../components/basic/UiKit";
 import Main from "./main";
 import Todo from "../Todo";
 import CardModal from "./main/Board/CardModal";
+import Board from "./main/Board";
 
 
 function App() {
@@ -18,7 +19,8 @@ function App() {
       </Routes>
       {background && (
       <Routes>
-        <Route path="/card/:cardId" element={<CardModal />} />
+        <Route path="/board/:boardId/card/:cardId" element={<CardModal />}/>
+        <Route path="/board/:boardId" element={<Main/>}/>
       </Routes>
         )}
     </>

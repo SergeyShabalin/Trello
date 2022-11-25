@@ -13,6 +13,7 @@ export default function ListCard({
                                    header, cardId, columnId,
                                    columnHeader, decisionDate,
                                    countTask, doneTask, order,
+                                   boardId,
                                    ...props
                                  }) {
   const [shadowIn, setIsShadowIn] = useState(false);
@@ -30,15 +31,16 @@ export default function ListCard({
     if (e.target.className !== "cardShadow")
       setIsShadowIn(false);
   }
+
 //TODO сделать объект, в него пихнуть все что в диспатче
   function handleDrop(e) {
     setIsShadowIn(false);
     const card = JSON.parse(e.dataTransfer.getData("card"));
     const currentColumnId = e.dataTransfer.getData("currentColumnId");
-   if (columnId === currentColumnId){
-     dispatch(dragDropCardOneColumn(columnId, card, currentColumnId, card.order,cardId, order));
-   } else
-    dispatch(dragDropCard(columnId, card, currentColumnId, card.order, cardId, order));
+    if (columnId === currentColumnId) {
+      dispatch(dragDropCardOneColumn(columnId, card, currentColumnId, card.order, cardId, order));
+    } else
+      dispatch(dragDropCard(columnId, card, currentColumnId, card.order, cardId, order));
   }
 
   return (
@@ -53,6 +55,7 @@ export default function ListCard({
           header={header}
           order={order}
           columnId={columnId}
+          boardId={boardId}
           columnHeader={columnHeader} />
 
         <div className="footer">
@@ -69,7 +72,3 @@ export default function ListCard({
 
   );
 }
-// драглив привязан к врапперу, и он открывает тень. когда подходим к самой тени,
-//мы выходим за пределы врапера, попадая в дочерний класс listwrapper и срабатывает
-//обработчик драглив, закрывая тень. Как только тень закрывается - блок listwrapper
-//становится меньше по размерам, и тем самым курсор попадает в поле действия wrapper

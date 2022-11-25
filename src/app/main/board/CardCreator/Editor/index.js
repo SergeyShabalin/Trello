@@ -5,10 +5,17 @@ import { GrClose } from "react-icons/gr";
 import useOnClickOutside from "../../../../../hooks/UseOnClickOutside";
 import classes from "./Editor.module.css";
 
-export default function Editor({saveChanged, getNewValue, addCard, closeCreator}){
+export default function Editor({ getNewValue, addCard, closeCreator}){
 
   const ref = useRef();
   useOnClickOutside(ref, closeCreator);
+
+  function saveChanged(e) {
+    if (e.keyCode === 13){
+      e.preventDefault()
+      e.target.value = ''
+      addCard();}
+  }
 
   return (
     <div className={classes.control_creator} ref={ref}>
@@ -38,6 +45,5 @@ export default function Editor({saveChanged, getNewValue, addCard, closeCreator}
         </Button>
       </div>
     </div>
-
   );
 };

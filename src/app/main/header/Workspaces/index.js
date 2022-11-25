@@ -7,11 +7,13 @@ import { getAllBoard, getCurrentBoard } from "../../../../store/board/asyncActio
 import useOpenCloseContextMenu from "../useOpenCloseContextMenu";
 import classes from "./Workspaces.module.css";
 import "./Colors.css";
+import { Link, useLocation } from "react-router-dom";
 
 
 export default function Workspaces() {
 
   const dispatch = useDispatch();
+  const location = useLocation();
   const { isContext, openContextMenu, closeContextMenu } = useOpenCloseContextMenu();
   const allBoards = useSelector(state => state.board.allBoards);
 
@@ -38,7 +40,10 @@ export default function Workspaces() {
              className={classes.wrapper}
              onClick={() => setBoard(board._id)}>
           <div className={colorsIcon[color]}>{board.title.substr(0, 1)}</div>
-          <span className={classes.workspaces}> {board.title}</span>
+
+          <Link className={classes.link} state={{ background: location }} to={`/board/${board._id}`}>
+            <span className={classes.workspaces}> {board.title}</span>
+          </Link>
         </div>
       );
     }

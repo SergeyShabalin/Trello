@@ -2,19 +2,19 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import Button from "../../../../../components/basic/Button";
 import { NewTaskAdd } from "../../../../../store/cards/asyncActions";
-import useOpenAddMenu from "./useOpenAddMenu";
 import Editor from "./Editor";
+import useOpenCloseContext from "../../../../../hooks/UseOpenCloseContext";
 import classes from "./CheckListCreator.module.css";
 
 export default function CheckListCreator({ cardId, columnId }) {
 
   const [taskValue, setTaskValue] = useState("");
-  const { isAddMenu, addMenuOpen, addMenuClose } = useOpenAddMenu();
+  const {contextOpen, contextClose, isContext} = useOpenCloseContext()
   const dispatch = useDispatch();
 
   function addNewTask() {
     dispatch(NewTaskAdd(cardId, taskValue, columnId));
-    addMenuClose();
+    contextClose();
   }
 
   function getTaskValue({ target }) {
@@ -25,10 +25,10 @@ export default function CheckListCreator({ cardId, columnId }) {
     if (e.keyCode === 13) addNewTask();
   }
 
-  if (!isAddMenu) return (
+  if (!isContext) return (
     <div className={classes.main_wrapper}>
       <Button
-        onClick={addMenuOpen}
+        onClick={contextOpen}
         variant="outlined"
         label="Добавить задачу" />
     </div>
@@ -39,7 +39,7 @@ export default function CheckListCreator({ cardId, columnId }) {
       <Editor
         addTaskKeyDown={addTaskKeyDown}
         addNewTask={addNewTask}
-        addMenuClose={addMenuClose}
+        addMenuClose={contextClose}
         getTaskValue={getTaskValue} />
     </div>
   );

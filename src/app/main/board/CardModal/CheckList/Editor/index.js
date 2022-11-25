@@ -6,10 +6,7 @@ import Button from "../../../../../../components/basic/Button";
 import useOnClickOutside from "../../../../../../hooks/UseOnClickOutside";
 import { MdClear } from "react-icons/md";
 
-export default function Editor({isChecked,
-                                 changeTaskDone,
-                                 isEditCheckbox,
-                                 getTaskTitle,
+export default function Editor({ getTaskTitle,
                                  saveCheckboxValue,
                                  taskTitle,
                                  closeEditCheckbox

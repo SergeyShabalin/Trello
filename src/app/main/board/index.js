@@ -5,6 +5,7 @@ import { addColumn, getAllColumns } from "../../../store/columns/asyncActions";
 import ListCreator from "./ColumnCreator";
 import classes from "./Board.module.css";
 import BoardEditor from "./BoardEditor";
+import useOpenCloseContext from "../../../hooks/UseOpenCloseContext";
 
 
 export default function Board({ currentBoard }) {
@@ -12,7 +13,7 @@ export default function Board({ currentBoard }) {
   const dispatch = useDispatch();
   const columnsStore = useSelector(state => state.columns.columns);
   const [isCreator, setIsCreator] = useState(true);
-  const [isEditor, setIsEditor] = useState(false);
+  const {contextOpen, contextClose, isContext} = useOpenCloseContext()
 
   useEffect(() => {
     if (currentBoard._id) {
@@ -24,15 +25,6 @@ export default function Board({ currentBoard }) {
   function columnCreator() {
     setIsCreator(!isCreator);
   }
-//TODO сделать хук
-  function openEditor() {
-    setIsEditor(true);
-  }
-
-  function closeEditor() {
-    setIsEditor(false);
-  }
-
 
   function addList(header, boardId) {
     dispatch(addColumn(header, boardId));
@@ -45,6 +37,7 @@ export default function Board({ currentBoard }) {
         <Column
           columnIndex={index}
           column={column}
+          boardId={currentBoard._id}
           cardList={column.cards}
           sortArr={column.sortArr}
           draggable
@@ -55,12 +48,12 @@ export default function Board({ currentBoard }) {
 
   return (
     <div className={classes.board}>
-      {!isEditor
-        ? <div className={classes.board_header} onClick={openEditor}>{currentBoard.title}</div>
+      {!isContext
+        ? <div className={classes.board_header} onClick={contextOpen}>{currentBoard.title}</div>
         : <BoardEditor
           boardId={currentBoard._id}
           title={currentBoard.title}
-          closeEditor={closeEditor} />}
+          closeEditor={contextClose} />}
       <div className={classes.wrapper_list}>
         <div className={classes.columns}>
           {columnsList}

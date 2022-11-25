@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams, } from "react-router-dom";
 import { clearCardInfo, getCardInfo } from "../../../../store/cards/asyncActions";
@@ -15,7 +15,7 @@ export default function CardModal() {
 
   const cardInfo = useSelector(({ cards }) => cards.cards);
   const dispatch = useDispatch();
-
+  const { boardId } = useParams();
   const navigate = useNavigate();
   const { cardId } = useParams();
   const checkListDone = cardInfo?.checkList.filter(item => item.done);
@@ -25,7 +25,7 @@ export default function CardModal() {
   }, []);
 
   function closeModal() {
-    navigate("/");
+    navigate(`/board/${boardId}`);
     dispatch(clearCardInfo());
   }
 

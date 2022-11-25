@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Link, Outlet, useLocation } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, Outlet, useLocation, useParams } from "react-router-dom";
 import { BiEdit } from "react-icons/bi";
 import Button from "../../../../../components/basic/Button";
 import Modal from "../../../../../components/basic/Modal";
@@ -11,13 +11,13 @@ import MovingCard from "./MovingCard";
 import useOpenMovingForm from "./useOpenMovingForm";
 
 
-export default function ContentEdit({ header, cardId, columnId, order }) {
+export default function ContentEdit({ header, cardId, columnId, order, boardId }) {
 
   const location = useLocation();
-
   const [coordinates, setCoordinates] = useState();
   const {isModalContextMenu, openModalContextMenu,closeModalContextMenu} = useOpenModalContextMenu()
   // const {isMoving, openMoving, closeMoving} = useOpenMovingForm()
+
 
   function openModal(e){
     const coords = e.currentTarget.getBoundingClientRect();
@@ -27,7 +27,7 @@ export default function ContentEdit({ header, cardId, columnId, order }) {
 
   return (
     <div className={classes.header}>
-      <Link className={classes.link} state={{ background: location }} to={`/card/${cardId}`}>
+       <Link className={classes.link} state={{ background: location }} to={`/board/${boardId}/card/${cardId}`}>
         <div className={classes.title}>{header}</div>
       </Link>
 

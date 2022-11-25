@@ -9,7 +9,7 @@ import "./ColumnWrapper.css";
 import "../Cards/ListCard.css";
 
 
-export default function Column({ column, cardList, sortArr }) {
+export default function Column({ column, cardList, sortArr, boardId }) {
 
   const dispatch = useDispatch();
   const [shadow, setIsShadow] = useState(false);
@@ -59,6 +59,7 @@ export default function Column({ column, cardList, sortArr }) {
               onDrop={(e) => handleDropColumn(e, column._id)}
               columnHeader={column.header}
               columnId={column._id}
+              boardId={boardId}
               //TODO
               order={card.order}
               cardId={card._id}

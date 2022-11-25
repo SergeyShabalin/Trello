@@ -5,19 +5,18 @@ import { TaskDelete, updateTaskTitle, updateTaskValue } from "../../../../../sto
 import Checkbox from "../../../../../components/basic/Сheckbox";
 import Button from "../../../../../components/basic/Button";
 import useOnClickOutside from "../../../../../hooks/UseOnClickOutside";
-import classes from "./CheckList.module.css";
+import useOpenCloseContext from "../../../../../hooks/UseOpenCloseContext";
 import Editor from "./Editor";
-import useOpenCheckListEditor from "./useOpenCheckListEditor";
-
+import classes from "./CheckList.module.css";
 
 export default function CheckList({ task, done, _id, cardId, columnId }) {
 
   const [taskTitle, setTaskTitle] = useState(task);
   const [isChecked, setChecked] = useState(done);
-  const { isEditCheckbox, openEditChecklist, closeEditCheckbox } = useOpenCheckListEditor();
+  const { contextOpen, contextClose, isContext } = useOpenCloseContext();
   const ref = useRef();
   const dispatch = useDispatch();
-  useOnClickOutside(ref, closeEditCheckbox);
+  useOnClickOutside(ref, contextClose);
 
   function getTaskTitle({ target }) {
     setTaskTitle(target.value);
@@ -32,7 +31,7 @@ export default function CheckList({ task, done, _id, cardId, columnId }) {
   function saveCheckboxValue(e) {
     if (!e.keyCode || e.keyCode === 13) {
       dispatch(updateTaskTitle(taskTitle, _id));
-      closeEditCheckbox();
+      contextClose();
     }
   }
 
@@ -40,11 +39,10 @@ export default function CheckList({ task, done, _id, cardId, columnId }) {
     dispatch(TaskDelete(cardId, _id, columnId));
   }
 
-
-  if (!isEditCheckbox) return (
+  if (!isContext) return (
     <div className={classes.checkbox} ref={ref}>
       <Checkbox checked={isChecked} onChange={changeTaskDone} />
-      <div className={classes.checkbox_content} onClick={openEditChecklist}>
+      <div className={classes.checkbox_content} onClick={contextOpen}>
              <span
                className={isChecked ? `${classes.checkbox_title_none}`
                  : `${classes.checkbox_title_done}`}>
@@ -57,8 +55,8 @@ export default function CheckList({ task, done, _id, cardId, columnId }) {
             <Button
               onClick={deleteTask}
               variant="just_icon"
-              icon={<MdClear />} />
-          }
+              icon={<MdClear />}
+            />}
         </div>
       </div>
     </div>
@@ -66,13 +64,11 @@ export default function CheckList({ task, done, _id, cardId, columnId }) {
 
   return (
     <div className={classes.checkList_wrapper}>
-      <Editor isChecked={isChecked}
-              changeTaskDone={changeTaskDone}
-              isEditCheckbox={isEditCheckbox}
-              getTaskTitle={getTaskTitle}
-              saveCheckboxValue={saveCheckboxValue}
-              taskTitle={taskTitle}
-              closeEditCheckbox={closeEditCheckbox} />
+      <Editor
+        getTaskTitle={getTaskTitle}
+        saveCheckboxValue={saveCheckboxValue}
+        taskTitle={taskTitle}
+        closeEditCheckbox={contextClose} />
     </div>
   );
 }
