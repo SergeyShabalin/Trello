@@ -1,15 +1,13 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { updateCardTitle } from "../../../../../../store/cards/asyncActions";
 import Input from "../../../../../../components/basic/Input";
 import Button from "../../../../../../components/basic/Button";
 import classes from "../Editor/Editor.module.css";
-import DecisionDate from "../../DecisionDate";
-import Checkout from "../../Checkout";
-import { useDispatch } from "react-redux";
-import { updateCardTitle } from "../../../../../../store/cards/asyncActions";
 
 export default function Editor({ header, closeModalContextMenu, cardId, columnId }) {
-  const dispatch = useDispatch();
 
+  const dispatch = useDispatch();
   const [newTitle, setNewTitle] = useState(header);
 
   function getNewValue({ target }) {
@@ -40,8 +38,6 @@ export default function Editor({ header, closeModalContextMenu, cardId, columnId
           value={header}
         />
         <div className={classes.footer}>
-          {/*<DecisionDate />*/}
-          {/*<Checkout />*/}
         </div>
       </div>
 

@@ -1,19 +1,18 @@
 import React, {  useState } from "react";
-import Button from "../../../../components/basic/Button";
-import useOpenCloseContextMenu from "../useOpenCloseContextMenu";
-import ContextMenu from "../ContextMenu";
-import classes from "./Creator.module.css";
-import { RiTrelloFill } from "react-icons/ri";
-import BoardCreator from "./BoardCreator";
 import { GrPrevious } from "react-icons/gr";
 import { BiCopyAlt } from "react-icons/bi";
+import { RiTrelloFill } from "react-icons/ri";
+import useOpenCloseContext from "../../../../hooks/UseOpenCloseContext";
+import ContextMenu from "../ContextMenu";
+import BoardCreator from "./BoardCreator";
+import Button from "../../../../components/basic/Button";
+import classes from "./Creator.module.css";
 
 export default function Creator() {
 
-  const { isContext, openContextMenu, closeContextMenu } = useOpenCloseContextMenu();
+  const {contextOpen, contextClose, isContext} = useOpenCloseContext()
   const [isCreator, setIsCreator] = useState(false);
-
-
+//TODO сделатьлокальный хук
   function openCreator() {
     setIsCreator(true);
   }
@@ -48,12 +47,12 @@ export default function Creator() {
   return (
     <div>
       <Button
-        onClick={openContextMenu}
+        onClick={contextOpen}
         label="Создать" />
       {isContext && <ContextMenu
-        closeContextMenu={closeContextMenu}
+        closeContextMenu={contextClose}
         content={isCreator ? <BoardCreator
-          closeContextMenu={closeContextMenu}
+          closeContextMenu={contextClose}
           closeCreator={closeCreator} /> : content}
         title="Создать">
         {isCreator && <Button

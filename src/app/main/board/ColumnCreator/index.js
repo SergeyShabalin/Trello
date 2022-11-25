@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { AiOutlinePlus } from "react-icons/ai";
+import useOpenCloseContext from "../../../../hooks/UseOpenCloseContext";
 import Button from "../../../../components/basic/Button";
 import Editor from "./Editor";
-import useOpenEditor from "./useOpenEditor";
 
 function ListCreator({ addList, boardId }) {
 
   const [header, setHeader] = useState("");
-  const { isEditor, openEditor, closeEditor } = useOpenEditor();
+  const {contextOpen, contextClose, isContext} = useOpenCloseContext()
 
   function getColumnHeader(e) {
     setHeader(e.target.value);
@@ -16,18 +16,18 @@ function ListCreator({ addList, boardId }) {
   function addColumn(e) {
     if (e.keyCode === 13) {
       addList(header, boardId);
-      closeEditor();
+      contextClose();
     }
   }
 
   function addListColumn() {
     addList(header, boardId)
-    closeEditor();
+    contextClose();
   }
 
-  if (!isEditor) return (
+  if (!isContext) return (
     <Button
-      onClick={openEditor}
+      onClick={contextOpen}
       variant="contained"
       label="Добавить колонку"
       startIcon={<AiOutlinePlus />}/>
@@ -38,7 +38,7 @@ function ListCreator({ addList, boardId }) {
         getColumnHeader={getColumnHeader}
         addListColumn={addListColumn}
         addColumn={addColumn}
-        closeEditor={closeEditor} />
+        closeEditor={contextClose} />
   );
 };
 

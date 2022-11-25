@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Column from "./Columns";
 import { addColumn, getAllColumns } from "../../../store/columns/asyncActions";
+import Column from "./Columns";
 import ListCreator from "./ColumnCreator";
-import classes from "./Board.module.css";
 import BoardEditor from "./BoardEditor";
 import useOpenCloseContext from "../../../hooks/UseOpenCloseContext";
-
+import classes from "./Board.module.css";
 
 export default function Board({ currentBoard }) {
 

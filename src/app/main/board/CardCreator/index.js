@@ -1,10 +1,10 @@
 import React, {  useState } from "react";
 import { useDispatch } from "react-redux";
 import { AiOutlinePlus } from "react-icons/ai";
+import { addNewCard } from "../../../../store/cards/asyncActions";
 import Editor from "./Editor";
 import Button from "../../../../components/basic/Button";
 import useOpenCloseContext from "../../../../hooks/UseOpenCloseContext";
-import { addNewCard } from "../../../../store/cards/asyncActions";
 import classes from "./CardCreator.module.css";
 
 export default function CardCreator({columnId}) {

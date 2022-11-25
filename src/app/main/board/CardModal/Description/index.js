@@ -1,21 +1,21 @@
 import React, { useState, useRef } from "react";
 import { useDispatch } from "react-redux";
-import useOnClickOutside from "../../../../../hooks/UseOnClickOutside";
 import { updateCardDescription } from "../../../../../store/cards/asyncActions";
-import Editor from "./Editor";
 import { AiOutlineMenuUnfold } from "react-icons/ai";
+import useOnClickOutside from "../../../../../hooks/UseOnClickOutside";
+import useOpenCloseContext from "../../../../../hooks/UseOpenCloseContext";
+import Editor from "./Editor";
 import Button from "../../../../../components/basic/Button";
-import useOpenEditDescription from "./useOpenEditDescription";
 import classes from "./Description.module.css";
 
 export default function Description({ cardId, columnId, description = "" }) {
 
   const [descriptionValue, setDescriptionValue] = useState("");
-  const { isEditDescription, openEditDescription, closeEditDescription } = useOpenEditDescription();
+  const {contextOpen, contextClose, isContext} = useOpenCloseContext()
 
   const ref = useRef();
   const dispatch = useDispatch();
-  useOnClickOutside(ref, closeEditDescription);
+  useOnClickOutside(ref, contextClose);
 
   function getDescriptionValue(e) {
     setDescriptionValue(e.target.value);
@@ -23,7 +23,7 @@ export default function Description({ cardId, columnId, description = "" }) {
 
   function saveDescriptionValue() {
     dispatch(updateCardDescription(cardId, columnId, descriptionValue));
-    closeEditDescription();
+    contextClose();
   }
 
   function saveInEnter(e) {
@@ -34,13 +34,13 @@ export default function Description({ cardId, columnId, description = "" }) {
     <div className={classes.description_wrapper}>
       <AiOutlineMenuUnfold className={classes.icons} />
       <h4 className={classes.description_title}>Описание</h4>
-      <Button label="Изменить" onClick={openEditDescription} />
+      <Button label="Изменить" onClick={contextOpen} />
     </div>
   );
 
-  if (!isEditDescription) return (
+  if (!isContext) return (
     <> {titleDescription}
-      <div onClick={openEditDescription}>
+      <div onClick={contextOpen}>
         {
           description !== "" ? <div className={classes.description_card}>{description}</div>
             : <div className={classes.description_card}>нет описания</div>
@@ -56,7 +56,7 @@ export default function Description({ cardId, columnId, description = "" }) {
         getDescriptionValue={getDescriptionValue}
         description={description}
         saveDescriptionValue={saveDescriptionValue}
-        closeEditDescription={closeEditDescription} />
+        closeEditDescription={contextClose} />
     </>
   );
 }
