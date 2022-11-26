@@ -17,13 +17,13 @@ class ColumnsAPI {
     return Api.patch(`/columns/${columnId}`, { header });
   }
 
-  async dragDropCardInColumnAPI(currentCardId, targetColumnId, currentColumnId, currentOrder, targetCardId, targetOrder) {
-     return Api.patch(`/columns/dragDrop/${currentColumnId}`,{ currentCardId: currentCardId, targetColumnId:targetColumnId, currentOrder: currentOrder, targetCardId: targetCardId, targetOrder:targetOrder  });
+  async dragDropCardInColumnAPI(data) {
+    return Api.patch(`/columns/dragDrop/${data.currentColumnId}`,{data});
   }
 
   async dragDropCardInOneColumnAPI(data) {
-    return Api.patch(`/columns/dragDropOneColumn/${data.currentColumnId}`,{ currentCardId: data.currentCardId, targetColumnId: data.targetColumnId, currentOrder: data.currentOrder, targetCardId: data.targetCardId, targetOrder:data.targetOrder  });
-  }
+    return Api.patch(`/columns/dragDropOneColumn/${data.currentColumnId}`,{data})
+    }
 
   async dragDropCardInColumnAPIToEmpty(card, targetColumnId, currentColumnId) {
     return Api.patch(`/columns/dragDropToEmpty/${currentColumnId}`,{ currentCardId: card._id, targetColumnId:targetColumnId, currentOrder: card.order });

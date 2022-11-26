@@ -209,36 +209,36 @@ export const updateTaskValue = (taskDone, checkListId, cardId, columnId) => asyn
   }
 };
 
-export const dragDropCard = (targetColumnId, card, currentColumnId, currentOrder, targetCardId, targetOrder) => async (dispatch, getState) => {
+ export const dragDropCard = (data) => async (dispatch, getState) => {
+
   const { columns } = getState().columns;
   try {
     const newColumns = columns.map(item => {
-      if (item._id === targetColumnId) {
-        const index = item.sortArr.indexOf(targetOrder) + 1;
-        item.sortArr.splice(index, 0, currentOrder);
-        return { ...item, cards: [...item.cards, card] };
+      if (item._id === data.targetColumnId) {
+        const index = item.sortArr.indexOf(data.targetOrder) + 1;
+        item.sortArr.splice(index, 0, data.currentOrder);
+        return { ...item, cards: [...item.cards, data.currentCard] };
       }
-      if (item._id === currentColumnId) {
+      if (item._id === data.currentColumnId) {
         return {
-          ...item, cards: item.cards.filter(i => i._id !== card._id),
-          sortArr: item.sortArr.filter(i => i !== currentOrder)
+          ...item, cards: item.cards.filter(i => i._id !== data.currentCard._id),
+          sortArr: item.sortArr.filter(i => i !== data.currentOrder)
         };
       } else return item;
     });
     dispatch(columnsAC.dragCards(newColumns));
-    await ColumnsAPI.dragDropCardInColumnAPI(card._id, targetColumnId, currentColumnId, currentOrder, targetCardId, targetOrder);
-    await CardsApi.dragDropCardAPI(card._id, targetColumnId);
+    await ColumnsAPI.dragDropCardInColumnAPI(data);
+    await CardsApi.dragDropCardAPI(data.currentCard._id, data.targetColumnId);
   } catch (error) {
     console.warn(error, "server error");
   }
 };
 
-// export const dragDropCardOneColumn = (targetColumnId, card, currentColumnId, currentOrder, targetCardId, targetOrder) => async (dispatch, getState) => {
   export const dragDropCardOneColumn = (data) => async (dispatch, getState) => {
   const { columns } = getState().columns;
   try {
     const changedColumn = columns.map(item => {
-      if (item._id === data.id) {
+      if (item._id === data.targetColumnId) {
         const targetIndex = item.sortArr.indexOf(data.targetOrder);
         const currentIndex = item.sortArr.indexOf(data.currentOrder);
         item.sortArr.splice(currentIndex, 1);

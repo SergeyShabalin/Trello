@@ -1,4 +1,4 @@
-import React, { createRef, useEffect, useState } from "react";
+import React, { useState } from "react";
 import Checkout from "./Checkout";
 import ContentEdit from "./ContentEdit";
 import DecisionDate from "./DecisionDate";
@@ -6,7 +6,6 @@ import "./ListCard.css";
 import "../Columns/ColumnWrapper.css";
 import { dragDropCard, dragDropCardOneColumn } from "../../../../store/cards/asyncActions";
 import { useDispatch } from "react-redux";
-import { BsTextIndentRight } from "react-icons/bs";
 
 
 export default function ListCard({
@@ -32,25 +31,22 @@ export default function ListCard({
       setIsShadowIn(false);
   }
 
-//TODO сделать объект, в него пихнуть все что в диспатче
   function handleDrop(e) {
     setIsShadowIn(false);
     const card = JSON.parse(e.dataTransfer.getData("card"));
     const currentColumnId = e.dataTransfer.getData("currentColumnId");
-
     const data = {
-      id: columnId,
+      targetColumnId: columnId,
       currentCard: card,
-      currentColumnId:currentColumnId,
+      currentColumnId: currentColumnId,
       currentOrder: card.order,
-      targetCardId:  cardId,
+      targetCardId: cardId,
       targetOrder: order
-    }
-
+    };
     if (columnId === currentColumnId) {
-      dispatch(dragDropCardOneColumn(data))
+      dispatch(dragDropCardOneColumn(data));
     } else
-      dispatch(dragDropCard(columnId, card, currentColumnId, card.order, cardId, order));
+      dispatch(dragDropCard(data));
   }
 
   return (
