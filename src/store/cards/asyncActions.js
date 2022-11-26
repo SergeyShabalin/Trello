@@ -233,20 +233,21 @@ export const dragDropCard = (targetColumnId, card, currentColumnId, currentOrder
   }
 };
 
-export const dragDropCardOneColumn = (targetColumnId, card, currentColumnId, currentOrder, targetCardId, targetOrder) => async (dispatch, getState) => {
+// export const dragDropCardOneColumn = (targetColumnId, card, currentColumnId, currentOrder, targetCardId, targetOrder) => async (dispatch, getState) => {
+  export const dragDropCardOneColumn = (data) => async (dispatch, getState) => {
   const { columns } = getState().columns;
   try {
     const changedColumn = columns.map(item => {
-      if (item._id === targetColumnId) {
-        const targetIndex = item.sortArr.indexOf(targetOrder);
-        const currentIndex = item.sortArr.indexOf(currentOrder);
+      if (item._id === data.id) {
+        const targetIndex = item.sortArr.indexOf(data.targetOrder);
+        const currentIndex = item.sortArr.indexOf(data.currentOrder);
         item.sortArr.splice(currentIndex, 1);
-        item.sortArr.splice(targetIndex, 0, currentOrder);
+        item.sortArr.splice(targetIndex, 0, data.currentOrder);
         return { ...item, sortArr: item.sortArr };
       } else return item;
     });
     dispatch(columnsAC.dragCardsOneColumn(changedColumn));
-    await ColumnsAPI.dragDropCardInOneColumnAPI(card, card._id, targetColumnId, currentColumnId, currentOrder, targetCardId, targetOrder);
+     await ColumnsAPI.dragDropCardInOneColumnAPI(data);
   } catch (error) {
     console.warn(error, "server error");
   }

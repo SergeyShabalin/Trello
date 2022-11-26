@@ -21,8 +21,8 @@ class ColumnsAPI {
      return Api.patch(`/columns/dragDrop/${currentColumnId}`,{ currentCardId: currentCardId, targetColumnId:targetColumnId, currentOrder: currentOrder, targetCardId: targetCardId, targetOrder:targetOrder  });
   }
 
-  async dragDropCardInOneColumnAPI(card,currentCardId, targetColumnId, currentColumnId, currentOrder, targetCardId, targetOrder) {
-    return Api.patch(`/columns/dragDropOneColumn/${currentColumnId}`,{ currentCardId: currentCardId, targetColumnId:targetColumnId, currentOrder: currentOrder, targetCardId: targetCardId, targetOrder:targetOrder  });
+  async dragDropCardInOneColumnAPI(data) {
+    return Api.patch(`/columns/dragDropOneColumn/${data.currentColumnId}`,{ currentCardId: data.currentCardId, targetColumnId: data.targetColumnId, currentOrder: data.currentOrder, targetCardId: data.targetCardId, targetOrder:data.targetOrder  });
   }
 
   async dragDropCardInColumnAPIToEmpty(card, targetColumnId, currentColumnId) {
