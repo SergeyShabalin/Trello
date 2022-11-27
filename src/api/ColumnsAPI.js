@@ -6,7 +6,7 @@ class ColumnsAPI {
   }
 
   async addNewColumnAPI(header, boardId) {
-    return Api.post(`/columns/`, { header, sortArr: [], boardId: boardId });
+    return Api.post(`/columns/`, { header, boardId: boardId });
   }
 
   async deleteColumnAPI(columnId) {

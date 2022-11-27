@@ -13,7 +13,6 @@ export default function Main() {
   const currentBoard = useSelector(state => state.board.currentBoard);
 
   const {boardId}  = useParams();
-
   useEffect(() => {
    boardId &&  dispatch(getCurrentBoard(boardId));
   }, []);

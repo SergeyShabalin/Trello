@@ -16,7 +16,7 @@
 }
 
 .title{
-     display: flex;
+    display: flex;
     font-size: 0.9rem;
     color: #5e6c84;
     align-items: center;
@@ -25,11 +25,13 @@
 }
 .back_btn{
     transform: scale(0.9);
-
+    padding-right: 5px;
 }
 
 .content{
+    font-size: 0.8rem;
     padding: 5px;
+    color: #3a4352;
     max-height: 240px;
     overflow-y: auto;
 }

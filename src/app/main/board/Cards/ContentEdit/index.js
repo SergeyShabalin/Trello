@@ -1,5 +1,5 @@
-import React, {  useState } from "react";
-import { Link, Outlet, useLocation, } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, Outlet, useLocation } from "react-router-dom";
 import { BiEdit } from "react-icons/bi";
 import useOpenCloseContext from "../../../../../hooks/UseOpenCloseContext";
 import Button from "../../../../../components/basic/Button";
@@ -12,17 +12,17 @@ export default function ContentEdit({ header, cardId, columnId, order, boardId }
 
   const location = useLocation();
   const [coordinates, setCoordinates] = useState();
-  const {contextOpen, contextClose, isContext} = useOpenCloseContext()
+  const { contextOpen, contextClose, isContext } = useOpenCloseContext();
 
-  function openModal(e){
+  function openModal(e) {
     const coords = e.currentTarget.getBoundingClientRect();
     setCoordinates(coords);
-    contextOpen()
+    contextOpen();
   }
 
   return (
     <div className={classes.header}>
-       <Link className={classes.link} state={{ background: location }} to={`/board/${boardId}/card/${cardId}`}>
+      <Link className={classes.link} state={{ background: location }} to={`/board/${boardId}/card/${cardId}`}>
         <div className={classes.title}>{header}</div>
       </Link>
 
@@ -40,15 +40,15 @@ export default function ContentEdit({ header, cardId, columnId, order, boardId }
           <div className={classes.content_edit}>
             <Editor
               columnId={columnId}
-              header={isContext}
+              header={header}
               closeModalContextMenu={contextClose}
-              cardId={cardId}/>
+              cardId={cardId} />
 
             <CardContextMenu
               columnId={columnId}
               cardId={cardId}
               order={order}
-              closeModalContextMenu={contextClose}/>
+              closeModalContextMenu={contextClose} />
 
           </div>
         </Modal>

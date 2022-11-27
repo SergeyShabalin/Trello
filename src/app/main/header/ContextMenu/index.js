@@ -11,8 +11,9 @@ export default function ContextMenu({ closeContextMenu, content, title, children
   return (
     <div ref={ref} className={classes.contextMenuWrapper}>
       <div className={classes.header}>
-        <span className={classes.back_btn}>{children}</span>
+
         <span className={classes.title}>{title}</span>
+        <span className={classes.back_btn}>{children}</span>
       </div>
       <hr />
       <div className={classes.content}>{content}</div>

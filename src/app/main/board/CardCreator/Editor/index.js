@@ -16,7 +16,8 @@ export default function Editor({ getNewValue, addCard, closeCreator}){
       e.target.value = ''
       addCard();}
   }
-
+  // TODO При нажатии кнопки не чистит инпут, возможно, надо валуе у него прописать через стейт
+// !!!!TODO важно, при изменении тайтла карточки значение инпута выходит true
   return (
     <div className={classes.control_creator} ref={ref}>
       <div className={classes.control_input}>

@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import { CgMenuGridO } from "react-icons/cg";
-
 import { RiTrelloFill } from "react-icons/ri";
 import Button from "../../../components/basic/Button";;
 import Workspaces from "./Workspaces";
@@ -11,7 +10,6 @@ export default function Header() {
 
   return (
     <div className={classes.header}>
-
       <div className={classes.menu}>
         <Button
           variant="just_icon"

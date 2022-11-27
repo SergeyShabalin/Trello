@@ -8,7 +8,6 @@ import { useDispatch } from "react-redux";
 
 export default function BoardCreator({ closeCreator, closeContextMenu }) {
 
-  const [isEmpty, setIsEmpty] = useState(true);
   const [title, setTitle] = useState('');
   const dispatch = useDispatch();
 
@@ -23,33 +22,33 @@ export default function BoardCreator({ closeCreator, closeContextMenu }) {
   }
 
   function getNewValue({ target }) {
-    if (target.value === "") setIsEmpty(true);
-    else setIsEmpty(false);
     setTitle(target.value)
   }
 
   return (
     <div>
-      <Input
-        rows={3}
-        cols={36}
-        autoFocus
-        onKeyDown={saveChanged}
-        onChange={getNewValue}
-        variant="transparent"
-        container="custom"
-        placeholder="Введите название доски" />
-      <div className={classes.footer}>
-        <div className={classes.creator}>
-
-          {isEmpty && <span className={classes.hint}>👋 Укажите название доски</span>}
-          {!isEmpty && <Button
-            onClick={addBoard}
-            variant="contained"
-            color="submit"
-            label="Добавить доску" />}
+      <span className={classes.header_creator}>Создание чистой доски</span>
+      <div className={classes.controller}>
+        <Input
+          rows={1}
+          cols={36}
+          autoFocus
+          onKeyDown={saveChanged}
+          onChange={getNewValue}
+          variant="transparent"
+          container="custom"
+          placeholder="Введите название доски" />
+        <div className={classes.footer}>
+          <div className={classes.creator}>
+            <Button
+              onClick={addBoard}
+              variant="contained"
+              color="submit"
+              label="Добавить доску" />
+          </div>
         </div>
       </div>
+
     </div>
   );
 };

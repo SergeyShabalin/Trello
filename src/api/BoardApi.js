@@ -14,6 +14,10 @@ class BoardApi {
      return Api.post(`/boards/`, {title: title, columns: []});
   }
 
+  async addNewBoardSampleAPI(title) {
+    return Api.post(`/boards/sample/`, {title: title, columns: []});
+  }
+
   async updateBoardAPI(boardId, title) {
     return Api.patch(`/boards/${boardId}`, {title});
   }

@@ -1,4 +1,4 @@
-import React, {  useState } from "react";
+import React, { useState } from "react";
 import { GrPrevious } from "react-icons/gr";
 import { BiCopyAlt } from "react-icons/bi";
 import { RiTrelloFill } from "react-icons/ri";
@@ -7,59 +7,57 @@ import ContextMenu from "../ContextMenu";
 import BoardCreator from "./BoardCreator";
 import Button from "../../../../components/basic/Button";
 import classes from "./Creator.module.css";
+import useOpenCloseCreator from "./useOpenCloseCreator";
+import NewBoard from "./BoardCreator/NewBoard";
+import SampleBoard from "./BoardCreator/SampleBoard";
+import useOpenCloseSampleCreator from "./useOpenCloseSampleCreator";
+import BoardSampleCreator from "./BoardCreator/SampleBoard/BoardSampleCreator";
 
 export default function Creator() {
 
-  const {contextOpen, contextClose, isContext} = useOpenCloseContext()
-  const [isCreator, setIsCreator] = useState(false);
-//TODO сделатьлокальный хук
-  function openCreator() {
-    setIsCreator(true);
-  }
-
-  function closeCreator() {
-    setIsCreator(false);
-  }
+  const { contextOpen, contextClose, isContext } = useOpenCloseContext();
+  const { isCreator, openCreator, closeCreator } = useOpenCloseCreator();
+  const { isSampleCreator, openSampleCreator, closeSampleCreator } = useOpenCloseSampleCreator();
 
   const content = (
     <>
-      <div className={classes.wrapper} onClick={openCreator}>
-      <div className={classes.header}>
-        <RiTrelloFill />
-        <span className={classes.title}>Cоздайте доску</span>
-      </div>
-      <p>Доска представляет собой совокупность карточек,
-        упорядоченных в списках. Используйте её для управления проектом,
-        отслеживания или организации чего угодно.</p>
+      {/*TODO при добавлении доски нужно переходить сразу на ссылку доски*/}
 
-    </div>
-      <div className={classes.wrapper}>
-        <div className={classes.header}>
-          <BiCopyAlt/>
-          <span className={classes.title}>Начните с шаблона</span>
-        </div>
-        <p>Начните работу быстрее, используя шаблон доски</p>
-      </div>
+      <NewBoard openCreator={openCreator} />
+      <SampleBoard openSampleCreator={openSampleCreator} />
     </>
   );
 
+  function closeCreators(){
+    closeCreator()
+    closeSampleCreator()
+  }
 
   return (
     <div>
       <Button
         onClick={contextOpen}
         label="Создать" />
+
       {isContext && <ContextMenu
         closeContextMenu={contextClose}
-        content={isCreator ? <BoardCreator
-          closeContextMenu={contextClose}
-          closeCreator={closeCreator} /> : content}
+        content={isCreator
+          ? <BoardCreator
+            closeContextMenu={contextClose}
+            closeCreator={closeCreator} />
+          : content
+          &&
+          isSampleCreator
+            ? <BoardSampleCreator
+              closeContextMenu={contextClose}
+              closeSampleCreator={closeSampleCreator}/>
+            : content}
+
         title="Создать">
-        {isCreator && <Button
-          onClick={closeCreator}
+        {(isCreator || isSampleCreator) ? <Button
+          onClick={closeCreators}
           variant="just_icon"
-          icon={<GrPrevious />}
-        />}
+          icon={<GrPrevious />} /> : null}
       </ContextMenu>}
     </div>
   );
