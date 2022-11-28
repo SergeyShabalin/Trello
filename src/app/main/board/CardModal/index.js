@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate, useParams, } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { clearCardInfo, getCardInfo } from "../../../../store/cards/asyncActions";
 import Description from "./Description";
 import CheckList from "./CheckList";
@@ -39,23 +39,21 @@ export default function CardModal() {
         <Header closeModal={closeModal} title={cardInfo.header} />
         <p className={classes.title_column}>в колонке "{cardInfo?.columnHeader}"</p>
 
-          <Deadline
-            columnId={cardInfo.column_id}
-            decisionDate={cardInfo.decisionDate}
-            cardId = {cardInfo._id}/>
-
+        <Deadline
+          columnId={cardInfo.column_id}
+          decisionDate={cardInfo.decisionDate}
+          cardId={cardInfo._id} />
 
         <Description
           description={cardInfo.description}
           columnId={cardInfo.column_id}
-          cardId={cardId}
-        />
+          cardId={cardId} />
 
         <ChecklistTitle
           allTask={cardInfo?.checkList.length}
           doneTask={checkListDone.length} />
         <div className={classes.checklists_wrapper}>{CheckLists}</div>
-        <CheckListCreator  columnId={cardInfo.column_id} cardId={cardId} />
+        <CheckListCreator columnId={cardInfo.column_id} cardId={cardId} />
 
       </div>
     </Modal>

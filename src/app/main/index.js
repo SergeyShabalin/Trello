@@ -9,17 +9,22 @@ import "../../GlobalStyles.css";
 
 
 export default function Main() {
+
   const dispatch = useDispatch();
   const currentBoard = useSelector(state => state.board.currentBoard);
 
   const {boardId}  = useParams();
+  const board = useParams();
   useEffect(() => {
+    console.log('boardId', board);
    boardId &&  dispatch(getCurrentBoard(boardId));
   }, []);
+
 
   return (
     <div className={classes.main}>
       <div className={classes.header_main}>
+
         <Header/>
         <div className={classes.work_space}>
           {/*TODO поставить условие отсутствия доски*/}

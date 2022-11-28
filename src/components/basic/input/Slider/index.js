@@ -17,6 +17,7 @@ export default function Slider({allTask, doneTask}) {
   const getBackgroundSize = () => {
     return { backgroundSize: `${ (progress * 100) / 100}% 100%` };
   };
+
   return (
     <div className={classes.wrapper}>
       <span className={classes.progress_percent}>{allTask && progress.toFixed(0).toString()}%</span>

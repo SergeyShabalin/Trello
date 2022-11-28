@@ -1,10 +1,9 @@
 import React, { useState } from "react";
+import { addNewBoard } from "../../../../../store/board/asyncActions";
+import { useDispatch } from "react-redux";
 import Input from "../../../../../components/basic/Input";
 import Button from "../../../../../components/basic/Button";
 import classes from "./BoardCreator.module.css";
-import { GrPrevious } from "react-icons/gr";
-import { addNewBoard } from "../../../../../store/board/asyncActions";
-import { useDispatch } from "react-redux";
 
 export default function BoardCreator({ closeCreator, closeContextMenu }) {
 
