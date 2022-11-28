@@ -36,7 +36,7 @@ export default function Column({ column, cardList, sortArr, boardId }) {
     }
   }
 
-  function handleDragLeave(e) {
+  function handleDragLeave() {
     setIsShadow(false);
   }
 
@@ -60,13 +60,7 @@ export default function Column({ column, cardList, sortArr, boardId }) {
               columnHeader={column.header}
               columnId={column._id}
               boardId={boardId}
-              //TODO
-              order={card.order}
-              cardId={card._id}
-              header={card.header}
-              decisionDate={card.decisionDate}
-              countTask={card.countTask}
-              doneTask={card.doneTask}
+              targetCard={card}
             />))
           }
         </div>

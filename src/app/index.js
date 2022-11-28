@@ -19,8 +19,8 @@ function App() {
       </Routes>
       {background && (
       <Routes>
-        <Route path="/board/:boardId/card/:cardId" element={<CardModal />}/>
         <Route path="/board/:boardId" element={<Main/>}/>
+        <Route path="/board/:boardId/card/:cardId" element={<CardModal />}/>
       </Routes>
         )}
     </>

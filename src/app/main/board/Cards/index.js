@@ -8,13 +8,8 @@ import { dragDropCard, dragDropCardOneColumn } from "../../../../store/cards/asy
 import { useDispatch } from "react-redux";
 
 
-export default function ListCard({
-                                   header, cardId, columnId,
-                                   columnHeader, decisionDate,
-                                   countTask, doneTask, order,
-                                   boardId,
-                                   ...props
-                                 }) {
+export default function ListCard({columnId,columnHeader, boardId,targetCard, ...props}) {
+
   const [shadowIn, setIsShadowIn] = useState(false);
   const dispatch = useDispatch();
 
@@ -40,8 +35,8 @@ export default function ListCard({
       currentCard: card,
       currentColumnId: currentColumnId,
       currentOrder: card.order,
-      targetCardId: cardId,
-      targetOrder: order
+      targetCardId: targetCard._id,
+      targetOrder: targetCard.order
     };
     if (columnId === currentColumnId) {
       dispatch(dragDropCardOneColumn(data));
@@ -57,19 +52,19 @@ export default function ListCard({
            onDrop={handleDrop}
            onDragOver={handleDragOver}>
         <ContentEdit
-          cardId={cardId}
-          header={header}
-          order={order}
+          cardId={targetCard._id}
+          header={targetCard.header}
+          order={targetCard.order}
           columnId={columnId}
           boardId={boardId}
           columnHeader={columnHeader} />
 
         <div className="footer">
-          {decisionDate && <DecisionDate decisionDate={decisionDate} />}
+          {targetCard.decisionDate && <DecisionDate decisionDate={targetCard.decisionDate} />}
           {/*< BsTextIndentRight/>*/}
           <Checkout
-            countTask={countTask}
-            doneTask={doneTask} />
+            countTask={targetCard.countTask}
+            doneTask={targetCard.doneTask} />
         </div>
 
       </div>
