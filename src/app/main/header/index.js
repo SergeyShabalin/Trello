@@ -18,7 +18,7 @@ export default function Header() {
           icon={<CgMenuGridO />}/>
       </div>
 
-      <Workspaces/>
+      {/*<Workspaces/>*/}
       <Creator/>
 
       <div className={classes.logo}>

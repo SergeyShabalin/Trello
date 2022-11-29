@@ -13,11 +13,9 @@ export default function Main() {
   const dispatch = useDispatch();
   const currentBoard = useSelector(state => state.board.currentBoard);
 
-  const {boardId}  = useParams();
-  const board = useParams();
+  const { boardId } = useParams();
   useEffect(() => {
-    console.log('boardId', board);
-   boardId &&  dispatch(getCurrentBoard(boardId));
+    boardId && dispatch(getCurrentBoard(boardId));
   }, []);
 
 
@@ -25,10 +23,18 @@ export default function Main() {
     <div className={classes.main}>
       <div className={classes.header_main}>
 
-        <Header/>
+        <Header />
         <div className={classes.work_space}>
           {/*TODO поставить условие отсутствия доски*/}
-          <Board currentBoard={currentBoard}/>
+          {currentBoard !== "empty"
+            ? <Board currentBoard={currentBoard} />
+            : <div className={classes.greeting_wrapper}>
+              <div className={classes.content}>
+                <span className={classes.greeting_title}>WELCOME TO TASK MANAGER</span>
+                <span className={classes.greeting_description}>Для создания новой доски нажмите кнопку "создать" в верхней панели</span>
+              </div>
+              </div>
+          }
         </div>
       </div>
     </div>
