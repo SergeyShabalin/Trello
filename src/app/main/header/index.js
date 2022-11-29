@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { CgMenuGridO } from "react-icons/cg";
 import { RiTrelloFill } from "react-icons/ri";
 import Button from "../../../components/basic/Button";;
 import Workspaces from "./Workspaces";
 import Creator from "./Creator";
 import classes from "./Header.module.css";
+import { useSelector } from "react-redux";
+
 
 export default function Header() {
 

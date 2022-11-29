@@ -25,6 +25,7 @@ export const addNewBoard = (title) => async (dispatch, getState) => {
     const resp = await BoardApi.addNewBoardAPI(title);
     const board = resp.data;
     const newAllBoards = [...allBoards, board];
+    // console.log(board._id);
     dispatch(BoardAC.addNewBoard(board));
     dispatch(BoardAC.viewAllBoards(newAllBoards));
   } catch (error) {
@@ -39,6 +40,7 @@ export const addNewBoardSample = (title) => async (dispatch, getState) => {
     const resp = await BoardApi.addNewBoardSampleAPI(title);
     const board = resp.data;
     const newAllBoards = [...allBoards, board];
+
     dispatch(getCurrentBoard(resp.data._id));
     dispatch(BoardAC.viewAllBoards(newAllBoards));
   } catch (error) {

@@ -12,12 +12,14 @@ import NewBoard from "./BoardCreator/NewBoard";
 import SampleBoard from "./BoardCreator/SampleBoard";
 import useOpenCloseSampleCreator from "./useOpenCloseSampleCreator";
 import BoardSampleCreator from "./BoardCreator/SampleBoard/BoardSampleCreator";
+import { useSelector } from "react-redux";
 
 export default function Creator() {
 
   const { contextOpen, contextClose, isContext } = useOpenCloseContext();
   const { isCreator, openCreator, closeCreator } = useOpenCloseCreator();
   const { isSampleCreator, openSampleCreator, closeSampleCreator } = useOpenCloseSampleCreator();
+
 
   const content = (
     <>

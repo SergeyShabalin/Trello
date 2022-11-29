@@ -1,19 +1,21 @@
 import React, { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getCurrentBoard } from "../../store/board/asyncActions";
 import Board from "./Board";
 import Header from "./Header";
 import classes from "./Main.module.css";
 import "../../GlobalStyles.css";
+import Greeting from "./Greeting";
 
 
 export default function Main() {
 
   const dispatch = useDispatch();
   const currentBoard = useSelector(state => state.board.currentBoard);
-
   const { boardId } = useParams();
+
+  //TODO Добавить линк, который будет переход на другую ссылку делать
   useEffect(() => {
     boardId && dispatch(getCurrentBoard(boardId));
   }, []);
@@ -28,12 +30,7 @@ export default function Main() {
           {/*TODO поставить условие отсутствия доски*/}
           {currentBoard !== "empty"
             ? <Board currentBoard={currentBoard} />
-            : <div className={classes.greeting_wrapper}>
-              <div className={classes.content}>
-                <span className={classes.greeting_title}>WELCOME TO TASK MANAGER</span>
-                <span className={classes.greeting_description}>Для создания новой доски нажмите кнопку "создать" в верхней панели</span>
-              </div>
-              </div>
+            : <Greeting/>
           }
         </div>
       </div>
