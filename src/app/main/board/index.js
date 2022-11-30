@@ -6,19 +6,24 @@ import ListCreator from "./ColumnCreator";
 import BoardEditor from "./BoardEditor";
 import useOpenCloseContext from "../../../hooks/UseOpenCloseContext";
 import classes from "./Board.module.css";
+import { useNavigate } from "react-router-dom";
 
 export default function Board({ currentBoard }) {
 
   const dispatch = useDispatch();
   const columnsStore = useSelector(state => state.columns.columns);
+  const navigate = useNavigate();
   const [isCreator, setIsCreator] = useState(true);
   const {contextOpen, contextClose, isContext} = useOpenCloseContext()
+
+    //TODO при открытии ссылки карточки не срабатывает роут. Нужно поставить условие наличия текущей карточки
 
   useEffect(() => {
     if (currentBoard._id) {
       dispatch(getAllColumns(currentBoard._id));
       setIsCreator(true);
     }
+    navigate(`/board/${currentBoard._id}`)
   }, [currentBoard]);
 
   function columnCreator() {

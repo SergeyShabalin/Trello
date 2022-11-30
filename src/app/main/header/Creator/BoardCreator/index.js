@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { addNewBoard } from "../../../../../store/board/asyncActions";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import Input from "../../../../../components/basic/Input";
 import Button from "../../../../../components/basic/Button";
 import classes from "./BoardCreator.module.css";
 
-export default function BoardCreator({ boardId, closeCreator, closeContextMenu }) {
+export default function BoardCreator({  closeCreator, closeContextMenu }) {
 
   const [title, setTitle] = useState('');
   const dispatch = useDispatch();
@@ -14,8 +14,6 @@ export default function BoardCreator({ boardId, closeCreator, closeContextMenu }
     closeCreator();
     closeContextMenu();
     dispatch(addNewBoard(title));
-    //TODO достать id из экшена как-то
-    console.log(boardId);
   }
 
   function saveChanged(e) {

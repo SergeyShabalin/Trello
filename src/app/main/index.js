@@ -15,7 +15,6 @@ export default function Main() {
   const currentBoard = useSelector(state => state.board.currentBoard);
   const { boardId } = useParams();
 
-  //TODO Добавить линк, который будет переход на другую ссылку делать
   useEffect(() => {
     boardId && dispatch(getCurrentBoard(boardId));
   }, []);
@@ -27,10 +26,9 @@ export default function Main() {
 
         <Header />
         <div className={classes.work_space}>
-          {/*TODO поставить условие отсутствия доски*/}
           {currentBoard !== "empty"
             ? <Board currentBoard={currentBoard} />
-            : <Greeting/>
+            : <Greeting />
           }
         </div>
       </div>
