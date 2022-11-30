@@ -8,7 +8,6 @@ import classes from "./Main.module.css";
 import "../../GlobalStyles.css";
 import Greeting from "./Greeting";
 
-
 export default function Main() {
 
   const dispatch = useDispatch();
@@ -16,9 +15,9 @@ export default function Main() {
   const { boardId } = useParams();
 
   useEffect(() => {
+
     boardId && dispatch(getCurrentBoard(boardId));
   }, []);
-
 
   return (
     <div className={classes.main}>

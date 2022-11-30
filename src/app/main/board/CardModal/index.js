@@ -20,7 +20,11 @@ export default function CardModal() {
   const { cardId } = useParams();
   const checkListDone = cardInfo?.checkList.filter(item => item.done);
 
+  const param = useParams()
+
+  // console.log('cardId', cardId);
   useEffect(() => {
+    // console.log(param);
     dispatch(getCardInfo(cardId));
   }, []);
 

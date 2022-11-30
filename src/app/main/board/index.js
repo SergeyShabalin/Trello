@@ -6,7 +6,7 @@ import ListCreator from "./ColumnCreator";
 import BoardEditor from "./BoardEditor";
 import useOpenCloseContext from "../../../hooks/UseOpenCloseContext";
 import classes from "./Board.module.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 export default function Board({ currentBoard }) {
 
@@ -14,16 +14,20 @@ export default function Board({ currentBoard }) {
   const columnsStore = useSelector(state => state.columns.columns);
   const navigate = useNavigate();
   const [isCreator, setIsCreator] = useState(true);
-  const {contextOpen, contextClose, isContext} = useOpenCloseContext()
-
-    //TODO при открытии ссылки карточки не срабатывает роут. Нужно поставить условие наличия текущей карточки
+  const { contextOpen, contextClose, isContext } = useOpenCloseContext();
+  const { cardId } = useParams();
 
   useEffect(() => {
+
     if (currentBoard._id) {
       dispatch(getAllColumns(currentBoard._id));
       setIsCreator(true);
     }
-    navigate(`/board/${currentBoard._id}`)
+   if(currentBoard) navigate(`/board/${currentBoard._id}`);
+   if(cardId)   navigate(`/board/${currentBoard._id}/card/${cardId}`);
+
+   //TODO при изменении тайтла доски возникает проблема с id
+//TODO когда роут просто board выводить greeting
   }, [currentBoard]);
 
   function columnCreator() {

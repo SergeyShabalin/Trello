@@ -12,9 +12,10 @@ function App() {
   return (
     <>
       <Routes location={background || location}>
-        <Route path="/" element={<Main/>} />
+        <Route path="/*" element={<Main/>} />
         <Route path="/board/:boardId" element={<Main/>}/>
         <Route path="/ui" element={<UiKit />} />
+        <Route path="/board/:boardId/card/:cardId" element={<CardModal/>}/>
       </Routes>
       {background && (
       <Routes>
