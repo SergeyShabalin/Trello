@@ -6,7 +6,7 @@ import ListCreator from "./ColumnCreator";
 import BoardEditor from "./BoardEditor";
 import useOpenCloseContext from "../../../hooks/UseOpenCloseContext";
 import classes from "./Board.module.css";
-import { useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 
 export default function Board({ currentBoard }) {
 
@@ -16,18 +16,18 @@ export default function Board({ currentBoard }) {
   const [isCreator, setIsCreator] = useState(true);
   const { contextOpen, contextClose, isContext } = useOpenCloseContext();
   const { cardId } = useParams();
+  const { pathname } = useLocation();
 
   useEffect(() => {
-
-    if (currentBoard._id) {
-      dispatch(getAllColumns(currentBoard._id));
-      setIsCreator(true);
+    if (pathname.length < 6) navigate(`/`);
+    else {
+      if (currentBoard._id) {
+        dispatch(getAllColumns(currentBoard._id));
+        navigate(`/board/${currentBoard._id}`);
+        setIsCreator(true);
+      }
+      if (cardId) navigate(`/board/${currentBoard._id}/card/${cardId}`);
     }
-   if(currentBoard) navigate(`/board/${currentBoard._id}`);
-   if(cardId)   navigate(`/board/${currentBoard._id}/card/${cardId}`);
-
-   //TODO при изменении тайтла доски возникает проблема с id
-//TODO когда роут просто board выводить greeting
   }, [currentBoard]);
 
   function columnCreator() {

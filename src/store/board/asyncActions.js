@@ -50,15 +50,15 @@ export const addNewBoardSample = (title) => async (dispatch, getState) => {
 
 
 export const updateBoard = (boardId, title) => async (dispatch, getState) => {
-  const { allBoards } = getState().board;
+  // const { allBoards } = getState().board;
   try {
     await BoardApi.updateBoardAPI(boardId, title);
-    const currentBoard = allBoards.map(i => {
-      if (i._id === boardId) i.title = title;
-      return i;
-    });
+    // const currentBoard = allBoards.map(i => {
+    //   if (i._id === boardId) i.title = title;
+    //   return i;
+    // }); не удалять акомментированное
     dispatch(BoardAC.updateBoard(title));
-    dispatch(BoardAC.updateAllBoards(currentBoard));
+    // dispatch(BoardAC.updateAllBoards(currentBoard));
   } catch (error) {
     console.warn(error, "server error");
   }

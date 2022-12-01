@@ -4,11 +4,12 @@ import useOnClickOutside from "../../../../hooks/UseOnClickOutside";
 import classes from './BoardEditor.module.css'
 import { useDispatch } from "react-redux";
 import { updateBoard } from "../../../../store/board/asyncActions";
+import { useNavigate } from "react-router-dom";
 
 export default function BoardEditor({boardId,closeEditor,title}){
 
   const ref = useRef();
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   useOnClickOutside(ref, closeEditor);
   const [titleBoard, setTitleBoard] = useState()
 

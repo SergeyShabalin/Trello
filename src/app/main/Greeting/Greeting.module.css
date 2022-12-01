@@ -22,17 +22,17 @@
     padding-top: 16%;
     font-size: 3.3rem;
     font-weight: 600;
-    color: rgba(213, 178, 178, 0.58);
-    text-shadow: 1px 1px 13px #000000, 0 0 0.1em #5c5c65, 0 0 0.2em #10865f;
+    color: rgba(250, 245, 245, 0.82);
+    text-shadow: 1px 1px 13px #000000, 0 0 0.5em #5c5c65, 0 0 0.5em #10865f;
    transition:  all 0.4s ease-in-out;
 }
 
 .greeting_description {
     display: flex;
-    color: rgba(213, 178, 178, 0.58);
+    color: rgba(250, 245, 245, 0.82);
     align-items: center;
     justify-content: center;
     padding: 10px;
-    font-size: 1.5rem;
-    text-shadow: 1px 1px 12px #000000, 0 0 0.1em #5c5c65, 0 0 0.2em #10865f;
+    font-size: 1.6rem;
+    text-shadow: 1px 1px 12px #000000, 0 0 0.5em #5c5c65, 0 0 0.5em #10865f;
 }
