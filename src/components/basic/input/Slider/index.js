@@ -6,7 +6,6 @@ export default function Slider({allTask, doneTask}) {
   const [progress, setProgress] = useState(1);
   const checkListsProgress =((doneTask/allTask)*100)
 
-
   useEffect(() => {
     if (allTask!==0) setProgress(checkListsProgress);
   }, [checkListsProgress]);
@@ -28,8 +27,8 @@ export default function Slider({allTask, doneTask}) {
              className={progress !== 100 ? `${classes.slider}` : `${classes.done}`}
              onChange={changeValue}
              value={progress}
-             style={getBackgroundSize()} />
+             style={getBackgroundSize()}
+      />
     </div>
   );
 };
-

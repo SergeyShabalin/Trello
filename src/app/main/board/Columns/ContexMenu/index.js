@@ -3,12 +3,13 @@ import { useDispatch } from "react-redux";
 import { RiDeleteBin5Line } from "react-icons/ri";
 import { GoKebabHorizontal } from "react-icons/go";
 import { MdLibraryAdd, MdDriveFileMoveOutline } from "react-icons/md";
+
 import { deleteColumn } from "../../../../../store/columns/asyncActions";
 import Button from "../../../../../components/basic/Button";
 import useOnClickOutside from "../../../../../hooks/UseOnClickOutside";
 import classes from "./ListContextMenu.module.css";
 
-function ListContextMenu({ columnId, addCardMenuCreate }) {
+function ListContextMenu({ columnId }) {
 
   const ref = useRef();
   const [isModalOpen, setModalOpen] = useState(false);
@@ -21,7 +22,6 @@ function ListContextMenu({ columnId, addCardMenuCreate }) {
 
   function viewAddCard() {
     setModalOpen(false);
-    // addCardMenuCreate();
   }
 
   function columnDelete() {
@@ -39,7 +39,7 @@ function ListContextMenu({ columnId, addCardMenuCreate }) {
       </Button>
 
       {isModalOpen &&
-        <form className={classes.context_form} ref={ref}>
+        <form  ref={ref}>
           <div className={classes.context_menu}>
             <span className={classes.context_header}>Действия со списком</span>
             <hr />
@@ -48,13 +48,13 @@ function ListContextMenu({ columnId, addCardMenuCreate }) {
                   onClick={columnDelete}>
                 <RiDeleteBin5Line /> <span className={classes.li_header}>Удалить список</span>
               </li>
-              <li className={classes.li} onClick={viewAddCard}>
-                <MdLibraryAdd /> <span className={classes.li_header}>Добавить карточку</span>
-              </li>
-              <li className={classes.li}>
-                <MdDriveFileMoveOutline /> <span
-                className={classes.li_header}>Переместить карточку</span>
-              </li>
+              {/*<li className={classes.li} onClick={viewAddCard}>*/}
+              {/*  <MdLibraryAdd /> <span className={classes.li_header}>Добавить карточку</span>*/}
+              {/*</li>*/}
+              {/*<li className={classes.li}>*/}
+              {/*  <MdDriveFileMoveOutline /> <span*/}
+              {/*  className={classes.li_header}>Переместить карточку</span>*/}
+              {/*</li>*/}
             </ul>
           </div>
         </form>

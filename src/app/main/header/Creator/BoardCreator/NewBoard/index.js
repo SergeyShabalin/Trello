@@ -1,6 +1,7 @@
 import React from "react";
-import classes from "../../Creator.module.css";
 import { RiTrelloFill } from "react-icons/ri";
+
+import classes from "../../Creator.module.css";
 
 export default function NewBoard({openCreator}){
   return (

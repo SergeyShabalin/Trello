@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { MdKeyboardArrowDown } from "react-icons/md";
+
 import { getAllBoard, getCurrentBoard } from "../../../../store/board/asyncActions";
 import useOpenCloseContext from "../../../../hooks/UseOpenCloseContext";
 import ContextMenu from "../ContextMenu";
@@ -33,7 +34,7 @@ export default function Workspaces() {
     "iconDark", "iconGrBl", "iconOrange"];
 
   const allWorkspaces = allBoards.map(board => {
-    const color = getRandomInt(8);
+      const color = getRandomInt(8);
       return (
         <div key={board._id}
              className={classes.wrapper}
@@ -54,12 +55,15 @@ export default function Workspaces() {
         variant="text"
         name="work_area"
         label="Рабочие доски"
-        endIcon={<MdKeyboardArrowDown />} />
+        endIcon={<MdKeyboardArrowDown />}
+      />
 
-      {isContext && <ContextMenu
-        closeContextMenu={contextClose}
-        content={allWorkspaces}
-        title="Рабочие доски" />
+      {isContext &&
+        <ContextMenu
+          closeContextMenu={contextClose}
+          content={allWorkspaces}
+          title="Рабочие доски"
+        />
       }
     </div>
   );

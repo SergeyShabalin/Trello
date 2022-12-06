@@ -1,6 +1,7 @@
 import React from "react";
-import classes from "../../Creator.module.css";
 import { BiCopyAlt } from "react-icons/bi";
+
+import classes from "../../Creator.module.css";
 
 export default function SampleBoard({openSampleCreator}){
   return (

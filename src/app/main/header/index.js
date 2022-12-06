@@ -18,6 +18,9 @@ export default function Header({ currentBoard }) {
           icon={<CgMenuGridO />} />
       </div>
       <Creator currentBoard={currentBoard} />
+      <Button
+        label="Поделиться"
+      />
       <div className={classes.logo}>
        <span className={classes.icon}>
          <RiTrelloFill />

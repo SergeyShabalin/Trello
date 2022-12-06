@@ -115,7 +115,7 @@
     --context-menu-border-radius: 5px;
     --context-menu-color: #383131;
     --context-menu-box-shadow: 1px 1px 7px 1px rgba(128, 128, 128, 0.58);
-    --context-menu-header-padding: 5px 5px 0 0;
+    --context-menu-header-padding: 10px 10px 5px 10px;
     --context-menu-ul-padding-inline-start: 0;
     --context-menu-ul-margin-top: 5px;
     --context-menu-ul-margin-bottom: 5px;

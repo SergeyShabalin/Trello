@@ -1,10 +1,12 @@
 import React, {useState, useRef, useEffect} from 'react';
 import {MdKeyboardArrowDown} from "react-icons/md";
-import Button from "../Button";
 import PropTypes from 'prop-types';
+
+import Button from "../Button";
 import classes from './Select.module.css'
 
-export default function Select({ values = [],
+export default function Select({
+                                   values = [],
                                    name = 'test select',
                                    onChange,
                                    variant = 'contained'

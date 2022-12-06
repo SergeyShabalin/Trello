@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
+
 import useOnClickOutside from "../../../../hooks/UseOnClickOutside";
 import classes from "./ContextMenu.module.css";
-
 
 export default function ContextMenu({ closeContextMenu, content, title, children }) {
 
@@ -11,7 +11,6 @@ export default function ContextMenu({ closeContextMenu, content, title, children
   return (
     <div ref={ref} className={classes.contextMenuWrapper}>
       <div className={classes.header}>
-
         <span className={classes.title}>{title}</span>
         <span className={classes.back_btn}>{children}</span>
       </div>

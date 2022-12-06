@@ -11,12 +11,16 @@ import NewBoard from "./BoardCreator/NewBoard";
 import SampleBoard from "./BoardCreator/SampleBoard";
 import BoardSampleCreator from "./BoardCreator/SampleBoard/BoardSampleCreator";
 
-
 export default function Creator({ currentBoard }) {
 
   const { contextOpen, contextClose, isContext } = useOpenCloseContext();
   const { isCreator, openCreator, closeCreator } = useOpenCloseCreator();
   const { isSampleCreator, openSampleCreator, closeSampleCreator } = useOpenCloseSampleCreator();
+
+  function closeCreators() {
+    closeCreator();
+    closeSampleCreator();
+  }
 
   const content = (
     <>
@@ -25,38 +29,39 @@ export default function Creator({ currentBoard }) {
     </>
   );
 
-  function closeCreators() {
-    closeCreator();
-    closeSampleCreator();
-  }
-
   return (
     <div>
       <Button
         onClick={contextOpen}
-        label="Создать" />
+        label="Создать"
+      />
 
-      {isContext && <ContextMenu
+      { isContext && <ContextMenu
         closeContextMenu={contextClose}
         content={isCreator
           ? <BoardCreator
             currentBoard={currentBoard}
             closeContextMenu={contextClose}
-            closeCreator={closeCreator} />
+            closeCreator={closeCreator}
+          />
           : content
           &&
           isSampleCreator
             ? <BoardSampleCreator
               closeContextMenu={contextClose}
-              closeSampleCreator={closeSampleCreator} />
+              closeSampleCreator={closeSampleCreator}
+            />
             : content}
-
         title="Создать">
-        {(isCreator || isSampleCreator) ? <Button
-          onClick={closeCreators}
-          variant="just_icon"
-          icon={<GrPrevious />} /> : null}
-      </ContextMenu>}
+        {(isCreator || isSampleCreator)
+          && <Button
+            onClick={closeCreators}
+            variant="just_icon"
+            icon={<GrPrevious />}
+          />
+        }
+      </ContextMenu>
+      }
     </div>
   );
 };

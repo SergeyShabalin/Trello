@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
+
 import ListContextMenu from "../ContexMenu";
 import ListHeaderEdit from "./HeaderEdit";
 import classes from "./ListHeader.module.css";
 
-export default function ListHeader({ column, addCardMenuCreate }) {
+export default function ListHeader({ column }) {
 
   const [isEditHeader, setIsEditHeader] = useState(false);
 
@@ -28,7 +29,6 @@ export default function ListHeader({ column, addCardMenuCreate }) {
       </div>
       <div className={classes.context_wrapper}>
         <ListContextMenu
-          // addCardMenuCreate={addCardMenuCreate}
           columnId={column._id} />
       </div>
     </div>

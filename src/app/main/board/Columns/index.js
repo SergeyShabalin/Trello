@@ -1,6 +1,7 @@
 import React, {  useState } from "react";
 import { useDispatch } from "react-redux";
 import PropTypes from "prop-types";
+
 import { dragDropCardToEmptyColumn } from "../../../../store/cards/asyncActions";
 import ListHeader from "./Header";
 import CardCreator from "../CardCreator";
@@ -20,7 +21,7 @@ export default function Column({ column, cardList, sortArr, boardId }) {
   };
 
   const handleDragOver = (e) => {
-    e.preventDefault();//TODO arr lenght
+    e.preventDefault();
     if (!column.cards[0]) {
       setIsShadow(true);
     }

@@ -5,7 +5,6 @@
     border-radius: var(--context-menu-border-radius);
     color: var(--context-menu-color);
     box-shadow: var(--context-menu-box-shadow);
-
 }
 
 .context_header {
@@ -15,11 +14,6 @@
     padding:  var(--context-menu-header-padding);
     white-space: nowrap;
 }
-
-.context_form {
-
-}
-
 
 .ul {
     white-space: nowrap;

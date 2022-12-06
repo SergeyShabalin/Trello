@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+
 import { addNewBoardSample } from "../../../../../../../store/board/asyncActions";
 import Input from "../../../../../../../components/basic/Input";
 import Button from "../../../../../../../components/basic/Button";
-import classes from "../../BoardCreator.module.css";
 import useOpenCloseContext from "../../../../../../../hooks/UseOpenCloseContext";
+import classes from "../../BoardCreator.module.css";
 
 export default function BoardSampleCreator({ closeSampleCreator, closeContextMenu }) {
 
@@ -48,7 +49,8 @@ export default function BoardSampleCreator({ closeSampleCreator, closeContextMen
             onChange={getNewValue}
             variant="transparent"
             container="custom"
-            placeholder="Введите название доски" />
+            placeholder="Введите название доски"
+          />
 
           <div className={classes.footer}>
             <div className={classes.creator}>
@@ -56,7 +58,8 @@ export default function BoardSampleCreator({ closeSampleCreator, closeContextMen
                 onClick={addBoard}
                 variant="contained"
                 color="submit"
-                label="Добавить доску" />
+                label="Добавить доску"
+              />
             </div>
           </div>
         </div>}

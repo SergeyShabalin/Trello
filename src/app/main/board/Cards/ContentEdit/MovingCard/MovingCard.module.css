@@ -3,7 +3,6 @@
     background: white;
     border-radius: 5px;
     padding: 5px;
-
 }
 
 .header{
@@ -14,9 +13,7 @@
 .title{
     display: flex;
     align-items: center;
-   justify-content:center ;
-
-
+   justify-content:center;
 }
 
 .close_button{

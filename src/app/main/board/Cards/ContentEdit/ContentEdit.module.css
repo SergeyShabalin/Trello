@@ -3,9 +3,7 @@
     align-items: flex-start;
     justify-content: space-between;
     width: 100%;
-
 }
-
 
 .title {
     padding: 5px;
@@ -26,7 +24,6 @@
 
 .content_edit {
     display: flex;
-
 }
 
 .button_edit{
@@ -34,12 +31,7 @@
     transition: all 0.2s ease;
 }
 
-.content {
-
-}
-
 .link{
     text-decoration: none;
     color: #181818;
 }
-

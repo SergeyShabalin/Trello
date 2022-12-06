@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { AiOutlinePlus } from "react-icons/ai";
+
 import useOpenCloseContext from "../../../../hooks/UseOpenCloseContext";
 import Button from "../../../../components/basic/Button";
 import Editor from "./Editor";
@@ -30,7 +31,8 @@ function ListCreator({ addList, boardId }) {
       onClick={contextOpen}
       variant="contained"
       label="Добавить колонку"
-      startIcon={<AiOutlinePlus />}/>
+      startIcon={<AiOutlinePlus />}
+    />
   );
 
   return (
@@ -38,7 +40,8 @@ function ListCreator({ addList, boardId }) {
         getColumnHeader={getColumnHeader}
         addListColumn={addListColumn}
         addColumn={addColumn}
-        closeEditor={contextClose} />
+        closeEditor={contextClose}
+      />
   );
 };
 

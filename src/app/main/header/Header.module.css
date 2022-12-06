@@ -1,4 +1,4 @@
-.header{
+.header {
     display: flex;
     align-items: center;
     background-color: var(--header-color);
@@ -7,26 +7,26 @@
     padding: 8px 10px;
 }
 
-.menu{
-transform: scale(1.5);
+.menu {
+    transform: scale(1.5);
 }
 
-.logo{
+.logo {
     display: flex;
     justify-content: right;
-    padding:  5px 50px 5px 0px;
+    padding: 5px 50px 5px 0px;
     width: 100%;
     font-weight: 600;
     color: rgba(0, 0, 0, 0.39);
     transition: 0.3s ease-in-out;
 }
 
-.logo:hover{
+.logo:hover {
     color: rgba(255, 255, 255, 0.63);
     transform: rotateX(0deg);
 }
 
-.icon{
+.icon {
     display: flex;
     align-items: center;
     padding-right: 5px;

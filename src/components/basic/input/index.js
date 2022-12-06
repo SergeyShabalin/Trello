@@ -20,8 +20,8 @@ export default function Input({
 
     return (
         <div>
-            {rows > 1 ?
-                <div className= {`${classes[container]}`}>
+            {rows > 1
+              ? <div className= {`${classes[container]}`}>
                     {label && <span className={classes.label}>{label}</span>}
                     <textarea
                         placeholder={placeholder}
@@ -33,8 +33,7 @@ export default function Input({
                         {...props}
                     />
                 </div>
-                :
-                <div>
+                : <div>
                     {label && <span className={classes.label}>{label}</span>}
 
                     <div className={`${classes[container]}`}>

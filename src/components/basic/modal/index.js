@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState, forwardRef } from "react";
+import React, { useEffect, useMemo } from "react";
 import { createPortal } from "react-dom";
 import PropTypes from "prop-types";
 import classes from "./Modal.module.css";
@@ -6,7 +6,7 @@ import classes from "./Modal.module.css";
 
 const modalRootElement = document.querySelector("#modal");
 
-const Modal = ({children, open, onClose, coordinates, ref }) => {
+const Modal = ({ children, open, onClose, coordinates, ref }) => {
 
   const element = useMemo(() => document.createElement("div"), []);
 
@@ -25,7 +25,7 @@ const Modal = ({children, open, onClose, coordinates, ref }) => {
       onClose();
     }
   }
-// TODO Убрать повтор
+
   if (!open) return null;
   return createPortal(
     <div className={classes.modal_background} onClick={closeModal}>
@@ -38,10 +38,10 @@ const Modal = ({children, open, onClose, coordinates, ref }) => {
           {children}
         </div>}
     </div>, element);
-}
+};
 
 Modal.propTypes = {
   open: PropTypes.bool
 };
 
-export default Modal
+export default Modal;

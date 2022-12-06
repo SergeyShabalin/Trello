@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, Outlet, useLocation } from "react-router-dom";
 import { BiEdit } from "react-icons/bi";
+
 import useOpenCloseContext from "../../../../../hooks/UseOpenCloseContext";
 import Button from "../../../../../components/basic/Button";
 import Modal from "../../../../../components/basic/Modal";
@@ -31,30 +32,31 @@ export default function ContentEdit({ header, cardId, columnId, order, boardId }
           opacity={true}
           onClick={openModal}
           variant="just_icon"
-          icon={<BiEdit />} />
+          icon={<BiEdit />}
+        />
 
         <Modal
           open={isContext}
           onClose={contextClose}
-          coordinates={coordinates}>
+          coordinates={coordinates}
+        >
           <div className={classes.content_edit}>
             <Editor
               columnId={columnId}
               header={header}
               closeModalContextMenu={contextClose}
-              cardId={cardId} />
-
+              cardId={cardId}
+            />
             <CardContextMenu
               columnId={columnId}
               cardId={cardId}
               order={order}
-              closeModalContextMenu={contextClose} />
-
+              closeModalContextMenu={contextClose}
+            />
           </div>
         </Modal>
-        <Outlet/>
+        <Outlet />
       </div>
     </div>
   );
 }
-

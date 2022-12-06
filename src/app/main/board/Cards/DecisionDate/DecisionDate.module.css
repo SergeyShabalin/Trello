@@ -1,4 +1,3 @@
-
 .decision_date, .over_decision_date {
     display: flex;
     align-items: center;
@@ -26,5 +25,3 @@
 .date {
     font-size: var(--decision-date-font-size);
 }
-
-
