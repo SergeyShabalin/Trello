@@ -1,5 +1,4 @@
 .checkout_done, .checkout{
-
     justify-content: center;
     align-items: center;
     display: flex;
@@ -14,10 +13,6 @@ opacity: 0.8;
 
 .checkout_done{
     background-color: var(--card-checkout-background-color);
-}
-
-.checkout_active {
-
 }
 
 .icon {

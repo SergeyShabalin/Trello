@@ -1,12 +1,13 @@
 import React, { useRef } from "react";
-import classes from "./Editor.module.css";
-import Checkbox from "../../../../../../components/basic/Сheckbox";
+import { MdClear } from "react-icons/md";
+
 import Input from "../../../../../../components/basic/Input";
 import Button from "../../../../../../components/basic/Button";
 import useOnClickOutside from "../../../../../../hooks/UseOnClickOutside";
-import { MdClear } from "react-icons/md";
+import classes from "./Editor.module.css";
 
-export default function Editor({ getTaskTitle,
+export default function Editor({
+                                 getTaskTitle,
                                  saveCheckboxValue,
                                  taskTitle,
                                  closeEditCheckbox
@@ -40,7 +41,6 @@ export default function Editor({ getTaskTitle,
               onClick={closeEditCheckbox}
             />
           </div>
-
         </div>
     </div>
   );

@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
+
 import { addColumn, getAllColumns } from "../../../store/columns/asyncActions";
 import Column from "./Columns";
 import ListCreator from "./ColumnCreator";
 import BoardEditor from "./BoardEditor";
 import useOpenCloseContext from "../../../hooks/UseOpenCloseContext";
 import classes from "./Board.module.css";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+
 
 export default function Board({ currentBoard }) {
 
@@ -55,13 +57,14 @@ export default function Board({ currentBoard }) {
   });
 
   return (
-    <div className={classes.board}>
+    <div>
       {!isContext
         ? <div className={classes.board_header} onClick={contextOpen}>{currentBoard.title}</div>
         : <BoardEditor
           boardId={currentBoard._id}
           title={currentBoard.title}
-          closeEditor={contextClose} />}
+          closeEditor={contextClose}
+        />}
       <div className={classes.wrapper_list}>
         <div className={classes.columns}>
           {columnsList}
@@ -69,7 +72,6 @@ export default function Board({ currentBoard }) {
         <div className={classes.add_list}>
           <ListCreator addList={addList} boardId={currentBoard._id} />
         </div>
-
       </div>
     </div>
   );

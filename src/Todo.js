@@ -45,25 +45,3 @@ export default Todo;
 
 //TODO переименовать cards на card в asyncAction updateTaskValue
 
-// console.log( 'cardId', cardId,  'title', title,  'columnId', columnId, 'desc', description);
-// console.log(newTitle, "cardIndex", cardIndex, "columnIndex", columnIndex);
-
-// const card =(columns[columnIndex].cards[cardIndex]);
-// const f = columns;
-//
-// const newCard = { header: "header", description: "description" };
-// const newColumns = [...columns][columnIndex].cards[cardIndex] = newCard;
-// console.log("columns", columns);
-// console.log("newColumns", newColumns);
-//
-//
-// const copyColumns = [...columns];
-// const copyColumn = { ...copyColumns[columnIndex] };
-// const copyCards = [...copyColumn.cards];
-// const copyCard = { ...copyCards[cardIndex] } = newCard;
-//
-// console.log('columns', columns);
-// console.log('copyColumns', copyColumns);
-// console.log('copyColumn', copyColumn);
-// console.log('copyCards', copyCards);
-// console.log('copyCard', copyCard);

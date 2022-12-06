@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+
 import Button from "../../../../../components/basic/Button";
 import { NewTaskAdd } from "../../../../../store/cards/asyncActions";
 import Editor from "./Editor";
@@ -40,7 +41,8 @@ export default function CheckListCreator({ cardId, columnId }) {
         addTaskKeyDown={addTaskKeyDown}
         addNewTask={addNewTask}
         addMenuClose={contextClose}
-        getTaskValue={getTaskValue} />
+        getTaskValue={getTaskValue}
+      />
     </div>
   );
 }

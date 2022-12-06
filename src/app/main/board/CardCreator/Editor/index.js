@@ -1,7 +1,8 @@
 import React,{ useRef } from "react";
+import { GrClose } from "react-icons/gr";
+
 import Input from "../../../../../components/basic/Input";
 import Button from "../../../../../components/basic/Button";
-import { GrClose } from "react-icons/gr";
 import useOnClickOutside from "../../../../../hooks/UseOnClickOutside";
 import classes from "./Editor.module.css";
 
@@ -10,14 +11,19 @@ export default function Editor({ getNewValue, addCard, closeCreator}){
   const ref = useRef();
   useOnClickOutside(ref, closeCreator);
 
+  function addViaButton(){
+    addCard();
+    closeCreator()
+  }
+
   function saveChanged(e) {
     if (e.keyCode === 13){
       e.preventDefault()
       e.target.value = ''
-      addCard();}
+      addCard();
+    }
   }
-  // TODO При нажатии кнопки не чистит инпут, возможно, надо валуе у него прописать через стейт
-// !!!!TODO важно, при изменении тайтла карточки значение инпута выходит true
+
   return (
     <div className={classes.control_creator} ref={ref}>
       <div className={classes.control_input}>
@@ -34,7 +40,7 @@ export default function Editor({ getNewValue, addCard, closeCreator}){
       </div>
       <div className={classes.buttons}>
         <Button
-          onClick={addCard}
+          onClick={addViaButton}
           variant="contained"
           color="submit"
           label="Добавить карточку">

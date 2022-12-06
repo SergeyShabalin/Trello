@@ -1,14 +1,7 @@
 .main {
     overflow-x: hidden;
     overflow-y: hidden;
-    /*background-color: var(--main-background-color);*/
     background-image: url("https://images.wallpaperscraft.ru/image/single/gory_skaly_vershiny_151531_1920x1080.jpg");
-    /*background-image: url("https://images.wallpaperscraft.ru/image/single/pirs_prichal_more_sumerki_bereg_118549_1920x1080.jpg");*/
-    /*background-image: url("https://wallscloud.net/img/resize/1920/1080/MM/2022-11-26-ninja-1-55593.jpg");*/
-    /*background-image: url("https://wallscloud.net/img/resize/1920/1080/MM/2022-11-24-horseshoe-bend-1-55503.jpg");*/
-    /*background-image: url("https://wallscloud.net/img/resize/1920/1080/MM/2022-11-25-cyberpunk-girl-1-55560.png");*/
-    /*background-image: url("https://wallscloud.net/img/resize/1920/1080/MM/2022-11-09-boards-1-55249.jpeg");*/
-    /*background-image: url("https://wallscloud.net/img/resize/1920/1080/MM/2016-10-18-space-fantasy-landscape-JQ12.jpg");*/
     background-size: auto;
     font-size: var(--main-font-size);
     min-height: 100vh;

@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
 import { useDispatch } from "react-redux";
 import { MdClear } from "react-icons/md";
+
 import { TaskDelete, updateTaskTitle, updateTaskValue } from "../../../../../store/cards/asyncActions";
 import Checkbox from "../../../../../components/basic/Сheckbox";
 import Button from "../../../../../components/basic/Button";
@@ -68,7 +69,8 @@ export default function CheckList({ task, done, _id, cardId, columnId }) {
         getTaskTitle={getTaskTitle}
         saveCheckboxValue={saveCheckboxValue}
         taskTitle={taskTitle}
-        closeEditCheckbox={contextClose} />
+        closeEditCheckbox={contextClose}
+      />
     </div>
   );
 }

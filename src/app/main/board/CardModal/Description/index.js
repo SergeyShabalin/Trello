@@ -1,7 +1,8 @@
 import React, { useState, useRef } from "react";
 import { useDispatch } from "react-redux";
-import { updateCardDescription } from "../../../../../store/cards/asyncActions";
 import { AiOutlineMenuUnfold } from "react-icons/ai";
+
+import { updateCardDescription } from "../../../../../store/cards/asyncActions";
 import useOnClickOutside from "../../../../../hooks/UseOnClickOutside";
 import useOpenCloseContext from "../../../../../hooks/UseOpenCloseContext";
 import Editor from "./Editor";
@@ -11,7 +12,7 @@ import classes from "./Description.module.css";
 export default function Description({ cardId, columnId, description = "" }) {
 
   const [descriptionValue, setDescriptionValue] = useState("");
-  const {contextOpen, contextClose, isContext} = useOpenCloseContext()
+  const { contextOpen, contextClose, isContext } = useOpenCloseContext();
 
   const ref = useRef();
   const dispatch = useDispatch();
@@ -42,7 +43,8 @@ export default function Description({ cardId, columnId, description = "" }) {
     <> {titleDescription}
       <div onClick={contextOpen}>
         {
-          description !== "" ? <div className={classes.description_card}>{description}</div>
+          description !== ""
+            ? <div className={classes.description_card}>{description}</div>
             : <div className={classes.description_card}>нет описания</div>
         }
       </div>
@@ -56,7 +58,8 @@ export default function Description({ cardId, columnId, description = "" }) {
         getDescriptionValue={getDescriptionValue}
         description={description}
         saveDescriptionValue={saveDescriptionValue}
-        closeEditDescription={contextClose} />
+        closeEditDescription={contextClose}
+      />
     </>
   );
 }

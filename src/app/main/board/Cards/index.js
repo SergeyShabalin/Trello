@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import { dragDropCard, dragDropCardOneColumn } from "../../../../store/cards/asyncActions";
 import { useDispatch } from "react-redux";
+
+import { dragDropCard, dragDropCardOneColumn } from "../../../../store/cards/asyncActions";
 import Checkout from "./Checkout";
 import ContentEdit from "./ContentEdit";
 import DecisionDate from "./DecisionDate";
 import "./ListCard.css";
 import "../Columns/ColumnWrapper.css";
 
-
-export default function ListCard({columnId,columnHeader, boardId,targetCard, ...props}) {
+export default function ListCard({ columnId, columnHeader, boardId, targetCard, ...props }) {
 
   const [shadowIn, setIsShadowIn] = useState(false);
   const dispatch = useDispatch();
@@ -46,25 +46,28 @@ export default function ListCard({columnId,columnHeader, boardId,targetCard, ...
 
   return (
     <>
-      <div className="list_card" {...props}
-           onDragLeave={handleDragLeave}
-           onDragEnd={handleDragEnd}
-           onDrop={handleDrop}
-           onDragOver={handleDragOver}>
+      <div
+        className="list_card" {...props}
+        onDragLeave={handleDragLeave}
+        onDragEnd={handleDragEnd}
+        onDrop={handleDrop}
+        onDragOver={handleDragOver}
+      >
         <ContentEdit
           cardId={targetCard._id}
           header={targetCard.header}
           order={targetCard.order}
           columnId={columnId}
           boardId={boardId}
-          columnHeader={columnHeader} />
+          columnHeader={columnHeader}
+        />
 
         <div className="footer">
           {targetCard.decisionDate && <DecisionDate decisionDate={targetCard.decisionDate} />}
-          {/*< BsTextIndentRight/>*/}
           <Checkout
             countTask={targetCard.countTask}
-            doneTask={targetCard.doneTask} />
+            doneTask={targetCard.doneTask}
+          />
         </div>
 
       </div>

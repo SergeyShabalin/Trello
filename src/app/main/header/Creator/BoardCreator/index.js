@@ -1,13 +1,14 @@
 import React, { useState } from "react";
-import { addNewBoard } from "../../../../../store/board/asyncActions";
 import { useDispatch } from "react-redux";
+
+import { addNewBoard } from "../../../../../store/board/asyncActions";
 import Input from "../../../../../components/basic/Input";
 import Button from "../../../../../components/basic/Button";
 import classes from "./BoardCreator.module.css";
 
-export default function BoardCreator({  closeCreator, closeContextMenu }) {
+export default function BoardCreator({ closeCreator, closeContextMenu }) {
 
-  const [title, setTitle] = useState('');
+  const [title, setTitle] = useState("");
   const dispatch = useDispatch();
 
   function addBoard() {
@@ -21,7 +22,7 @@ export default function BoardCreator({  closeCreator, closeContextMenu }) {
   }
 
   function getNewValue({ target }) {
-    setTitle(target.value)
+    setTitle(target.value);
   }
 
   return (
@@ -36,18 +37,19 @@ export default function BoardCreator({  closeCreator, closeContextMenu }) {
           onChange={getNewValue}
           variant="transparent"
           container="custom"
-          placeholder="Введите название доски" />
+          placeholder="Введите название доски"
+        />
         <div className={classes.footer}>
           <div className={classes.creator}>
             <Button
               onClick={addBoard}
               variant="contained"
               color="submit"
-              label="Добавить доску" />
+              label="Добавить доску"
+            />
           </div>
         </div>
       </div>
-
     </div>
   );
 };

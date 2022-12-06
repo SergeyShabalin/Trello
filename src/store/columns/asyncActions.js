@@ -1,23 +1,20 @@
 import ColumnsAPI from "../../api/ColumnsAPI";
 import { columnsAC } from "../columns/actions";
-import BoardApi from "../../api/BoardApi";
-import { BoardAC } from "../board/actions";
 
-export const getAllColumns = (boardId) => async (dispatch,) => {
+
+export const getAllColumns = (boardId) => async (dispatch) => {
   try {
-     const resp = await ColumnsAPI.getAllColumnsAPI(boardId);
+    const resp = await ColumnsAPI.getAllColumnsAPI(boardId);
     dispatch(columnsAC.viewAllColumns(resp.data));
   } catch (error) {
     console.warn(error, "server error");
   }
 };
 
-export const addColumn = (header, boardId) => async (dispatch,getState) => {
-
+export const addColumn = (header, boardId) => async (dispatch, getState) => {
   try {
     const resp = await ColumnsAPI.addNewColumnAPI(header, boardId);
     dispatch(columnsAC.addNewColumn(resp.data));
-
   } catch (error) {
     console.warn(error, "server error");
   }
@@ -48,8 +45,3 @@ export const updateColumn = (columnId, header) => async (dispatch, getState) => 
     console.warn(error, "server error");
   }
 };
-
-
-
-
-

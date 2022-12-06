@@ -1,7 +1,8 @@
 import React from "react";
-import classes from "./Title.module.css";
 import { FiCheckSquare } from "react-icons/fi";
+
 import Slider from "../../../../../../components/basic/Input/Slider";
+import classes from "./Title.module.css";
 
 export default function ChecklistTitle({allTask, doneTask}){
   return (
@@ -13,7 +14,8 @@ export default function ChecklistTitle({allTask, doneTask}){
       <div className={classes.slider}>
         <Slider
           allTask={allTask}
-          doneTask={doneTask} />
+          doneTask={doneTask}
+        />
       </div>
     </>
 

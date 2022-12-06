@@ -1,9 +1,9 @@
 import React from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
+
 import UiKit from "../components/basic/UiKit";
 import Main from "./main";
 import CardModal from "./main/Board/CardModal";
-
 
 function App() {
   const location = useLocation();
@@ -19,7 +19,7 @@ function App() {
       </Routes>
       {background && (
       <Routes>
-        <Route path="/board/:boardId/card/:cardId" element={<CardModal />}/>
+        <Route path="/board/:boardId/card/:cardId" element={<CardModal/>}/>
       </Routes>
         )}
     </>

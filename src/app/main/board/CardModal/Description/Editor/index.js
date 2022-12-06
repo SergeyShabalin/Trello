@@ -1,15 +1,18 @@
-import React,{ useRef } from "react";
+import React, { useRef } from "react";
+import { MdClear } from "react-icons/md";
+
 import Input from "../../../../../../components/basic/Input";
 import Button from "../../../../../../components/basic/Button";
 import useOnClickOutside from "../../../../../../hooks/UseOnClickOutside";
 import classes from "./Editor.module.css";
-import { MdClear } from "react-icons/md";
 
-export default function Editor({saveInEnter,
+export default function Editor({
+                                 saveInEnter,
                                  getDescriptionValue,
                                  description,
                                  saveDescriptionValue,
-                                 closeEditDescription}){
+                                 closeEditDescription
+                               }) {
 
   const ref = useRef();
   useOnClickOutside(ref, closeEditDescription);
@@ -33,15 +36,16 @@ export default function Editor({saveInEnter,
           <Button
             variant="contained"
             onClick={saveDescriptionValue}
-            label="Сохранить">
-          </Button>
+            label="Сохранить"
+          />
+
         </div>
         <div className={classes.cancel_btn}>
           <Button
             variant="just_icon"
             icon={<MdClear />}
-            onClick={closeEditDescription}>
-          </Button>
+            onClick={closeEditDescription}
+          />
         </div>
       </div>
     </div>

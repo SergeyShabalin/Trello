@@ -25,8 +25,11 @@ class ColumnsAPI {
     return Api.patch(`/columns/dragDropOneColumn/${data.currentColumnId}`,{data})
     }
 
-  async dragDropCardInColumnAPIToEmpty(card, targetColumnId, currentColumnId) {
-    return Api.patch(`/columns/dragDropToEmpty/${currentColumnId}`,{ currentCardId: card._id, targetColumnId:targetColumnId, currentOrder: card.order });
+  async dragDropCardInColumnAPIToEmpty(card, targetColumnId, currentColumnId){
+    return Api.patch(`/columns/dragDropToEmpty/${currentColumnId}`,
+      { currentCardId: card._id,
+      targetColumnId:targetColumnId,
+      currentOrder: card.order });
   }
 
 }
