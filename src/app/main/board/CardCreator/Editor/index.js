@@ -43,13 +43,13 @@ export default function Editor({ getNewValue, addCard, closeCreator}){
           onClick={addViaButton}
           variant="contained"
           color="submit"
-          label="Добавить карточку">
-        </Button>
+          label="Добавить карточку"
+        />
         <Button
           onClick={closeCreator}
           variant="just_icon"
-          icon={<GrClose />}>
-        </Button>
+          icon={<GrClose />}
+        />
       </div>
     </div>
   );

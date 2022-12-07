@@ -4,7 +4,9 @@ import { RiTrelloFill } from "react-icons/ri";
 
 import Button from "../../../components/basic/Button";
 import Creator from "./Creator";
+import Share from "./Share";
 import classes from "./Header.module.css";
+
 
 export default function Header({ currentBoard }) {
 
@@ -18,9 +20,7 @@ export default function Header({ currentBoard }) {
           icon={<CgMenuGridO />} />
       </div>
       <Creator currentBoard={currentBoard} />
-      <Button
-        label="Поделиться"
-      />
+      <Share/>
       <div className={classes.logo}>
        <span className={classes.icon}>
          <RiTrelloFill />

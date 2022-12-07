@@ -48,19 +48,11 @@ function ListContextMenu({ columnId }) {
                   onClick={columnDelete}>
                 <RiDeleteBin5Line /> <span className={classes.li_header}>Удалить список</span>
               </li>
-              {/*<li className={classes.li} onClick={viewAddCard}>*/}
-              {/*  <MdLibraryAdd /> <span className={classes.li_header}>Добавить карточку</span>*/}
-              {/*</li>*/}
-              {/*<li className={classes.li}>*/}
-              {/*  <MdDriveFileMoveOutline /> <span*/}
-              {/*  className={classes.li_header}>Переместить карточку</span>*/}
-              {/*</li>*/}
             </ul>
           </div>
         </form>
       }
     </div>
-
   );
 };
 

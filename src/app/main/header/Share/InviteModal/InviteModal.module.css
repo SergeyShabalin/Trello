@@ -1,0 +1,43 @@
+.wrapper {
+    padding: 10px 10px 15px 10px;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.92);
+    width: 40vh;
+}
+
+.input {
+    margin: 10px 0;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.title {
+    font-size: 1.3rem;
+}
+.ref, .ref_hidden{
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    color: #089865;
+    transition: ease-in 0.15s;
+}
+
+.ref_hidden{
+    transition: ease-out 0.5s;
+    opacity: 0;
+}
+
+.icon{
+    display: flex;
+    align-items: center;
+    padding: 5px 5px 5px 5px;
+}
+
+.save{
+    margin-left: 5px;
+    margin-bottom: 3px;
+}
