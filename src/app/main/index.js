@@ -23,7 +23,10 @@ export default function Main() {
   return (
     <div className={classes.main}>
       <div className={classes.header_main}>
-        <Header currentBoard={currentBoard}/>
+        <Header
+          visibility = {(pathname.length < 6 || currentBoard === "empty") && true}
+          currentBoard={currentBoard}
+        />
         <div className={classes.work_space}>
           {(pathname.length < 6 || currentBoard === "empty")
             ? <Greeting />

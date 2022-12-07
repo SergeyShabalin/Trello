@@ -8,7 +8,7 @@ import Share from "./Share";
 import classes from "./Header.module.css";
 
 
-export default function Header({ currentBoard }) {
+export default function Header({ currentBoard, visibility }) {
 
   return (
     <div className={classes.header}>
@@ -17,10 +17,11 @@ export default function Header({ currentBoard }) {
           variant="just_icon"
           variety={true}
           color="changed"
-          icon={<CgMenuGridO />} />
+          icon={<CgMenuGridO />}
+        />
       </div>
       <Creator currentBoard={currentBoard} />
-      <Share/>
+      {!visibility && <Share/>}
       <div className={classes.logo}>
        <span className={classes.icon}>
          <RiTrelloFill />
