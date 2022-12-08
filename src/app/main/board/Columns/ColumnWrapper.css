@@ -1,14 +1,15 @@
  .wrapper{
-    max-height: 100%;
+    max-height: 85vh;
     background: rgba(0, 0, 0, 0);
     margin: 0 4px;
+     height: 80vh;
 }
 
 .list_wrapper {
     margin: 0 5px;
     padding:  5px;
     font-size: var(--list-wrapper-font-size);
-    width: 25vh;
+    width: 28vh;
     background-color: var(--list-wrapper);
     border-radius: 5px;
 }
