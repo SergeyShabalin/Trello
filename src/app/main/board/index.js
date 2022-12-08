@@ -9,7 +9,6 @@ import BoardEditor from "./BoardEditor";
 import useOpenCloseContext from "../../../hooks/UseOpenCloseContext";
 import classes from "./Board.module.css";
 
-
 export default function Board({ currentBoard }) {
 
   const dispatch = useDispatch();
@@ -19,6 +18,8 @@ export default function Board({ currentBoard }) {
   const { contextOpen, contextClose, isContext } = useOpenCloseContext();
   const { cardId } = useParams();
   const { pathname } = useLocation();
+
+  console.log(pathname);
 
   useEffect(() => {
     if (pathname.length < 6) navigate(`/`);

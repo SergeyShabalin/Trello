@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import PropTypes from "prop-types";
 
 import ListContextMenu from "../ContexMenu";
 import ListHeaderEdit from "./HeaderEdit";
@@ -34,9 +33,3 @@ export default function ListHeader({ column }) {
     </div>
   );
 };
-
-
-ListHeader.propTypes = {
-  header: PropTypes.string
-};
-

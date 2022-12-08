@@ -29,10 +29,10 @@
     display: flex;
 }
 
-
 .container{
     margin: 5px;
 }
+
 .modal{
 margin: 0 20px;
 }
@@ -45,16 +45,13 @@ margin: 0 20px;
     margin: 0 20px;
 }
 
-.select{
-
-}
+.select{}
 
 .slider{
  background: #eecfcf;
     display: flex;
     align-items: center;
     padding: 10px 20px;
-
     border-radius: 10px;
     margin: 5px;
 }

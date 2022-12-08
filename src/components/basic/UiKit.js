@@ -169,6 +169,5 @@ export default function UiKit() {
         </div>
       </div>
     </form>
-  )
-    ;
+  );
 }

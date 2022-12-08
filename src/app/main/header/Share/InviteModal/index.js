@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import {CopyToClipboard} from 'react-copy-to-clipboard';
 import classes from "./InviteModal.module.css";
 import Input from "../../../../../components/basic/Input";
 import Button from "../../../../../components/basic/Button";
@@ -10,7 +9,6 @@ import useOpenCloseContext from "../../../../../hooks/UseOpenCloseContext";
 export default function InviteModal() {
 
   const [ref, setRef] = useState("");
-  const [isSave, setIsSave]= useState(false)
   const {isContext, contextClose, contextOpen} = useOpenCloseContext()
 
   const currentUrl = window.location.href;
@@ -23,6 +21,7 @@ export default function InviteModal() {
   }
 
   function copyRef(){
+    navigator.clipboard.writeText(ref)
     contextOpen()
     setTimeout(contextClose, 3000)
   }
@@ -47,13 +46,14 @@ export default function InviteModal() {
           placeholder="Введите название карточки"
         />
       </form>
-      <CopyToClipboard text={ref} onCopy={copyRef}>
+
         <Button
+          onClick={copyRef}
           variant="contained"
-          color="submit"
+          color="blue"
           label="Копировать ссылку"
         />
-      </CopyToClipboard>
+
     </div>
   );
 };

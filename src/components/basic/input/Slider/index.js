@@ -10,8 +10,7 @@ export default function Slider({allTask, doneTask}) {
     if (allTask!==0) setProgress(checkListsProgress);
   }, [checkListsProgress]);
 
-  function changeValue(e) {
-  }
+  function changeValue(e) {}
 
   const getBackgroundSize = () => {
     return { backgroundSize: `${ (progress * 100) / 100}% 100%` };

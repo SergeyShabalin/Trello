@@ -21,4 +21,3 @@ export default function Checkout({ countTask, doneTask }) {
     </>
   );
 };
-

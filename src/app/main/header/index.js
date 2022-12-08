@@ -7,8 +7,7 @@ import Creator from "./Creator";
 import Share from "./Share";
 import classes from "./Header.module.css";
 
-
-export default function Header({ currentBoard, visibility }) {
+export default function Header({ visibility }) {
 
   return (
     <div className={classes.header}>
@@ -20,12 +19,10 @@ export default function Header({ currentBoard, visibility }) {
           icon={<CgMenuGridO />}
         />
       </div>
-      <Creator currentBoard={currentBoard} />
+      <Creator />
       {!visibility && <Share/>}
       <div className={classes.logo}>
-       <span className={classes.icon}>
-         <RiTrelloFill />
-       </span>
+       <span className={classes.icon}> <RiTrelloFill /> </span>
         <span>TASK MANAGER</span>
       </div>
     </div>

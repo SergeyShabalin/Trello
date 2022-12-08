@@ -1,7 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import classes from './Input.module.css'
-
 
 export default function Input({
                                   value,
@@ -53,17 +51,3 @@ export default function Input({
         </div>
     );
 };
-
-Input.propTypes = {
-    cols: PropTypes.number,
-    rows: PropTypes.number,
-    placeholder: PropTypes.string,
-    disabled: PropTypes.bool,
-    iconLeft: PropTypes.object,
-    iconRight: PropTypes.object,
-    label: PropTypes.string
-}
-
-
-
-

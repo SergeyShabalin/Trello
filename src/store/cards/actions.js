@@ -1,5 +1,4 @@
 import { CARD_TYPES } from "./constants";
-import { COLUMNS_TYPES } from "../columns/constants";
 
 export const cardsAC = {
   viewInfoCard: (payload) => ({ type: CARD_TYPES.VIEW_INFO_CARD, payload }),
@@ -8,5 +7,5 @@ export const cardsAC = {
   deleteTask: (payload)=>({type: CARD_TYPES.CHANGES_TASKS, payload}),
   updateTask: (payload)=>({type: CARD_TYPES.CHANGES_TASKS, payload}),
   updateDescription: (payload)=>({type: CARD_TYPES.CHANGE_DESCRIPTION, payload}),
-  updateDecisionDate: (payload)=>({type: CARD_TYPES.CHANGE_DECISION_DATE, payload}),
+  updateDecisionDate: (payload)=>({type: CARD_TYPES.CHANGE_DECISION_DATE, payload})
 };

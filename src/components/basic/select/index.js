@@ -1,6 +1,5 @@
 import React, {useState, useRef, useEffect} from 'react';
 import {MdKeyboardArrowDown} from "react-icons/md";
-import PropTypes from 'prop-types';
 
 import Button from "../Button";
 import classes from './Select.module.css'
@@ -65,10 +64,3 @@ export default function Select({
         </div>
     );
 };
-
-Select.propTypes = {
-    name: PropTypes.string,
-    onChange: PropTypes.func,
-    variant: PropTypes.string,
-    values: PropTypes.array
-}

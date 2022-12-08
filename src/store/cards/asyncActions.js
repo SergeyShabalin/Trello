@@ -4,7 +4,6 @@ import { cardsAC } from "./actions";
 import CheckListApi from "../../api/CheckListApi";
 import ColumnsAPI from "../../api/ColumnsAPI";
 
-
 export const addNewCard = (columnId, title) => async (dispatch, getState) => {
   const { columns } = getState().columns;
   try {
@@ -37,7 +36,6 @@ export const deleteCard = (cardId, columnId, currentOrder) => async (dispatch, g
   }
 };
 
-
 export const updateCardTitle = (newTitle, cardId, columnId) => async (dispatch, getState) => {
   const { columns } = getState().columns;
   try {
@@ -59,7 +57,6 @@ export const updateCardTitle = (newTitle, cardId, columnId) => async (dispatch, 
     console.warn(error, "server error");
   }
 };
-
 
 export const updateCardDescription = (cardId, columnId, descriptionValue) => async (dispatch) => {
   try {
@@ -101,7 +98,6 @@ export const getCardInfo = (cardId) => async (dispatch) => {
     console.warn(error, "server error");
   }
 };
-
 
 export const clearCardInfo = () => async (dispatch) => {
   try {
@@ -162,7 +158,6 @@ export const TaskDelete = (cardId, checkListId, columnId) => async (dispatch, ge
   }
 };
 
-
 export const updateTaskTitle = (taskTitle, checkListId) => async (dispatch, getState) => {
   const { cards } = getState().cards;
   try {
@@ -209,8 +204,7 @@ export const updateTaskValue = (taskDone, checkListId, cardId, columnId) => asyn
   }
 };
 
- export const dragDropCard = (data) => async (dispatch, getState) => {
-
+export const dragDropCard = (data) => async (dispatch, getState) => {
   const { columns } = getState().columns;
   try {
     const newColumns = columns.map(item => {
@@ -234,7 +228,7 @@ export const updateTaskValue = (taskDone, checkListId, cardId, columnId) => asyn
   }
 };
 
-  export const dragDropCardOneColumn = (data) => async (dispatch, getState) => {
+export const dragDropCardOneColumn = (data) => async (dispatch, getState) => {
   const { columns } = getState().columns;
   try {
     const changedColumn = columns.map(item => {
@@ -247,7 +241,7 @@ export const updateTaskValue = (taskDone, checkListId, cardId, columnId) => asyn
       } else return item;
     });
     dispatch(columnsAC.dragCardsOneColumn(changedColumn));
-     await ColumnsAPI.dragDropCardInOneColumnAPI(data);
+    await ColumnsAPI.dragDropCardInOneColumnAPI(data);
   } catch (error) {
     console.warn(error, "server error");
   }
@@ -271,7 +265,6 @@ export const dragDropCardToEmptyColumn = (card, targetColumnId, currentColumnId)
     dispatch(columnsAC.dragCardsToEmptyColumn(columnsNew));
     await ColumnsAPI.dragDropCardInColumnAPIToEmpty(card, targetColumnId, currentColumnId);
     await CardsApi.dragDropCardAPI(card._id, targetColumnId);
-
   } catch (error) {
     console.warn(error, "server error");
   }

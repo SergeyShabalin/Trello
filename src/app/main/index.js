@@ -15,7 +15,6 @@ export default function Main() {
   const currentBoard = useSelector(state => state.board.currentBoard);
   const { boardId } = useParams();
   const { pathname } = useLocation();
-
   useEffect(() => {
     boardId && dispatch(getCurrentBoard(boardId));
   }, []);
@@ -25,7 +24,6 @@ export default function Main() {
       <div className={classes.header_main}>
         <Header
           visibility = {(pathname.length < 6 || currentBoard === "empty") && true}
-          currentBoard={currentBoard}
         />
         <div className={classes.work_space}>
           {(pathname.length < 6 || currentBoard === "empty")

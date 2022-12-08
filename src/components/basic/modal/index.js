@@ -1,15 +1,13 @@
 import React, { useEffect, useMemo } from "react";
 import { createPortal } from "react-dom";
-import PropTypes from "prop-types";
-import classes from "./Modal.module.css";
 
+import classes from "./Modal.module.css";
 
 const modalRootElement = document.querySelector("#modal");
 
 const Modal = ({ children, open, onClose, coordinates, ref }) => {
 
   const element = useMemo(() => document.createElement("div"), []);
-
 
   useEffect(() => {
     if (open) {
@@ -38,10 +36,6 @@ const Modal = ({ children, open, onClose, coordinates, ref }) => {
           {children}
         </div>}
     </div>, element);
-};
-
-Modal.propTypes = {
-  open: PropTypes.bool
 };
 
 export default Modal;

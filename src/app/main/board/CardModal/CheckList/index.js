@@ -74,4 +74,3 @@ export default function CheckList({ task, done, _id, cardId, columnId }) {
     </div>
   );
 }
-

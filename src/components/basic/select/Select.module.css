@@ -1,6 +1,4 @@
-.select_group {
-
-}
+.select_group {}
 
 .select:focus {
     box-shadow: var(--select-box-shadow);

@@ -11,7 +11,7 @@ import NewBoard from "./BoardCreator/NewBoard";
 import SampleBoard from "./BoardCreator/SampleBoard";
 import BoardSampleCreator from "./BoardCreator/SampleBoard/BoardSampleCreator";
 
-export default function Creator({ currentBoard }) {
+export default function Creator() {
 
   const { contextOpen, contextClose, isContext } = useOpenCloseContext();
   const { isCreator, openCreator, closeCreator } = useOpenCloseCreator();
@@ -40,7 +40,6 @@ export default function Creator({ currentBoard }) {
         closeContextMenu={contextClose}
         content={isCreator
           ? <BoardCreator
-            currentBoard={currentBoard}
             closeContextMenu={contextClose}
             closeCreator={closeCreator}
           />
@@ -65,4 +64,3 @@ export default function Creator({ currentBoard }) {
     </div>
   );
 };
-

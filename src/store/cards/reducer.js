@@ -17,7 +17,6 @@ export default function cardsReducer(state = defaultState, { type, payload }) {
     case CARD_TYPES.CHANGE_DECISION_DATE:
       return { ...state,  cards:{ ...state.cards, decisionDate: payload}};
 
-
     default:
       return (state);
   }

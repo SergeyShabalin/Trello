@@ -82,9 +82,7 @@
     color: var(--button-outlined-error-label-color);
 }
 
-.outlined.select{
-
-}
+.outlined.select{}
 
 .contained {
     display: flex;

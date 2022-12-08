@@ -59,7 +59,6 @@
     --button-just-icon-margin: 2px;
     --button-just-icon-font-sie: 1rem;
     --button-just-icon-background: transparent;
-
     --button-end-icon-transform: scale(1.5);
 
     --input-container-margin: 0;
@@ -139,13 +138,11 @@
     --card-modal-text-color: #172b4d;
 
     --list-wrapper: rgba(227, 205, 205, 0.66);
-    /*#e1d1d1*/
     --list-creator-background: #dacaca;
     --list-context-menu-background: #ccd7cc;
     --list-context-color: #463b3b;
+
     --content_edit_opacity: 100%;
     --list-header-color: #040462;
-
-
     --menu-color: rgba(0, 0, 0, 0.28);
 }

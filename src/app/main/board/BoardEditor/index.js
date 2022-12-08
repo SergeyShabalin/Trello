@@ -6,7 +6,6 @@ import Input from "../../../../components/basic/Input";
 import useOnClickOutside from "../../../../hooks/UseOnClickOutside";
 import classes from "./BoardEditor.module.css";
 
-
 export default function BoardEditor({ boardId, closeEditor, title }) {
 
   const ref = useRef();

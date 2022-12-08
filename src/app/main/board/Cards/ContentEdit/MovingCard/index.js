@@ -19,4 +19,3 @@ export default function MovingCard({ closeMoving }) {
     </div>
   );
 };
-

@@ -53,4 +53,3 @@ export default function BoardCreator({ closeCreator, closeContextMenu }) {
     </div>
   );
 };
-

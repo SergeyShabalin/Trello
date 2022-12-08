@@ -1,7 +1,6 @@
 import ColumnsAPI from "../../api/ColumnsAPI";
 import { columnsAC } from "../columns/actions";
 
-
 export const getAllColumns = (boardId) => async (dispatch) => {
   try {
     const resp = await ColumnsAPI.getAllColumnsAPI(boardId);
@@ -11,7 +10,7 @@ export const getAllColumns = (boardId) => async (dispatch) => {
   }
 };
 
-export const addColumn = (header, boardId) => async (dispatch, getState) => {
+export const addColumn = (header, boardId) => async (dispatch) => {
   try {
     const resp = await ColumnsAPI.addNewColumnAPI(header, boardId);
     dispatch(columnsAC.addNewColumn(resp.data));

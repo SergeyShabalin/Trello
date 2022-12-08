@@ -27,7 +27,6 @@ export default function BoardSampleCreator({ closeSampleCreator, closeContextMen
     closeContextMenu();
     contextClose();
     dispatch(addNewBoardSample(title));
-
   }
 
   return (
@@ -66,4 +65,3 @@ export default function BoardSampleCreator({ closeSampleCreator, closeContextMen
     </div>
   );
 };
-

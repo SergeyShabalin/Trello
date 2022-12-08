@@ -4,7 +4,6 @@ import useOnClickOutside from "../../../../hooks/UseOnClickOutside";
 import classes from "./ContextMenu.module.css";
 
 export default function ContextMenu({ closeContextMenu, content, title, children }) {
-
   const ref = useRef();
   useOnClickOutside(ref, closeContextMenu);
 
@@ -19,4 +18,3 @@ export default function ContextMenu({ closeContextMenu, content, title, children
     </div>
   );
 };
-
