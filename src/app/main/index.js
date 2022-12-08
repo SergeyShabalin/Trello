@@ -27,7 +27,7 @@ export default function Main() {
         />
         <div className={classes.work_space}>
           {(pathname.length < 6 || currentBoard === "empty")
-            ? <Greeting />
+            ? <Greeting currentBoard={currentBoard} />
             : <Board currentBoard={currentBoard}/>
           }
         </div>

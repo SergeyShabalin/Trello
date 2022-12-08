@@ -19,8 +19,6 @@ export default function Board({ currentBoard }) {
   const { cardId } = useParams();
   const { pathname } = useLocation();
 
-  console.log(pathname);
-
   useEffect(() => {
     if (pathname.length < 6) navigate(`/`);
     else {
