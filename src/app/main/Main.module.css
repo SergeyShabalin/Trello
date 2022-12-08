@@ -14,4 +14,32 @@
 .work_space {
     display: flex;
     padding: 5px;
+    overflow-x: auto;
+    max-width: 100%;
+    min-height: 93vh;
 }
+
+
+.work_space::-webkit-scrollbar {
+    width: 5px;
+    height: 10px;
+    background-color: rgba(0, 0, 0, 0.63);
+    margin-bottom: 2px;
+}
+
+.work_space::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+.work_space::-webkit-scrollbar-thumb {
+    background-color: rgba(192, 166, 166, 0.81);
+    border-radius: 10px;
+    height: 2px;
+}
+
+.work_space::-webkit-scrollbar-thumb:hover {
+    background-color: rgb(238, 207, 207);
+    cursor: grab;
+}
+
+

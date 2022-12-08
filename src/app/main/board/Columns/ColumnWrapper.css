@@ -1,15 +1,14 @@
-.wrapper{
-    height: 85vh;
+ .wrapper{
+    max-height: 100%;
     background: rgba(0, 0, 0, 0);
     margin: 0 4px;
 }
 
-
 .list_wrapper {
-    margin: 5px;
+    margin: 0 5px;
     padding:  5px;
     font-size: var(--list-wrapper-font-size);
-    width: 270px;
+    width: 25vh;
     background-color: var(--list-wrapper);
     border-radius: 5px;
 }
@@ -17,7 +16,7 @@
 .cards_wrapper{
     padding: 0;
     overflow-y: auto;
-    max-height: 75vh;
+    max-height: 69vh;
 }
 
 .cards_wrapper::-webkit-scrollbar{
