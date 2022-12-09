@@ -1,6 +1,6 @@
 .main {
     overflow-x: hidden;
-    overflow-y: hidden;
+    overflow-y: auto;
     background-image: url("https://images.wallpaperscraft.ru/image/single/gory_skaly_vershiny_151531_1920x1080.jpg");
     background-size: auto;
     font-size: var(--main-font-size);
