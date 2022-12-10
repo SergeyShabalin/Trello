@@ -27,6 +27,7 @@
 
 .text:hover {
     background-color: var(--button-background-hover);
+    color: var(--button-text-color-hover);
     transition: all 0.3s ease-in-out;
 }
 

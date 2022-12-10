@@ -41,16 +41,17 @@
     font-size: var(--input-label-font-size);
 }
 
-.transparent, .large {
+.transparent, .large, .transparent_column_header {
     border: none;
     resize: none;
     outline: none;
     width: 100%;
+    font-size: 0.82rem;
     padding: var(--input-padding);
     margin: var(--input-margin);
     background-color: transparent;
     font-weight: 500;
-    color: #03034FFF;
+    color: #090957;
     font-family: var(--prymary-font);
     resize: none;
 }
@@ -60,4 +61,8 @@
     font-size: var(--main-font-size);
     font-weight: 500;
     color: rgba(220, 204, 204, 0.67)
+}
+
+.transparent_column_header{
+    color: var(--list-header-color)
 }

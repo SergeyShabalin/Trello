@@ -8,8 +8,9 @@ import ListCreator from "./ColumnCreator";
 import BoardEditor from "./BoardEditor";
 import useOpenCloseContext from "../../../hooks/UseOpenCloseContext";
 import classes from "./Board.module.css";
+import Loader from "../../../components/basic/Loader";
 
-export default function Board({ currentBoard }) {
+export default function Board({ currentBoard, isLoader }) {
 
   const dispatch = useDispatch();
   const columnsStore = useSelector(state => state.columns.columns);
@@ -57,21 +58,26 @@ export default function Board({ currentBoard }) {
 
   return (
     <div>
+
       {!isContext
         ? <div className={classes.board_header} onClick={contextOpen}>{currentBoard.title}</div>
         : <BoardEditor
           boardId={currentBoard._id}
           title={currentBoard.title}
           closeEditor={contextClose}
-        />}
-      <div className={classes.wrapper_list}>
-        <div className={classes.columns}>
-          {columnsList}
+        />
+      }
+
+      {isLoader
+        ? <Loader />
+      :  <div className={classes.wrapper_list}>
+          <div className={classes.columns}>{columnsList}
+          </div>
+          <div className={classes.add_list}>
+            <ListCreator addList={addList} boardId={currentBoard._id} />
+          </div>
         </div>
-        <div className={classes.add_list}>
-          <ListCreator addList={addList} boardId={currentBoard._id} />
-        </div>
-      </div>
+      }
     </div>
   );
 };

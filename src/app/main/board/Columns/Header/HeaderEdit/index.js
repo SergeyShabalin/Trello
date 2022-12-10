@@ -12,7 +12,7 @@ function ListHeaderEdit({ header, columnId, closeEditHeader, isEditHeader }) {
   const ref = useRef();
   const dispatch = useDispatch();
   const [newHeader, setNewHeader] = useState(header);
-  const rowsInput = Math.ceil(1 + header.length / 30);
+  const rowsInput = Math.ceil( header.length / 30);
 
   useOnClickOutside(ref, closeEditHeader);
 
@@ -37,8 +37,8 @@ function ListHeaderEdit({ header, columnId, closeEditHeader, isEditHeader }) {
             autoFocus
             onKeyDown={saveChanged}
             onChange={getNewValue}
-            variant="transparent"
-            container="custom"
+            variant="transparent_column_header"
+             container="custom"
             placeholder="Введите заголовок колонки"
             value={header}
           />

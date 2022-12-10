@@ -1,5 +1,5 @@
 import React, {  useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { AiOutlinePlus } from "react-icons/ai";
 
 import { addNewCard } from "../../../../store/cards/asyncActions";

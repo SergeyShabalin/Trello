@@ -6,7 +6,10 @@ import Button from "../../../../../components/basic/Button";
 import useOnClickOutside from "../../../../../hooks/UseOnClickOutside";
 import classes from "./Editor.module.css";
 
+
 export default function Editor({ getNewValue, addCard, closeCreator}){
+
+
 
   const ref = useRef();
   useOnClickOutside(ref, closeCreator);

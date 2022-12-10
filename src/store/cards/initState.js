@@ -5,5 +5,6 @@ export const defaultState={
         description: '',
         decisionDate: new Date(),
         order: 0
-    }
+    },
+    isLoading: false
 }

@@ -3,5 +3,7 @@ export const defaultState = {
             title: "",
             columns: []
     },
+    isLoading: true,
+    isErrorServer: false,
     allBoards: []
 }

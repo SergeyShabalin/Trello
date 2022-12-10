@@ -3,7 +3,7 @@
     height: 400px;
     border-radius: 50% 10%;
     padding: 50px;
-    box-shadow:inset 1px 1px 36px 1px rgba(18, 22, 23, 0.47);
+    box-shadow: inset 1px 1px 36px 1px rgba(18, 22, 23, 0.47);
 }
 
 .greeting_wrapper {
@@ -23,7 +23,7 @@
     font-weight: 600;
     color: rgba(250, 245, 245, 0.82);
     text-shadow: 1px 1px 13px #000000, 0 0 0.5em #5c5c65, 0 0 0.5em #10865f;
-   transition:  all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
     mix-blend-mode: overlay;
 }
 

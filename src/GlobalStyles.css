@@ -21,7 +21,8 @@
     --button-background-hover: #ffffff;
     --button-border-radius: 5px;
 
-    --button-text-color: #5d5959;
+    --button-text-color: #abb0b9;
+    --button-text-color-hover: #6b6464;
     --button-text-color-hover-shadow: 1px 1px 2px #276727;
     --button-text-color-submit: #038303;
     --button-text-error-hover-shadow: 1px 1px 2px rgb(168, 4, 4);
@@ -137,12 +138,12 @@
     --card-modal-background-color: #ffeaea;
     --card-modal-text-color: #172b4d;
 
-    --list-wrapper: rgba(173, 159, 159, 0.71);
+    --list-wrapper: rgba(0, 0, 0, 0.38);
     --list-creator-background: #dacaca;
     --list-context-menu-background: #ccd7cc;
     --list-context-color: #463b3b;
 
     --content_edit_opacity: 100%;
-    --list-header-color: #040462;
+    --list-header-color: #9595a6;
     --menu-color: rgba(0, 0, 0, 0.28);
 }

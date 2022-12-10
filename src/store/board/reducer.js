@@ -19,6 +19,12 @@ export default function boardReducer(state = defaultState, { type, payload }) {
     case BOARD_TYPES.UPDATE_ALL_BOARD:
       return { ...state, allBoards: payload };
 
+    case BOARD_TYPES.CHANGE_IS_ERROR:
+      return { ...state, isErrorServer: payload };
+
+    case BOARD_TYPES.IS_LOADING_CHANGE:
+      return { ...state, isLoading: payload };
+
     default:
       return (state);
   }

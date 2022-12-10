@@ -1,3 +1,4 @@
 export const defaultState = {
-  columns: []
+  columns: [],
+  isLoading: true
 }

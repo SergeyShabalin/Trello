@@ -12,10 +12,16 @@ export const getAllBoard = (boardId) => async (dispatch) => {
 
 export const getCurrentBoard = (boardId) => async (dispatch) => {
   try {
+    dispatch(BoardAC.isLoading(true));
     const resp = await BoardApi.getBoardAPI(boardId);
     dispatch(BoardAC.viewBoard(resp.data));
+    dispatch(BoardAC.isErrorServer(false));
   } catch (error) {
+    console.log("error");
     console.warn(error, "server error");
+    dispatch(BoardAC.isErrorServer(true));
+  } finally {
+    dispatch(BoardAC.isLoading(false));
   }
 };
 

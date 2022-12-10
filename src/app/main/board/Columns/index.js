@@ -1,5 +1,5 @@
 import React, {  useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { dragDropCardToEmptyColumn } from "../../../../store/cards/asyncActions";
 import ListHeader from "./Header";
@@ -7,12 +7,15 @@ import CardCreator from "../CardCreator";
 import ListCard from "../Cards";
 import "./ColumnWrapper.css";
 import "../Cards/ListCard.css";
+import Loader from "../../../../components/basic/Loader";
 
 
 export default function Column({ column, cardList, sortArr, boardId }) {
 
   const dispatch = useDispatch();
   const [shadow, setIsShadow] = useState(false);
+  const isCardLoader = useSelector(state => state.cards.isLoading);
+  console.log(isCardLoader);
 
   const handleDragStart = (e, currentColumnId, card) => {
     e.dataTransfer.setData("card", JSON.stringify(card));
@@ -50,6 +53,7 @@ export default function Column({ column, cardList, sortArr, boardId }) {
       <div className="list_wrapper">
 
         <ListHeader column={column} />
+        {isCardLoader && <Loader/>}
         <div className="cards_wrapper">
           {newCardList.map((card) => (
             <ListCard
