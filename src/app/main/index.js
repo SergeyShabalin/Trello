@@ -8,7 +8,7 @@ import Header from "./Header";
 import Greeting from "./Greeting";
 import classes from "./Main.module.css";
 import "../../GlobalStyles.css";
-import Loader from "../../components/basic/Loader";
+
 
 export default function Main() {
 
@@ -18,8 +18,6 @@ export default function Main() {
   const isError = useSelector(state => state.board.isErrorServer);
   const { boardId } = useParams();
   const { pathname } = useLocation();
-
-
 
   useEffect(() => {
     boardId && dispatch(getCurrentBoard(boardId));

@@ -3,12 +3,12 @@ import { columnsAC } from "../columns/actions";
 import { cardsAC } from "./actions";
 import CheckListApi from "../../api/CheckListApi";
 import ColumnsAPI from "../../api/ColumnsAPI";
-import { BoardAC } from "../board/actions";
+
 
 export const addNewCard = (columnId, title) => async (dispatch, getState) => {
   const { columns } = getState().columns;
   try {
-     dispatch(cardsAC.isLoading(true));
+    dispatch(cardsAC.isLoading(true));
     const resp = await CardsApi.addNewCardAPI(columnId, title);
     const columnsForAddCard = columns.map(item => {
       if (item._id === resp.data.column_id) {
@@ -19,7 +19,7 @@ export const addNewCard = (columnId, title) => async (dispatch, getState) => {
   } catch (error) {
     console.warn(error, "server error");
   } finally {
-     dispatch(cardsAC.isLoading(false));
+    dispatch(cardsAC.isLoading(false));
   }
 };
 
@@ -43,6 +43,7 @@ export const deleteCard = (cardId, columnId, currentOrder) => async (dispatch, g
 export const updateCardTitle = (newTitle, cardId, columnId) => async (dispatch, getState) => {
   const { columns } = getState().columns;
   try {
+    dispatch(cardsAC.isLoading(true));
     await CardsApi.updateCardHeaderAPI(cardId, newTitle);
     const ColumnsAfterUpdate = columns.map(column => (
         column._id === columnId
@@ -59,6 +60,8 @@ export const updateCardTitle = (newTitle, cardId, columnId) => async (dispatch, 
     dispatch(columnsAC.cardUpdate(ColumnsAfterUpdate));
   } catch (error) {
     console.warn(error, "server error");
+  } finally {
+    dispatch(cardsAC.isLoading(false));
   }
 };
 

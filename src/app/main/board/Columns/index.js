@@ -15,7 +15,6 @@ export default function Column({ column, cardList, sortArr, boardId }) {
   const dispatch = useDispatch();
   const [shadow, setIsShadow] = useState(false);
   const isCardLoader = useSelector(state => state.cards.isLoading);
-  console.log(isCardLoader);
 
   const handleDragStart = (e, currentColumnId, card) => {
     e.dataTransfer.setData("card", JSON.stringify(card));
