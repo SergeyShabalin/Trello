@@ -8,5 +8,6 @@ export const cardsAC = {
   updateTask: (payload)=>({type: CARD_TYPES.CHANGES_TASKS, payload}),
   updateDescription: (payload)=>({type: CARD_TYPES.CHANGE_DESCRIPTION, payload}),
   updateDecisionDate: (payload)=>({type: CARD_TYPES.CHANGE_DECISION_DATE, payload}),
-  isLoading: (payload)=>({type: CARD_TYPES.CARDS_IS_LOADING_CHANGE, payload})
+  isLoading: (payload)=>({type: CARD_TYPES.CARDS_IS_LOADING_CHANGE, payload}),
+  isCardModalLoader: (payload)=>({type: CARD_TYPES.CARDS_MODAL_IS_LOADING_CHANGE, payload}),
 };

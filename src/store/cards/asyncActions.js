@@ -67,16 +67,20 @@ export const updateCardTitle = (newTitle, cardId, columnId) => async (dispatch, 
 
 export const updateCardDescription = (cardId, columnId, descriptionValue) => async (dispatch) => {
   try {
+    dispatch(cardsAC.isCardModalLoader(true));
     await CardsApi.updateCardDescriptionAPI(cardId, descriptionValue);
     dispatch(cardsAC.updateDescription(descriptionValue));
   } catch (error) {
     console.warn(error, "server error");
+  } finally {
+    dispatch(cardsAC.isCardModalLoader(false));
   }
 };
 
 export const updateCardDecisionDate = (decisionDate, cardId, columnId) => async (dispatch, getState) => {
   const { columns } = getState().columns;
   try {
+    dispatch(cardsAC.isCardModalLoader(true));
     await CardsApi.updateCardDecisionDateAPI(cardId, decisionDate);
     dispatch(cardsAC.updateDecisionDate(decisionDate));
     const ColumnsAfterUpdate = columns.map(column => (
@@ -94,15 +98,20 @@ export const updateCardDecisionDate = (decisionDate, cardId, columnId) => async 
     dispatch(columnsAC.cardUpdate(ColumnsAfterUpdate));
   } catch (error) {
     console.warn(error, "server error");
+  } finally {
+    dispatch(cardsAC.isCardModalLoader(false));
   }
 };
 
 export const getCardInfo = (cardId) => async (dispatch) => {
   try {
+    dispatch(cardsAC.isCardModalLoader(true));
     const resp = await CardsApi.getCardInfoAPI(cardId);
     dispatch(cardsAC.viewInfoCard(resp.data));
   } catch (error) {
     console.warn(error, "server error");
+  } finally {
+    dispatch(cardsAC.isCardModalLoader(false));
   }
 };
 
@@ -118,6 +127,7 @@ export const clearCardInfo = () => async (dispatch) => {
 export const NewTaskAdd = (cardId, task, columnId) => async (dispatch, getState) => {
   const { cards } = getState().cards;
   try {
+    dispatch(cardsAC.isCardModalLoader(true));
     const resp = await CheckListApi.addNewTaskAPI(cardId, task);
     const newCheckList = [...cards.checkList, resp.data];
     dispatch(cardsAC.addNewTask(newCheckList));
@@ -137,6 +147,8 @@ export const NewTaskAdd = (cardId, task, columnId) => async (dispatch, getState)
     dispatch(columnsAC.cardUpdate(ColumnsAfterUpdate));
   } catch (error) {
     console.warn(error, "server error");
+  } finally {
+     dispatch(cardsAC.isCardModalLoader(false));
   }
 };
 
@@ -183,6 +195,7 @@ export const updateTaskTitle = (taskTitle, checkListId) => async (dispatch, getS
 export const updateTaskValue = (taskDone, checkListId, cardId, columnId) => async (dispatch, getState) => {
   const { cards } = getState().cards;
   try {
+    dispatch(cardsAC.isCardModalLoader(true));
     await CheckListApi.updateValueTaskAPI(taskDone, checkListId, cardId);
     const checkListAfterUpdate = cards.checkList.map(item => (
       item._id === checkListId
@@ -208,6 +221,8 @@ export const updateTaskValue = (taskDone, checkListId, cardId, columnId) => asyn
     dispatch(columnsAC.cardUpdate(ColumnsAfterUpdate));
   } catch (error) {
     console.warn(error, "server error");
+  } finally {
+    dispatch(cardsAC.isCardModalLoader(false));
   }
 };
 

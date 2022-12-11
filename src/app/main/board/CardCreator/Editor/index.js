@@ -9,8 +9,6 @@ import classes from "./Editor.module.css";
 
 export default function Editor({ getNewValue, addCard, closeCreator}){
 
-
-
   const ref = useRef();
   useOnClickOutside(ref, closeCreator);
 

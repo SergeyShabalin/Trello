@@ -20,6 +20,9 @@ export default function cardsReducer(state = defaultState, { type, payload }) {
     case CARD_TYPES.CARDS_IS_LOADING_CHANGE:
       return { ...state, isLoading: payload};
 
+      case CARD_TYPES.CARDS_MODAL_IS_LOADING_CHANGE:
+      return { ...state, isCardModalLoading: payload};
+
     default:
       return (state);
   }

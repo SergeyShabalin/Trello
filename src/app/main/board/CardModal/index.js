@@ -11,6 +11,7 @@ import Modal from "../../../../components/basic/Modal";
 import ChecklistTitle from "./CheckList/Title";
 import Deadline from "./Deadline";
 import classes from "./CardModal.module.css";
+import Loader from "../../../../components/basic/Loader";
 
 export default function CardModal() {
 
@@ -20,6 +21,7 @@ export default function CardModal() {
   const { cardId } = useParams();
   const navigate = useNavigate();
   const checkListDone = cardInfo?.checkList.filter(item => item.done);
+  const isCardModalLoader = useSelector(state => state.cards.isCardModalLoading);
 
   useEffect(() => {
     dispatch(getCardInfo(cardId));
@@ -40,6 +42,7 @@ export default function CardModal() {
 
   return (
     <Modal onClose={closeModal} open>
+      {isCardModalLoader && <Loader variant = "modal" color="black"/>}
       <div className={classes.card_modal_wrapper}>
         <Header closeModal={closeModal} title={cardInfo.header} />
         <p className={classes.title_column}>в колонке "{cardInfo?.columnHeader}"</p>

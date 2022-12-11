@@ -6,5 +6,6 @@ export const defaultState={
         decisionDate: new Date(),
         order: 0
     },
-    isLoading: false
+    isLoading: false,
+    isCardModalLoading: false
 }
