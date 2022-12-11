@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 import { addColumn, getAllColumns } from "../../../store/columns/asyncActions";
 import Column from "./Columns";
@@ -10,7 +10,7 @@ import Loader from "../../../components/basic/Loader";
 import useOpenCloseContext from "../../../hooks/UseOpenCloseContext";
 import classes from "./Board.module.css";
 
-export default function Board({ currentBoard, isLoader }) {
+export default function Board({ currentBoard }) {
 
   const dispatch = useDispatch();
   const columnsStore = useSelector(state => state.columns.columns);
@@ -19,18 +19,15 @@ export default function Board({ currentBoard, isLoader }) {
   const isColumnsLoader = useSelector(state => state.columns.isColumnsLoading);
   const { contextOpen, contextClose, isContext } = useOpenCloseContext();
   const { cardId } = useParams();
-  const { pathname } = useLocation();
+
 
   useEffect(() => {
-    if (pathname.length < 6) navigate(`/`);
-    else {
       if (currentBoard._id) {
         dispatch(getAllColumns(currentBoard._id));
         navigate(`/board/${currentBoard._id}`);
         setIsCreator(true);
       }
       if (cardId) navigate(`/board/${currentBoard._id}/card/${cardId}`);
-    }
   }, [currentBoard]);
 
   function columnCreator() {
@@ -68,17 +65,13 @@ export default function Board({ currentBoard, isLoader }) {
           closeEditor={contextClose}
         />
       }
-
-      {isLoader
-        ? <Loader />
-      :  <div className={classes.wrapper_list}>
+        <div className={classes.wrapper_list}>
           <div className={classes.columns}>{columnsList}
           </div>
           <div className={classes.add_list}>
             <ListCreator addList={addList} boardId={currentBoard._id} />
           </div>
         </div>
-      }
     </div>
   );
 };

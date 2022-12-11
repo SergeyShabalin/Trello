@@ -3,11 +3,11 @@ import { useNavigate } from "react-router-dom";
 
 import classes from "./Greeting.module.css";
 
-export default function Greeting({ currentBoard }) {
+export default function Greeting({ currentBoard, isError }) {
 
   const navigate = useNavigate();
   useEffect(() => {
-    // if (currentBoard.title !== "") navigate(`/board/${currentBoard._id}`);
+     if (!isError && currentBoard._id) navigate(`/board/${currentBoard._id}`);
   }, [currentBoard]);
 
   return (

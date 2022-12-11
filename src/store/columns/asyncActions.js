@@ -3,12 +3,13 @@ import { columnsAC } from "../columns/actions";
 
 export const getAllColumns = (boardId) => async (dispatch) => {
   try {
+    dispatch(columnsAC.isColumnsLoading(false));
     dispatch(columnsAC.isColumnsLoading(true));
     const resp = await ColumnsAPI.getAllColumnsAPI(boardId);
     dispatch(columnsAC.viewAllColumns(resp.data));
   } catch (error) {
     console.warn(error, "server error");
-  } finally {
+  }finally {
     dispatch(columnsAC.isColumnsLoading(false));
   }
 };

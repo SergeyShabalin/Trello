@@ -55,6 +55,7 @@ export const updateBoard = (boardId, title) => async (dispatch) => {
   try {
     await BoardApi.updateBoardAPI(boardId, title);
     dispatch(BoardAC.updateBoard(title));
+    dispatch(getCurrentBoard(boardId))
   } catch (error) {
     console.warn(error, "server error");
   }

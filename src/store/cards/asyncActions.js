@@ -180,6 +180,7 @@ export const TaskDelete = (cardId, checkListId, columnId) => async (dispatch, ge
 export const updateTaskTitle = (taskTitle, checkListId) => async (dispatch, getState) => {
   const { cards } = getState().cards;
   try {
+    dispatch(cardsAC.isCardModalLoader(true));
     await CheckListApi.updateTaskTitleAPI(taskTitle, checkListId);
     const checkListAfterUpdate = cards.checkList.map(item => (
       item._id === checkListId
@@ -189,6 +190,8 @@ export const updateTaskTitle = (taskTitle, checkListId) => async (dispatch, getS
     dispatch(cardsAC.updateTask(checkListAfterUpdate));
   } catch (error) {
     console.warn(error, "server error");
+  } finally {
+    dispatch(cardsAC.isCardModalLoader(false));
   }
 };
 
