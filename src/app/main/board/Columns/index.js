@@ -5,10 +5,9 @@ import { dragDropCardToEmptyColumn } from "../../../../store/cards/asyncActions"
 import ListHeader from "./Header";
 import CardCreator from "../CardCreator";
 import ListCard from "../Cards";
+import Loader from "../../../../components/basic/Loader";
 import "./ColumnWrapper.css";
 import "../Cards/ListCard.css";
-import Loader from "../../../../components/basic/Loader";
-
 
 export default function Column({ column, cardList, sortArr, boardId }) {
 

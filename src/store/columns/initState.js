@@ -1,4 +1,4 @@
 export const defaultState = {
   columns: [],
-  isLoading: true
+  isColumnsLoading: true
 }

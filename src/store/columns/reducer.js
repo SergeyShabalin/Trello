@@ -11,7 +11,7 @@ export default function columnReducer(state = defaultState, {type, payload}) {
              return{...state, columns:[...state.columns, payload]};
 
         case COLUMNS_TYPES.COLUMNS_IS_LOADING_CHANGE:
-            return{...state, columns:[...state.columns, payload]};
+            return{...state, isColumnsLoading: payload};
 
         default:
             return (state);

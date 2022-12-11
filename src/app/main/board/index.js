@@ -6,9 +6,9 @@ import { addColumn, getAllColumns } from "../../../store/columns/asyncActions";
 import Column from "./Columns";
 import ListCreator from "./ColumnCreator";
 import BoardEditor from "./BoardEditor";
+import Loader from "../../../components/basic/Loader";
 import useOpenCloseContext from "../../../hooks/UseOpenCloseContext";
 import classes from "./Board.module.css";
-import Loader from "../../../components/basic/Loader";
 
 export default function Board({ currentBoard, isLoader }) {
 
@@ -16,6 +16,7 @@ export default function Board({ currentBoard, isLoader }) {
   const columnsStore = useSelector(state => state.columns.columns);
   const navigate = useNavigate();
   const [isCreator, setIsCreator] = useState(true);
+  const isColumnsLoader = useSelector(state => state.columns.isColumnsLoading);
   const { contextOpen, contextClose, isContext } = useOpenCloseContext();
   const { cardId } = useParams();
   const { pathname } = useLocation();
@@ -58,7 +59,7 @@ export default function Board({ currentBoard, isLoader }) {
 
   return (
     <div>
-
+      {isColumnsLoader && <Loader/>}
       {!isContext
         ? <div className={classes.board_header} onClick={contextOpen}>{currentBoard.title}</div>
         : <BoardEditor
